@@ -1,6 +1,18 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage{xspace}
 \usepackage{amsmath}
+
+%% __________________________________________________________________________
+%% set up external packages
+
+%% \usepackage{titlesec}
+%% \titleclass{\chapter}{top}
+
+%% \usepackage{titlesec}
+%% \titleclass{\chapter}{top}
+%% \titleformat{\chapter}[display]
+%%   {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+%% \titlespacing*{\chapter} {0pt}{50pt}{40pt}
 
 \usepackage{geometry}
 \geometry{
@@ -22,20 +34,33 @@
   citecolor=red
 }
 
+\usepackage{cleveref}
+\crefname{figure}{figure}{figures}
+\crefname{equation}{equation}{equations}
+\crefformat{section}{#2\S#1#3}
+\crefrangeformat{section}{#3\S#1#4--#5\S#2#6}
+\crefmultiformat{section}{#2\S#1#3}{ and~#2\S#1#3}{, #2\S#1#3}{ and~#2\S#1#3}
+\crefname{appsec}{appendix}{appendices}
+
+%% __________________________________________________________________________
+%% set up paper
 
 \title{Serches for Scalar Heavy Quarks Decaying to Charmed Final States in the ATLAS Detector}
 \author{Daniel Guest}
-\begin{document}
 
-
+%% macros
 \newcommand{\cmenergy}{\ensuremath{\sqrt{s} = 8\,\text{TeV}}\xspace}
 
+\begin{document}
+
 \maketitle
+\tableofcontents
 
 \begin{abstract}
 I present the results from two ATLAS searches for pair-produced supersymmetric quarks in all avalible \cmenergy $pp$ collision data as of 2013. The first search targets pair production of scalar top quarks decaying to neutrilinos and charm quarks in a senario where other decays are kinematically suppressed, while the second search focuses on scalar charm quarks decaying to the same final state. Both searches make heavy use of a novel lifetime-based ``charm tagging'' algorithm and only consider a subset of events with large missing transverse energy and no leptons. In both cases, the number of observed events is consistent with the standard model: no evidence for supersymmetry is found over the range in which the searches have sensitivity.
 \end{abstract}
 
-
+\include{tex/theoretical_motivation}
+\include{tex/flavor_tagging}
 
 \end{document}
