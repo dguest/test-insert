@@ -1,6 +1,7 @@
 \documentclass{report}
 \usepackage{xspace}
 \usepackage{amsmath}
+\usepackage{appendix}
 
 %% __________________________________________________________________________
 %% set up external packages
@@ -81,5 +82,13 @@ found over the range in which the searches have sensitivity.
 \include{tex/theoretical_motivation}
 \include{tex/atlas_experiment}
 \include{tex/scharm_search}
+
+\appendix
+\appendixpage
+\addappheadtotoc
+
+\chapter{Additional Plots}
+\include{tex/signal_region_plots}
+\include{tex/control_validation_region_plots}
 
 \end{document}
