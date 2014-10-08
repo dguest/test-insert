@@ -50,6 +50,14 @@
 
 %% macros
 \newcommand{\cmenergy}{\ensuremath{\sqrt{s} = 8\,\text{TeV}}\xspace}
+\newcommand{\atlas}{ATLAS\xspace}
+\newcommand{\neut}{\ensuremath{\tilde{\chi}_1^0}\xspace}
+\newcommand{\sctoc}{\ensuremath{\tilde{c} \to c \neut}\xspace}
+\newcommand{\met}{\ensuremath{E_{\rm T}^{\rm miss}}\xspace}
+\newcommand{\pt}{\ensuremath{p_{\rm T}}\xspace}
+\newcommand{\wjets}{\ensuremath{W + \text{jets}}\xspace}
+\newcommand{\zjets}{\ensuremath{Z + \text{jets}}\xspace}
+\newcommand{\topbg}{top\xspace}
 
 \begin{document}
 
@@ -57,10 +65,21 @@
 \tableofcontents
 
 \begin{abstract}
-I present the results from two ATLAS searches for pair-produced supersymmetric quarks in all avalible \cmenergy $pp$ collision data as of 2013. The first search targets pair production of scalar top quarks decaying to neutrilinos and charm quarks in a senario where other decays are kinematically suppressed, while the second search focuses on scalar charm quarks decaying to the same final state. Both searches make heavy use of a novel lifetime-based ``charm tagging'' algorithm and only consider a subset of events with large missing transverse energy and no leptons. In both cases, the number of observed events is consistent with the standard model: no evidence for supersymmetry is found over the range in which the searches have sensitivity.
+I present the results from two ATLAS searches for pair-produced
+supersymmetric quarks in all avalible \cmenergy $pp$ collision data as
+of 2013. The first search targets pair production of scalar top quarks,
+decaying to neutrilinos and charm quarks in a senario where other
+decays are kinematically suppressed. The second search focuses
+on scalar charm quarks decaying to the same final state. Both searches
+use a novel lifetime-based ``charm tagging'' algorithm
+and only consider events with large missing transverse
+energy and no leptons. In both cases, the number of observed events is
+consistent with the standard model: no evidence for supersymmetry is
+found over the range in which the searches have sensitivity.
 \end{abstract}
 
 \include{tex/theoretical_motivation}
-\include{tex/flavor_tagging}
+\include{tex/atlas_experiment}
+\include{tex/scharm_search}
 
 \end{document}
