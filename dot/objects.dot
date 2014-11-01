@@ -1,62 +1,65 @@
-digraph g { 
+digraph g {
 
 graph [size = "6, 6"]
 
-subgraph cluster_evt { 
+data [label="ATLAS Data", penwidth=2]
+
+subgraph cluster_evt {
 color=orange
 penwidth=2
 
-subgraph cluster_0{ 
-rank=same
+subgraph cluster_0{
+//rank=same
 label="Base Variables"
 color=orange
 jets [label="jets", color = orange  ]
 met [label="MET" , color = orange]
 lept [label="leptons" color = orange]
-}			
+}
 
 tag [label="tagging\n(b and c)", color=purple]
-mcomb [label="mass-like variables\n(sometimes MVA)", color=purple]
+mcomb [label="Event-Level Variables", color=purple]
 
 jets -> tag [color=orange]
 jets -> mcomb [color=orange]
 met -> mcomb [color=orange]
-tag -> mcomb [color=purple]
+//tag -> mcomb [color=purple]
 lept -> mcomb [color=orange]
 
-event [ label="Event" , color=orange, penwidth=2]
+event [ label="Event Description" , color=orange, penwidth=2]
 jets -> event [color=orange]
-tag -> event [color=purple] 
+tag -> event [color=purple]
 met -> event [color=orange]
-lept -> event [color=orange] 
+lept -> event [color=orange]
 mcomb -> event [color=purple]
 
 }
 
-subgraph cluster_bg { 
+subgraph cluster_bg {
 label="simulated"
 color=gray
+simulation [label="Simulated\nData", penwidth=2]
 mcxsec [label="MC cross-section", color = grey, fontcolor=grey]
 bgmodel [label="BG Model", color = red]
 sigmodel [label="Signal Model", color=blue]
 }
+
+simulation -> sigmodel [penwidth=2]
+simulation -> bgmodel  [penwidth=2]
+
 mcxsec -> bgmodel [color = grey]
 event -> bgmodel [ color = orange, penwidth = 2]
 event -> sigmodel [ color = orange, penwidth = 2]
 mcxsec -> sigmodel [color = grey]
 
-subgraph cluster_data { 
-label="data"
-color=gray
 control [label="CR Data"]
 validation [label="VR Data\n(after opt)", style=filled, fillcolor=grey]
-signal [label="SR Data\n(after validation)", style=filled, fontcolor=white, fillcolor=black]
-}
+
 event -> control [ color = orange, penwidth = 2]
 event -> validation [ color = orange, penwidth = 2]
 event -> signal [ color = orange, penwidth = 2]
 
-subgraph cluster_bgfit { 
+subgraph cluster_bgfit {
 label="Optimization Fit"
 color=gray
 fitbghists [label="Expected Limits"]
@@ -65,36 +68,38 @@ control -> fitbghists
 bgmodel -> fitbghists [ color = red]
 sigmodel -> fitbghists [color = blue]
 
-subgraph cluster_blinded { 
-label="Blinded"
-rank=same
-
-subgraph cluster_valfit { 
+subgraph cluster_valfit {
 style=filled
 fillcolor=gray
 label="Validation Fit"
 color=gray
 valhists [label="Validation Hists"]
 }
+
+data -> control    [penwidth=2]
+data -> validation [penwidth=2]
+data -> signal     [penwidth=2]
+
 control -> valhists
 bgmodel -> valhists [color = red]
 validation -> valhists
 
 fitbghists -> valhists [style=invis]
 
-subgraph cluster_measfit { 
+subgraph cluster_measfit {
 penwidth=3
-label="Measurement Fit"
+label="Measurement Fit\n(Blinded)"
 color=black
 measfit [label="Measurement", style=filled, fillcolor=black, fontcolor=white]
+signal [label="SR Data\n(after validation)", style=filled, fontcolor=white, fillcolor=black]
 }
-control -> measfit 
+control -> measfit
 bgmodel -> measfit [color = red]
-signal -> measfit 
+signal -> measfit
 sigmodel -> measfit [color = blue]
 
 valhists -> measfit [style=invis]
 fitbghists -> measfit [style=invis]
 
-}
+
 }
