@@ -1,0 +1,35 @@
+As discussed in \cref{sec:analysis-strategy}, backgrounds in the
+signal regions are estimated with a profile-likelihood fit
+\cite{histfactory}, which attempts to normalize the number of signal and background events such that:
+\begin{enumerate}
+\item the number of simulated events in the control and signal regions
+  matches with data, and
+\item the parameters normalizing each background and signal sample are
+  consistent across all regions.
+\end{enumerate}
+Several types of floating parameters are used in the fit:
+\begin{description}
+\item[free parameters:] these constrain the
+  overall normalization of the simulated $\wjets$,
+  $\zjets$, $\ttbar$ + single $t$, and
+  signal. Such parameters are initalized with a nominal value of 1,
+  but the fit pays no penalty for values that deviate from the initial
+  value.
+\item[constrained parameters:] these
+  parameters describe systematic variations. A gaussian restraint
+  penalizes the fit when these values shift from the nominal
+  value. The width of this restraint is derived from dedicated
+  studies as discussed below.
+\end{description}
+
+The fit is implemented by a collection of stacked software packages,
+standard to the ATLAS SUSY group. At the top level
+HistFitter~\cite{histfitter} is used. This tool wrap the
+HistFactory~\cite{histfactory} package, which creates RooFit
+``workspaces''. These workspaces are fit, and $\cls$ is extracted, with
+HistFitter functions (which in turn call RooFit /
+RooStats). Systematic variations are categorized as ``experimental''
+and ``theoretical''. The experimental systematics considered are described in \cref{sec:sys_experimental}.
+
+
+%% \cite{histfitter}.

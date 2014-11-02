@@ -50,15 +50,17 @@
 \author{Daniel Guest}
 
 %% macros
-\newcommand{\cmenergy}{\ensuremath{\sqrt{s} = 8\,\text{TeV}}\xspace}
-\newcommand{\atlas}{ATLAS\xspace}
-\newcommand{\neut}{\ensuremath{\tilde{\chi}_1^0}\xspace}
-\newcommand{\sctoc}{\ensuremath{\tilde{c} \to c \neut}\xspace}
-\newcommand{\met}{\ensuremath{E_{\rm T}^{\rm miss}}\xspace}
-\newcommand{\pt}{\ensuremath{p_{\rm T}}\xspace}
-\newcommand{\wjets}{\ensuremath{W + \text{jets}}\xspace}
-\newcommand{\zjets}{\ensuremath{Z + \text{jets}}\xspace}
-\newcommand{\topbg}{top\xspace}
+\newcommand{\cmenergy}{\sqrt{s} = 8\,\text{TeV}}
+\newcommand{\atlas}{ATLAS}
+\newcommand{\neut}{\tilde{\chi}_1^0}
+\newcommand{\sctoc}{\tilde{c} \to c \neut}
+\newcommand{\met}{E_{\rm T}^{\rm miss}}
+\newcommand{\pt}{p_{\rm T}}
+\newcommand{\wjets}{W + \text{jets}}
+\newcommand{\zjets}{Z + \text{jets}}
+\newcommand{\topbg}{top}
+\newcommand{\ttbar}{t \bar{t}}
+\newcommand{\cls}{\mathrm{CL}_{\mathrm{s}}}
 
 \begin{document}
 
@@ -67,7 +69,7 @@
 
 \begin{abstract}
 I present the results from two ATLAS searches for pair-produced
-supersymmetric quarks in all avalible \cmenergy $pp$ collision data as
+supersymmetric quarks in all avalible $\cmenergy$ $pp$ collision data as
 of 2013. The first search targets pair production of scalar top quarks,
 decaying to neutrilinos and charm quarks in a senario where other
 decays are kinematically suppressed. The second search focuses
@@ -75,8 +77,9 @@ on scalar charm quarks decaying to the same final state. Both searches
 use a novel lifetime-based ``charm tagging'' algorithm
 and only consider events with large missing transverse
 energy and no leptons. In both cases, the number of observed events is
-consistent with the standard model: no evidence for supersymmetry is
-found over the range in which the searches have sensitivity.
+consistent with the standard model. Furthermore, in a simplified
+supersymmetric model a range of parameter space is excluded at 95\%
+confidence.
 \end{abstract}
 
 \include{tex/theoretical_motivation}
@@ -90,5 +93,8 @@ found over the range in which the searches have sensitivity.
 \chapter{Additional Plots}
 \include{tex/signal_region_plots}
 \include{tex/control_validation_region_plots}
+
+\bibliographystyle{extra/atlasBibStyleWoTitle}
+\bibliography{references}
 
 \end{document}
