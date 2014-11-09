@@ -11,6 +11,9 @@ TEXFILES := $(shell find tex/ -name '*.tex')
 	$(PDFTEX) $* --draftmode
 	$(BIBTEX) $*
 
+IGNORE_WARNINGS := 'Marginpar on page|float specifier changed'
+COLOR_WARNINGS := '^LaTeX Warning:|Fatal error'
+FILTER_WARN := egrep -v $(IGNORE_WARNINGS) | egrep --color $(COLOR_WARNINGS)
 %.pdf: %.tex $(TEXFILES) %.bbl
 	$(PDFTEX) $< --draftmode
-	$(PDFTEX) $<
+	$(PDFTEX) $< | $(FILTER_WARN)
