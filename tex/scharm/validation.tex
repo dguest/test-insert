@@ -1,0 +1,70 @@
+The background model and systematic uncertainties described in \cref{sec:backgrounds,sec:systematics}
+were chosen primarily by experience: the $\sctoc$ is the second
+$c$-tagged search within \atlas, and was preceded by dozens of $\met + \text{jets}$ based searches in the $\cmenergy$ dataset alone.
+Nevertheless, even the most carefully scrutinized background model can
+be flawed. As a precaution against unblinding the signal regions with an
+incorrect background model, we first checked several ``validation'' regions which select primarily background events similar to, but mutually exclusive of, the signal events.
+
+Two validation regions were defined. Like the signal regions, the validation regions require a $\met$
+trigger, no leptons, and two $c$-tagged jets. To avoid signal contamination
+and ensure separation between signal and validation events, the two regions
+invert either the $\mct$ or $\mcc$ requirement. Thus \vrmct\ includes events where $\mct$ is below $150\,\text{GeV}$ (but are otherwise identical to signal events), while \vrmcc\ includes events where $\mcc < 200\,\text{GeV}$.
+
+The distributions of important variables in these regions are shown in \cref{fig:dist-vrmct,fig:dist-vrmcc}, where the backgrounds have been normalized in two ways: the ``pre-fit'' normalization assumes the nominal simulated cross-section as defined by the SUSY group, whereas the ``post-fit'' normalization multiplies the pre-fit values by normalization
+parameters obtained in the control regions. In \cref{tab:vrs} these two
+predictions are compared. The fit results in slightly larger-than-nominal predictions in both validation regions.
+
+\Cref{tab:vrs} also compares the fitted prediction to the number of observed events. In both cases the observed data shows a deficit of the order of $\sim 1.3 \sigma$ when compared to simulation. Obviously any new particles in these regions should result in a surplus in data than a deficit, which leaves several explanations:
+\begin{enumerate}
+\item Statistical fluctuation, \label{enum:statfluc}
+\item Mismodeling of backgrounds, \label{enum:mismodel}
+\item New non--standard-model particles in the control regions, \label{enum:new}
+%% \item Some combination of \cref{enum:statfluc,enum:mismodel,enum:new}
+%% \label{enum:comb}
+\end{enumerate}
+Of these possibilities \cref{enum:new} is beyond the scope of this analysis.
+\Cref{enum:statfluc} is plausible given the low statistical significance of
+the deficit, but less-so given that the deficit exists in both (statistically independent) regions. Item \cref{enum:nismodel}, by contrast,
+could easily explain a systematic deficit, since any mismodeling would likely be correlated between the two similar regions. In any case, the
+discrepancy is, roughly speaking, a 1 in 10 anomaly: while it could suggest a flawed model, altering the model to ``fit'' the data is arguably an equally flawed methodology. In the interest of scientific integrity, we
+moved on to unblinding the search without redefining the control or signal
+regions.
+
+\begin{figure}[!p]
+\centering
+%Add nbtags, mbb and MET
+\includegraphics[width=0.45\columnwidth]{int/figures/stackplots/dans/fr_mct/mass_ct.pdf}
+\includegraphics[width=0.45\columnwidth]{int/figures/stackplots/dans/fr_mct/mass_ct_afterFit.pdf}\\
+\includegraphics[width=0.45\columnwidth]{int/figures/stackplots/dans/fr_mct/met.pdf}
+\includegraphics[width=0.45\columnwidth]{int/figures/stackplots/dans/fr_mct/met_afterFit.pdf}
+\caption[Distributions of $\mct$ and $\met$ in \vrmct\ before and after the fit]{Distributions of $\mct$ and $\met$ in \vrmct\ before (left) and after (right) performing the fit.}
+\label{fig:dist-vrmct}
+\end{figure}
+
+\begin{figure}[!p]
+\centering
+%Add nbtags, mbb and MET
+\includegraphics[width=0.45\columnwidth]{int/figures/stackplots/dans/fr_mcc/mass_cc.pdf}
+\includegraphics[width=0.45\columnwidth]{int/figures/stackplots/dans/fr_mcc/mass_cc_afterFit.pdf}\\
+\includegraphics[width=0.45\columnwidth]{int/figures/stackplots/dans/fr_mcc/met.pdf}
+\includegraphics[width=0.45\columnwidth]{int/figures/stackplots/dans/fr_mcc/met_afterFit.pdf}
+\caption[Distributions of $\mct$ and $\mcc$ in the \vrmcc\ region before and after the fit.]{Distributions of $\mct$ and $\mcc$ in \vrmcc\ before (left) and after (right) performing the fit.}
+\label{fig:dist-vrmcc}
+\end{figure}
+
+
+\begin{table}
+\begin{center}
+\input{int/tables/generated/vrsr/vrcrsr/vr_fit/yieldtable}
+\caption[Results of the background-only fit for the validation regions]{Background-only fit results extrapolated to validation region yields. The total background uncertainty is systematic only. The systematic variations are given in more detail in \cref{tab:vrs-systable}. The control region yields are given in \cref{tab:CRs_SR1}.}
+\label{tab:vrs}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\input{int/tables/generated/vrsr/vrcrsr/vr_fit/systable}
+\caption[Background-only fit systematics extrapolated to the validation regions]{Background-only fit results extrapolated to validation regions. }
+\label{tab:vrs-systable}
+\end{center}
+\end{table}
