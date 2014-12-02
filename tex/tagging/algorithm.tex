@@ -1,0 +1,107 @@
+The JetFitterCharm algorithm consists of two components: a series of ``base taggers'', which convert tracking information into physical parameters relevant to flavor{}-tagging; and a neural network to combine these parameters into a final discriminant.
+
+%% The layout of the ATLAS flavor-tagging framework is shown in figure
+%% \ref{fig:tagging-arch}. 
+
+\subsection{Base Taggers}
+
+Tracks are selected within a
+$\Delta R$ cone surrounding the jet center in the calorimeter, which varies as a function of the transverse momentum of the jet. These tracks are passed to three
+top level algorithms, which distill the detailed track information
+to several dozen variables per jet. The base taggers are summarized only briefly below, since detailed descriptions exist elsewhere~\cite{AdvancedTaggers}.%% While each of the
+%% three algorithms can be used as a flavor tagger in its own right, they
+%% measure slightly different properties and thus provide complementary
+%% information~\cite{Burmeister:1542409}:
+\begin{description}
+  \item[IP3D:] The IP3D tagger takes as input the transverse and longitudinal
+    signed impact parameter significance of tracks with respect to the primary vertex,
+    $S_{xy}$ and $S_{z}$.
+    Based on these a two-dimensional likelihood function is computed from simulation, separately for $b$, light, and $c$-jet flavors.
+    The IP3D outputs,
+    $P_{b}^{\rm IP}$, $P_{c}^{\rm IP}$, and $P_{\rm light}^{\rm IP}$ are then calculated according to
+     $P_f^{\rm IP} = \prod_{k=0}^{N_{\rm{tracks}}} L_f^{\rm trk} \left(S_{xy, k},S_{z, k}\right)$
+    where the $f$ subscripts represent the three flavors of jet and $L^{\rm trk}$ is the
+    likelihood function derived from simulation.
+  \item[SV1:] SV1 fits the tracks in the jet into the most probable secondary
+    vertex position. After fitting, SV1 returns several summary parameters, as detailed in table \ref{tag:tab:parameters}.
+  \item[JetFitter:] JetFitter reconstructs the decay chain under the hypothesis
+    that one or more displaced vertices should fall on a line beginning at the
+    primary vertex and extending in the direction of the jet's associated
+    calorimeter deposits. One major strength of JetFitter is its
+    ability to reconstruct both a secondary and a tertiary
+    vertex. JetFitterCharm uses a retuned variant of JetFitter which
+    is more likely to cluster the secondary and tertiary vertices
+    separately.
+\end{description}
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{c | c | c }
+    Algorithm             & Variable Name & Description \\
+    \hline
+    \multirow{4}{*}{Kinematic}
+                          & \multirow{2}{*}{$p_{T}^{\rm cat}$} & $\pt$ category of jet, divisions [GeV]: \\
+                          &                & \catpt \\
+                          & \multirow{2}{*}{$\eta^{\rm cat}$}  & $|\eta|$ category of jet, divisions: \\
+                          &                &  \cateta \\
+    \hline
+    \multirow{1}{*}{IP3D} & $\log (P_{b}^{\rm IP}/ P_{\rm light}^{\rm IP})$ & log ratio between $b$-jet and light-jet likelihood value \\
+    \hline
+    SV1               & $n_{\rm trk}^{{\rm SV1}}$     & Number of tracks matched to the vertex \\
+ 
+    \hline
+    \multirow{1}{*}{}
+
+                          & $n_{\rm 2t}$      & Number of two-track vertices found in the jet \\
+    SV1, JetFitter& $m_{\rm vx}$      & Secondary vertex mass \\
+                         
+  (similar variables)& \multirow{2}{*}{$E_{\rm vx}/E_{\rm jet}$}  & Ratio of the vertex track energy sum \\
+                         &                  & to the jet track energy sum \\
+                          & $d / \sigma_{d}$ & Secondary vertex flightlength significance \\
+    \hline
+    \multirow{8}{*}{JetFitter}
+                          & $n_{\rm vx}$      & Number of reconstructed vertices with  $\ge 2$ tracks \\
+                          & $n_{\rm trk}^{\rm JV}$     & Number of tracks matched to vertices with $\ge 2$ tracks \\
+                          & $n_{\rm 1t}$      & Number of single-track vertices\\
+                          & $L_{xy}^{1}$ & Transverse displacement of the secondary vertex \\
+                          & $L_{xy}^{2}$ & Transverse displacement of the tertiary vertex \\
+                          & $\min \varphi_{\rm trk}$ & Minimum track rapidity along jet axis \\
+                          & $\langle \varphi_{\rm trk} \rangle$ & Mean track rapidity along jet axis \\
+                          & $\max \varphi_{\rm trk} $ & Maximum track rapidity along jet axis \\
+                          %% & $\min \pt^{\rm rel}$ & Minimum track momentum transverse to jet axis \\
+                          %% & $\langle \pt^{\rm rel} \rangle$ & Mean track momentum transverse to jet axis \\
+                          %% & $\max \pt^{\rm rel}$ & Maximum track momentum transverse to jet axis \\
+
+  \end{tabular}
+  \caption[Variable summary table]{Summary of the variables used by the JetFitterCharm neural net. JetFitterCharm uses a ``charm tuned'' variant of the standard JetFitter used by other ATLAS taggers. The charm tuned JetFitter also adds $L_{xy}^1$, $L_{xy}^2$, and $\varphi_{\rm trk}$. Note that $\varphi_{\rm trk}$ is the track rapidity computed with respect to the jet axis.}
+  \label{tag:tab:parameters}
+\end{table}
+
+\subsection{Neural Network}
+
+Variables summarized in table~\ref{tag:tab:parameters} are passed into a neural
+network, which calculates the posterior probability that a jet is bottom, charm, or ``light'' flavored. These probabilities are referred to as $P_b$, $P_c$, and $P_{\rm light}$ respectively. The neural network was trained on simulated $\ttbar$ events with the JETNET package~\cite{Peterson:1993nk}, using the labeling described in section~\ref{tag:sec:data-and-simulation} as target posteriors. Tau jets are ignored in the training. As a precaution against training the neural net with a kinematic flavor{} bias, the training sample is reweighed in two-dimensional categories of $\pt^{\rm cat}$ and $\eta^{\rm cat}$, such that the relative  fractions of $b$, $c$ and light jets is constant in all categories.
+
+%GP I would not add this part, with a comparison of the information flow of the other taggers
+%\begin{figure}
+%  \begin{center}
+%    \includegraphics[width=0.6\textwidth]{figures/dot/tagging-arch.pdf}\\
+%    \includegraphics[width=0.6\textwidth]{figures/dot/tagging-leg.pdf}
+%  \caption[flavor tagging architecture]{The ATLAS flavor tagging
+%    information flow. JetFitterCharm is similar to JetFitterCOMBNN, but uses
+%    looser vertexing cuts in JetFitter, and adds the SV1 secondary-vertex finder outputs as inputs
+%    to the neural network.}
+%  \label{fig:tagging-arch}
+%  \end{center}
+%\end{figure}
+
+%The similarity between JetFitterCharm and the standard ATLAS flavor-tagging tools is illustrated in figure~\ref{fig:tagging-arch}. Both JetFitterCharm and MV1 require the IP3D posteriors as inputs, and both use outputs from SV1 and some variant of JetFitter.  MV1 does not take JetFitter and SV1 outputs directly: instead it relies on posteriors from a lookup table (in the case of SV1) or from a neural net (in the case of JetFitter). JetFitterCharm, by contrast, uses the SV1 and JetFitter outputs directly.
+
+%% JetFitterCharm uses a $\charm$-tuned variant of JetFitter which is able to
+%% resolve slightly more $D$ decay vertices than the original. As in the
+%% standard $\bottom$ tagging framework, the top level outputs are
+%% are fed into a neural net, which maps the input variables to three posterior
+%% probabilities correspoiding to $\bottom$-, $\charm$-, and $\light$-jets.
+%% This neural net is trained on $t \bar{t}$ using the JETNET
+%% package.

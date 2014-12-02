@@ -3,6 +3,7 @@
 \usepackage{appendix}
 \usepackage{graphicx}
 \usepackage{subfigure}
+\usepackage{multirow}
 
 %% __________________________________________________________________________
 %% set up external packages
@@ -44,6 +45,8 @@
 \crefmultiformat{section}{#2\S#1#3}{ and~#2\S#1#3}{, #2\S#1#3}{ and~#2\S#1#3}
 \crefname{appsec}{appendix}{appendices}
 
+\graphicspath{{figures/jfc/}}
+
 %% __________________________________________________________________________
 %% set up paper
 
@@ -65,6 +68,8 @@
 \newcommand{\topbg}{top}
 \newcommand{\ttbar}{t \bar{t}}
 \newcommand{\cls}{\mathrm{CL}_{\mathrm{s}}}
+\newcommand{\gev}{\text{GeV}}
+\newcommand{\tev}{\text{TeV}}
 
 \newcommand{\crw}{CRW}
 \newcommand{\crz}{CRZ}
@@ -94,6 +99,7 @@ excluded at 95\% confidence.
 
 \include{tex/theoretical_motivation}
 \include{tex/atlas_experiment}
+\include{tex/flavor_tagging}
 \include{tex/scharm_search}
 
 \appendix
