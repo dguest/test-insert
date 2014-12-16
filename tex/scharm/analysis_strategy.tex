@@ -5,14 +5,45 @@ Physics analysis within ATLAS is organized according to a branching hierarchy. A
 
 The lowest-level unit of a SUSY analysis is the \emph{region}, which is defined by a series of selection criteria or \emph{cuts} on the full 2012 dataset. These cuts may simply reject questionable or ill-understood data, for example in cases where parts of the detector are offline or otherwise misbehaving, or they may be designed to select a subset of events especially pure in one physical process. The regions are chosen to be statistically disjoint. Several sub-categories of regions exist:
 \begin{description}
-\item[signal regions] (SRs) are regions where the hypothetical SUSY process is enriched: in a search for particles decaying to dark matter, for example, $\met$ may become large as the event recoils against the invisible particles, and thus the signal region may require large $\met$. In almost all cases, even the harshest cuts are unable to remove all Standard Model backgrounds from the control region. Care must therefore be taken to estimate these backgrounds precisely.
-\item[control regions] (CRs) are regions where cuts enrich background processes. The role of control regions is to measure backgrounds as precisely as possible in a region near the signal region.
+\item[signal regions] (SRs) are regions where the hypothetical SUSY \emph{signal} process is enriched: in a search for particles decaying to dark matter, for example, $\met$ may become large as the event recoils against the invisible particles, and thus the signal region may require large $\met$. In almost all cases, even the harshest cuts are unable to remove all Standard Model backgrounds from the control region. Care must therefore be taken to estimate these backgrounds precisely. Before the region definitions are finalized, the signal regions are \emph{blinded} to avoid bias: only simulated events are actually viewed.
+\item[control regions] (CRs) are regions where cuts enrich background processes. The role of control regions is to measure backgrounds as precisely as possible in a region where systematic uncertainties are similar to those in the signal region.
 \item[validation regions] (VRs) are regions near the signal region with similar background composition, but lacking enriched signal. These regions are used to cross-check the background constraints derived from the control regions.
 \end{description}
+Regions are populated by events, where each event is described by a number of analysis-level variables. These variables may describe individual objects within the event, such as jets or leptons, or they may describe an aggregate of the objects (e.g. the invariant mass of several particles or the total missing transverse energy in the event). The overall \emph{event description} is depicted as the orange box in \cref{fig:analysis-flow}.
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.7\textwidth]{dot/objects.pdf}
-    \caption[Analysis Strategy]{Everyone loves a diagram, right?}
+    \caption[Analysis Strategy]{Diagram of the information flow through a typical SUSY analysis.}
+    \label{fig:analysis-flow}
   \end{center}
 \end{figure}
+
+Each region is filled with both real data from the detector and simulated Standard Model events. Assuming perfect simulation, the experimentalist's task is now easy: any new physics will appear as an excess in data events over simulated Standard Model backgrounds. In this idealized scenario, an individual SUSY model is deemed ``more likely'' if the sum of the simulated signal and background is more commensurate with observed data than simulated background alone.
+
+Unfortunately, Standard Model predictions are far from perfect. Rather than rely solely on published measurements of these background processes, searches constrain major backgrounds using control regions. This approach has the added advantage of constraining systematic uncertainties when these uncertainties are similar between control and signal regions. Thus the background prediction, and uncertainty on this prediction, is calculated from an overall fit, in which the backgrounds and signal are normalized to fit with observed data, in the signal and control regions simultaneously.
+
+The fit attempts to maximize likelihood while adjusting a number of \emph{fit parameters}.\footnote{Physicists will often refer to \emph{nuisance parameters}, vaguely defined as those parameters which are of no immediate interest in contrast to \emph{parameters of interest}. This distinction is subjective at best (ATLAS SUSY results don't typically quote \emph{any} of the fit parameters), and can be confusing as many physicists seem to dream up their own definition. To avoid this confusion, the ``nuisance'' modifier will be avoided: parameters used in the fit are simply ``fit parameters''.} Several types of fit parameters exist:
+\begin{description}
+\item[Free normalization parameters] normalize physical processes. While these parameters are typically near 1, the likelihood pays no penalty when they shift to other values. This ``free floating'' condition effectively places no prior assumptions on the value of normalization parameters. As with any fit, the number of constraints must be equal to or greater than the number of free parameters. Since each additional region adds a constraint, this requirement allows one normalization parameter per region.
+\item[Signal normalization] is for most purposes an ordinary normalization parameter, but is treated differently when testing the signal hypothesis. Whereas ordinary background normalization parameters are always allowed to float freely, the signal normalization is constrained to 1 when testing the signal hypothesis.
+\item[Systematic effects] are modeled with constrained fit parameters. The constraints themselves are Gaussian. Note that the \emph{coupling} of a systematic to a given physical process is dependent on both the process and the region: for a search with $N$ regions, a systematic which affects to $M$ processes within each region will have $N \times M$ couplings.
+\item[Luminosity] falls somewhere between a systematic effect and a normalization parameter. Every simulated process is multiplied by the luminosity, which is constrained to $\lumiunct$.
+\end{description}
+The exact details of the fit and likelihood function are explained in detail elsewhere~\cite{histfitter}, but the essential concepts can be explained in terms of a simpler toy model.\footnote{The more complicated version of \cref{eq:n-predicted} differs by including a more general expression in place of the $a_{s} k_{spr}$ term, which is asymmetric about $\alpha_{s} = 0$.} The total number of events in one region, $N_r$, is predicted by
+\begin{equation}
+  N_r = \mathcal{L} \sum_{p} \mu_p N_{pr}^{\text{raw}} \left(1 + \sum_{s} \alpha_s k_{spr}\right)
+\label{eq:n-predicted}
+\end{equation}
+where $\mathcal{L}$ is the luminosity, $\mu$ is the normalization for physical process, $N_{pr}^{\text{raw}}$ is the nominal number of predicted events per $\invfb$ (based on simulation), $\alpha$ fits the systematic effect, and $k$ couples the systematic parameters to the region and process. The physical processes considered are indexed by $p$, while $r$ indexes the region and $s$ indexes the systematic effects.
+
+Several aspects of \cref{eq:n-predicted} are worthy of further discussion. The $\mathcal{L}$, $\mu$, and $\alpha$ terms are fit parameters which are described by a probability distribution rather than a single fixed value. These distributions are measured \emph{from} the fit, and are not specified beforehand.
+The values of $N^{\text{raw}}$ and $k$, by contrast, are derived from simulation.
+Every term includes a $\mu$ factor. For major background processes these parameters are allowed to float freely in the fit and are controlled by a designated control region. In the case of minor backgrounds where no control regions is warranted, the normalization is set to one (typically with a large uncertainty).
+The values of $k$ can be positive or negative. While the actual sign of individual $k$ parameters is unimportant (note that inverting all $\alpha$ and $k$ leaves $N_r$ unchanged), this flexibility coupling the $\alpha$'s to various regions and processes---with different magnitude and even opposite directions---permits more flexibility modeling systematic effects. If, for example, the effect of a given systematic is anti-correlated between two regions, the values of $k$ would have opposite sign.
+
+As mentioned, both $N^{\text{raw}}$ and the $k$'s must be derived from simulation. The value of $N^{\text{raw}}$ is defined as
+$N_{pr}^{\text{raw}} \equiv \sigma_{p} \epsilon_{pr}$ where $\sigma_{p}$ is the cross section of the process and $\epsilon_{pr}$ is the \emph{efficiency} for that process and region.
+The efficiency, in turn, is defined as $\epsilon_{pr} = N_{pr}^{\rm pass} / N^{\rm total}_{p}$, where $N^{\rm pass}_{pr}$ is the number of events which pass the region requirements and $N^{\rm total}_p$ is the total number of simulated events. The values of $k_{spr}$ are computed according to $k_{spr} = N^{\text{pass}}_{spr} / N^{\rm total}_{p}$.
+
+The final figure of merit for any given SUSY model is the so-called ``$\cls$'' value measured from the fit.
