@@ -41,6 +41,7 @@ Several aspects of \cref{eq:n-predicted} are worthy of further discussion. The $
 %% These distributions are measured \emph{from} the fit, and are not specified beforehand.
 Both $\mathcal{L}$ and the $\alpha$'s are constrained. In the case of $\mathcal{L}$, the width of the constraint is the uncertainty in the luminosity. In the case of the $\alpha$'s, these constraints are Gaussian with width 1.
 For major background processes, the $\mu$ are allowed to float freely in the fit and are controlled by a designated control region. In the case of minor backgrounds where no control regions is warranted, the normalization is set to one (typically with a large uncertainty).
+
 The values of $N^{\text{raw}}$ and $k$, by contrast, are derived from simulation and are represented by fixed numbers.
 The values of $k$ can be positive or negative. While the actual sign of individual $k$ parameters is unimportant (note that inverting all $\alpha$ and $k$ leaves $N_r$ unchanged), this flexibility coupling the $\alpha$'s to various regions and processes---with different magnitude and even opposite directions---permits more flexibility modeling systematic effects. If, for example, the effect of a given systematic is anti-correlated between two regions, the values of $k$ would have opposite sign.
 
@@ -48,8 +49,11 @@ As mentioned, both $N^{\text{raw}}$ and the $k$'s must be derived from simulatio
 $N_{pr}^{\text{raw}} \equiv \sigma_{p} \epsilon_{pr}$ where $\sigma_{p}$ is the cross section of the process and $\epsilon_{pr}$ is the \emph{efficiency} for that process and region.
 The efficiency, in turn, is defined as $\epsilon_{pr} = N_{pr}^{\rm pass} / N^{\rm total}_{p}$, where $N^{\rm pass}_{pr}$ is the number of events which pass the region requirements and $N^{\rm total}_p$ is the total number of simulated events. The values of $k_{spr}$ are computed according to $k_{spr} = (N^{\text{pass}}_{spr} - N^{\text{pass}}_{pr}) / N^{\rm total}_{p}$, where $N^{\text{pass}}_{spr}$ is a variation on $N^{\rm pass}_{pr}$ where the systematic $s$ has been applied. The actual application of these systematics will be discussed in \cref{sec:systematics}.
 
-The final figure of merit for any given SUSY model is the so-called ``$\cls$'' value which is measured from the fit. This is a ratio of likelihood values:
-\begin{equation}
- \cls \equiv \frac{\clsb}{\clb}
-\end{equation}
-Both $\clsb$ and $\clb$ are $p$-values.
+The final figure of merit for any given SUSY model is the so-called ``$\cls$'' value which is measured from the fit. Very roughly, $\cls$ corresponds to $P(\text{data}| s + b) / P(\text{data}| b)$, where $s + b$ is the hypothesis which assumes both signal and background exist and $b$ assumes only background. The $\cls$ limit-setting ritual~\cite{cls} bears some similarity to several valid statistical methods, but is ultimately a somewhat confused compromise between Bayesian and frequentest thought. Nevertheless, the ATLAS experiment continues to quite $\cls$ values because they have several useful properties:
+\begin{itemize}
+\item In the high-statistics limit, $\cls$ resembles a Bayesian likelihood ratio between signal + backgrounds and background only hypothesis.
+\item Being a frequentest method, the $\cls$ disallows the inclusion of priors, which arguably makes $\cls$ more objective.
+\item Software packages which compute $\cls$ are widely standardized in ATLAS, which allows physicists to compute $\cls$ without an above-average understanding of statistics.
+\end{itemize}
+
+SUSY searches are built in several stages, as shown in \cref{fig:analysis-flow}. The first sta...
