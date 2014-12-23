@@ -1,0 +1,43 @@
+\begin{fmffile}{TMP-ttbar}
+\input{misc/feyngen/feynhead}
+% KEEP SIZE LOW SO THE LETTERS ARE LARGE
+\begin{fmfgraph*}(100,75)
+
+% PROTON-PROTON VERTEX
+\input{misc/feyngen/ppVertex.fmf}
+
+% UPPER CASCADE, EDIT BELOW
+
+\fmf{plain,lab=$t$,lab.side=left,tension=2}{ppVertex,v2}
+
+\fmf{plain}{v2,b1}
+\fmflabel{$b$}{b1}
+
+\fmf{boson,lab=$\ \ W$,lab.side=right,lab.di=0.15cm}{v2,v3}
+\fmf{plain}{v3,q1}
+\fmflabel{$j$}{q1}
+
+\fmf{plain}{v3,q2}
+\fmflabel{$j$}{q2}
+
+% LOWER CASCADE, EDIT BELOW
+
+\fmf{plain,lab=$t$,lab.side=right,tension=2}{ppVertex,v5}
+
+\fmf{plain}{v5,b2}
+\fmflabel{$b$}{b2}
+
+\fmf{boson,lab=$\ \ W$,lab.side=left,lab.di=0.15cm}{v5,v6}
+
+\fmf{plain,fore=red}{v6,q3}
+\fmflabel{\color{red}$\ell$}{q3}
+
+\fmf{plain,fore=red}{v6,q4}
+\fmflabel{\color{red}$\nu$}{q4}
+% ORDER OF FINAL PARTICLES: BOTTOM, RIGHT, TOP
+\fmftop{,,b1,}
+\fmfright{q4,q3,q2,q1}
+\fmfbottom{,,b2,}
+
+\end{fmfgraph*}
+\end{fmffile}

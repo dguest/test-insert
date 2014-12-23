@@ -1,0 +1,28 @@
+\begin{fmffile}{TMP-multijet}
+\input{misc/feyngen/feynhead}
+% KEEP SIZE LOW SO THE LETTERS ARE LARGE
+\begin{fmfgraph*}(100,75)
+
+% PROTON-PROTON VERTEX
+\input{misc/feyngen/ppVertex.fmf}
+
+% UPPER CASCADE, EDIT BELOW
+
+
+\fmf{gluon,tension=4}{ppVertex,glv0}
+\fmf{gluon}{glv0,gl3}
+
+% LOWER CASCADE, EDIT BELOW
+\fmf{gluon,tension=2}{glv0,glv}
+\fmf{gluon,foreground=(1.0,,0.0,,0.0)}{glv,gl1}
+\fmf{gluon}{glv,gl2}
+\fmflabel{\color{red}$j$}{gl1}
+\fmflabel{$j$}{gl2}
+\fmflabel{$j$}{gl3}
+
+% ORDER OF FINAL PARTICLES: BOTTOM, RIGHT, TOP    
+%% \fmftop{,,,}
+\fmfright{gl3,gl1,gl2}
+
+\end{fmfgraph*}
+\end{fmffile}

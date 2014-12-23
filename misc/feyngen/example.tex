@@ -1,0 +1,41 @@
+\begin{fmffile}{TMP-example}
+\input{feyngen/feynhead}
+% KEEP SIZE LOW SO THE LETTERS ARE LARGE
+\begin{fmfgraph*}(100,75)
+
+% PROTON-PROTON VERTEX
+\input{feyngen/ppVertex.fmf}
+
+% UPPER CASCADE, EDIT BELOW
+\fmf{dashes,lab=\color{red}$\tilde{t},,\tilde{b}$,lab.side=left,fore=red,tension=3}{ppVertex,v1}
+\fmfv{d.sh=circle,d.fi=30,d.si=5}{v1}
+
+    \fmf{ewkino,fore=red}{v1,LSP1}
+    \fmflabel{\color{red}$\neu$}{LSP1}
+
+    \fmf{plain,fore=(0.8,,0.8,,0.8)}{v1,l1}
+    \fmflabel{$\ell$?}{l1}
+
+    \fmf{plain}{v1,t1}
+    \fmflabel{$b$,$c$}{t1}
+
+% LOWER CASCADE, EDIT BELOW
+\fmf{dashes,lab=\color{red}$\tilde{t},,\tilde{b}$,lab.side=right,fore=red,tension=3}{ppVertex,v2}
+\fmfv{d.sh=circle,d.fi=30,d.si=5}{v2}
+
+    \fmf{ewkino,fore=red}{v2,LSP2}
+    \fmflabel{\color{red}$\neu$}{LSP2}
+
+    \fmf{plain,fore=(0.8,,0.8,,0.8)}{v2,l2}
+    \fmflabel{$\ell$?}{l2}
+
+    \fmf{plain}{v2,t2}
+    \fmflabel{$b$,$c$}{t2}
+
+% ORDER OF FINAL PARTICLES: BOTTOM, RIGHT, TOP    
+\fmftop{,,l1,}
+\fmfright{,t2,LSP2,LSP1,t1,}
+\fmfbottom{,,l2,}
+
+\end{fmfgraph*}
+\end{fmffile}

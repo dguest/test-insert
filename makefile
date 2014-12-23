@@ -4,6 +4,7 @@ PDFTEX = pdflatex -interaction=nonstopmode -halt-on-error -shell-escape
 .PHONY: all
 
 all: thesis.pdf
+	@rm -f TMP-*
 
 TEXFILES := $(shell find tex/ -name '*.tex')
 

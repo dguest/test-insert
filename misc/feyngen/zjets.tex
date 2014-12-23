@@ -1,0 +1,31 @@
+\begin{fmffile}{TMP-zjets}
+\input{misc/feyngen/feynhead}
+% KEEP SIZE LOW SO THE LETTERS ARE LARGE
+\begin{fmfgraph*}(100,75)
+
+% PROTON-PROTON VERTEX
+\input{misc/feyngen/ppVertex.fmf}
+
+% UPPER CASCADE, EDIT BELOW
+
+\fmf{boson,lab=$\ \ Z$,lab.side=right,lab.di=0.15cm}{ppVertex,v3}
+
+\fmf{plain,fore=(1,,0,,0)}{v3,q1}
+\fmflabel{\color{red}$\nu$}{q1}
+
+\fmf{plain,fore=(1,,0,,0)}{v3,q2}
+\fmflabel{\color{red}$\nu$}{q2}
+
+% LOWER CASCADE, EDIT BELOW
+\fmf{gluon,fore=(0.0,,0.0,,0.0)}{ppVertex,glv}
+\fmf{gluon,fore=(0.0,,0.0,,0.0)}{glv,gl1}
+\fmf{gluon,fore=(0.0,,0.0,,0.0)}{glv,gl2}
+\fmflabel{$j$}{gl1}
+\fmflabel{$j$}{gl2}
+
+% ORDER OF FINAL PARTICLES: BOTTOM, RIGHT, TOP    
+%% \fmftop{,,,}
+\fmfright{q2,q1,gl1,gl2}
+
+\end{fmfgraph*}
+\end{fmffile}
