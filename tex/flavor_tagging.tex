@@ -56,34 +56,44 @@ In the case of simulated jets, a flavor label is assigned by matching jets to ge
 
 \section{Operating Points}
 
-While the neural network produces three posterior probabilities, these sum up to 1 by definition and thus contain one redundant degree of freedom. The three outputs are therefore projected into a 2-dimensional ``anti-$b$'' vs ``anti-light'' discriminant plane, where the anti-light axis is defined as $\log P_{c} / P_{\rm light}$ and the anti-$b$ axis as $\log P_{c} / P_{b}$. Operating points are defined by a pair of minimum thresholds: any jet in which both the anti-light and anti-$b$ discriminants exceed the thresholds is said to be ``tagged''.
+While the neural network produces three posterior probabilities, these sum to approximately 1 and thus contain one redundant degree of freedom. The three outputs are therefore projected into a 2-dimensional `anti-$b$' vs `anti-light' discriminant plane as shown in Fig.~\ref{tag:fig:2dcut}, where the anti-$b$ axis is defined as $\log (P_{c} / P_{b})$ and the anti-light axis as $\log (P_{c} / P_{\rm light})$; both variables are shown in Fig.~\ref{fig:1dvars}. Operating points are defined by a pair of minimum thresholds: any jet in which both the anti-light and anti-$b$ discriminants exceed the thresholds is said to be `tagged'.
+
 \begin{figure}
   \begin{center}
-  \includegraphics[width=0.5\textwidth]{2d-cut.pdf}
+  \includegraphics[width=0.9\textwidth]{2d-cut.pdf}
   \caption[JetFitterCharm 2-dimensional cut plane]{
-Two-dimensional distribution of the JetFitterCharm anti-$b$ ($\log(P_c/P_b)$) and anti-light ($\log(P_c/P_{\rm light})$) discriminants. The density of red, green, and blue reflect the density of $b$, $c$, and light jets---white areas are a mix of all three flavors, whereas black areas lack any jets. The ``medium'' calibrated operating point selects jets above a certain threshold in both anti-$b$ and anti-light discriminants. Ridge structures arise when the neural network inputs cannot be assigned a physically meaningful value, for example when no secondary vertex is found, and the neural net is given a default value outside the normal physical range. This results in concentrated values in the input space which form the high density streaks.}
+Two-dimensional distribution of the JetFitterCharm anti-$b$ ($\log(P_c/P_b)$) and anti-light ($\log(P_c/P_{\rm light})$) discriminants. The density of red, green, and blue reflect the density of $b$, $c$, and light jets, white areas are a mix of all three flavors, whereas black areas lack any jets. The `medium' calibrated operating point selects jets above a certain threshold in both anti-$b$ and anti-light discriminants.
+Ridge structures arise from two features of the algorithm which concentrate values in the input space. The first feature is the use of discrete kinematic bin inputs, $\eta^{\rm cat}$ and $\pt^{\rm cat}$. The second is the substitution of default values when the ordinary input values would not be physically meaningful, for example when no secondary vertex is found. The resulting high density structures can be seen in the lower-center and upper-left region of the plot.}
   \label{tag:fig:2dcut}
   \end{center}
 \end{figure}
 
-Charm-jet tagging, being relatively new to the LHC, is unable to draw on extensive past experience in physics analyses to define ideal operating points. For lack of historical reference, the operating points were defined with a SUSY $\tilde{t}$ pair production search as a prototype. In this particular model, the $\tilde{t}$ quarks decay via $\tilde{t} \to c \tilde{\chi}_1^0$, leading to a two-$c$-jet final state where $c$-tagging is useful to reject Standard Model backgrounds with both light- and $b$-jets. %% This process leads to a final state with a pair of $c$-jets, which can be $c$-tagged in the search. 
-Tagging thresholds were allowed to vary independently for each jet while maximizing the expected signal significance. %% $Z$, where \[Z  \equiv \frac{s}{ \sqrt{s + b + (\Delta b)^2}},\] and $s$ and $b$ are respectively the number of signal and background events passing the tagging requirements. The parameter $\Delta b$ accounts for systematic errors in the background, and is fixed at 0.3. 
-These studies demonstrated the need for two very different operating points. Anticipating cases where a light jet background dominates, a ``medium'' tag is defined to reject both light- and b-flavored{} jets. In other selections light jets are a smaller background and $\ttbar$ becomes dominant, so a second ``loose'' tag is defined which rejects over half of $b$ jets while accepting a larger fraction of $c$-jets. These operating points are summarized in table~\ref{tag:tab:ops}.
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{anti-bottom-discriminant.pdf}
+    \includegraphics[width=0.45\textwidth]{anti-light-discriminant.pdf}
+    \caption[JetFitterCharm discriminants]{Distributions of the JetFitterCharm anti-bottom (left) and anti-light (right) discriminants. The total numbers of jets of each flavor has been normalized to 1. Minimum thresholds for tagged jets are indicated by orange vertical lines. A loose tag requires an anti-bottom discriminant above the threshold, whereas a medium tag requires both anti-bottom and anti-light discriminants above the indicated thresholds.}
+  \label{fig:1dvars}
+  \end{center}
+\end{figure}
 
-\begin{table}[htb]
+Charm tagging, being relatively new to the LHC, is unable to draw on extensive past experience in physics analyses to define ideal operating points. The operating points were therefore defined with a SUSY $\tilde{t}$ pair production search~\cite{stoptocharm} as a prototype. In this particular model, the $\tilde{t}$ quarks decay via $\tilde{t} \to c \tilde{\chi}_1^0$, leading to a two-$c$-jet final state. Before applying $c$-tagging, expected signal events contribute to the signal region at the percent level, while top backgrounds contribute roughly 10\% and the remaining events are split evenly between $W$ and $Z$ production in association with jets. The anti-$b$ and anti-light tagging thresholds were allowed to vary independently for each of the leading four jets while maximizing the expected signal significance. %% $Z$, where \[Z  \equiv \frac{s}{ \sqrt{s + b + (\Delta b)^2}},\] and $s$ and $b$ are respectively the number of signal and background events passing the tagging requirements. The parameter $\Delta b$ accounts for systematic errors in the background, and is fixed at 0.3.
+
+These studies demonstrated the need for two very different operating points. Anticipating cases where a light jet background dominates, a `medium' tag is defined to reject both light- and $b$-flavored jets. In other selections light jets are a smaller background and $\ttbar$ becomes dominant, so a second `loose' tag is defined which rejects over half of $b$ jets while accepting a larger fraction of $c$-jets. These operating points are summarized in Table~\ref{tab:ops}.
+
+\begin{table}
 \begin{center}
 \begin{tabular}{c|c c | c c c }
 %% \multicolumn{6}{c}{$\charm$-tagging} \\ \hline
-Operating Point & $\log P_c / P_b$ & $\log P_c / P_{\text{light}}$ & $\epsilon_c$ & $1/\epsilon_b$ & $1/\epsilon_{\text{light}}$ \\ \hline
-loose & $> -0.9$ & -- & 0.95 & 2.5 & 1.004 \\
-medium & $> -0.9$ & $> 0.95$ & 0.19 & 8.0 & 200 \\ \hline
+Operating Point & $\log (P_c / P_b$) & $\log (P_c / P_{\rm light}$) & $\epsilon_c$ & $1/\epsilon_b$ & $1/\epsilon_{\rm light}$ \\ \hline
+loose & $> -0.9$ & -- & 0.95 & 2.5 & 1.0 \\
+medium & $> -0.9$ & $> 0.95$ & 0.20 & 8.0 & 200 \\
 \end{tabular}
-\caption[Charm tagging operating points]{Charm tagging operating points. Charm tagging requires two cuts, one to reject $b$ jets, another to reject light jets. The approximate efficiencies for light, $c$, and $b$ jets with $\pt > 20\,\text{GeV}$ as estimated on $\ttbar$ events are also given.}
+\caption[Charm tagging operating points]{Charm tagging operating points. Charm tagging requires two cuts: one to reject $b$ jets, and another to reject light jets. The approximate efficiencies for light, $c$, and $b$ jets with $\pt > 20\,\text{GeV}$ as estimated on $\ttbar$ events are also given.}
 %GP Dan, are the efficiencies estimated on ttbar events?
-\label{tag:tab:ops}
+\label{tab:ops}
 \end{center}
 \end{table}
-
 
 %-------------------- performance ----------------
 
