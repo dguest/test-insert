@@ -1,3 +1,21 @@
+
+% ==================== theory papers ==============================
+@article{charminghiggs,
+  title = {Enhanced Higgs boson coupling to charm pairs},
+  author = {Delaunay, C\'edric and Golling, Tobias and Perez, Gilad and Soreq, Yotam},
+  journal = {Phys. Rev. D},
+  volume = {89},
+  issue = {3},
+  pages = {033014},
+  numpages = {8},
+  year = {2014},
+  month = {Feb},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevD.89.033014},
+  NOurl = {http://link.aps.org/doi/10.1103/PhysRevD.89.033014}
+}
+
+
 % ==================== detector ====================
 @article{DetPap,
      author    = "{ATLAS Collaboration}",
@@ -6,6 +24,19 @@
      volume    = "3",
      year      = "2008",
      pages     = "S08003",
+}
+@techreport{IBLTDR,
+      author       = "{ATLAS Collaboration}",
+      NOauthor       = "Capeans, M and Darbo, G and Einsweiller, K and Elsing, M
+                      and Flick, T and Garcia-Sciveres, M and Gemme, C and
+                      Pernegger, H and Rohne, O and Vuillermet, R",
+      title        = "{ATLAS Insertable B-Layer Technical Design Report}",
+      institution  = "CERN",
+      address      = "Geneva",
+      number       = "CERN-LHCC-2010-013. ATLAS-TDR-19",
+      month        = "Sep",
+      year         = "2010",
+      url          = {https://cds.cern.ch/record/1291633}
 }
 
 % ==================== jets and tagging ============
@@ -22,6 +53,42 @@
      primaryClass   = "hep-ph",
 
 }
+
+@article{LCJets,
+      author         = "Barillari, T. and others",
+      title          = "{Local hadronic calibration}",
+      collaboration  = "ATLAS Collaboration",
+      year           = "2009",
+      reportNumber   = "ATL-LARG-PUB-2009-001-2, ATL-COM-LARG-2008-006",
+      SLACcitation   = "%%CITATION = ATL-LARG-PUB-2009-001-2 ETC.;%%",
+      url            = {https://cds.cern.ch/record/1112035}
+}
+
+@Article{JES,
+     author    = "{ATLAS Collaboration}",
+     title     = "{Jet energy measurement with the ATLAS detector in proton-
+                  proton collisions at $\sqrt{s} = 7$ TeV}",
+      journal        = "Eur.Phys.J.",
+      volume         = "C73",
+      pages          = 2304,
+      doi            = "10.1140/epjc/s10052-013-2304-2",
+      year           = 2013,
+      eprint         = "1112.6426",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+     SLACcitation  = "%%CITATION = 1112.6426;%%"
+}
+
+@Article{2013JVF,
+     author = "{ATLAS Collaboration}",
+      title = "Pile-up subtraction and suppression for jets in ATLAS",
+institution = "CERN",
+    address = "Geneva",
+     report = "{ATLAS-CONF-2013-08}",
+       year = 2013,
+     eprint = "https://cds.cern.ch/record/1570994"
+}
+
 @Article{Giacinto,
   author = 	 "{ATLAS Collaboration}",
   title = 	 "{Calibration of $b$-tagging using dileptonic top pair events in a combinatorial likelihood approach with the ATLAS experiment}",
@@ -40,20 +107,7 @@
   report=        "{ATLAS-CONF-2014-046}",
   url =       "http://cdsweb.cern.ch/record/1741020",
 }
-@Article{JES,
-     author    = "{ATLAS Collaboration}",
-     title     = "{Jet energy measurement with the ATLAS detector in proton-
-                  proton collisions at $\sqrt{s} = 7$ TeV}",
-      journal        = "Eur.Phys.J.",
-      volume         = "C73",
-      pages          = 2304,
-      doi            = "10.1140/epjc/s10052-013-2304-2",
-      year           = 2013,
-      eprint         = "1112.6426",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ex",
-     SLACcitation  = "%%CITATION = 1112.6426;%%"
-}
+
 @Article{AdvancedTaggers,
      author = "{ATLAS Collaboration}",
      title = "{Commissioning of high performance b-tagging algorithms with the ATLAS detector}",
@@ -151,4 +205,88 @@ language={English}
       year           = "2013",
       howpublished   = "{\href{https://cds.cern.ch/record/1562880}{ATLAS-CONF-2013-068}}",
       SLACcitation   = "%%CITATION = ATLAS-CONF-2013-068 ETC.;%%",
+}
+
+@article{stoptocharm,
+      author         = "{ATLAS Collaboration}",
+      title          = "{Search for pair-produced third-generation squarks
+                        decaying via charm quarks or in compressed supersymmetric
+                        scenarios in $pp$ collisions at $\sqrt{s}=8~$TeV with the
+                        ATLAS detector}",
+      journal        = "Phys. Rev.",
+      volume         = "D90",
+      pages          = "052008",
+      doi            = "10.1103/PhysRevD.90.052008",
+      year           = "2014",
+      eprint         = "1407.0608",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-PH-EP-2014-141",
+      SLACcitation   = "%%CITATION = ARXIV:1407.0608;%%",
+}
+
+% ===================== simulation =====================
+@Article{bib:powheg,
+     author    = "Nason, P.",
+     title     = "{A new method for combining NLO QCD with shower Monte Carlo
+                  algorithms}",
+     journal   = "JHEP",
+     volume    = "11",
+     year      = "2004",
+     pages     = "040",
+     archivePrefix = "arXiv",
+     eprint    = "0409146",
+     primaryClass = "hep-ph"
+}
+@Article{pythia2,
+     author    = "S{j\"o}strand, Torbjorn and Mrenna, Stephen and Skands, Peter
+                  Z.",
+     title     = "{PYTHIA 6.4 Physics and Manual}",
+     journal   = "JHEP",
+     volume    = 05,
+     year      = 2006,
+     pages     = 026,
+}
+@Article{Pythia8,
+      author         = "Sj{\"o}strand, Torbjorn and Mrenna, Stephen and Skands, Peter
+                        Z.",
+      title          = "{A Brief Introduction to PYTHIA 8.1}",
+      journal        = "Comput.Phys.Commun.",
+      volume         = 178,
+      pages          = "852-867",
+      doi            = "10.1016/j.cpc.2008.01.036",
+      year           = 2008,
+      eprint         = "0710.3820",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+}
+@article{CT10,
+author         = {Lai, H. L. and others},
+title          = "{New parton distributions for collider physics}",
+journal        = {Phys.Rev. \textbf{D 82} (2010)},
+eprint = {arXiv:1007.2241 [hep-ph]}
+}
+@Article{geant,
+     author    = "Agostinelli, S. and others",
+     collaboration = "GEANT4",
+     title     = "{GEANT4: A simulation toolkit}",
+     journal   = "Nucl. Instrum. Meth.",
+     volume    = "A506",
+     year      = "2003",
+     pages     = "250-303",
+     url       = "http://geant4.web.cern.ch/geant4/"
+}
+
+
+
+% ============== misc =======================
+@Article{pdg2014,
+ author        = "{K.A. Olive and others}",
+ collaboration = "{Particle Data Group}",
+ title         = "{Review of Particle Physics}",
+ journal       = "Chin.Phys.",
+ volume        = "C38",
+ pages         = "090001",
+ year          = "2014",
+ doi           = "10.1088/1674-1137/38/9/090001",
 }

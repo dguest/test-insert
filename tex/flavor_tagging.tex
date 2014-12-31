@@ -7,13 +7,30 @@
 \newcommand{\cateta}{0, 0.7, 1.5, 2.5}
 \newcommand{\jfcplotswherefrom}{The jets are from $t \bar{t}$ simulated events generated with \textsc{Powheg+Pythia6}.}
 
-\textbf{NOTE: this section was copied from the JetFitterCharm note, which has since been updated. This section will be updated as well.}
+Final states including $c$-jets can arise from a number of interesting processes at the Large Hadron Collider (LHC).
+Some of these, including Beyond the Standard Model $H \to c\bar{c}$ production~\cite{charminghiggs} and SUSY models in which the lightest scalar quark decays to $c$-quarks~\cite{stoptocharm}, could be observed in LHC data.
+Unfortunately, in the absence of a designated $c$-quark jet ($c$-jet) identification algorithm, such searches are forced to contend with large Standard Model backgrounds: multijet production, $b$-quark jet ($b$-jet) backgrounds from $t\bar{t}$ decays, other electroweak processes, and $H \to b\bar{b}$ production can all overwhelm the $c$-jet signal.
+Assuming these backgrounds can be controlled, these searches have little sensitivity to the flavor couplings of a signal.
+To address these problems, a dedicated algorithm to identify $c$-jets ($c$-tagging) has been developed and applied to data collected by the ATLAS detector~\cite{DetPap}.
 
-Final states including $c$-jets can arise from a number of interesting processes at the Large Hadron Collider, ranging from Standard Model (SM) $H \to c\bar{c}$ production to SUSY models in which the lightest scalar quark decays to $c$-quarks. In the absence of a designated $c$-jet identification algorithm, such searches are forced to contend with large standard model backgrounds: not only multi-jet production, but also $b$-jet backgrounds from $t\bar{t}$ decays and other electroweak processes can overwhelm a smaller $c$-jet signal. Even assuming such backgrounds can be controlled, in the event of a discovery the searches offer a rather dull probe into the flavor physics of the model. To address these problems, a designated $c$-hadron identification algorithm has been developed and applied to data collected by the ATLAS detector~\cite{DetPap}.
+Flavor-tagging algorithms within ATLAS fall into two categories; those which identify $b$- and $c$-hadrons by their soft lepton decay products, and `lifetime-based' methods which rely on the displacement of the $b$- and $c$-hadron decay products with respect to the primary vertex.
+The branching ratio of $c$-hadrons to leptons places an upper limit on the efficiency of soft-lepton based $c$-jet tagging algorithms, which restricts their usefulness for many analyses and as such has not been pursued further at this point.
+Lifetime-based methods are generally much more efficient and are well established in $b$-jet identification ($b$-tagging), but so far the extension of these methods to $c$-tagging is less developed.
 
-flavor-tagging algorithms within ATLAS fall into two categories: those which identify $b$- and $c$- hadrons by their soft lepton decay products, and those which rely on the displacement of the $b$- and $c$-hadron decay products with respect to the primary vertex. The branching ratio of $c$-hadrons to leptons places an upper limit on the efficiency of soft-lepton based $c$-taggers, which is unacceptably low for many analyses. Lifetime-based methods can be much more efficient.
-%% While the identification of $b$-hadron jets with lifetime-based algorithms, referred to as $b$-tagging, is well established at the Large Hadron Collider, $c$-tagging remains relatively unexplored. The lack of designated $c$ taggers results in part from the position that $c$-jets occupy between light and $b$ jets in many distributions.
-This note describes the conceptual design, performance, and calibration of JetFitterCharm, a lifetime-based flavor-tagger designed to separate $c$-jets from both light- and $b$-flavored jets.
+Lifetime-based tagging can be further divided into two general approaches. The first approach is based on the `impact parameter' (IP) of tracks formed by charged particles in the inner tracking detector with respect to the primary vertex. Impact parameter based tagging algorithms exploit the small IP generally associated to tracks within light-flavored ($u$,$d$,$s$,gluon) jets (light-jets). Tracks from heavy hadron decays, by contrast, generally have a larger IP resulting from the displacement of the decay vertex. The second lifetime-based approach involves explicitly reconstructing at least one `secondary vertex' (SV) from tracks within the jet and categorizing the jet based on the SV properties.
+
+A lifetime-based $c$-tagging algorithm must discriminate against two major backgrounds, $b$- and light-jets, and for most characteristics $c$-jets lie between these two extremes, making isolating
+them particularly challenging.
+In terms of light-jet discrimination, $c$-tagging algorithms are less powerful than $b$-tagging algorithms as a result of the smaller decay vertex displacement for $c$-hadrons relative to $b$-hadrons\footnote{The mean $c\tau$, where $\tau$ is the particle's lifetime, for a $B$ meson is $\approx 492$~$\mu$m, while $c\tau$ for a $D^{\pm}$ ($D^0$) 
+meson is only $\approx 312$ ($\approx 123$) $\mu$m~\cite{pdg2014}.}.
+This results in smaller impact parameters and lower SV reconstruction efficiency, and thus in a significantly lower $c$-tagging efficiency to reach a light-jet rejection equal to that achieved by $b$-tagging algorithms.
+On the other hand, it can be difficult to distinguish $c$-hadron candidates from $b$-hadrons because both can form a displaced SV
+and $b$-hadrons overwhelmingly decay via $c$-hadrons~\cite{pdg2014}. Faced with these complications, the best discriminating variables between $b$- and $c$-jets are the secondary vertex properties, in particular the invariant mass of the charged particles forming the secondary vertex.
+
+Despite the limitations, lifetime-based tagging algorithms are within the capabilities of the detector and require only minor additions to the existing $b$-tagging tools. This chapter describes the design of
+one such tagging algorithm, JetFitterCharm, and presents the expected performance and calibration on 2012 data.
+For Run 2 the additional new innermost pixel layer inserted into the ATLAS detector during 2014, denoted the Insertable B-Layer~\cite{IBLTDR}, is likely to increase $c$-tagging performance by significantly improving the impact parameter resolution for low momentum tracks.
+
 %------------------- end intro ----------------
 
 %% ------------------------- data and simulation samples --------------------
@@ -21,21 +38,13 @@ This note describes the conceptual design, performance, and calibration of JetFi
 \section{Data and Simulation Samples}
 \label{tag:sec:data-and-simulation}
 
-All following performance plots are produced with $\ttbar$ events corresponding to 8 TeV proton-proton collisions simulated with \textsc{Powheg+Pythia6} and \textsc{CT10} parton distribution functions. Jets are reconstructed by clustering energy deposits in the calorimeter with the anti-$k_t$ algorithm~\cite{antikt} and a radius parameter of 0.4, where clusters are calibrated with local cluster weighting~\cite{JES}. Only jets with $\pt$ above 20 GeV and $|\eta| < 2.5$ are considered.\footnote{ATLAS
-  uses a coordinate system with its origin
-  at the nominal interaction point (IP) in the centre of the detector
-  and the $z$-axis along the beam pipe.
-  Cylindrical coordinates $(r,\phi)$ are used in the
-  transverse plane, $\phi$ being the azimuthal angle around the beam
-  pipe. The pseudorapidity is defined in terms of the polar angle
-  $\theta$ as $\eta=-\ln\tan(\theta/2)$, while $\Delta R \equiv \left(\Delta\eta^2 + \Delta \phi^2\right)^{1/2}$.}
-To mitigate effects from pileup jets with $\pt < 50\,\gev$ and $|\eta| < 2.4$ are rejected if less than half the sum of track $\pt$ is associated with tracks matched to the primary vertex. The same selection cuts are also applied for the data based calibrations presented in the second part of this document.
+Plots in this chapter are produced with $\ttbar$ events corresponding to 8 TeV proton-proton collisions simulated with \textsc{Powheg+Pythia6}~\cite{bib:powheg,pythia2} and \textsc{CT10}~\cite{CT10} parton distribution functions. Only $t\bar{t}$ decays with at least one downstream lepton are included. To simulate pileup, minimum bias interactions consistent with 2012 run conditions are generated with \textsc{Pythia8}~\cite{Pythia8} and overlaid on the $\ttbar$ events.
+The propagation of particles through the detector and the detector response are modeled using \textsc{GEANT4}~\cite{geant}. The primary vertex is defined as the vertex with the largest sum of squared transverse momenta of the associated tracks.
 
-flavors{} are assigned to simulated jets by matching them to generator level partons in a $\Delta R < 0.3$ cone. If a $b$-quark is found within the cone the jet is labeled as a $b$-jet. If no $b$-quark is found, the search is repeated for $c$-quarks, then for $\tau$ leptons. If no match is found for $b$, $c$, or $\tau$, the jet is labeled a light-jet.
+Jets are reconstructed by clustering energy deposits in the calorimeter with the anti-$k_t$ algorithm~\cite{antikt} and a radius parameter of 0.4, where clusters are calibrated with local cluster weighting~\cite{LCJets}. Jet energy scale calibration and criteria to reject low quality jets are standard across most analyses of 2012 data, and are described in detail elsewhere~\cite{JES}. In this note, only jets with transverse momentum, $\pt$, above 20 GeV and $|\eta| < 2.5$ are considered.
+To mitigate effects from pileup, jets with $\pt < 50\,\gev$ and $|\eta| < 2.4$ are rejected if less than half of the sum of track $\pt$ is associated with tracks matched to the primary vertex~\cite{2013JVF}. The same selection cuts are also applied for the data based calibrations presented in the second part of this document.
 
-%% \subsection{flavor Labeling in Simulation}
-%% \label{sec:flavor-label}
-%% \textbf{ADD BOILER PLATE}
+In the case of simulated jets, a flavor label is assigned by matching jets to generator level partons with $\pt > 5\,\gev$, after final state radiation, in a $\Delta R < 0.3$ cone. If a $b$-quark is found within the cone the jet is labeled as a $b$-jet. If no $b$-quark is found, the search is repeated for $c$-quarks, then for $\tau$ leptons. If no match is found for $b$, $c$, or $\tau$, the jet is labeled as a light-jet.
 
 %% --------------------end data and simulation samples --------------------
 
