@@ -5,8 +5,8 @@ The general strategy \atlas\ SUSY searches has been standardized for analyses of
 
 The lowest-level unit of a SUSY analysis is the \emph{region}, which is defined by a series of selection criteria or \emph{cuts} on the full 2012 dataset. These cuts may simply reject questionable or ill-understood data, e.g. in cases where parts of the detector are offline or otherwise misbehaving, or they may be designed to select a subset of events especially pure in one physical process. The regions are chosen to be statistically disjoint. Several sub-categories of regions exist:
 \begin{description}
-\item[signal regions] (SRs) are regions where the hypothetical SUSY \emph{signal} process is enriched: in a searches for particles decaying to dark matter, for example, $\met$ may become large as the event recoils against the invisible particles, and thus the signal region may require large $\met$. In almost all cases, even the harshest cuts are unable to remove all Standard Model backgrounds from the signal region. In these cases, care must be taken to estimate these backgrounds precisely. Before the region definitions are finalized, the signal regions are \emph{blinded} to avoid bias: only simulated events are actually viewed.
-\item[control regions] (CRs) are regions where cuts enrich background processes. The role of control regions is to measure backgrounds as precisely as possible in a region where systematic uncertainties are similar to those in the signal region.
+\item[signal regions] (SRs) are regions defined such that the hypothetical SUSY \emph{signal} process is enriched: in a searches for particles decaying to dark matter, for example, $\met$ may become large as the event recoils against the invisible particles, and thus the signal region may require large $\met$. In almost all cases, even the harshest cuts are unable to remove all Standard Model backgrounds from the signal region. In these cases, care must be taken to estimate these backgrounds precisely. Before the region definitions are finalized, the signal regions are \emph{blinded} to avoid bias: only simulated events are actually viewed.
+\item[control regions] (CRs) are regions defined such that cuts enrich background processes. The role of control regions is to measure backgrounds as precisely as possible in a region where systematic uncertainties are similar to those in the signal region.
 \item[validation regions] (VRs) are regions near the signal region with similar background composition, but lacking enriched signal. These regions are used to cross-check the background constraints derived from the control regions.
 \end{description}
 Regions are populated by \emph{events}, where each event is described by a number of analysis-level variables. These variables may describe individual objects within the event, such as jets or leptons, or they may describe an aggregate of the objects (e.g. the invariant mass of several particles or the total missing transverse energy in the event). The overall \emph{event description} is depicted as the orange box in \cref{fig:analysis-flow}.
@@ -21,48 +21,57 @@ The fit attempts to maximize likelihood while adjusting a number of \emph{fit pa
 \item[Systematic effects] are modeled with constrained fit parameters. The constraints themselves are Gaussian. Note that the \emph{coupling} of a systematic to a given physical process is dependent on both the process and the region: for a search with $N$ regions, a systematic which affects to $M$ processes within each region will have $N \times M$ couplings.
 \item[Luminosity] falls somewhere between a systematic effect and a normalization parameter. Every simulated process is multiplied by the luminosity, which is constrained to $\lumiunct$.
 \end{description}
-The exact details of the fit and likelihood function are explained in detail elsewhere~\cite{histfitter}, but the essential concepts can be explained in terms of a simpler toy model.
+The exact details of the fitting software and and likelihood function are explained in detail elsewhere~\cite{histfitter}, but a brief review is given here as well.
 %% \footnote{The more complicated version of \cref{eq:n-predicted} differs by including a more general expression in place of the $a_{s} k_{spr}$ term, which is asymmetric about $\alpha_{s} = 0$.}
 The total number of events in one region, $N_r$, is predicted by
 \begin{equation}
-  N_r = \mathcal{L} \sum_{p} \mu_p \sigma_{p} \epsilon_{pr} \left(1 + \sum_{s} f_{spr}(\alpha_s) \right)
+  N_r = \mathcal{L} \sum_{p} \mu_p \sigma_{p} \epsilon_{pr} \prod_{s} f_{spr}(\alpha_s)
 \label{eq:n-predicted}
 \end{equation}
-where $\mathcal{L}$ is the luminosity, $\mu$ is the normalization for physical process, $\sigma_{p}$ and $\epsilon_{pr}$ are the nominal cross-section and selection efficiency (based on simulation), $\alpha$ fits the systematic effect, and the functions $f$ couple the systematic parameters to the region and process. The physical processes considered are indexed by $p$, while $r$ indexes the region and $s$ indexes the systematic effects.
+where $\mathcal{L}$ is the luminosity, $\mu$ is the normalization for physical process, $\sigma_{p}$ and $\epsilon_{pr}$ are the nominal cross-section and selection efficiency (based on simulation), $\alpha$ fits the systematic effect, and the functions $f_{spr}$ couple the systematic parameters $s$ to the process $p$ and region $r$. The physical processes considered are indexed by $p$, while $r$ indexes the region and $s$ indexes the systematic effects.
 
 Several aspects of \cref{eq:n-predicted} are worthy of further discussion. The $\mathcal{L}$, $\mu$, and $\alpha$ terms are fit parameters which are described by a probability distribution rather than a single fixed value.
 %% These distributions are measured \emph{from} the fit, and are not specified beforehand.
 Both $\mathcal{L}$ and the $\alpha$'s are constrained. In the case of $\mathcal{L}$, the width of the constraint is the uncertainty in the luminosity. In the case of the $\alpha$'s, these constraints are Gaussian with width 1.
 For major background processes, the $\mu$ are allowed to float freely in the fit and are controlled by a designated control region. In the case of minor backgrounds where no control regions is warranted, the normalization is set to one (typically with a large uncertainty).
 
-%% WORK DO HERE
-
 The values of $\epsilon$ and parameters describing $f$, by contrast, are derived from simulation and are represented by fixed numbers.
-The values of $k$ can be positive or negative. While the actual sign of individual $k$ parameters is unimportant (note that inverting all $\alpha$ and $k$ leaves $N_r$ unchanged), this flexibility coupling the $\alpha$'s to various regions and processes---with different magnitude and even opposite directions---permits more flexibility modeling systematic effects. If, for example, the effect of a given systematic is anti-correlated between two regions, the values of $k$ would have opposite sign.
+The efficiency $\epsilon$ is defined as $\epsilon_{pr} = P_{pr} / T_{p}$, where $P_{pr}$ is the number of events which pass the region requirements and $T_p$ is the total number of simulated events. Both $P$ and $T$ are derived from simulation.
 
-As mentioned, $\sigma_{p}$ is the cross section of the process and $\epsilon_{pr}$ is the efficiency for that process and region.
-The efficiency is defined as $\epsilon_{pr} = N_{pr}^{\rm pass} / N^{\rm total}_{p}$, where $N^{\rm pass}_{pr}$ is the number of events which pass the region requirements and $N^{\rm total}_p$ is the total number of simulated events. The values of $k_{spr}$ are computed according to $k_{spr} = (N^{\text{pass}}_{spr} - N^{\text{pass}}_{pr}) / N^{\rm total}_{p}$, where $N^{\text{pass}}_{spr}$ is a variation on $N^{\rm pass}_{pr}$ where the systematic $s$ has been applied. The actual application of these systematics will be discussed in \cref{sec:systematics}.
+Each of the $f_{spr}$ functions couples a parameter which fits the systematic, $\alpha_s$ to a relative variation in the event yield for the region $r$ and the and physical process $p$.
+Fixed parameters describing these couplings come in the form of an ``up'' and ``down'' variation in the systematic, computed from simulation.
+The parameters which describe these variations, $k_{spr}^{\pm}$, are computed for each physical process according to $k_{spr}^{\pm} = P^{\pm}_{spr} / T_{p}$, where the $P^{\pm}_{spr}$ are variations of $P_{pr}$ with up and down systematics $s$ applied.
+Details on the derivation of the individual systematics will be discussed in \cref{sec:systematics}.
+
+The $f$ functions\footnote{For the moment the $spr$ indices are suppressed.} are defined such that $f(\pm 1) = k^{\pm}$.
+For values of $\alpha$ outside the $[-1,1]$ interval, the the functions are extrapolated as $f(\alpha) = (k^{\pm})^{|\alpha|}$, choosing $k^-$ or $k^+$ for values of $\alpha$ below and above zero, respectively.
+For values where $\alpha$ is in the $[-1,1]$ interval $f(\alpha)$ is defined by a sixth order polynomial, constrained by the requirements that $f(\alpha = 0) = 1$ and that $f$,$f'$, and $f''$ are continuous at all values of~$\alpha$.
+It is important to note that the `$\pm$' in $k^{\pm}$ refers to the systematic variation and not to the size of the $k$ parameters; the $k^+$ are not necessarily larger than the $k^-$. If, for example, the effect of a given systematic is anti-correlated between two regions, the value of $(k^+ - k^-)$ would have opposite sign in the two regions.
+%% While the actual sign of individual $k$ parameters is unimportant (note that inverting all $\alpha$ and $k$ leaves $N_r$ unchanged).
+This flexibility coupling the $\alpha$'s to various regions and processes---with different magnitude and even opposite directions---permits more flexibility modeling systematic effects.
+
+%% As mentioned, $\sigma_{p}$ is the cross section of the process.
 
 The final figure of merit for any given SUSY model is the so-called ``$\cls$''~\cite{cls} value which is measured from the fit.
 %% Very roughly, $\cls$ corresponds to $P(\text{data}| s + b) / P(\text{data}| b)$, where $s$ is the signal model and $b$ is the background model.
-Roughly speaking, $\cls$ indicates whether the signal model, when added to the standard model background, is a less likely fit to data than the standard model alone: in the situation where $\cls < 0.05$ signals are generally considered to be excluded. ATLAS experiment continues to quite $\cls$ values because they have several useful properties:
+Roughly speaking, $\cls$ indicates whether the signal model, when added to the standard model background, is a less likely fit to data than the standard model alone: in the situation where $\cls < 0.05$ signals are generally considered to be excluded. ATLAS continues to quote $\cls$ values because they have several useful properties:
 \begin{itemize}
 \item In the high-statistics limit, $\cls$ resembles a Bayesian likelihood ratio between signal + backgrounds and background only hypothesis.
 \item Being a frequentest method, the $\cls$ disallows the inclusion of priors, which arguably makes $\cls$ more objective.
-\item Software packages which compute $\cls$ are widely standardized in ATLAS, which allows physicists to compute $\cls$ without an above-average understanding of statistics.
+%% \item Software packages which compute $\cls$ are widely standardized in ATLAS, which allows physicists to compute $\cls$ without an above-average understanding of statistics.
 \end{itemize}
 
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=0.7\textwidth]{dot/objects.pdf}
-    \caption[Analysis Strategy]{Diagram of the information flow through a typical SUSY analysis.}
-    \label{fig:analysis-flow}
-  \end{center}
-\end{figure}
+%% \begin{figure}[h]
+%%   \begin{center}
+%%     \includegraphics[width=0.7\textwidth]{dot/objects.pdf}
+%%     \caption[Analysis Strategy]{Diagram of the information flow through a typical SUSY analysis.}
+%%     \label{fig:analysis-flow}
+%%   \end{center}
+%% \end{figure}
 
-SUSY searches are blinded until region definitions are finalized. In practice, this means the searches proceed in in several stages, as shown in \cref{fig:analysis-flow}. The stages of analysis are listed below.
+The search was blinded until region definitions are finalized. In practice, this means the search proceed in in several stages, as shown in \cref{fig:analysis-flow}. The stages of analysis are listed below.
 \begin{description}
-\item[Optimization:] The signal region is defined, beginning with basic choices such as the data stream or the number of leptons or jets required, and refining to more specific details. Signal region data, and any data kinematically close to the signal region, is not used at all in this step. Once a sufficiently pure signal region has been defined, control regions are defined for the major backgrounds. The figure of merit in the optimization process ranges from crude measures of significance, such as $s/b$ or $s/\sqrt{s + b}$ where $s$ and $b$ are the number of signal and background events, to full fits with a blinded signal region. Typically analyses are optimized with several signal regions to exclude (assuming no discovery) the largest possible region of SUSY parameter space.
+\item[Optimization:] The signal region is defined, beginning with basic choices such as the data stream or the number of leptons or jets required, and refining to more specific details. Signal region data, and any data kinematically close to the signal region, is not used at all in this step. Once a sufficiently pure signal region has been defined, control regions are defined for the major backgrounds. The figure of merit in the optimization process ranges from crude measures of significance, such as $s/b$ or $s/\sqrt{s + b}$ where $s$ and $b$ are the number of signal and background events, to full fits with a blinded signal region. The analysis is optimized with several signal regions to exclude (assuming no discovery) the largest possible region of SUSY parameter space.
 \item[Validation:] Once the signal and control regions are defined, the background model is ``validated'' by unblinding validation regions near the signal region. The analysis is not typically changed beyond this point.
 \item[Unblinding:] The signal region data is unveiled. Assuming no excess is observed in data, $\cls$ values are extracted for each signal point, and an exclusion is calculated.
 \end{description}
@@ -70,25 +79,18 @@ SUSY searches are blinded until region definitions are finalized. In practice, t
 
 \subsection{Strategy for the $\sctoc$ Search}
 
-A Feynman diagram for the $\sctoc$ process is shown in \cref{fig:sctocfeyn}. We assume that the lightest supersymmetric quark is the $\tilde{c}$ quark. Other scalar quarks are assumed to be well above 1 TeV in mass. In this scenario, $\tilde{c}$ quarks are pair-produced from gluon splitting. The $\tilde{c}$ quarks decay to the lightest supersymmetric particle, which in this case is a neutrilino ($\neut$). After the $c$-quarks hadronize to $c$-jets and the neutrilinos leave the detector, resulting final state which includes two $c$-jets, no leptons, and $\met$.
+A Feynman diagram the $\sctoc$ process is shown in \cref{fig:sctocfeyn}. For the purposes of this search, the lightest supersymmetric quark is assumed to be the $\tilde{c}$ quark. Other scalar quarks are assumed to be well above 1 TeV in mass. In this scenario, $\tilde{c}$ quarks are pair-produced from gluon splitting. The $\tilde{c}$ quarks decay to the lightest supersymmetric particle, which in this case is a neutrilino ($\neut$). After the $c$-quarks hadronize to $c$-jets and the neutrilinos leave the detector, resulting final state which includes two $c$-jets, no leptons, and $\met$.
 
+Many Standard Model processes decay to final states with two jets and $\met$.
+The most common of these is multijet production (\cref{fig:feyn-multijets}) where the energy of one jet is not measured correctly in the calorimeter.
+%% WORK DO HERE
+\newcommand{\feyninc}[3]{\scalebox{#1}{\input{misc/feyngen/#2}}\label{#3}}
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{%
-      paper/figures/feynman_diagram/scsc-ccN1N1.pdf}
-    \caption{Feynman diagram of the $\sctoc$ process.}
-    \label{fig:sctocfeyn}
+  \subfigure[multijet]{\feyninc{1.6}{multijet}{fig:feyn-multijets}}
+  \subfigure[$\wjets$]{\feyninc{1.6}{wjets}{fig:feyn-wjets}} \\[1cm]
+  \subfigure[$\zjets$]{\feyninc{1.6}{zjets}{fig:feyn-zjets}}
+  \subfigure[$\ttbar$]{\feyninc{1.6}{ttbar}{fig:feyn-ttbar}}
+  \caption[Feynman diagrams for Standard Model backgrounds]{Feynman diagrams for the main Standard Model backgrounds in the $\sctoc$ search. Legs that result in $\met$ are shown red.}
   \end{center}
 \end{figure}
-
-Many Standard Model processes decay to final states with two jets and $\met$. The most common of these is multijet production where the energy of one jet is not measured correctly in the calorimeter.
-\begin{figure}
-  \begin{center}
-  \subfigure[$\wjets$]{\scalebox{0.8}{\input{misc/feyngen/wjets}}}
-  \subfigure[multijet]{\scalebox{0.8}{\input{misc/feyngen/multijet}}}
-  \subfigure[$\zjets$]{\scalebox{0.8}{\input{misc/feyngen/zjets}}}
-  \subfigure[$\ttbar$]{\scalebox{0.8}{\input{misc/feyngen/ttbar}}}
-  \caption[Feynman diagrams for Standard Model backgrounds]{Feynman diagrams for Standard Model backgrounds.}
-  \end{center}
-\end{figure}
-
