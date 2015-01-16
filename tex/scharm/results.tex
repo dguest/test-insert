@@ -1,41 +1,16 @@
-%% The $\cls$ limits~\cite{cls} presented in this search are calculated
-%% from a probability distribution function defined by a
-%%  profile likelihood
-%% fit. This fit attempts to normalize the number of signal and background
-%% events such that:
-%% \begin{enumerate}
-%% \item the number of simulated events in the control and signal regions
-%%   matches with data, and
-%% \item the parameters normalizing each background and signal sample are
-%%   consistent across all regions.
-%% \end{enumerate}
-%% Several types of floating parameters are used in the fit:
-%% \begin{description}
-%% \item[free parameters:] these constrain the
-%%   overall normalization of the simulated $\wjets$,
-%%   $\zjets$, $\ttbar$ + single $t$, and
-%%   signal. Such parameters are initalized with a nominal value of 1,
-%%   but the fit pays no penalty for values that deviate from the initial
-%%   value.
-%% \item[constrained parameters:] these
-%%   parameters describe systematic variations. A gaussian restraint
-%%   penalizes the fit when these values shift from the nominal
-%%   value. The width of this restraint is derived from dedicated
-%%   studies as discussed below.
-%% \end{description}
+\newcommand{\limitbandexplanation}{Observed limits are given by the solid red line. The dotted red lines indicate the maximum range of the observed exclusion when the signal cross section is varied by $\pm 1 \sigma$. Expected limits are given by the dotted blue line. The yellow band surrounding this line indicates the $1 \sigma$ confidence interval when including all sources of uncertainty listed in \cref{sec:systematics} \emph{except} the signal cross section uncertainty.}
 
-The fit is implemented by a collection of stacked software packages,
-standard to the ATLAS SUSY group. At the top level
-HistFitter~\cite{histfitter} is used. This tool wrap the
-HistFactory~\cite{histfactory} package, which creates RooFit
-``workspaces''. These workspaces are fit, and $\cls$ is extracted, with
-HistFitter functions (which in turn call RooFit /
-RooStats). Systematic variations are categorized as ``experimental''
-and ``theoretical''. The experimental systematics considered are described in \cref{sec:sys_experimental}.
+%% The fit is implemented by a collection of stacked software packages,
+%% standard to the ATLAS SUSY group.
+%% At the top level HistFitter~\cite{histfitter} is used.
+%% This tool wrap the HistFactory~\cite{histfactory} package, which creates RooFit ``workspaces''.
+%% These workspaces are fit, and $\cls$ is extracted, with HistFitter functions (which in turn call RooFit / RooStats).
+Systematic variations are categorized as ``experimental'' and ``theoretical''.
+The experimental systematics considered are described in \cref{sec:sys_experimental}.
 
 \subsection{Theory Systematic Combination}
 
-Theoretical systematics for the backgrounds are derived as described in \cref{sec:sys_theorybkg}. When running the fit, theory systematics are not directly applied as yield variations in each region. Instead, the systematics are used to derive ``transfer factors'' from the region that best constrains each background to the other regions used in the fit, and the uncertainty for each region is calculated {relative to the constraining region} using these transfer factors. Uncertainties calculated in this way are tabulated in \cref{tab:ttbar_theory_syst,tab:Wjets_theory_syst,tab:Zjets_theory_syst}. These uncertainties in are further combined into overall theory systematics (those of the form ``overall down stat'' and ``overall up stat''). There are two important notes about the above procedure:
+Theoretical systematics for the backgrounds are derived as described in \cref{sec:sys_theorybkg}. When running the fit, theory systematics are not directly applied as yield variations in each region. Instead, the systematics are used to derive ``transfer factors'' from the region that best constrains each background to the other regions used in the fit, and the uncertainty for each region is calculated {relative to the constraining region} using these transfer factors. Uncertainties calculated in this way are tabulated in \cref{tab:ttbar_theory_syst,tab:Wjets_theory_syst,tab:Zjets_theory_syst}. These uncertainties are further combined into overall theory systematics (those of the form ``overall down stat'' and ``overall up stat''). There are two important notes about the above procedure:
 \begin{enumerate}
 \item The theory systematics are calculated relative to the constraining region, meaning that the systematic variation {\em in} the constraining region is, by definition, zero.
 \item Hypothetically, any region could be chosen as the constraining region for any background (e.g. we could quote uncertainties in every background relative to \crw). We choose to constrain the top backgrounds ($t + t \bar{t}$) using \crt, \wjets\ using \crw, and \zjets\ using \crz.
@@ -64,37 +39,34 @@ Lacking any data excess in the signal regions, we instead set 95\% $\cls$ exclus
 \label{fig:plane_regions_expected}
 }
 \end{center}
-\caption[Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane by signal region]
-{\subref{fig:plane_best_regions} Expected and observed exclusion using the best expected exclusion for the $\mct = \{150, 200, 250\}\text{ GeV}$ regions, along with the two $\tilde{t} \to c \neut$ regions (C1 and C2). Signal points are color coded
-according to the most sensitive region for each point. Note that observed $\pm 1 \sigma$ bands aren't yet available for C1 and C2 and aren't shown. \subref{fig:plane_regions_expected} Overlay of the expected exclusion limits using the individual regions.}
+\caption[Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane by signal region]{%
+\subref{fig:plane_best_regions} Expected and observed exclusion in the $m_{\scharm}$--$m_{\neut}$ plane.
+Points with $\cls < 0.05$ are considered excluded.
+The three signal regions, with $\mct = \{150, 200, 250\}\text{ GeV}$ are combined with the two $\tilde{t} \to c \neut$ regions (C1 and C2), by taking the region which produces the minimum $\cls$ for each point.
+\subref{fig:plane_regions_expected} Overlay of the expected exclusion limits using the individual regions.
+}
 \label{fig:exclusion_plane_regions}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=\textwidth]{int/figures/limit_tree/full_exclusion/exclusion_pretty.pdf}
 \caption[Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane]{
-Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane, using the three $\scharm$ fit configurations and the $\tilde{t} \to c \neut$ C1 and C2 configurations. The monojet exclusion is shown for comparison.}
+Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane, using the three $\scharm$ fit configurations and the $\tilde{t} \to c \neut$ C1 and C2 configurations. The monojet exclusion is shown for comparison. \limitbandexplanation}
 \label{fig:plane_pretty_regions}
 \end{figure}
 
 The expected exclusion (based on the fit setup described in
 appendix~\ref{app:fitResults}) is shown in
-figure~\ref{fig:exclusion_plane_regions}. Three ``$\tilde{c}$'' fit
-configurations---those described in this note---are considered, each
+figure~\ref{fig:exclusion_plane_regions}. The three ``$\tilde{c}$'' fit
+configurations---those described in this thesis---are considered, each
 consisting of the three control regions and one of the three signal
 regions defined by the $\mct$ requirement, for a total of four regions
-per fit. In all cases the uncertainties describing JES, JER, tagging
-uncertainties, MET cell-out scale and resolution and lepton ID
-efficiency uncertainties are accounted for with additional fit
-parameters. In addition, we considered two ``$\tilde{t}$'' signal
-regions (C1 and C2) from the $\tilde{t} \to c
-\neut$~\cite{stopCharmATLAS} analysis. While the $\tilde{c}$
-signal regions were optimized for high $\Delta m \equiv m_{\scharm} - m_{\neut}$
-signal points with two resolvable $c$-jets, these regions loose
-sensitivity for low $\Delta m$ values, as shown in
-\cref{fig:plane_regions_expected}. The $\tilde{t}$ regions, by
-contrast, were optimized for ISR boosted $c$-jets, and are sensitive
-to signal points with low $\Delta m$.
+per fit.
+In all cases the uncertainties described in \cref{sec:systematics} are accounted for with additional fit parameters.
+In addition, we considered two ``$\tilde{t}$'' signal regions (C1 and C2) from the $\tilde{t} \to c\neut$~\cite{stopCharmATLAS} analysis.
+While the $\tilde{c}$ signal regions were optimized for high $\Delta m \equiv m_{\scharm} - m_{\neut}$ signal points with two resolvable $c$-jets, these regions loose sensitivity for low $\Delta m$ values, as shown in
+\cref{fig:plane_regions_expected}.
+The $\tilde{t}$ regions, by contrast, were optimized for ISR boosted $c$-jets, and are sensitive to signal points with low $\Delta m$.
 
 The five fit configurations are merged by taking the ``best'' configuration---that which is expected to exclude the signal with the highest confidence---for each signal point. Contours for the expected and observed exclusion are drawn by interpolating between signal points. Simple linear interpolation of $\cls$, however,  is known to introduce a bias because $\cls$ is relatively non-linear as a function of both $\scharm$ and $\neut$ mass. Following the precedent from previous SUSY searches~\cite{susy-limit-setting}, the $\cls$ values at each signal point are transformed to Gaussian significance $Z$ using the Gaussian inverse cumulative distribution function. Linear interpolation is then used to define $Z(m_{\scharm}, m_{\neut})$ for all points in the plane and draw contours where $Z(m_{\scharm}, m_{\neut}) = Z_{95 \% \text{ CL}} \approx 1.645$.
 
@@ -104,23 +76,24 @@ Cross-checks of indivial signal points are discussed in \cref{sec:fit-signal-poi
 \begin{figure}
 \centering
 \subfigure[$m_{\rm CT} > 150$ GeV SR]{
-\includegraphics[width=0.45\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct150.pdf}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct150.pdf}
 \label{fig:exclusion_mct150}
 }
 \subfigure[$m_{\rm CT} > 200$ GeV SR]{
-\includegraphics[width=0.45\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct200.pdf}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct200.pdf}
 \label{fig:exclusion_mct200}
 } \\
 \subfigure[$m_{\rm CT} > 250$ GeV SR]{
-\includegraphics[width=0.45\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct250.pdf}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct250.pdf}
 \label{fig:exclusion_mct250}
 }
 \subfigure[Best Expected SR]{
-\includegraphics[width=0.45\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/scharm_combined.pdf}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/scharm_combined.pdf}
 \label{fig:exclusion_scharm_combined}
 }
 \caption[Cross section upper limits in the $m_{\scharm}$--$m_{\neut}$ plane]{
-Cross section upper limits (in fb) in the $m_{\scharm}$--$m_{\neut}$ plane. Gray numbers indicate the upper limit for each signal point. Figures~\subref{fig:exclusion_mct150}, \subref{fig:exclusion_mct200}, and \subref{fig:exclusion_mct250} show results using the three signal regions, while~\subref{fig:exclusion_scharm_combined} shows the combined plane taking the most sensitive region for each point. Note that \cref{fig:plane_best_regions} differs from~\subref{fig:exclusion_scharm_combined} because the later lacks the $\tilde{t} \to c \neut$ C1 and C2 regions.
+Cross section upper limits (in fb) in the $m_{\scharm}$--$m_{\neut}$ plane.
+Gray numbers indicate the upper limit for each signal point. Figures~\subref{fig:exclusion_mct150}, \subref{fig:exclusion_mct200}, and \subref{fig:exclusion_mct250} show results using the three signal regions, while~\subref{fig:exclusion_scharm_combined} shows the combined plane taking the most sensitive region for each point. Note that \cref{fig:plane_best_regions} differs from~\subref{fig:exclusion_scharm_combined} because the later lacks the $\tilde{t} \to c \neut$ C1 and C2 regions.
 }
 \label{fig:exclusion_plane_ul}
 \end{figure}
@@ -134,7 +107,7 @@ Model independent upper limits on non--Standard Model physics are
 derived using a ``discovery'' fit, in which we assume the hypothetical
 process only contributes to the signal region yield and leaves the
 control regions unaffected. One discovery fit is run for each signal
-region. This fit is considerably simpler than the exclusion fit:
+region. This fit is considerably simpler than the exclusion fit;
 whereas the exclusion fit accounts for all systematic variations and
 fits the control and signal regions simultaneously, each discovery fit
 considers a single signal region with a single combined background
@@ -159,7 +132,7 @@ in \cref{tab:model-ind-lim}.
 \label{tab:miul-toys}
 }
 \caption[Breakdown of model independent upper limits]{
-Model independent upper limits calculated using asymtotic approximations~\subref{tab:miul-asymtotic} and with 3000 toys~\subref{tab:miul-toys}. Left to right: 95\% CL upper limits on the visible cross section
+Model independent upper limits calculated using asymtotic approximations~\subref{tab:miul-asymtotic} and with 3000 pseudo-experiments~\subref{tab:miul-toys}. Left to right: 95\% CL upper limits on the visible cross section
 ($\langle\epsilon\sigma\rangle_{\rm obs}^{95}$) and on the number of
 signal events ($S_{\rm obs}^{95}$ ).  The third column
 ($S_{\rm exp}^{95}$) shows the 95\% CL upper limit on the number of

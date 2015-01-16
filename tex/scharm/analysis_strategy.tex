@@ -1,7 +1,7 @@
 
 The general strategy \atlas\ SUSY searches has been standardized for analyses of 2012 data. As a result, a substantial fraction of the nomenclature and tools are common between most searches. These general aspects of SUSY searches are discussed here.
 
-\subsection{Strategy for ATLAS SUSY searches}
+\subsection{Regions and Fitting}
 
 The lowest-level unit of a SUSY analysis is the \emph{region}, which is defined by a series of selection criteria or \emph{cuts} on the full 2012 dataset. These cuts may simply reject questionable or ill-understood data, e.g. in cases where parts of the detector are offline or otherwise misbehaving, or they may be designed to select a subset of events especially pure in one physical process. The regions are chosen to be statistically disjoint. Several sub-categories of regions exist:
 \begin{description}
@@ -38,14 +38,14 @@ For major background processes, the $\mu$ are allowed to float freely in the fit
 The values of $\epsilon$ and parameters describing $f$, by contrast, are derived from simulation and are represented by fixed numbers.
 The efficiency $\epsilon$ is defined as $\epsilon_{pr} = P_{pr} / T_{p}$, where $P_{pr}$ is the number of events which pass the region requirements and $T_p$ is the total number of simulated events. Both $P$ and $T$ are derived from simulation.
 
-Each of the $f_{spr}$ functions couples a parameter which fits the systematic, $\alpha_s$ to a relative variation in the event yield for the region $r$ and the and physical process $p$.
+Each of the $f_{spr}$ functions couples a parameter which fits the systematic, $\alpha_s$ to a relative variation in the event yield.
 Fixed parameters describing these couplings come in the form of an ``up'' and ``down'' variation in the systematic, computed from simulation.
-The parameters which describe these variations, $k_{spr}^{\pm}$, are computed for each physical process according to $k_{spr}^{\pm} = P^{\pm}_{spr} / T_{p}$, where the $P^{\pm}_{spr}$ are variations of $P_{pr}$ with up and down systematics $s$ applied.
+The parameters which describe these variations, $k_{spr}^{\pm}$, are defined for each physical process according to $k_{spr}^{\pm} = P^{\pm}_{spr} / T_{p}$, where the $P^{\pm}_{spr}$ are variations of $P_{pr}$ with up and down systematics $s$ applied.
 Details on the derivation of the individual systematics will be discussed in \cref{sec:systematics}.
 
-The $f$ functions\footnote{For the moment the $spr$ indices are suppressed.} are defined such that $f(\pm 1) = k^{\pm}$.
+The $f$ functions\footnote{For the moment the $spr$ indices are suppressed.} are defined such that $f(\alpha = \pm 1) = k^{\pm}$. To make this coupling a continuous function of $\alpha$, a curve is fit to these points.
 For values of $\alpha$ outside the $[-1,1]$ interval, the the functions are extrapolated as $f(\alpha) = (k^{\pm})^{|\alpha|}$, choosing $k^-$ or $k^+$ for values of $\alpha$ below and above zero, respectively.
-For values where $\alpha$ is in the $[-1,1]$ interval $f(\alpha)$ is defined by a sixth order polynomial, constrained by the requirements that $f(\alpha = 0) = 1$ and that $f$,$f'$, and $f''$ are continuous at all values of~$\alpha$.
+For values where $\alpha$ is in the $[-1,1]$ interval $f(\alpha)$ is defined by a sixth-order polynomial, constrained by the requirements that $f(\alpha = 0) = 1$ and that $f$,$f'$, and $f''$ are continuous at all values of~$\alpha$.
 It is important to note that the `$\pm$' in $k^{\pm}$ refers to the systematic variation and not to the size of the $k$ parameters; the $k^+$ are not necessarily larger than the $k^-$. If, for example, the effect of a given systematic is anti-correlated between two regions, the value of $(k^+ - k^-)$ would have opposite sign in the two regions.
 %% While the actual sign of individual $k$ parameters is unimportant (note that inverting all $\alpha$ and $k$ leaves $N_r$ unchanged).
 This flexibility coupling the $\alpha$'s to various regions and processes---with different magnitude and even opposite directions---permits more flexibility modeling systematic effects.
@@ -77,20 +77,46 @@ The search was blinded until region definitions are finalized. In practice, this
 \end{description}
 
 
-\subsection{Strategy for the $\sctoc$ Search}
+\subsection{Overview of the $\sctoc$ Search}
 
 A Feynman diagram the $\sctoc$ process is shown in \cref{fig:sctocfeyn}. For the purposes of this search, the lightest supersymmetric quark is assumed to be the $\tilde{c}$ quark. Other scalar quarks are assumed to be well above 1 TeV in mass. In this scenario, $\tilde{c}$ quarks are pair-produced from gluon splitting. The $\tilde{c}$ quarks decay to the lightest supersymmetric particle, which in this case is a neutrilino ($\neut$). After the $c$-quarks hadronize to $c$-jets and the neutrilinos leave the detector, resulting final state which includes two $c$-jets, no leptons, and $\met$.
 
 Many Standard Model processes decay to final states with two jets and $\met$.
 The most common of these is multijet production (\cref{fig:feyn-multijets}) where the energy of one jet is not measured correctly in the calorimeter.
-%% WORK DO HERE
+This mismeasurement results in $\met$ which is aligned with one of the jets.
+In the $\sctoc$ search, most of these events are removed by requiring $\met > 150 \gev$ and an angular separation in $\phi$ between $\vmet$ and the leading three jets of at least 0.4.
+Of the remaining multijet events, many are light-flavor and are thus removed by a requiring medium $c$-tags on the leading two jets.
+
 \newcommand{\feyninc}[3]{\scalebox{#1}{\input{misc/feyngen/#2}}\label{#3}}
 \begin{figure}
   \begin{center}
   \subfigure[multijet]{\feyninc{1.6}{multijet}{fig:feyn-multijets}}
-  \subfigure[$\wjets$]{\feyninc{1.6}{wjets}{fig:feyn-wjets}} \\[1cm]
-  \subfigure[$\zjets$]{\feyninc{1.6}{zjets}{fig:feyn-zjets}}
+  \subfigure[$\zjets$]{\feyninc{1.6}{zjets}{fig:feyn-zjets}} \\[1cm]
+  \subfigure[$\wjets$]{\feyninc{1.6}{wjets}{fig:feyn-wjets}}
   \subfigure[$\ttbar$]{\feyninc{1.6}{ttbar}{fig:feyn-ttbar}}
-  \caption[Feynman diagrams for Standard Model backgrounds]{Feynman diagrams for the main Standard Model backgrounds in the $\sctoc$ search. Legs that result in $\met$ are shown red.}
+  \caption[Feynman diagrams for Standard Model backgrounds]{Feynman diagrams for the main Standard Model backgrounds in the $\sctoc$ search. Legs that result in $\met$ are shown red.
+Note that jets produced from multijet production or in association with electroweak processes are drawn as gluons, but could also arise from quark-jets.}
   \end{center}
 \end{figure}
+
+Beyond multijet production several electroweak processes are also significant backgrounds.
+The most problematic of these is $\zjets$ production shown in \cref{fig:feyn-zjets}. In cases where the $Z$ boson decays to neutrinos a large fraction of the event energy is lost, resulting in large $\met$ which is uncorrelated with the associated jets. As in multijet production, this background consists mostly of light-flavor jets and can be reduced by $c$-tagging. As discussed in \cref{sec:backgrounds}, this background is difficult to remove completely, and is instead estimated carefully with a designated control region.
+
+A second electroweak background arises when $\wjets$ events decay leptonically. The $\sctoc$ signal regions are defined with a lepton veto, so theoretically such events should never be accepted. In practice the lepton is frequently outside the detector acceptance, or is misidentified as a jet (which is especially easy in the case of $\tau$ leptons); because of the momentum carried away by the neutrino these events include sizable $\met$. This background is similar to $\zjets$; it is reduced by $c$-tagging the leading two jets, but cannot be completely removed.
+
+The final major background for the $\sctoc$ search is ``semi-leptonic'' $\ttbar$, in which one $W$ boson decays to a neutrino and a lepton while the other $W$ decays hadronically (see \cref{fig:feyn-ttbar}). As in the case with $\wjets$, the lepton may fall outside the detector acceptance or be misidentified as a jet, resulting in large $\met$ and many jets. Unlike the $\wjets$ and $\zjets$ cases, however, $\ttbar$ decays almost always contain at least two $b$-jets. The $c$-tagging requirement thus removes a large fraction of these events as well.
+
+The signal regions include several additional cuts to purify the signal and remove low-quality data as discussed in \cref{sec:event-clean,sec:sr}. Of primary importance among these variables is $\mct$~\cite{mct}, defined as
+\begin{align}
+  \mct^2 &\equiv [p_\T(j_1) + p_\T(j_2)]^2 - [\vpt(j_1) - \vpt(j_2)]^2
+  \label{eq:mctdef}
+\end{align}
+where $j_1$ and $j_2$ are the highest and second-highest energy jets, respectively. This quantity has two uses. First, when pair-produced  $\scharm$ decay to $\neut + c$, $j_1$ and $j_2$ are the resulting $c$-jets and $\mct$ has an upper bound:
+\begin{align}
+  \mct < \frac{m^2_{\scharm} - m^2_{\neut}}{m_{\scharm}}.
+  \label{eq:mctlim}
+\end{align}
+This makes it a useful quantity to constrain the mass any discovered SUSY particles.
+The second use is in background discrimination. In the case of $\ttbar$ decays where $j_1$ and $j_2$ are $b$-jets, \cref{eq:mctlim} holds with $\scharm \to t$ and $\neut \to W$, and thus $\mct < 135\,\gev$ for $\ttbar$.
+Three signal regions are defined with successively higher requirements on $\mct$: $\mct > 150\,\gev$, $\mct > 200\,\gev$, and $\mct > 250\,\gev$.
+
