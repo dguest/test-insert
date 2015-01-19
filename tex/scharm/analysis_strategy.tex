@@ -1,7 +1,8 @@
 
-The general strategy \atlas\ SUSY searches has been standardized for analyses of 2012 data. As a result, a substantial fraction of the nomenclature and tools are common between most searches. These general aspects of SUSY searches are discussed here.
+The search presented in this thesis is a `cut-and-count' analysis; events in the 2012 dataset, which meet certain quality requirements (cuts) and are likely to arise from the $\sctoc$ process, are counted. In this scheme, any excess in data events over the Standard Model expectation is counted as evidence for a new physical process. Unfortunately, this simple principle grows much more complicated in practice. While Standard Model is well-tested, $\cmenergy$ $pp$ collisions are still very new, and as a result predicting Standard Model backgrounds is non-trivial. Extracting a probabilistic interpenetration from the event counts also adds another challenge. \Cref{sec:regions-and-fitting} gives an overview of the techniques used to overcome these challenges, while \cref{sec:sctoc-overview} explains the features unique to the $\sctoc$ analysis. The remaining sections in this chapter elaborate on the $\sctoc$ search.
 
 \subsection{Regions and Fitting}
+\label{sec:regions-and-fitting}
 
 The lowest-level unit of a SUSY analysis is the \emph{region}, which is defined by a series of selection criteria or \emph{cuts} on the full 2012 dataset. These cuts may simply reject questionable or ill-understood data, e.g. in cases where parts of the detector are offline or otherwise misbehaving, or they may be designed to select a subset of events especially pure in one physical process. The regions are chosen to be statistically disjoint. Several sub-categories of regions exist:
 \begin{description}
@@ -9,7 +10,8 @@ The lowest-level unit of a SUSY analysis is the \emph{region}, which is defined 
 \item[control regions] (CRs) are regions defined such that cuts enrich background processes. The role of control regions is to measure backgrounds as precisely as possible in a region where systematic uncertainties are similar to those in the signal region.
 \item[validation regions] (VRs) are regions near the signal region with similar background composition, but lacking enriched signal. These regions are used to cross-check the background constraints derived from the control regions.
 \end{description}
-Regions are populated by \emph{events}, where each event is described by a number of analysis-level variables. These variables may describe individual objects within the event, such as jets or leptons, or they may describe an aggregate of the objects (e.g. the invariant mass of several particles or the total missing transverse energy in the event). The overall \emph{event description} is depicted as the orange box in \cref{fig:analysis-flow}.
+Regions are populated by \emph{events}, where each event is described by a number of analysis-level variables. These variables may describe individual objects within the event, such as jets or leptons, or they may describe an aggregate of the objects (e.g. the invariant mass of several particles or the total missing transverse energy in the event).
+%% The overall \emph{event description} is depicted as the orange box in \cref{fig:analysis-flow}.
 
 Each region is filled several times: real data from the detector, simulated Standard Model events, and simulated signal events are overlaid in each region. With properly normalized backgrounds any new physics will appear as an excess in data events over simulated Standard Model backgrounds.
 Unfortunately, Standard Model predictions are far from perfect. Rather than rely solely on published measurements of these background processes, searches constrain major backgrounds using control regions. This approach has the added advantage of constraining systematic uncertainties when these uncertainties are similar between control and signal regions. Thus the background prediction, and uncertainty on this prediction, is calculated from an overall fit, in which the backgrounds and signal are normalized to fit with observed data, in the signal and control regions simultaneously.
@@ -69,7 +71,9 @@ Roughly speaking, $\cls$ indicates whether the signal model, when added to the s
 %%   \end{center}
 %% \end{figure}
 
-The search was blinded until region definitions are finalized. In practice, this means the search proceed in in several stages, as shown in \cref{fig:analysis-flow}. The stages of analysis are listed below.
+The search was blinded until region definitions are finalized. In practice, this means the search proceed in in several stages.
+%% as shown in \cref{fig:analysis-flow}.
+The stages of analysis are listed below.
 \begin{description}
 \item[Optimization:] The signal region is defined, beginning with basic choices such as the data stream or the number of leptons or jets required, and refining to more specific details. Signal region data, and any data kinematically close to the signal region, is not used at all in this step. Once a sufficiently pure signal region has been defined, control regions are defined for the major backgrounds. The figure of merit in the optimization process ranges from crude measures of significance, such as $s/b$ or $s/\sqrt{s + b}$ where $s$ and $b$ are the number of signal and background events, to full fits with a blinded signal region. The analysis is optimized with several signal regions to exclude (assuming no discovery) the largest possible region of SUSY parameter space.
 \item[Validation:] Once the signal and control regions are defined, the background model is ``validated'' by unblinding validation regions near the signal region. The analysis is not typically changed beyond this point.
@@ -78,6 +82,7 @@ The search was blinded until region definitions are finalized. In practice, this
 
 
 \subsection{Overview of the $\sctoc$ Search}
+\label{sec:sctoc-overview}
 
 A Feynman diagram the $\sctoc$ process is shown in \cref{fig:sctocfeyn}. For the purposes of this search, the lightest supersymmetric quark is assumed to be the $\tilde{c}$ quark. Other scalar quarks are assumed to be well above 1 TeV in mass. In this scenario, $\tilde{c}$ quarks are pair-produced from gluon splitting. The $\tilde{c}$ quarks decay to the lightest supersymmetric particle, which in this case is a neutrilino ($\neut$). After the $c$-quarks hadronize to $c$-jets and the neutrilinos leave the detector, resulting final state which includes two $c$-jets, no leptons, and $\met$.
 
