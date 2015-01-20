@@ -57,7 +57,7 @@ In the case of simulated jets, a flavor label is assigned by matching jets to ge
 
 \section{Operating Points}
 
-While the neural network produces three posterior probabilities, these sum to approximately 1 and thus contain one redundant degree of freedom. The three outputs are therefore projected into a 2-dimensional `anti-$b$' vs `anti-light' discriminant plane as shown in Fig.~\ref{tag:fig:2dcut}, where the anti-$b$ axis is defined as $\log (P_{c} / P_{b})$ and the anti-light axis as $\log (P_{c} / P_{\rm light})$; both variables are shown in Fig.~\ref{fig:1dvars}. Operating points are defined by a pair of minimum thresholds; any jet in which both the anti-light and anti-$b$ discriminants exceed the thresholds is said to be `tagged'.
+While the neural network produces three posterior probabilities, these sum to approximately 1 and thus contain one redundant degree of freedom. The three outputs are therefore projected into a 2-dimensional `anti-$b$' vs `anti-light' discriminant plane as shown in Fig.~\ref{tag:fig:2dcut}, where the anti-$b$ axis is defined as $\log (P_{c} / P_{b})$ and the anti-light axis as $\log (P_{c} / P_{\rm light})$; the variables are shown in \cref{fig:1dvars1,fig:1dvars2}. Operating points are defined by a pair of minimum thresholds; any jet in which both the anti-light and anti-$b$ discriminants exceed the thresholds is said to be `tagged'.
 
 \begin{figure}
   \begin{center}
@@ -72,9 +72,16 @@ Ridge structures arise from two features of the algorithm which concentrate valu
 \begin{figure}
   \begin{center}
     \includegraphics[width=0.9\textwidth]{anti-bottom-discriminant.pdf}
+    \caption[JetFitterCharm anti-bottom discriminant]{Distributions of the JetFitterCharm anti-bottom discriminant. The total numbers of jets of each flavor has been normalized to 1. Minimum thresholds for tagged jets are indicated by orange vertical lines. A loose or medium tag requires an anti-bottom discriminant above the threshold.}
+  \label{fig:1dvars1}
+  \end{center}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
     \includegraphics[width=0.9\textwidth]{anti-light-discriminant.pdf}
-    \caption[JetFitterCharm discriminants]{Distributions of the JetFitterCharm anti-bottom (top) and anti-light (bottom) discriminants. The total numbers of jets of each flavor has been normalized to 1. Minimum thresholds for tagged jets are indicated by orange vertical lines. A loose tag requires an anti-bottom discriminant above the threshold, whereas a medium tag requires both anti-bottom and anti-light discriminants above the indicated thresholds.}
-  \label{fig:1dvars}
+    \caption[JetFitterCharm anti-light discriminant]{Distributions of the JetFitterCharm anti-light discriminant. The total numbers of jets of each flavor has been normalized to 1. Minimum thresholds for tagged jets are indicated by orange vertical lines. A medium tag requires an anti-light discriminant above the threshold.}
+  \label{fig:1dvars2}
   \end{center}
 \end{figure}
 
@@ -116,15 +123,22 @@ The $c$-tagging efficiencies as a function of $\pt$ and $|\eta|$ for the medium 
 \begin{figure}
   \begin{center}
     \includegraphics[width=0.9\textwidth]{jfc-ctag-roc.pdf}
-    \includegraphics[width=0.9\textwidth]{rejrej-simple.pdf}
   \caption[Several ROC curves for various $b$-jet rejections]{
-    (top) JetFitterCharm light-jet rejection vs $c$-tagging efficiency, where the $b$-rejection ($1/\epsilon_b$) is held fixed.
-    (bottom) Bottom rejection vs. light rejection for constant charm-tagging efficiency. JetFitterCharm operating points select jets above a pair of thresholds in a 2-dimensional discriminant plane, thus for any $c$-tagging efficiency a range of $b$ and light rejections are possible.}
-  \label{fig:perf}
+    (top) JetFitterCharm light-jet rejection vs $c$-tagging efficiency, where the $b$-rejection ($1/\epsilon_b$) is held fixed. JetFitterCharm operating points select jets above a pair of thresholds in a 2-dimensional discriminant plane, thus for any $c$-tagging efficiency a range of $b$ and light rejections are possible.}
+  \label{fig:perf-roc}
   \end{center}
 \end{figure}
 
-The range of possible operating points is illustrated in two ways. The first, shown on the left of \cref{fig:perf}, gives the light-jet rejection as a function of $c$-jet efficiency for all possible values of the anti-light threshold ($x$-axis in \cref{tag:fig:2dcut}). In this case, the anti-$b$ threshold is adjusted to maintain a constant $b$-jet rejection. Similar information is given on the right side of \cref{fig:perf} in the form of $c$-jet constant efficiency contours in the light- vs $b$-jet rejection plane. Both figures demonstrate the trade off between $b$-jet and light-jet rejection: e.g. for constant 30\% $c$-tagging efficiency an operating point can double its $b$-jet rejection at the expense of cutting the light-jet rejection by a factor of 10.
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{rejrej-simple.pdf}
+  \caption[Light and $b$ rejection for various $c$-tagging efficiencies]{
+    Bottom rejection vs. light rejection for constant charm-tagging efficiency. JetFitterCharm operating points select jets above a pair of thresholds in a 2-dimensional discriminant plane, thus for any $c$-tagging efficiency a range of $b$ and light rejections are possible.}
+  \label{fig:perf-iso}
+  \end{center}
+\end{figure}
+
+The range of possible operating points is illustrated in two ways. The first, shown in \cref{fig:perf-roc}, gives the light-jet rejection as a function of $c$-jet efficiency for all possible values of the anti-light threshold ($x$-axis in \cref{tag:fig:2dcut}). In this case, the anti-$b$ threshold is adjusted to maintain a constant $b$-jet rejection. Similar information is given in \cref{fig:perf-iso} in the form of $c$-jet constant efficiency contours in the light- vs $b$-jet rejection plane. Both figures demonstrate the trade off between $b$-jet and light-jet rejection: e.g. for constant 30\% $c$-tagging efficiency an operating point can double its $b$-jet rejection at the expense of cutting the light-jet rejection by a factor of 10.
 
 
 %% ----------------------------- end performance ---------------
