@@ -11,32 +11,22 @@
 %% __________________________________________________________________________
 %% set up external packages
 
-
-%% \usepackage{titlesec}
-%% \titleclass{\chapter}{top}
-
-%% \usepackage{titlesec}
-%% \titleclass{\chapter}{top}
-%% \titleformat{\chapter}[display]
-%%   {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
-%% \titlespacing*{\chapter} {0pt}{50pt}{40pt}
-
 \usepackage{geometry}
 \geometry{
   letterpaper,%
   textwidth=16cm,%
-  textheight=23.2cm,%
+  %% textheight=23.2cm,%
   marginparsep=7pt,%
   marginparwidth=2.5cm%
 }
 
-%% TODO: need to fix this, things are outside the margins
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-%% \fancyhf{XXX}
-%% \lhead{\thechapter~\leftmark}
-%% \rhead{\thesection}
-%% \rfoot{\thepage}
+\fancyhf{}
+\lhead{\textsc{\thesection: \leftmark{} -- \rightmark{}}}
+\rhead{\thepage}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }%
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }%
 
 \usepackage{hyperref}
 \hypersetup{
