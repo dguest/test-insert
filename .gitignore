@@ -1,4 +1,5 @@
-/figures/
+/figures/jfc
+*.svg
 *.aux
 *.log
 *.out
