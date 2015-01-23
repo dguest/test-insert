@@ -24,7 +24,7 @@ function get-file() {
 	echo "already have $1"
     else
 	echo "getting $1..."
-	curl $2 > $1
+	curl $2 -o $1
     fi
 
     if [[ $1 == *.svg ]]; then
