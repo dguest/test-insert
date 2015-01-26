@@ -20,17 +20,21 @@ function convert-svg-to-pdf() {
 }
 
 function get-file() {
-    if [[ -f $1 ]]; then
-	echo "already have $1"
+    local BASE=$(basename $1)
+    local OUT=${2-$BASE}
+    if [[ -f $OUT ]]; then
+	echo "already have $OUT"
     else
-	echo "getting $1..."
-	curl $2 -o $1
+	echo -n "getting $1..."
+	curl -s $1 -o $OUT
+	echo "done"
     fi
 
-    if [[ $1 == *.svg ]]; then
+    if [[ $OUT == *.svg ]]; then
 	echo "converting $1 to .pdf"
-	convert-svg-to-pdf $1
+	convert-svg-to-pdf $OUT
     fi
 }
 
-get-file standard-model.svg http://upload.wikimedia.org/wikipedia/commons/4/4b/Standard_Model_of_Elementary_Particles_modified_version.svg
+get-file http://upload.wikimedia.org/wikipedia/commons/4/4b/Standard_Model_of_Elementary_Particles_modified_version.svg standard-model.svg
+get-file http://pantheon.yale.edu/~dhg3/alpha-strong.pdf

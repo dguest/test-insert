@@ -1,19 +1,47 @@
 \section{The Standard Model}
 \label{sec:standard-model}
 The Standard Model of Particle Physics (SM) unifies the string, weak, and electromagnetic forces under a single theoretical framework.
-The relationship between these forces and the known fundamental particles is depicted in \cref{fig:sm}.
-Geometrically, it is a product of the Poincar\'e group and the internal symmetries
+The known fundamental particles are shown in \cref{fig:sm}.
+Geometrically the Standard Model is a product of the Poincar\'e group and the internal gauge symmetries
 \begin{equation}
-  \mathrm{SU}(3) \otimes \mathrm{SU}(2) \otimes \mathrm{U}(1).
+  \su{3} \otimes \su{2} \otimes \mathrm{U}(1),
+  \label{eq:smgroups}
 \end{equation}
-The $\mathrm{SU}(3)$ group is the basis of the strong force, also known as quantum chromodynamics (QCD), which affects all particles with color charge, specifically the quarks and gluons.
-This 
-
+where the $\su{3}$ group is responsible for the strong force and the $\su{2}$ and $\mathrm{U}(1)$ together form the electroweak force.
 \begin{figure}
   \includegraphics[width=\textwidth]{misc/cc/standard-model.pdf}
   \caption[The Standard Model of particle physics]{The Standard Model of particle physics. Taken from Ref.~\cite{smwiki}.}
   \label{fig:sm}
 \end{figure}
+
+\subsection{The Strong Force}
+The $\su{3}$ group is the basis of the strong force, also known as quantum chromodynamics (QCD), which affects all particles with color charge (quarks and gluons).
+Under QCD, each quark carries one of six colors, referred to as \emph{red}, \emph{green}, and \emph{blue} and the corresponding anti-colors.
+The color component of the quark field can be written as
+\begin{equation}
+  \psi_{\mathrm{color}} = \left( \begin{matrix}
+    \psi_{\rm r} \\ \psi_{\rm g} \\ \psi_{\rm b}
+  \end{matrix} \right)
+\end{equation}
+where the subscripts represent the color.
+The 8 gluons form the adjoint representation of $\su{3}$ and mediate the strong force through their interactions with quarks.
+
+The strong force has several interesting features. First, no free color-charged objects exist; all quarks and gluons are bound in composite particles. When colored objects are forced apart, the connecting color fields narrow into ``flux-tubes'' of constant width and therefore don't dissipate. At some distance\footnote{The distance at which a flux-tube breaks is on the order of femtometers.} the field energy greatly exceeds the rest energy of a quark-antiquark ($q\bar{q}$) pair and the tube breaks, with one quark from the a new $q\bar{q}$ pair terminating each of the new tubes.
+A second interesting feature of the strong force is that the strong coupling weakens at higher energy scales. This ``running'' of the coupling constant is illustrated in \cref{fig:alpha-strong}.
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{misc/cc/alpha-strong.pdf}
+    \caption[The strong coupling constant $\alphas$]{The strong coupling constant $\alphas(\mathrm{Q})$, as a function of the energy scale of the interaction. Taken from Ref.~\cite{atlasalphastrong}.}
+    \label{fig:alpha-strong}
+  \end{center}
+\end{figure}
+
+This behavior has important implications in hadron colliders.
+When quarks within protons ``hard scatter'' (i.e. transfer a large amount of momentum via the electroweak force), some energy is transferred into color fields, which subsequently fragment into a \emph{jet} of color-neutral hadrons. QCD is a notoriously difficult theory to work with, especially at lower energies where $\alphas$ grows so large that perturbative calculations are impossible. Fortunately, at LHC energies $\alphas$ is small enough to be modeled perturbatively. Even so, modeling jets accurately is an ongoing challenge; several algorithms~\cite{pythiatheory,herwigpretheory} have been developed for this purpose and generally give slightly different predictions.
+
+\subsection{The Electroweak Force}
+
+The electroweak force is modeled by the $\su{2} \otimes \mathrm{U}(1)$ component of \cref{eq:smgroups}.
 
 Should cite~\cite{ewuv,ewgaugeinvariance,weakinthev}.
 
