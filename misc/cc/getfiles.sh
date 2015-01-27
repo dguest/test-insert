@@ -25,16 +25,16 @@ function get-file() {
     if [[ -f $OUT ]]; then
 	echo "already have $OUT"
     else
-	echo -n "getting $1..."
+	echo -n "getting $OUT..."
 	curl -s $1 -o $OUT
 	echo "done"
     fi
 
     if [[ $OUT == *.svg ]]; then
-	echo "converting $1 to .pdf"
+	echo "converting $OUT to .pdf"
 	convert-svg-to-pdf $OUT
     fi
 }
 
 get-file http://upload.wikimedia.org/wikipedia/commons/4/4b/Standard_Model_of_Elementary_Particles_modified_version.svg standard-model.svg
-get-file http://pantheon.yale.edu/~dhg3/alpha-strong.pdf
+get-file http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2013-041/fig_06.pdf alpha-strong.pdf
