@@ -76,45 +76,51 @@ where the sums are over all left or right handed fermions. The two gauge field s
  B_{\mu\nu} &= \partial_\mu B_\nu + \partial_\nu B_\mu,
 \end{align}
 where $g$ is the $\su{2}$ gauge coupling constant, and the $f^{abc}$ are the (totally antisymmetric) structure constants for $\su{2}$.
-The right-handed and left-handed lepton couplings in equation \cref{eq:shittysm} are separated to emphasize that they are fundamentally different particles. This is especially clear from the covenant derivatives $\slashed{D}_{\mathrm{L}}$ and $\slashed{D}_{\mathrm{R}}$:
+Right- and left-handed lepton couplings in equation \cref{eq:shittysm} are separated to emphasize that they are fundamentally different particles. This is especially clear from the covariant derivatives $\slashed{D}_{\mathrm{L}}$ and $\slashed{D}_{\mathrm{R}}$:
 \begin{align}
   \slashed{D}_{\mathrm{L}} &= \gamma^{\mu} \left(\partial_\mu -
-  i g \frac{1}{4} \sigma^a A^a_\mu  - i g' \frac{1}{2} Y B_\mu \right) &
+  i g \frac{\sigma^a}{2} A^a_\mu  - i g' Y B_\mu \right) &
   \slashed{D}_{\mathrm{R}} &= \gamma^{\mu} \left( \partial_\mu -
-  i g' \frac{1}{2} Y B_\mu \right)
+  i g' Y B_\mu \right)
+  \label{eq:su2cov}
 \end{align}
 where $Y$ is the \emph{hypercharge}, and is a constant which depends on the lepton and handedness. In the right-handed case the fermions couple only to the $B_\mu$ field with a strength proportional to $g'$. In the left-handed case, the fermion doublet gains an additional coupling of the form $\bar{\psi}_{\mathrm{L}}\sigma^a A^a_{\mu}\psi_{\mathrm{L}}$, where the $\sigma^a$ are the Pauli matrices. Thus the two components of $\psi_{\mathrm{L}}$ are mixed by the $A^a_{\mu}$ fields.
 
-So far, $\mathcal{L}_\psi$ has some nice properties. In addition to modeling the weak interaction by mixing up-type with down-type quarks, and charged leptons with neutrinos, it is (almost) a superset of quantum electrodynamics if $g$ is set to zero. Conspicuously missing, however, is any mass term.
+The lagrangian $\mathcal{L}_\psi$ has some nice properties: it can model the weak interaction by mixing up-type with down-type quarks, and charged leptons with neutrinos; and it is (almost) a superset of quantum electrodynamics (QED) if $g$ is set to zero. On the other hand, mass terms are conspicuously missing. Terms of the form $m \bar{\psi} \psi$, $m^2 A^{a\mu} A^a_\mu$, or $m^2 B^\mu B_\mu$ will break $\su{2}$ gauge invariance, so some other solution is needed.
 
-%% While the right-handed and left-handed lepton couplings look identical in \cref{eq:shittysm}, 
-
-where the sum is over the 
-
-
-Modeling these interactions in any sensible way requires the Higgs field, which takes the form of a complex doublet. This gives the field four degrees of freedom at every point in space:
-\begin{equation}
-  \phi = \begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}.
-\end{equation}
-The Standard Model 
-
-The electroweak force arises by  $\su{2} \otimes \mathrm{U}(1)$ component of \cref{eq:smgroups}.
-
-Should cite~\cite{ewuv,ewgaugeinvariance,weakinthev}.
-
-Discuss how the standard model makes accurate predictions of phenomena: it's not supposed to explain everything.
-\subsection{Electromagnetism}
-
-This should still make sense for grandma.
-
-Discuss visible matter: chemistry comes from quarks and electrons. Introduce Electromagnetic force.
-
-It stops making sense for grandma here. Introduce QED and feynman diagrams informally.
-
-\subsection{$W$ and $Z$ Bosons}
-Start with electromagnetic force, move into weak interactions. Maybe mention UV divergence of Fermi interaction as justification for W and Z bosons.
 \subsection{The Higgs Field}
-Simplest possible explanation as to why we need a Higgs.
 
-Talk about mass corrections from the top quark.
+Adding mass interactions to $\mathcal{L}_\psi$ in any sensible way requires the Higgs field, which takes the form of a complex doublet. This gives the field four degrees of freedom at every point in space:
+\begin{equation}
+  \phi = \frac{1}{\sqrt{2}} \begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}.
+\end{equation}
+This field can be coupled to the $\su{2} \otimes \mathrm{U}(1)$ gauge fields through the covariant derivative as in \cref{eq:su2cov}.
+ %% by defining the covariant derivative
+%% \begin{equation}
+%%   D_\mu = \partial_\mu - i g A^a_{\mu} \frac{\sigma^a}{2} - i g' Y B_{\mu}
+%% \end{equation}
+
+\begin{itemize}
+\item show the higgs potential
+\item explain symmetry breaking
+\item Should cite~\cite{ewuv,ewgaugeinvariance,weakinthev}.
+\item List mass parts of the lagrangian after symmetry breaking
+\item possibly explain how Yukawa coupling gives rise to CKM matrix
+\end{itemize}
+
+%% Discuss how the standard model makes accurate predictions of phenomena: it's not supposed to explain everything.
+%% \subsection{Electromagnetism}
+
+%% This should still make sense for grandma.
+
+%% Discuss visible matter: chemistry comes from quarks and electrons. Introduce Electromagnetic force.
+
+%% It stops making sense for grandma here. Introduce QED and feynman diagrams informally.
+
+%% \subsection{$W$ and $Z$ Bosons}
+%% Start with electromagnetic force, move into weak interactions. Maybe mention UV divergence of Fermi interaction as justification for W and Z bosons.
+%% \subsection{The Higgs Field}
+%% Simplest possible explanation as to why we need a Higgs.
+
+%% Talk about mass corrections from the top quark.
 
