@@ -47,19 +47,58 @@ Experimentally, effects from this deviation are some of the largest sources of s
 
 \subsection{The Electroweak Force}
 
-The electroweak force couples to all Standard Model fermions (quarks and leptons). Left-handed fermions must couple to the weak interaction, and are arranged in doublets, while the right-handed fermions are singlets:
+The electroweak force couples to all Standard Model fermions. There are 12 fermions; 6 quarks and 6 leptons, arranged in three successively heavier \emph{generations}. Each generation contains 4 particles: a charged lepton (e.g. an electron), a neutrino, an up-type quark, and a down-type quark. Weak interactions couple left-handed charged leptons to neutrinos and left-handed up-type quarks to down-type quarks. The left-handed leptons are thus arranged in doublets, while the right-handed fermions are singlets:\footnote{Some form of right-handed neutrino must exist to give the neutrinos their small mass, but is omitted from the standard model because the coupling mechanism is not precisely known.}
 \begin{align}
-  \text{leptons:} &
+  \text{leptons:}\quad &
   \left(\begin{matrix} e_{\mathrm{L}} \\ \nu_{\mathrm{L}} \end{matrix} \right),
   e_{\mathrm{R}}
   &
-  \text{quarks:} &
+  \text{quarks:}\quad &
   \left(\begin{matrix} u_{\mathrm{L}} \\ d_{\mathrm{L}} \end{matrix} \right),
   u_{\mathrm{R}}, d_{\mathrm{R}}.
 \end{align}
-There are three families of electrons ($e$), neutrinos ($\nu$) and up-type ($u$) and down-type ($d$) quarks. Some form of right-handed neutrino must exist to give the neutrinos their small mass, but is omitted from the standard model because the coupling mechanism is not precisely known.
+In what follows $\psi_{\mathrm{L}}$ and $\psi_{\mathrm{R}}$ represent generic left-handed doublets and right-handed singlets, respectively.
 
-  The electroweak force is modeled by the $\su{2} \otimes \mathrm{U}(1)$ component of \cref{eq:smgroups}.
+%% With all the fermions in place, we could now derive a full theory by requiring local $\su{2} \otimes \mathrm{U}(1)$ gauge symmetry, which would naturally give rise to gauge bosons and something resembling  could
+Fermions interact via the exchange of gauge bosons, which arise by requiring  a local $\su{2} \otimes \mathrm{U}(1)$ gauge symmetry.
+A Lagrangian for these interactions can be written as
+\begin{equation}
+  \mathcal{L}_{\psi} = \frac{1}{4} F^{a \mu \nu}F^a_{\mu \nu} +
+  \frac{1}{4}B^{\mu \nu}B_{\mu \nu} +
+  \sum_{\mathrm{L}} \bar{\psi}_{\mathrm{L}} i \slashed{D}_{\mathrm{L}} \psi_{\mathrm{L}} +
+  \sum_{\mathrm{R}} \bar{\psi}_{\mathrm{R}} i \slashed{D}_{\mathrm{R}} \psi_{\mathrm{R}}
+  \label{eq:shittysm}
+\end{equation}
+where the sums are over all left or right handed fermions. The two gauge field strength tensors, $F^{a}_{\mu\nu}$ and $B_{\mu \nu}$,  correspond to the $\su{2}$ and $\mathrm{U}(1)$ symmetries, and are defined by
+\begin{align}
+ F^{a}_{\mu\nu} &= \partial_\mu A^{a}_\nu - \partial_\nu A^{a}_\mu +
+ g f^{abc} A^b_\mu A^c_\nu &
+ B_{\mu\nu} &= \partial_\mu B_\nu + \partial_\nu B_\mu,
+\end{align}
+where $g$ is the $\su{2}$ gauge coupling constant, and the $f^{abc}$ are the (totally antisymmetric) structure constants for $\su{2}$.
+The right-handed and left-handed lepton couplings in equation \cref{eq:shittysm} are separated to emphasize that they are fundamentally different particles. This is especially clear from the covenant derivatives $\slashed{D}_{\mathrm{L}}$ and $\slashed{D}_{\mathrm{R}}$:
+\begin{align}
+  \slashed{D}_{\mathrm{L}} &= \gamma^{\mu} \left(\partial_\mu -
+  i g \frac{1}{4} \sigma^a A^a_\mu  - i g' \frac{1}{2} Y B_\mu \right) &
+  \slashed{D}_{\mathrm{R}} &= \gamma^{\mu} \left( \partial_\mu -
+  i g' \frac{1}{2} Y B_\mu \right)
+\end{align}
+where $Y$ is the \emph{hypercharge}, and is a constant which depends on the lepton and handedness. In the right-handed case the fermions couple only to the $B_\mu$ field with a strength proportional to $g'$. In the left-handed case, the fermion doublet gains an additional coupling of the form $\bar{\psi}_{\mathrm{L}}\sigma^a A^a_{\mu}\psi_{\mathrm{L}}$, where the $\sigma^a$ are the Pauli matrices. Thus the two components of $\psi_{\mathrm{L}}$ are mixed by the $A^a_{\mu}$ fields.
+
+So far, $\mathcal{L}_\psi$ has some nice properties. In addition to modeling the weak interaction by mixing up-type with down-type quarks, and charged leptons with neutrinos, it is (almost) a superset of quantum electrodynamics if $g$ is set to zero. Conspicuously missing, however, is any mass term.
+
+%% While the right-handed and left-handed lepton couplings look identical in \cref{eq:shittysm}, 
+
+where the sum is over the 
+
+
+Modeling these interactions in any sensible way requires the Higgs field, which takes the form of a complex doublet. This gives the field four degrees of freedom at every point in space:
+\begin{equation}
+  \phi = \begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}.
+\end{equation}
+The Standard Model 
+
+The electroweak force arises by  $\su{2} \otimes \mathrm{U}(1)$ component of \cref{eq:smgroups}.
 
 Should cite~\cite{ewuv,ewgaugeinvariance,weakinthev}.
 
