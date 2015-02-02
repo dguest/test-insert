@@ -63,7 +63,7 @@ In what follows $\psi_{\mathrm{L}}$ and $\psi_{\mathrm{R}}$ represent generic le
 Fermions interact via the exchange of gauge bosons, which arise by requiring  a local $\su{2} \otimes \mathrm{U}(1)$ gauge symmetry.
 A Lagrangian for these interactions can be written as
 \begin{equation}
-  \mathcal{L}_{\psi} = \frac{1}{4} F^{a \mu \nu}F^a_{\mu \nu} +
+  \mathcal{L}_{\psi} = -\frac{1}{4} F^{a \mu \nu}F^a_{\mu \nu} -
   \frac{1}{4}B^{\mu \nu}B_{\mu \nu} +
   \sum_{\mathrm{L}} \bar{\psi}_{\mathrm{L}} i \slashed{D}_{\mathrm{L}} \psi_{\mathrm{L}} +
   \sum_{\mathrm{R}} \bar{\psi}_{\mathrm{R}} i \slashed{D}_{\mathrm{R}} \psi_{\mathrm{R}}
@@ -99,10 +99,34 @@ The full SM Lagrangian, complete with the Higgs field, can be written as
 \begin{equation}
   \mathcal{L}_{\mathrm{SM}} = \mathcal{L}_{\psi} + \mathcal{L}_{\phi} + \mathcal{L}_{\mathrm{Yuc}}
 \end{equation}
-where $\mathcal{L}_{\psi}$ is the piece given in \cref{eq:shittysm}. The first new piece, $\mathcal{L}_{\phi}$, describes the Higgs field and its interactions with the gauge bosons. The final piece is $\mathcal{L}_{\mathrm{Yuk}}$, which gives the \emph{Yukawa} couplings between the Higgs and the fermions and is responsible for fermion masses.
+where $\mathcal{L}_{\psi}$ is given in \cref{eq:shittysm}. The first new term, $\mathcal{L}_{\phi}$, describes the Higgs field and its interactions with the gauge bosons. The last term, $\mathcal{L}_{\mathrm{Yuk}}$, gives the \emph{Yukawa} couplings between the Higgs and the fermions and is responsible for fermion masses.
 
-Starting with 
-This field can be coupled to the $\su{2} \otimes \mathrm{U}(1)$ gauge fields through the covariant derivative as in \cref{eq:su2cov}.
+The Higgs field Lagrangian $\mathcal{L}_{\phi}$ can be written as two terms, a kinetic term and a potential $V(\phi)$:
+\begin{equation}
+  \mathcal{L}_{\phi} = \underbrace{|D_{\mu} \phi|^2}_{\text{kinetic}} -V(\phi).
+\end{equation}
+In the kinetic term, the covariant derivative is similar to that in \cref{eq:su2cov}:
+\begin{equation}
+  D_{\mu} = \partial_\mu - i g \frac{\sigma^a}{2} A^a_\mu  - i g' \frac{1}{2} B_\mu,
+\end{equation}
+where $Y$ has been set to $1/2$, since only one SM Higgs field exists in the SM.\footnote{Here the hypercharge convention where $Q = \sigma^3/2 + Y$, where $Q$ is the overall charge, is used.}
+The potential term $V(\phi)$ is given by
+\begin{equation}
+  V(\phi) = - \mu^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2,
+\end{equation}
+where both $\mu$ and $\lambda$ are strictly positive.
+As a result of the negative quadratic term in $V(\phi)$, the Higgs field is unstable at $|\phi| = 0$. This leads to so-called ``spontaneous symmetry breaking''; the Higgs field will settle to the classical ground state $\langle \phi \rangle^2 = \mu^2 / \lambda$.
+It is important to note that no symmetries are actually harmed in this process---the Lagrangian is still perfectly invariant under local $\su{2} \otimes \mathrm{U}(1)$ gauge transformations---the spontaneously broken field has merely a acquired a vacuum expectation value (VEV).
+
+The connection between this VEV and the SM particle masses becomes more explicit when the gauge is fixed. For the sake of first-order (tree-level) expansions, a convenient choice is the \emph{unitary} gauge. For all values of $\phi$, there exists some transformation in $\su{2} \otimes \mathrm{U}(1)$ such that
+\begin{equation}
+  \phi = \begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}
+  \quad \Longrightarrow \quad
+  \phi' = \begin{pmatrix} 0 \\ v + H \end{pmatrix}
+\end{equation}
+where $v = \sqrt{\mu^2 / \lambda}$ is the VEV, and $H \in \mathbb{R}$
+is the final remaining degree of freedom. With $\phi$ rewritten in this way, nonzero values of $H$ correspond to excitations in the Higgs field, i.e. the Higgs boson.
+%% To illustrate this, it 
  %% by defining the covariant derivative
 %% \begin{equation}
 %%   D_\mu = \partial_\mu - i g A^a_{\mu} \frac{\sigma^a}{2} - i g' Y B_{\mu}
