@@ -63,7 +63,7 @@ In what follows $\psi_{\mathrm{L}}$ and $\psi_{\mathrm{R}}$ represent generic le
 Fermions interact via the exchange of gauge bosons, which arise by requiring  a local $\su{2} \otimes \mathrm{U}(1)$ gauge symmetry.
 A Lagrangian for these interactions can be written as
 \begin{equation}
-  \mathcal{L}_{\psi} = -\frac{1}{4} F^{a \mu \nu}F^a_{\mu \nu} -
+  \lagr_{\psi} = -\frac{1}{4} F^{a \mu \nu}F^a_{\mu \nu} -
   \frac{1}{4}B^{\mu \nu}B_{\mu \nu} +
   \sum_{\mathrm{L}} \bar{\psi}_{\mathrm{L}} i \slashed{D}_{\mathrm{L}} \psi_{\mathrm{L}} +
   \sum_{\mathrm{R}} \bar{\psi}_{\mathrm{R}} i \slashed{D}_{\mathrm{R}} \psi_{\mathrm{R}}
@@ -86,24 +86,25 @@ Right- and left-handed lepton couplings in equation \cref{eq:shittysm} are separ
 \end{align}
 where $Y$ is the \emph{hypercharge}, and is a constant which depends on the lepton and handedness. In the right-handed case the fermions couple only to the $B_\mu$ field with a strength proportional to $g'$. In the left-handed case, the fermion doublet gains an additional coupling of the form $\bar{\psi}_{\mathrm{L}}\sigma^a A^a_{\mu}\psi_{\mathrm{L}}$, where the $\sigma^a$ are the Pauli matrices. Thus the two components of $\psi_{\mathrm{L}}$ are mixed by the $A^a_{\mu}$ fields.
 
-The lagrangian $\mathcal{L}_\psi$ has some nice properties: it can model the weak interaction by mixing up-type with down-type quarks, and charged leptons with neutrinos; and it is (almost) a superset of quantum electrodynamics (QED) if $g$ is set to zero. On the other hand, mass terms are conspicuously missing. Terms of the form $m \bar{\psi} \psi$, $m^2 A^{a\mu} A^a_\mu$, or $m^2 B^\mu B_\mu$ will break $\su{2}$ gauge invariance, so some other solution is needed.
+The lagrangian $\lagr_\psi$ has some nice properties: it can model the weak interaction by mixing up-type with down-type quarks, and charged leptons with neutrinos; and it is (almost) a superset of quantum electrodynamics (QED) if $g$ is set to zero. On the other hand, mass terms are conspicuously missing. Terms of the form $m \bar{\psi} \psi$, $m^2 A^{a\mu} A^a_\mu$, or $m^2 B^\mu B_\mu$ will break $\su{2}$ gauge invariance, so some other solution is needed.
 
 \subsection{The Higgs Field}
 
-Adding mass interactions to $\mathcal{L}_\psi$ in any sensible way requires the Higgs field, which takes the form of a complex doublet. This gives the field four degrees of freedom at every point in space:
+Adding mass interactions to $\lagr_\psi$ in any sensible way requires the Higgs field, which takes the form of a complex doublet. This gives the field four degrees of freedom at every point in space:
 \begin{equation}
   \phi = \frac{1}{\sqrt{2}} \begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}.
 \end{equation}
 With the Higgs field, mass-like terms can be added to the Lagrangian without breaking gauge-invariance.
 The full SM Lagrangian, complete with the Higgs field, can be written as
 \begin{equation}
-  \mathcal{L}_{\mathrm{SM}} = \mathcal{L}_{\psi} + \mathcal{L}_{\phi} + \mathcal{L}_{\mathrm{Yuc}}
+  \lagr_{\mathrm{SM}} = \lagr_{\psi} + \lagr_{\phi} + \lagr_{\mathrm{Yuc}}
 \end{equation}
-where $\mathcal{L}_{\psi}$ is given in \cref{eq:shittysm}. The first new term, $\mathcal{L}_{\phi}$, describes the Higgs field and its interactions with the gauge bosons. The last term, $\mathcal{L}_{\mathrm{Yuk}}$, gives the \emph{Yukawa} couplings between the Higgs and the fermions and is responsible for fermion masses.
+where $\lagr_{\psi}$ is given in \cref{eq:shittysm}. The first new term, $\lagr_{\phi}$, describes the Higgs field and its interactions with the gauge bosons. The last term, $\lagr_{\mathrm{Yuk}}$, gives the \emph{Yukawa} couplings between the Higgs and the fermions and is responsible for fermion masses.
 
-The Higgs field Lagrangian $\mathcal{L}_{\phi}$ can be written as two terms, a kinetic term and a potential $V(\phi)$:
+The Higgs field Lagrangian $\lagr_{\phi}$ can be written as two terms, a kinetic term and a potential $V(\phi)$:
 \begin{equation}
-  \mathcal{L}_{\phi} = \underbrace{|D_{\mu} \phi|^2}_{\text{kinetic}} -V(\phi).
+  \lagr_{\phi} = \underbrace{|D_{\mu} \phi|^2}_{\text{kinetic}} -V(\phi).
+  \label{eq:lhiggs}
 \end{equation}
 In the kinetic term, the covariant derivative is similar to that in \cref{eq:su2cov}:
 \begin{equation}
@@ -113,6 +114,7 @@ where $Y$ has been set to $1/2$, since only one SM Higgs field exists in the SM.
 The potential term $V(\phi)$ is given by
 \begin{equation}
   V(\phi) = - \mu^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2,
+  \label{eq:vhiggs}
 \end{equation}
 where both $\mu$ and $\lambda$ are strictly positive.
 As a result of the negative quadratic term in $V(\phi)$, the Higgs field is unstable at $|\phi| = 0$. This leads to so-called ``spontaneous symmetry breaking''; the Higgs field will settle to the classical ground state $\langle \phi \rangle^2 = \mu^2 / \lambda$.
@@ -125,7 +127,19 @@ The connection between this VEV and the SM particle masses becomes more explicit
   \phi' = \begin{pmatrix} 0 \\ v + H \end{pmatrix}
 \end{equation}
 where $v = \sqrt{\mu^2 / \lambda}$ is the VEV, and $H \in \mathbb{R}$
-is the final remaining degree of freedom. With $\phi$ rewritten in this way, nonzero values of $H$ correspond to excitations in the Higgs field, i.e. the Higgs boson.
+is the final remaining degree of freedom. With $\phi$ rewritten in this way nonzero values of $H$ correspond to excitations in the Higgs field, i.e. the Higgs boson.
+
+In the unitary gauge with $H = 0$, the individual $A^a_\mu$ and $B_\mu$ fields are no longer mass eigenstates of \cref{eq:lhiggs}. The new mass eigenstates are
+\begin{align}
+  W^\pm_\mu &= \frac{1}{\sqrt{2}} \left(A_{\mu}^1 \mp i A_\mu^2\right) \\
+  Z_\mu &= \frac{1}{\sqrt{g^2 + {g'}^2}} \left( g A_\mu^3 - g' B_\mu \right) \\
+  A_\mu &= \frac{1}{\sqrt{g^2 + {g'}^2}} \left( g' A_\mu^3 + g B_\mu \right).
+\end{align}
+Substituting these fields into \cref{eq:lhiggs}, the Higgs field lagrangian is
+\begin{equation}
+  \mathscr{L}_{\phi} = 
+\end{equation}
+
 %% To illustrate this, it 
  %% by defining the covariant derivative
 %% \begin{equation}
