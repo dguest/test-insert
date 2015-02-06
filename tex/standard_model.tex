@@ -97,7 +97,7 @@ Adding mass interactions to $\lagr_\psi$ in any sensible way requires the Higgs 
 With the Higgs field, mass-like terms can be added to the Lagrangian without breaking gauge-invariance.
 The full SM Lagrangian, complete with the Higgs field, can be written as
 \begin{equation}
-  \lagr_{\mathrm{SM}} = \lagr_{\psi} + \lagr_{\phi} + \lagr_{\mathrm{Yuc}}
+  \lagr_{\mathrm{SM}} = \lagr_{\psi} + \lagr_{\phi} + \lagr_{\mathrm{Yuk}}
 \end{equation}
 where $\lagr_{\psi}$ is given in \cref{eq:shittysm}. The first new term, $\lagr_{\phi}$, describes the Higgs field and its interactions with the gauge bosons. The last term, $\lagr_{\mathrm{Yuk}}$, gives the \emph{Yukawa} couplings between the Higgs and the fermions and is responsible for fermion masses.
 
@@ -122,9 +122,9 @@ It is important to note that no symmetries are actually harmed in this process--
 
 The connection between this VEV and the SM particle masses becomes more explicit when the gauge is fixed. For the sake of first-order (tree-level) expansions, a convenient choice is the \emph{unitary} gauge. For all values of $\phi$, there exists some transformation in $\su{2} \otimes \mathrm{U}(1)$ such that
 \begin{equation}
-  \phi = \begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}
+  \phi = \frac{1}{\sqrt{2}}\begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}
   \quad \Longrightarrow \quad
-  \phi' = \begin{pmatrix} 0 \\ v + H \end{pmatrix}
+  \phi' = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + H \end{pmatrix}
 \end{equation}
 where $v = \sqrt{\mu^2 / \lambda}$ is the VEV, and $H \in \mathbb{R}$
 is the final remaining degree of freedom. With $\phi$ rewritten in this way nonzero values of $H$ correspond to excitations in the Higgs field, i.e. the Higgs boson.
@@ -135,10 +135,32 @@ In the unitary gauge with $H = 0$, the individual $A^a_\mu$ and $B_\mu$ fields a
   Z_\mu &= \frac{1}{\sqrt{g^2 + {g'}^2}} \left( g A_\mu^3 - g' B_\mu \right) \\
   A_\mu &= \frac{1}{\sqrt{g^2 + {g'}^2}} \left( g' A_\mu^3 + g B_\mu \right).
 \end{align}
-Substituting these fields into \cref{eq:lhiggs}, the Higgs field lagrangian is
+These first two fields are the familiar $W$ and $Z$ bosons, while the last is the photon. Substituting these fields into \cref{eq:lhiggs}, the Higgs field lagrangian is
 \begin{equation}
-  \mathscr{L}_{\phi} = 
+  \mathscr{L}_{\phi} =
+  - \frac{1}{2} \partial^\mu H \partial_\mu H
+  + \left(\frac{v^2g^2}{4} W^{+\mu}W^-_\mu +
+  v^2 \frac{g^2 + {g'}^2}{8} Z^\mu Z_\mu \right) \left(1 + \frac{H}{v} \right)^2
+  - V(\phi)
+  \label{eq:lew}
 \end{equation}
+where, in this gauge
+\begin{equation}
+  V(\phi) = \lambda \left(\frac{1}{4} H^4 + v H^3 + v^2 H^2 - \frac{1}{4} v^4 \right).
+  \label{eq:higgs}
+\end{equation}
+The last term does not couple to any fields and is thus a non-physical artifact. From \cref{eq:lew}, the masses of the $W$ and $Z$ bosons are given by
+\begin{align}
+  m_{W} &= \frac{v g}{2}  &
+  m_{Z} &= \frac{v\sqrt{g^2 + {g'}^2}}{2} = \frac{m_{W}}{\cos \theta_W}
+\end{align}
+where $\theta_W$ is the \emph{weak mixing angle} defined as $\theta_W = \tan ^{-1} (g'/g)$.
+This simple set of parameters, $g$, $g'$, and $v$, which govern both the gauge boson masses and their coupling to fermions is one of the most remarkable successes of the standard model. In every observable parameter theory and experiment are in perfect agreement.
+
+Contrasting from the perfect crystalline beauty of the gauge bosons, the Higgs boson mass and couplings are still rather \emph{ad hoc}. From \cref{eq:higgs}, the Higgs mass is given by $m_{H} = \lambda v^2$, where $\lambda$ is a free parameter which appears nowhere else in the standard model. In addition, since the $H^3$ and $H^4$ couplings remain untested the shape of the Higgs potential is unconfirmed beyond the first order.
+
+%% With only three parameters---$g$, $g'$, and $v$---the standard model is able to predict the $W$ and $Z$ boson masses, in addition to  \emph{and} the photon with the fermions, all with only three parameters.
+
 
 %% To illustrate this, it 
  %% by defining the covariant derivative
