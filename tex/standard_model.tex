@@ -157,15 +157,27 @@ The last term does not couple to any fields and is thus a non-physical artifact.
 where $\theta_W$ is the \emph{weak mixing angle} defined as $\theta_W = \tan ^{-1} (g'/g)$.
 This simple set of parameters, $g$, $g'$, and $v$, which govern both the gauge boson masses and their coupling to fermions is one of the most remarkable successes of the standard model. In every observable parameter theory and experiment are in perfect agreement.
 
-Contrasting from the rigid simplicity of the gauge bosons, the Higgs boson mass and couplings are still rather \emph{ad hoc}. From \cref{eq:higgs}, the Higgs mass is given by $m_{H} = \lambda v^2$, where $\lambda$ is a free parameter which appears nowhere else in the standard model. In addition, since the $H^3$ and $H^4$ couplings remain untested the shape of the Higgs potential is unconfirmed beyond the first order. Many more \emph{ad hoc} parameters enter into the SM when mass terms are added to the fermions in the form of Yukawa couplings.
-
+Contrasting from the relatively simple structure of the gauge bosons, the Higgs boson mass and couplings rely on a number of \emph{ad hoc} parameters.
 The Yukawa interactions couple the Higgs field to fermions, as described in the final component of the SM lagrangian
 \begin{equation}
   \lagr_{\mathrm{Yuk}} =
-  - \Gamma^u_{mn} \bar{q}_{m \mathrm{L}} \tilde{\phi} u_{n\mathrm{R}}
-  - \Gamma^d_{mn} \bar{q}_{m \mathrm{L}} \phi d_{n\mathrm{R}}
-  - \Gamma^e_{mn} \bar{\ell}_{m \mathrm{L}} \phi e_{n\mathrm{R}}
+  - \Gamma^u_{mn} \bar{q}_{\mathrm{L} m} \tilde{\phi} u_{\mathrm{R}n}
+  - \Gamma^d_{mn} \bar{q}_{\mathrm{L} m} \phi d_{\mathrm{R}n}
+  - \Gamma^e_{mn} \bar{\ell}_{\mathrm{L} m} \phi e_{\mathrm{R}n}
 \end{equation}
+%% where $q_{\mathrm{L}}$ is the left-handed quark doublet, $u_{\mathrm{R}}$ and $d_{\mathrm{L}}$ are the up and down right-handed quark singlets, $\ell_{\mathrm{L}}$ is the left-handed lepton doublet, and $e_{\mathrm{R}}$ is the right-handed lepton doublet.
+where $\tilde{\phi}_i \equiv \epsilon_{ij} \phi_j^*$ ($\epsilon_{ij}$ is the fully antisymmetric tensor) and the $\Gamma_{mn}$ matrices denote the couplings among the three generations. These matrices are singlehandedly responsible for breaking the otherwise perfect generational symmetry. As such, the fermion fields can be redefined to diagonalize the $\Gamma$ matrices in terms of mass matrices:
+\begin{equation}
+  M^f = \frac{v}{\sqrt{2}} V^f_{\mathrm{L}} \Gamma^f V^f_{\mathrm{R}}
+\end{equation}
+
+
+
+Far more suspicion surrounds $\lambda$ in \cref{eq:higgs}, which is proportional to the Higgs mass through $m_{H} = \lambda v^2$. Couplings between the Higgs and the fermions lead to an enormous gulf between the bare and dressed masses.
+Being a free parameter, $\lambda$ can be adjusted to correct the dressed Higgs mass, but this adjustment is roughly 30 orders of magnitude larger than the dressed Higgs mass. This correction is generally seen as ``unnatural'': evidence that unseen particles are at play.
+The $H^3$ and $H^4$ couplings also remain untested; the shape of the Higgs potential is unconfirmed beyond the first order.
+%% Many more \emph{ad hoc} parameters enter into the SM when mass terms are added to the fermions in the form of Yukawa couplings.
+
 
 %% With only three parameters---$g$, $g'$, and $v$---the standard model is able to predict the $W$ and $Z$ boson masses, in addition to  \emph{and} the photon with the fermions, all with only three parameters.
 
