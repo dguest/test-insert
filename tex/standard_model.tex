@@ -110,7 +110,7 @@ In the kinetic term, the covariant derivative is similar to that in \cref{eq:su2
 \begin{equation}
   D_{\mu} = \partial_\mu - i g \frac{\sigma^a}{2} A^a_\mu  - i g' \frac{1}{2} B_\mu,
 \end{equation}
-where $Y$ has been set to $1/2$, since only one SM Higgs field exists in the SM.\footnote{Here the hypercharge convention where $Q = \sigma^3/2 + Y$, where $Q$ is the overall charge, is used.}
+where $Y$ has been set to $1/2$, since only one Higgs field exists in the SM.\footnote{Here the hypercharge convention where $Q = \sigma^3/2 + Y$, where $Q$ is the overall charge, is used.}
 The potential term $V(\phi)$ is given by
 \begin{equation}
   V(\phi) = - \mu^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2,
@@ -124,7 +124,7 @@ The connection between this VEV and the SM particle masses becomes more explicit
 \begin{equation}
   \phi = \frac{1}{\sqrt{2}}\begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}
   \quad \Longrightarrow \quad
-  \phi' = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + H \end{pmatrix}
+  \phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + H \end{pmatrix}
 \end{equation}
 where $v = \sqrt{\mu^2 / \lambda}$ is the VEV, and $H \in \mathbb{R}$
 is the final remaining degree of freedom. With $\phi$ rewritten in this way nonzero values of $H$ correspond to excitations in the Higgs field, i.e. the Higgs boson.
@@ -157,25 +157,70 @@ The last term does not couple to any fields and is thus a non-physical artifact.
 where $\theta_W$ is the \emph{weak mixing angle} defined as $\theta_W = \tan ^{-1} (g'/g)$.
 This simple set of parameters, $g$, $g'$, and $v$, which govern both the gauge boson masses and their coupling to fermions is one of the most remarkable successes of the standard model. In every observable parameter theory and experiment are in perfect agreement.
 
+\subsection{Yukawa Couplings and the CKM Matrix}
+
 Contrasting from the relatively simple structure of the gauge bosons, the Higgs boson mass and couplings rely on a number of \emph{ad hoc} parameters.
 The Yukawa interactions couple the Higgs field to fermions, as described in the final component of the SM lagrangian
 \begin{equation}
   \lagr_{\mathrm{Yuk}} =
   - \Gamma^u_{mn} \bar{q}_{\mathrm{L} m} \tilde{\phi} u_{\mathrm{R}n}
   - \Gamma^d_{mn} \bar{q}_{\mathrm{L} m} \phi d_{\mathrm{R}n}
-  - \Gamma^e_{mn} \bar{\ell}_{\mathrm{L} m} \phi e_{\mathrm{R}n}
+  - \Gamma^e_{mn} \bar{\ell}_{\mathrm{L} m} \phi e_{\mathrm{R}n} + \text{h.c.}
+  \label{eq:yuk}
 \end{equation}
 %% where $q_{\mathrm{L}}$ is the left-handed quark doublet, $u_{\mathrm{R}}$ and $d_{\mathrm{L}}$ are the up and down right-handed quark singlets, $\ell_{\mathrm{L}}$ is the left-handed lepton doublet, and $e_{\mathrm{R}}$ is the right-handed lepton doublet.
-where $\tilde{\phi}_i \equiv \epsilon_{ij} \phi_j^*$ ($\epsilon_{ij}$ is the fully antisymmetric tensor) and the $\Gamma_{mn}$ matrices denote the couplings among the three generations. These matrices are singlehandedly responsible for breaking the otherwise perfect generational symmetry. As such, the fermion fields can be redefined to diagonalize the $\Gamma$ matrices in terms of mass matrices:
+where $\tilde{\phi}_i \equiv \epsilon_{ij} \phi_j^*$ ($\epsilon_{ij}$ is the fully antisymmetric tensor) and the $\Gamma_{mn}$ matrices denote the couplings among the three generations. These matrices are free parameters of the standard model, and are singlehandedly responsible for the fermion mass spectrum. Outside the Yukawa terms the three generations behave identically. As such, fermion fields can be redefined to diagonalize the $\Gamma$ matrices in terms of mass eigenstates:
 \begin{equation}
-  M^f = \frac{v}{\sqrt{2}} V^f_{\mathrm{L}} \Gamma^f V^f_{\mathrm{R}}
+  M^f = \frac{v}{\sqrt{2}} V^f_{\mathrm{L}} \Gamma^f V^{f \dag }_{\mathrm{R}}
 \end{equation}
+where $M^f$ is a diagonal $3 \times 3$ matrix with elements corresponding to the masses of the three generations, and $f$ is $u$, $d$, or $e$, and the $V$ are unitary matrices. Inserting these fields and moving to the unitary gauge, \cref{eq:yuk} becomes
+\begin{equation}
+  \lagr_{\mathrm{Yuk}} =
+  - \left(
+  M^u_{mn} \bar{u}_{\mathrm{L} m}  u_{\mathrm{R}n}
+  + M^d_{mn} \bar{d}_{\mathrm{L} m}  d_{\mathrm{R}n}
+  + M^e_{mn} \bar{e}_{\mathrm{L} m}  e_{\mathrm{R}n}
+  \right) \left(1 + \frac{H}{v}\right)  + \text{h.c.}
+\end{equation}
+The fields are transformed into their mass eigenstates by:
+\begin{align}
+  u_{\mathrm{R}} & \to V^u_{\mathrm{R}} u_{\mathrm{R}}  &
+  d_{\mathrm{R}} & \to V^d_{\mathrm{R}} d_{\mathrm{R}}  &
+  e_{\mathrm{R}} & \to V^e_{\mathrm{R}} e_{\mathrm{R}}  \\
+  u_{\mathrm{L}} & \to V^u_{\mathrm{L}} u_{\mathrm{L}}  &
+  d_{\mathrm{L}} & \to V^d_{\mathrm{L}} d_{\mathrm{L}}  &
+  e_{\mathrm{L}} & \to V^e_{\mathrm{L}} e_{\mathrm{L}}
+\end{align}
+The standard model generally absorbs these transformations with no modification, leaving photon and $Z$ couplings untouched.
+On the other hand, under this transformation the individual generations of the $u$ and $d$ fields are no longer aligned. As a result, the $W$ couplings in the left handed covariant derivative on the fermion fields (\cref{eq:shittysm}) mix the misaligned $u$ and $d$ fields.
+In the fermion mass basis, the $W$ couplings become
+\begin{equation}
+  - \frac{g}{\sqrt{2}} \bar{u}_{\mathrm{L}} \gamma^\mu W^+_\mu V_{\text{CKM}} d_{\mathrm{L}} + \text{h.c.}
+\end{equation}
+where $V_{\text{CKM}} \equiv V^u_{\mathrm{L}}V^{d\dag}_{\mathrm{L}}$ is known as the \emph{Cabibbo-Kobayasi-Maskawa matrix} or the \emph{CKM matrix}.
+
+Precision measurement of CKM matrix elements are an active branch of experimental particle physics. The elements, free parameters under the standard model, can be written as
+\newcommand{\ckmrow}[1]{V_{#1 d} & V_{#1 s} & V_{#1 b}}
+\begin{equation}
+V_{\text{CKM}} = \begin{pmatrix}
+  \ckmrow{u} \\ \ckmrow{c} \\ \ckmrow{t}
+\end{pmatrix}
+\end{equation}
+where, for example, $V_{cd}$ gives the amplitude for the $W$-mediated $c \leftrightarrow d$ transition. In addition to the weak transition amplitudes, the CKM matrix encodes a CP-violating phase. For the purposes of this thesis, the CKM matrix can be approximated as
+\begin{equation}
+V_{\text{CKM}} \approx
+\begin{pmatrix}
+  1 & \epsilon & 0 \\
+  \epsilon & 1 & \epsilon \\
+  0 & \epsilon & 1 \\
+\end{pmatrix}.
+\end{equation}
+This rough approximation form the conceptual core of flavor-tagging (discussed in \cref{sec:pheno}). It also highlights a more philosophical point; the CKM matrix doesn't \emph{need} to be approximately diagonal, it just \emph{is}. In general, there is no reason to believe a mixing matrix should have this structure\footnote{While neutrino mixing is completely ignored in this thesis, the far-from-diagonal structure of the neutrino mixing matrix gives this point more credibility.}. The implications of this argument are discussed in more detail in \cref{sec:supercharm}.
 
 
-
-Far more suspicion surrounds $\lambda$ in \cref{eq:higgs}, which is proportional to the Higgs mass through $m_{H} = \lambda v^2$. Couplings between the Higgs and the fermions lead to an enormous gulf between the bare and dressed masses.
+While the many arbitrary parameters of the Yukawa couplings detract from the elegance of the standard model, deeper problems are lurking. Considerable suspicion surrounds $\lambda$ in \cref{eq:higgs}, which is proportional to the Higgs mass through $m_{H} = \lambda v^2$. Yukawa couplings, particularly the larger couplings of the heavier quarks, lead to an enormous gulf between the bare and dressed masses.
 Being a free parameter, $\lambda$ can be adjusted to correct the dressed Higgs mass, but this adjustment is roughly 30 orders of magnitude larger than the dressed Higgs mass. This correction is generally seen as ``unnatural'': evidence that unseen particles are at play.
-The $H^3$ and $H^4$ couplings also remain untested; the shape of the Higgs potential is unconfirmed beyond the first order.
+The $H^3$ and $H^4$ couplings also remain untested; the shape of the Higgs potential is unconfirmed beyond the second order.
 %% Many more \emph{ad hoc} parameters enter into the SM when mass terms are added to the fermions in the form of Yukawa couplings.
 
 
@@ -190,8 +235,6 @@ The $H^3$ and $H^4$ couplings also remain untested; the shape of the Higgs poten
 
 \begin{itemize}
 \item Should cite~\cite{ewuv,ewgaugeinvariance,weakinthev}.
-\item Give the Yukawa couplings in the unitary gauge (up couple to up, down to down)
-\item possibly explain how Yukawa coupling gives rise to CKM matrix
 \end{itemize}
 
 %% Discuss how the standard model makes accurate predictions of phenomena: it's not supposed to explain everything.
