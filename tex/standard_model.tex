@@ -124,12 +124,12 @@ The connection between this VEV and the SM particle masses becomes more explicit
 \begin{equation}
   \phi = \frac{1}{\sqrt{2}}\begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}
   \quad \Longrightarrow \quad
-  \phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + H \end{pmatrix}
+  \phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + h \end{pmatrix}
 \end{equation}
-where $v = \sqrt{\mu^2 / \lambda}$ is the VEV, and $H \in \mathbb{R}$
-is the final remaining degree of freedom. With $\phi$ rewritten in this way nonzero values of $H$ correspond to excitations in the Higgs field, i.e. the Higgs boson.
+where $v = \sqrt{\mu^2 / \lambda}$ is the VEV, and $h \in \mathbb{R}$
+is the final remaining degree of freedom. With $\phi$ rewritten in this way nonzero values of $h$ correspond to excitations in the Higgs field, i.e. the Higgs boson.
 
-In the unitary gauge with $H = 0$, the individual $A^a_\mu$ and $B_\mu$ fields are no longer mass eigenstates of \cref{eq:lhiggs}. The new mass eigenstates are
+In the unitary gauge with $h = 0$, the individual $A^a_\mu$ and $B_\mu$ fields are no longer mass eigenstates of \cref{eq:lhiggs}. The new mass eigenstates are
 \begin{align}
   W^\pm_\mu &= \frac{1}{\sqrt{2}} \left(A_{\mu}^1 \mp i A_\mu^2\right) \\
   Z_\mu &= \frac{1}{\sqrt{g^2 + {g'}^2}} \left( g A_\mu^3 - g' B_\mu \right) \\
@@ -138,15 +138,15 @@ In the unitary gauge with $H = 0$, the individual $A^a_\mu$ and $B_\mu$ fields a
 These first two fields are the familiar $W$ and $Z$ bosons, while the last is the photon. Substituting these fields into \cref{eq:lhiggs}, the Higgs field lagrangian is
 \begin{equation}
   \mathscr{L}_{\phi} =
-  - \frac{1}{2} \partial^\mu H \partial_\mu H
+  - \frac{1}{2} \partial^\mu h \partial_\mu h
   + \left(\frac{v^2g^2}{4} W^{+\mu}W^-_\mu +
-  v^2 \frac{g^2 + {g'}^2}{8} Z^\mu Z_\mu \right) \left(1 + \frac{H}{v} \right)^2
+  v^2 \frac{g^2 + {g'}^2}{8} Z^\mu Z_\mu \right) \left(1 + \frac{h}{v} \right)^2
   - V(\phi)
   \label{eq:lew}
 \end{equation}
 where, in this gauge
 \begin{equation}
-  V(\phi) = \lambda \left(\frac{1}{4} H^4 + v H^3 + v^2 H^2 - \frac{1}{4} v^4 \right).
+  V(\phi) = \lambda \left(\frac{1}{4} h^4 + v h^3 + v^2 h^2 - \frac{1}{4} v^4 \right).
   \label{eq:higgs}
 \end{equation}
 The last term does not couple to any fields and is thus a non-physical artifact. From \cref{eq:lew}, the masses of the $W$ and $Z$ bosons are given by
@@ -180,7 +180,7 @@ where $M^f$ is a diagonal $3 \times 3$ matrix with elements corresponding to the
   M^u_{mn} \bar{u}_{\mathrm{L} m}  u_{\mathrm{R}n}
   + M^d_{mn} \bar{d}_{\mathrm{L} m}  d_{\mathrm{R}n}
   + M^e_{mn} \bar{e}_{\mathrm{L} m}  e_{\mathrm{R}n}
-  \right) \left(1 + \frac{H}{v}\right)  + \text{h.c.}
+  \right) \left(1 + \frac{h}{v}\right)  + \text{h.c.}
 \end{equation}
 The fields are transformed into their mass eigenstates by:
 \begin{align}
@@ -218,9 +218,9 @@ V_{\text{CKM}} \approx
 This rough approximation forms the conceptual core of flavor-tagging (discussed in \cref{sec:pheno}). It also highlights a more philosophical point; the CKM matrix doesn't \emph{need} to be approximately diagonal, it just \emph{is}. In general, there is no reason to believe a mixing matrix should have this structure\footnote{While neutrino mixing is completely ignored in this thesis, the far-from-diagonal structure of the neutrino mixing matrix gives more credibility to the argument that the CKM matrix needn't be diagonal.}. The implications of this argument are discussed in more detail in \cref{sec:supercharm}.
 
 
-While the many arbitrary parameters of the Yukawa couplings detract from the elegance of the standard model, deeper problems are lurking. Considerable suspicion surrounds $\lambda$ in \cref{eq:higgs}, which is proportional to the Higgs mass through $m_{H} = \lambda v^2$. Yukawa couplings, particularly the larger couplings of the heavier quarks, lead to an enormous gulf between the bare and dressed masses.
+While the many arbitrary parameters of the Yukawa couplings detract from the elegance of the standard model, deeper problems are lurking. Considerable suspicion surrounds $\lambda$ in \cref{eq:higgs}, which is proportional to the Higgs mass through $m_{h} = \lambda v^2$. Yukawa couplings, particularly the larger couplings of the heavier quarks, lead to an enormous gulf between the bare and dressed masses.
 Being a free parameter, $\lambda$ can be adjusted to correct the dressed Higgs mass, but this adjustment is roughly 30 orders of magnitude larger than the dressed Higgs mass. This correction is generally seen as ``unnatural'': evidence that unseen particles are at play.
-%% The $H^3$ and $H^4$ couplings also remain untested; the shape of the Higgs potential is unconfirmed beyond the second order.
+%% The $h^3$ and $h^4$ couplings also remain untested; the shape of the Higgs potential is unconfirmed beyond the second order.
 
 
 \begin{itemize}
