@@ -45,14 +45,28 @@ Given that no such states have been observed~\cite{chargedlsp} a charged LSP see
 \end{itemize}
 
 \subsection{Naturalness and ``Breaking'' SUSY}
-As has been mentioned, the sparticles in the MSSM are an exact replica of the SM particles down to coupling strengths.
-This assumption has an important consequence for the Higgs mass corrections and the unnatural tuning mentioned in \cref{sec:yukawa}. To better quantify this statement, assuming a fermion with Yukawa coupling $\Gamma_f$, the correction to the Higgs mass ($\Delta m_{h}$) is given by
+In the simplest case, sparticles in the MSSM are exact replicas of their SM superpartners down to coupling strengths.
+This assumption is important because it mitigates the Higgs mass corrections and unnatural tuning mentioned in \cref{sec:yukawa}. More specifically, assuming a fermion with Yukawa coupling $\Gamma_f$, the correction to the Higgs mass ($\Delta m_{h}$) is given by
 \begin{equation}
-  \Delta m_{h}^2 = - \frac{|\Gamma_f|^2}{8 \pi^2} (\cutoff^2 + \ldots)
+  \Delta m_{h}^2 = - \frac{|\Gamma_f|^2}{8 \pi^2} \left(\cutoff^2 + \ldots \right)
 \end{equation}
 where $\cutoff$ is the cutoff scale for the theory.
-At face value this correction isn't problematic; the standard model is mathematically consistent even if $\cutoff$ is taken to infinity, and under alternative regularization schemes $\cutoff$ won't appear at all.
-TALK ABOUT WHAT HAPPENS WHEN WE ADD PARTICLES
+At face value this correction isn't problematic; free parameters of the standard model can be tuned, leaving mathematically consistent even if $\cutoff$ is taken to infinity. In fact, under alternative regularization schemes $\cutoff$ won't appear at all, so it's tempting to dismiss the Higgs mass fine-tuning as a non-physical artifact.
+
+The problem is that the fine-tuning \emph{is} physical if any additional particles are added to the standard model, and given the known incompleteness of the standard model accommodating new particles is essential. As a simple example, adding a new scalar particle with mass $m_{s}$ and Yukawa coupling $\Gamma_s$ results in a mass correction
+\begin{equation}
+  \Delta m_{h}^2 = \frac{\Gamma_s}{16 \pi^2} \left(\cutoff^2 - 2m_s^2 \ln(\cutoff / m_s) + \ldots \right).
+  \label{eq:higgs-correction-scalar}
+\end{equation}
+In this case, the $m_{s}$ term is undeniably physical.
+By extension, the Higgs mass receives a correction proportional to the mass of each new particle with a Yukawa interaction.\footnote{\Cref{eq:higgs-correction-scalar} applies to scalars with a direct Yukawa coupling, but particles which couple indirectly to the Higgs still result in corrections of the same order, as do particles with spin 1/2 or 1.} This correction is problematic considering the scale on which new particles are expected; the strong coupling constant should intersect with the electroweak couplings at the scale of the so-called \emph{grand unified theory} (GUT), roughly $\Lambda_{\text{GUT}} \approx 10^{16}\,\gev$. Particles with masses so far above the electroweak scale ($\Lambda_{\text{EW}} \approx 1\,\tev$) result in a Higgs fine-tuning of order $\Lambda_{\text{GUT}} / \Lambda_{\text{EW}} \approx 10^{13}$.
+To make matters worse, the GUT scale is only the lower of two suggestive energy scales.
+Unification of the strong, electroweak, and gravitational force is expected at energies roughly a thousand times higher, around $10^{19}\,\gev$.
+
+One of the first recognized strengths of SUSY was it's ability to cancel these corrections.
+
+
+
 %% Problems only start
 \begin{itemize}
 \item Give the $\Delta m_{H}$ equation that shows how SUSY makes SM more natural.
