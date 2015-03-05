@@ -1,7 +1,33 @@
 \section{Supersymmetry}
 \label{sec:susy}
 
-Supersymmetry~\cite{sggs,duelfermions,susywes} extends the standard model by adding an additional symmetry between fermions and bosons. This creates \emph{superpartners} for each of the particles, which differ in spin by $1/2$, but are otherwise identical to their standard model counterparts. Reflecting this symmetry, each SM field and its superpartner is condensed into a \emph{supermultiplet}. The simplest realistic SUSY model is the \emph{Minimal Supersymmetric Standard Model} (MSSM), which contains one supermultiplet for each standard model field. For reasons that will be discussed below, the MSSM also introduces a second Higgs doublet.
+Supersymmetry~\cite{sggs,duelfermions,susywes} extends the standard model by adding an additional symmetry between fermions and bosons. This creates \emph{superpartners} for each of the particles, which differ in spin by $1/2$, but are otherwise identical to their standard model counterparts.
+A generic SM superpartner is referred to as a \emph{sparticle}.
+Supersymmetry cancels the unnatural tuning discussed in \cref{sec:naturalness} by introducing corrections which are identical in magnitude to those in \cref{eq:higgs-deltam}, but opposite in sign.
+
+While this is a miraculous result, this simple model also has a fatal flaw; it predicts sparticles with masses identical to their SM counterparts.
+To date, no such sparticles have been observed, despite a huge number of experiments which should have been sensitive to them; this simple model is clearly not enough.
+SUSY can be salvaged by adding \emph{soft} supersymmetry breaking terms ($\lagr_{\text{soft}}$), such that the total lagrangian can be written as
+\begin{equation}
+  \lagr = \lagr_{\text{SUSY}} + \lagr_{\text{soft}},
+\end{equation}
+where $\lagr_{\text{SUSY}}$ is essentially $\lagr_{\text{SM}}$ augmented with superpartners.
+Many theories connect $\lagr_{\text{soft}}$ to gravitation and other Planck-scale physics~\cite{olive}, but for the purposes of this thesis the details are less important than the overall effect. By coupling superpartners to additional spontaneously broken symmetries at higher energies, the soft terms add additional mass to the sparticles and push their masses above those of the SM particles.
+
+From one perspective the $\lagr_{\text{soft}}$ terms verge on pseudoscience; they are a magic wand to make all the unobserved sparticles disappear, leaving an elegant theory which can't be falsified.
+Fortunately, the soft terms don't completely void the naturalness problem---they merely mitigate it.
+With the soft terms included, the new Higgs correction is
+\begin{equation}
+  \Delta m_{h}^2 = m_{\text{soft}}^2 \left[ \frac{\Gamma}{16 \pi^2} \ln(\cutoff / m_{\text{soft}}) + \ldots \right],
+\end{equation}
+where $\Gamma$ stands in for an arbitrary dimensionless coupling which should be of order one in a less contrived theory.
+Introducing a realistic SUSY model thus replaces a $\Delta m_{h}$ correction of order $\Lambda_{\mathrm{GUT}}$ with one of order $m_{\text{soft}}$.
+While this doesn't \emph{solve} the falsifiability issue, a measure of naturalness does give the theory a measure of credibility (or lack thereof).
+The naturalness of SUSY relies on $m_{\text{soft}}$ terms (and sparticle masses) which aren't too far above the electroweak scale. Assuming $m_{\text{soft}} \lesssim 1\,\tev$, SUSY should be accessible at the LHC.
+
+\subsection{The Minimal Supersymmetric Standard Model}
+
+Reflecting the boson-fermion symmetry, each SM field and its superpartner is condensed into a \emph{supermultiplet}. The simplest realistic SUSY model is the \emph{Minimal Supersymmetric Standard Model} (MSSM), which contains one supermultiplet for each standard model field. For reasons that will be discussed below, the MSSM also introduces a second Higgs doublet.
 A summary of these particles is given in \cref{tab:mssm}
 \begin{table}
   \renewcommand{\arraystretch}{1.2}
@@ -27,7 +53,7 @@ A summary of these particles is given in \cref{tab:mssm}
 \end{table}
 \renewcommand{\arraystretch}{1}
 
-The superpartners follow a naming convention which distinguishes them from their SM counterparts. The superpartners to the fermions are prefixed with an `s', leading to the sleptons (selectrons, smuons, staus), the sneutrinos, and the squarks (stop, scharm, etc.). The superpartners to the bosons are suffixed with `-ino', leading to the gluinos, the winos, binos and the higgsinos. A generic superpartner is referred to as a \emph{sparticle}. More simply, they are represented as the SM symbol with a tilde i.e.~$\tilde{t}$ for a stop quark.
+The superpartners follow a naming convention which distinguishes them from their SM counterparts. The superpartners to the fermions are prefixed with an `s', leading to the sleptons (selectrons, smuons, staus), the sneutrinos, and the squarks (stop, scharm, etc.). The superpartners to the bosons are suffixed with `-ino', leading to the gluinos, the winos, binos and the higgsinos. More simply, they are represented as the SM symbol with a tilde i.e.~$\tilde{t}$ for a stop quark.
 
 The MSSM, as mentioned above, adds a second Higgs doublet. This field is added in response to several problems which arise when extending the SM to SUSY. First, the MSSM Yukawa couplings must be holomorphic; the $\tilde{\phi}$ field in \cref{eq:yuk} isn't allowed, which leaves no Yukawa couplings (and thus no masses) for up-type quarks. Secondly, the triple-gauge coupling ``anomalies''---which cancel in the standard model but would otherwise violate gauge invariance---no longer cancel when higgsinos are added. Adding a second Higgs doublet with opposite hypercharge solves both problems. Yukawa couplings for up-type quarks are supplied by the uncharged component of the new Higgs field, and the gauge anomalies from both Higgs fields cancel each other. These two Higgs fields mix to form three neutral scalar ``Higgs'' bosons: $h^0$, $H^0$, and $A^0$; and two charged bosons: $H^+$ and $H^-$. By convention, $h^0$ is the lightest Higgs; so far this particle is indistinguishable from the observed SM Higgs.
 
@@ -44,34 +70,15 @@ Given that no such states have been observed~\cite{chargedlsp} a charged LSP see
 \item should cite~\cite{light-squarks}
 \end{itemize}
 
-\subsection{Naturalness and ``Breaking'' SUSY}
-In the simplest case, sparticles in the MSSM are exact replicas of their SM superpartners down to coupling strengths.
-This assumption is important because it mitigates the Higgs mass corrections and unnatural tuning mentioned in \cref{sec:yukawa}. More specifically, assuming a fermion with Yukawa coupling $\Gamma_f$, the correction to the Higgs mass ($\Delta m_{h}$) is given by
-\begin{equation}
-  \Delta m_{h}^2 = - \frac{|\Gamma_f|^2}{8 \pi^2} \left(\cutoff^2 + \ldots \right)
-\end{equation}
-where $\cutoff$ is the cutoff scale for the theory.
-At face value this correction isn't problematic; free parameters of the standard model can be tuned, leaving mathematically consistent even if $\cutoff$ is taken to infinity. In fact, under alternative regularization schemes $\cutoff$ won't appear at all, so it's tempting to dismiss the Higgs mass fine-tuning as a non-physical artifact.
+%% \subsection{``Breaking'' SUSY}
+%% In the simplest case, sparticles in the MSSM are exact replicas of their SM superpartners down to coupling strengths.
 
-The problem is that the fine-tuning \emph{is} physical if any additional particles are added to the standard model, and given the known incompleteness of the standard model accommodating new particles is essential. As a simple example, adding a new scalar particle with mass $m_{s}$ and Yukawa coupling $\Gamma_s$ results in a mass correction
-\begin{equation}
-  \Delta m_{h}^2 = \frac{\Gamma_s}{16 \pi^2} \left(\cutoff^2 - 2m_s^2 \ln(\cutoff / m_s) + \ldots \right).
-  \label{eq:higgs-correction-scalar}
-\end{equation}
-In this case, the $m_{s}$ term is undeniably physical.
-By extension, the Higgs mass receives a correction proportional to the mass of each new particle with a Yukawa interaction.\footnote{\Cref{eq:higgs-correction-scalar} applies to scalars with a direct Yukawa coupling, but particles which couple indirectly to the Higgs still result in corrections of the same order, as do particles with spin 1/2 or 1.} This correction is problematic considering the scale on which new particles are expected; the strong coupling constant should intersect with the electroweak couplings at the scale of the so-called \emph{grand unified theory} (GUT), roughly $\Lambda_{\text{GUT}} \approx 10^{16}\,\gev$. Particles with masses so far above the electroweak scale ($\Lambda_{\text{EW}} \approx 1\,\tev$) result in a Higgs fine-tuning of order $\Lambda_{\text{GUT}} / \Lambda_{\text{EW}} \approx 10^{13}$.
-To make matters worse, the GUT scale is only the lower of two suggestive energy scales.
-Unification of the strong, electroweak, and gravitational force is expected at energies roughly a thousand times higher, around $10^{19}\,\gev$.
+%% %% Problems only start
+%% \begin{itemize}
+%% \item Give the $\Delta m_{H}$ equation that shows how SUSY makes SM more natural.
+%% \item Mention that this suggests SUSY near the TeV scale
+%% \end{itemize}
 
-One of the first recognized strengths of SUSY was it's ability to cancel these corrections.
-
-
-
-%% Problems only start
-\begin{itemize}
-\item Give the $\Delta m_{H}$ equation that shows how SUSY makes SM more natural.
-\item Mention that this suggests SUSY near the TeV scale
-\end{itemize}
 \subsection{Dark Matter and Unification}
 \label{sec:dm}
 The ``other merits of SUSY'' chapter
