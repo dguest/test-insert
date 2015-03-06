@@ -1,12 +1,11 @@
 \section{Supersymmetry}
 \label{sec:susy}
 
-Supersymmetry~\cite{sggs,duelfermions,susywes} extends the standard model by adding an additional symmetry between fermions and bosons. This creates \emph{superpartners} for each of the particles, which differ in spin by $1/2$, but are otherwise identical to their standard model counterparts.
-A generic SM superpartner is referred to as a \emph{sparticle}.
+Supersymmetry~\cite{sggs,duelfermions,susywes} extends the standard model by adding an additional symmetry between fermions and bosons. As a result, each standard model particle is given a new superpartner or \emph{sparticle}, which differs in spin by $1/2$, but is otherwise identical.
 Supersymmetry cancels the unnatural tuning discussed in \cref{sec:naturalness} by introducing corrections which are identical in magnitude to those in \cref{eq:higgs-deltam}, but opposite in sign.
 
 While this is a miraculous result, this simple model also has a fatal flaw; it predicts sparticles with masses identical to their SM counterparts.
-To date, no such sparticles have been observed, despite a huge number of experiments which should have been sensitive to them; this simple model is clearly not enough.
+To date, no such sparticles have been observed, despite a huge number of experiments which should have been sensitive to them---this simple model is clearly not enough.
 SUSY can be salvaged by adding \emph{soft} supersymmetry breaking terms ($\lagr_{\text{soft}}$), such that the total lagrangian can be written as
 \begin{equation}
   \lagr = \lagr_{\text{SUSY}} + \lagr_{\text{soft}},
@@ -14,16 +13,16 @@ SUSY can be salvaged by adding \emph{soft} supersymmetry breaking terms ($\lagr_
 where $\lagr_{\text{SUSY}}$ is essentially $\lagr_{\text{SM}}$ augmented with superpartners.
 Many theories connect $\lagr_{\text{soft}}$ to gravitation and other Planck-scale physics~\cite{olive}, but for the purposes of this thesis the details are less important than the overall effect. By coupling superpartners to additional spontaneously broken symmetries at higher energies, the soft terms add additional mass to the sparticles and push their masses above those of the SM particles.
 
-From one perspective the $\lagr_{\text{soft}}$ terms verge on pseudoscience; they are a magic wand to make all the unobserved sparticles disappear, leaving an elegant theory which can't be falsified.
+From one perspective the $\lagr_{\text{soft}}$ terms verge on pseudoscience; they are a magic wand to make all the unobserved sparticles disappear, leaving an elegant and natural theory which can't be falsified.
 Fortunately, the soft terms don't completely void the naturalness problem---they merely mitigate it.
 With the soft terms included, the new Higgs correction is
 \begin{equation}
   \Delta m_{h}^2 = m_{\text{soft}}^2 \left[ \frac{\Gamma}{16 \pi^2} \ln(\cutoff / m_{\text{soft}}) + \ldots \right],
 \end{equation}
 where $\Gamma$ stands in for an arbitrary dimensionless coupling which should be of order one in a less contrived theory.
-Introducing a realistic SUSY model thus replaces a $\Delta m_{h}$ correction of order $\Lambda_{\mathrm{GUT}}$ with one of order $m_{\text{soft}}$.
-While this doesn't \emph{solve} the falsifiability issue, a measure of naturalness does give the theory a measure of credibility (or lack thereof).
-The naturalness of SUSY relies on $m_{\text{soft}}$ terms (and sparticle masses) which aren't too far above the electroweak scale. Assuming $m_{\text{soft}} \lesssim 1\,\tev$, SUSY should be accessible at the LHC.
+Introducing a realistic SUSY model thus replaces a $\Delta m_{h} \sim \Lambda_{\mathrm{GUT}}$ correction with one where $\Delta m_{h} \sim m_{\text{soft}}$; naturalness is preserved so long as SUSY particles are light.
+While this doesn't completely solve the falsifiability issue, it does restrict the region of parameter space where SUSY is compelling.
+By most standards, SUSY remains compelling so long as the $m_{\text{soft}}$ terms (and sparticle masses) aren't too far above the electroweak scale. Conveniently, this means $m_{\text{soft}} \lesssim 1\,\tev$, i.e. SUSY should be accessible at the LHC.
 
 \subsection{The Minimal Supersymmetric Standard Model}
 
@@ -66,10 +65,6 @@ This requirement stabilizes the LSP; after being produced, it is left with no ki
 Whether the LSP is charged or neutral depends on free parameters of the MSSM. A charged LSP, however, would form bound states with SM particles.
 Given that no such states have been observed~\cite{chargedlsp} a charged LSP seems unlikely. A neutral LSP, on the other hand, should interact only through the weak force and gravitation. SUSY enthusiasts tout this prediction of a \emph{weakly interacting massive particle} (WIMP) as a major success of the theory; as discussed in \cref{sec:dm} considerable astronomical evidence supports the existence of such a particle.
 
-\begin{itemize}
-\item should cite~\cite{light-squarks}
-\end{itemize}
-
 %% \subsection{``Breaking'' SUSY}
 %% In the simplest case, sparticles in the MSSM are exact replicas of their SM superpartners down to coupling strengths.
 
@@ -81,10 +76,35 @@ Given that no such states have been observed~\cite{chargedlsp} a charged LSP see
 
 \subsection{Dark Matter and Unification}
 \label{sec:dm}
-The ``other merits of SUSY'' chapter
+
+From the perspective of cosmology, physics beyond the standard model of particle physics has already been discovered in the form of dark matter.
+The so-called ``standard model of cosmology'', $\smcosmo$, combines a cosmological constant ($\Lambda$) with cold dark matter (CDM), and describes the post-inflation universe almost perfectly~\cite{planck2013,planck2015,wmap}.
+More importantly, dark matter plays no small part of this model; the vast majority of all gravitating matter, 84\%, is dark~\cite{planck2013overview}.
+
+\begin{figure}
+  \subfigure[The cosmic microwave background, taken from~\cite{planck-picture}.%
+]{\includegraphics[width=0.5\textwidth]{%
+misc/cc/Planck_CMB_Mollweide_wallpaper.jpg}\label{fig:cmb}}
+  \subfigure[The bullet cluster, taken from~\cite{bullet-picture}.%
+]{\includegraphics[width=0.5\textwidth]{%
+misc/cc/bulletcluster_comp_f2048.jpg}\label{fig:bullet}}
+  \caption[Recent astrophysical evidence for dark matter]{
+    Recent astrophysical evidence for dark matter. Fits to the cosmic microwave background~\subref{fig:cmb} are consistent with $\smcosmo$, which requires a universe composed of 84\% dark matter.
+Collisions between galaxy clusters~\subref{fig:bullet}, such as the so-called ``bullet cluster'', suggest that the clusters are composed of two components: dark matter (blue) which only interacts gravitationally and is imaged with lensing, and visible x-ray emitting matter (red).}
+\end{figure}
+
+On scales smaller than cosmological fits, dark matter is supported by galaxy cluster dynamics. Fits to the mass distribution of these clusters, measured with x-ray telescopes~\cite{chandra}, generally supports the dark matter hypothesis.
+Adding gravitational lensing maps to these x-ray profiles~\cite{bullet} demonstrates the non-interaction of dark matter more dramatically;
+\cref{fig:bullet} shows the ``bullet cluster'' where a pair of gravitating clouds have passed through each other while the associated visible gas clouds collide inelastically.
+On yet smaller scales, dark matter is strongly supported by galaxy rotation curves.
+These curves provided some of the first evidence of invisible gravitating matter~\cite{andromeda}, and have since been confirmed by much larger surveys~\cite{universal-rotation}.
+
+While the density of dark matter is well established, particle properties such as mass and interactions are much less certain.
+Thermodynamic models of the early universe predict that weakly-interacting $\sim 100\,\gev$ particles, initially in equilibrium with the early universe, would persist to the present day with a density remarkably close to that of dark matter~\cite{wimps}. This ``WIMP miracle'' can be cast as another credit to $R$-parity conserving SUSY; the $\neut$ assigns a concrete particle to the otherwise amorphous gravitating WIMP clouds.
+
+
+
 \begin{itemize}
-\item Cosmologists take dark matter as fact.
-\item Cite WMAP results
 \item Grand unification is suggestive
 \item point out that string theory relies on this
 \end{itemize}
@@ -93,6 +113,7 @@ leaves the situation rather un-natural
 \subsection{Supersymmetric Charm}
 \label{sec:supercharm}
 \begin{itemize}
+\item should cite~\cite{light-squarks}
 \item this hasn't been checked before
 \item include Feynman diagram of signal
 \end{itemize}

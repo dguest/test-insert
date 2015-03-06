@@ -36,5 +36,10 @@ function get-file() {
     fi
 }
 
+# graphs and schematics
 get-file http://upload.wikimedia.org/wikipedia/commons/4/4b/Standard_Model_of_Elementary_Particles_modified_version.svg standard-model.svg
 get-file http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2013-041/fig_06.pdf alpha-strong.pdf
+
+# cosmology things
+get-file http://apod.nasa.gov/apod/image/0608/bulletcluster_comp_f2048.jpg
+get-file http://sci.esa.int/science-e-media/img/61/Planck_CMB_Mollweide_wallpaper.jpg
