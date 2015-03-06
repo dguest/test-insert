@@ -43,3 +43,6 @@ get-file http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2013
 # cosmology things
 get-file http://apod.nasa.gov/apod/image/0608/bulletcluster_comp_f2048.jpg
 get-file http://sci.esa.int/science-e-media/img/61/Planck_CMB_Mollweide_wallpaper.jpg
+
+# ugly graphs
+get-file http://www.nobelprize.org/nobel_prizes/physics/laureates/2004/phypub4highen.jpg unification-ugly.jpg
