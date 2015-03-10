@@ -56,6 +56,9 @@ The superpartners follow a naming convention which distinguishes them from their
 
 The MSSM, as mentioned above, adds a second Higgs doublet. This field is added in response to several problems which arise when extending the SM to SUSY. First, the MSSM Yukawa couplings must be holomorphic; the $\tilde{\phi}$ field in \cref{eq:yuk} isn't allowed, which leaves no Yukawa couplings (and thus no masses) for up-type quarks. Secondly, the triple-gauge-coupling ``anomalies''---which cancel in the standard model but would otherwise violate gauge invariance---no longer cancel when higgsinos are added. Adding a second Higgs doublet with opposite hypercharge solves both problems. Yukawa couplings for up-type quarks are supplied by the uncharged component of the new Higgs field, and the gauge anomalies from both Higgs fields cancel each other. These two Higgs fields mix to form three neutral scalar ``Higgs'' bosons: $h^0$, $H^0$, and $A^0$; and two charged bosons: $H^+$ and $H^-$. By convention, $h^0$ is the lightest Higgs; so far this particle is indistinguishable from the observed SM Higgs.
 
+Squarks ($\tilde{q}$) are bosons with separate soft mass terms for the left-handed and right-handed fields. Within the first two generations, $\tilde{q}_\Lc$ and $\tilde{q}_{\Rc}$ are roughly mass eigenstates.
+Within the $\tilde{t}$ and $\tilde{b}$ fields, Yukawa couplings are strong enough to mix the right- and left-handed fields, and the mass eigenstates become $\tilde{t}_1$, $\tilde{t}_2$, $\tilde{b}_1$, and~$\tilde{b}_2$.
+
 As in the standard model, where the manifestly gauge-invariant $A$ and $B$ fields mix to become the $W$, $Z$ and $\gamma$, the most useful SUSY fields at tree-level are mixtures those given in \cref{tab:mssm}. In the MSSM, the $\tilde{A}^1$ and $\tilde{A}^2$ fields mix with the charged higgsinos to form the \emph{charginos}, $\tilde{\chi}^\pm_1$ and $\tilde{\chi}^\pm_2$. In addition $\tilde{A}^3$ and $\tilde{B}$ mix with the neutral higgsino fields to form the \emph{neutralinos}, $\tilde{\chi}_1^0$, $\tilde{\chi}_2^0$, $\tilde{\chi}_3^0$, and $\tilde{\chi}_4^0$. By convention, the neutrilinos are labeled by ascending mass.
 
 The lightest neutrilino, $\neut$, is stable under the assumptions that SUSY conserves \emph{$R$-parity}, i.e.~that terms which violate lepton or baryon number are forbidden, and that the $\neut$ is the lightest supersymmetric particle (LSP). The first assumption, $R$-parity conservation, is somewhat \emph{ad hoc} and not strictly needed in SUSY models. It is frequently included because the alternative---$R$-parity violation---must be carefully tuned to avoid unphysical predictions like proton decay.
@@ -113,7 +116,7 @@ Thermodynamic models of the early universe predict that weakly-interacting $\sim
 
 The gauge couplings for the $\mathrm{U}(1)$, $\su{2}$, and $\su{3}$ internal symmetries of the standard model are not constant in the practical renormalized theory. Instead, they ``run'' with the energy of the interaction; the strength of the $\mathrm{U}(1)$ coupling increases with energy, while the $\su{2}$ and $\su{3}$ couplings decrease. This running suggests that all three interactions are in fact low energy relics of a single force that appears near the GUT scale, in the neighborhood of $10^{15}\,\gev$.
 
-As shown on the left side of \cref{fig:unification}, within the standard model the three lines fail to intersect at a single point. In fact, taking experimental and theoretical uncertainties into account, the discrepancy is roughly $12 \sigma$~\cite{pdg2014}. Adding supersymmetry shrinks this discrepancy to $3 \sigma$, as shown on the right of \cref{fig:unification}. While the unification isn't perfect the considerable improvement is yet another convincing argument for SUSY.
+As shown on the left side of \cref{fig:unification}, within the standard model the three lines fail to intersect at a single point. In fact, taking experimental and theoretical uncertainties into account, the discrepancy is roughly $12 \sigma$~\cite{gutsusy,pdg2014}. Adding supersymmetry shrinks this discrepancy to $3 \sigma$, as shown on the right of \cref{fig:unification}. While the unification isn't perfect the considerable improvement is yet another convincing argument for SUSY.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{misc/cc/unification-ugly.jpg}
@@ -129,11 +132,15 @@ Unification of coupling constants without SUSY (left), and after SUSY has been i
 \subsection{Supersymmetric Charm}
 
 The arguments above, in addition to the promise of a rich spectroscopy at colliders, has driven a huge number of SUSY searches at the LHC. None of these searches have returned any evidence for SUSY, as discussed further in \cref{sec:susylimits}.
+The subset that focus on squarks search for either third-generation squarks or generic ``light'' squarks in the first two generations.
+The first case is motivated by relatively large Yukawa coupling for the $\tilde{t}$, which increases the sensitivity of the Higgs potential to $m_{\tilde{t}}$ and leads to a tight upper-bound~\cite{susymasses,susyoneloop}.
+In the second case, the squark masses are generally considered eight-fold degenerate: $2 \text{ generations} \times (\text{up-type} + \text{down-type}) \times (\tilde{q}_\Lc + \tilde{q}_\Rc)$.
+
+These models are often driven by assumptions about the soft-mass terms (they are CKM-like)
 
 \label{sec:supercharm}
 \begin{itemize}
 \item not all particles have to be light to be natural
-\item for $\tilde{t}$ masses, cite~\cite{susymasses,susyoneloop}
 \item should cite~\cite{light-squarks}
 \item this hasn't been checked before
 \item include Feynman diagram of signal
