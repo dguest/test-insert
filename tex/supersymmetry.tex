@@ -116,7 +116,7 @@ Thermodynamic models of the early universe predict that weakly-interacting $\sim
 
 The gauge couplings for the $\mathrm{U}(1)$, $\su{2}$, and $\su{3}$ internal symmetries of the standard model are not constant in the practical renormalized theory. Instead, they ``run'' with the energy of the interaction; the strength of the $\mathrm{U}(1)$ coupling increases with energy, while the $\su{2}$ and $\su{3}$ couplings decrease. This running suggests that all three interactions are in fact low energy relics of a single force that appears near the GUT scale, in the neighborhood of $10^{15}\,\gev$.
 
-As shown on the left side of \cref{fig:unification}, within the standard model the three lines fail to intersect at a single point. In fact, taking experimental and theoretical uncertainties into account, the discrepancy is roughly $12 \sigma$~\cite{gutsusy,pdg2014}. Adding supersymmetry shrinks this discrepancy to $3 \sigma$, as shown on the right of \cref{fig:unification}. While the unification isn't perfect the considerable improvement is yet another convincing argument for SUSY.
+As shown on the left side of \cref{fig:unification}, within the standard model the three lines fail to intersect at a single point. In fact, taking experimental and theoretical uncertainties into account, the discrepancy is roughly $12 \sigma$~\cite{gutsusy}. Adding supersymmetry shrinks this discrepancy to $3 \sigma$~\cite{pdg2014}, as shown on the right of \cref{fig:unification}. While the unification isn't perfect the considerable improvement is yet another convincing argument for SUSY.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{misc/cc/unification-ugly.jpg}
@@ -130,21 +130,19 @@ Unification of coupling constants without SUSY (left), and after SUSY has been i
 %% \item point out that string theory relies on this
 %% \end{itemize}
 \subsection{Supersymmetric Charm}
-
-The arguments above, in addition to the promise of a rich spectroscopy at colliders, has driven a huge number of SUSY searches at the LHC. None of these searches have returned any evidence for SUSY, as discussed further in \cref{sec:susylimits}.
-The subset that focus on squarks search for either third-generation squarks or generic ``light'' squarks in the first two generations.
-The first case is motivated by relatively large Yukawa coupling for the $\tilde{t}$, which increases the sensitivity of the Higgs potential to $m_{\tilde{t}}$ and leads to a tight upper-bound~\cite{susymasses,susyoneloop}.
-In the second case, the squark masses are generally considered eight-fold degenerate: $2 \text{ generations} \times (\text{up-type} + \text{down-type}) \times (\tilde{q}_\Lc + \tilde{q}_\Rc)$.
-
-These models are often driven by assumptions about the soft-mass terms (they are CKM-like)
-
 \label{sec:supercharm}
-\begin{itemize}
-\item not all particles have to be light to be natural
-\item should cite~\cite{light-squarks}
-\item this hasn't been checked before
-\item include Feynman diagram of signal
-\end{itemize}
+
+The arguments above, in addition to the promise of a rich spectroscopy at colliders, have driven a huge number of SUSY searches at the LHC. None of these searches have returned any evidence for SUSY.
+The subset that focus on squarks look for one of two signatures: third-generation squarks and generic ``light'' quark superpartners in the first two generations~\cite{cms-inclusive,atlas-inclusive}.
+The first case is motivated by relatively large Yukawa coupling for the $\tilde{t}$, which increases the sensitivity of the Higgs potential to $m_{\tilde{t}}$ and leads to a tight upper-bound~\cite{susymasses,susyoneloop}.
+In the second case, the light squark masses are generally considered eight-fold degenerate: $2 \text{ generations} \times (\text{up-type} + \text{down-type}) \times (\tilde{q}_\Lc + \tilde{q}_\Rc)$.
+
+In the general case the squark mixing matrix can be populated by completely  arbitrary soft terms, but this can easily yield unphysical results by introducing unobserved flavor-changing neutral currents (FCNC). These currents can be removed completely by requiring that the mixing matrix be diagonal, in which case the model is said to enforce ``flavor-blindness'' or ``universality''.
+While this will suppress FCNC it is arguably overkill; a more nuanced treatment known as \emph{minimal flavor violation} (MFV) can prevent FCNC at an observable level while allowing off-diagonal soft terms in the mixing matrix~\cite{mfveft}. Such off-diagonal elements seem reasonable based on observed flavor and neutrino physics; off-diagonal terms are small in the CKM matrix, but much larger in the cause of neutrino mixing.
+
+Within the framework of MFV, it is possible to break the eight-fold degeneracy of the light quark superpartners~\cite{light-squarks}, such that only a single light squark is observable at the LHC. In both ATLAS and CMS, searches which target degenerate first- and second-generation squarks can be reinterpreted to the non-degenerate case, since the signature is identical. The sensitivity of these reinterpreted searches is reduced, however, because only one of the eight quarks is accessible. Considering each squark separately improves the situation: first generation squarks, $\tilde{u}$ and $\tilde{d}$, as superpartners to the proton constituents, are produced with a higher frequency and have been ruled out up to $\sim 1\,\tev$; second generation quarks can be targeted with designated searches.
+
+This thesis concerns the first designated search for a second generation squark at the LHC. In our model, $\tilde{c}$ quarks are pair produced and subsequently decay to a pair of $\neut$ and two $c$ quarks, as shown in \cref{fig:sctocfeyn}. The two $\neut$, as LSPs, are weakly interacting and aren't detected directly by the detector. The $c$-quarks, by contrast, hadronize into jets which are measured. From the perspective of the detector, the process thus presents a two-part signature: a pair of $c$-quark initiated jets; and an overall imbalance in the momentum of measurable particles.
 
 \begin{figure}
   \begin{center}
