@@ -1,0 +1,25 @@
+The background and simulation models rely almost entirely on simulated samples, which are generated as discussed in \cref{sec:software}.
+Various packages are used to simulate matrix elements and jet fragmentation, after which particle interactions with the detector and the detector response is simulated in a \textsc{geant4}~\cite{geant} framework~\cite{atlassimulation}.
+
+\subsection{Signal Samples}
+The analysis relies on several assumptions about the mass hierarchy of the signal. We assume that only two particles are easily accessible at LHC energies: the $\scharm$ and the $\neut$, with the $\neut$ the lightest.
+This disallows intermediate decays such as $\scharm \to c + \supp{\chi}^{0}_2$ and $\scharm \to s + \cha$. All other sparticles are set to a mass of $4.5\,\tev$, and we assume a 100\% branching ration for $\sctoc$.
+The $\sttoc$ analysis relied on \textsc{MadGraph}~\cite{madgraph5} for signal matrix-element calculations, since it accurately models initial state radiation. Fragmentation was passed off to \textsc{pythia6}~\cite{pythia2}, and calorimeter response is modeled with the \textsc{Atlfast-II}~\cite{atlfast} package.
+For consistency, the $\sctoc$ search uses these packages as well.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{int/figures/gridpoints.pdf}
+  \caption[Signal grid points]{Points in the signal grid for the $\sctoc$ analysis. Point color corresponds to the number of events generated for each point, in thousands. Note that only the points near the lower diagonal line of the $\sttoc$ region are actually considered in the non-boosted search discussed here---this search has no sensitivity to points closer to $m_{\scharm} = m_{\neut}$.}
+  \label{fig:siggrid}
+\end{figure}
+
+The signal points are arranged in several overlapping signal grids. The roughest consists of signal points in a rectangular arrangement at $100\,\gev$ intervals in both $m_{\scharm}$ and $m_{\neut}$. This grid covers $m_{\scharm} \leq 800\,\gev$ and $m_{\neut} \leq 500\,\gev$, omitting points where $\Delta m < m_W$.
+To increase resolution at the edge of the search's sensitivity, a second grid is overlaid with the same spacing but offset by $50\,\gev$ along the $m_{\scharm}$ and $m_{\neut}$ axes.
+The second grid covers $m_{\scharm} \leq 550\,\gev$ and $m_{\neut} \leq 250\,\gev$, again omitting points where $\Delta m < m_W$.
+A third set of points is borrowed from the $\sttoc$ grid to smoothly interpolate into the $\sttoc$ exclusion.
+This consists of points where $m_{W} - 10\,\gev < \Delta m < m_{W}$. The full set of points used in the final search, including those where the final $\cls$ value was borrowed directly from the $\sttoc$ analysis, is shown in \cref{fig:siggrid}.
+
+\subsection{Background Samples}
+
+Background samples are simulated with a variety of generators, chosen according to the simulated process.
+
