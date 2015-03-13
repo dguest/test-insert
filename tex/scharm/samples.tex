@@ -1,10 +1,21 @@
-The background and simulation models rely almost entirely on simulated samples, which are generated as discussed in \cref{sec:software}.
-Various packages are used to simulate matrix elements and jet fragmentation, after which particle interactions with the detector and the detector response is simulated in a \textsc{geant4}~\cite{geant} framework~\cite{atlassimulation}.
+Almost all backgrounds and all signals models rely to some extent on simulated samples, which are generated as discussed in \cref{sec:software}.
+As mentioned in \cref{sec:regions-and-fitting}, the overall normalization of dominant backgrounds is extracted from data.
+On the other hand, all other properties of the backgrounds are dictated by parameters of the simulation.
+
+Beginning with the colliding protons, the distribution of parton momenta is  characterized by \emph{parton distribution functions} (PDFs) which are measured from other designated searches and maintained by a number of international collaborations.
+When two partons interact in the hard-scatter, the fundamental interactions between partons are simulated by a wide array of programs, each of which has various strengths and weaknesses.
+%% The hard-scatter also includes tunable parameters.
+Following the hard-scatter, several more methods can simulate jet fragmentation. Both the hard scatter and fragmentation process rely on a number of parameters, collectively referred to as the \emph{tune}.
+Overall, there are a number of choices at each stage of the generation process.
+The combination chosen depends on the process simulated, and is informed by a huge number of studies which this thesis can't realistically accommodate.
+
+Particle interactions with the detector and the detector response takes place in a \textsc{geant4}~\cite{geant} framework~\cite{atlassimulation}.
+While the precise detector alignment and material properties are periodically updated, they are generally standard across analyses. In some cases, the calorimeter simulation is accelerated using the \textsc{AtlFast-II}~\cite{atlfast} package.
 
 \subsection{Signal Samples}
 The analysis relies on several assumptions about the mass hierarchy of the signal. We assume that only two particles are easily accessible at LHC energies: the $\scharm$ and the $\neut$, with the $\neut$ the lightest.
 This disallows intermediate decays such as $\scharm \to c + \supp{\chi}^{0}_2$ and $\scharm \to s + \cha$. All other sparticles are set to a mass of $4.5\,\tev$, and we assume a 100\% branching ration for $\sctoc$.
-The $\sttoc$ analysis relied on \textsc{MadGraph}~\cite{madgraph5} for signal matrix-element calculations, since it accurately models initial state radiation. Fragmentation was passed off to \textsc{pythia6}~\cite{pythia2}, and calorimeter response is modeled with the \textsc{Atlfast-II}~\cite{atlfast} package.
+The $\sttoc$ analysis relied on \textsc{MadGraph}~\cite{madgraph5} with the \textsc{auet2b}~\cite{auet2b} tune for signal matrix-element calculations, since it accurately models initial state radiation. Fragmentation was passed off to \textsc{pythia6}~\cite{pythia2}, and calorimeter response is modeled with \textsc{Atlfast-II}.
 For consistency, the $\sctoc$ search uses these packages as well.
 
 \begin{figure}
@@ -22,4 +33,12 @@ This consists of points where $m_{W} - 10\,\gev < \Delta m < m_{W}$. The full se
 \subsection{Background Samples}
 
 Background samples are simulated with a variety of generators, chosen according to the simulated process.
+\begin{description}
+\item[$\bm{t \bar{t}}$ production] The $t\bar{t}$ pairs are generated with \textsc{powheg}~\cite{powheg} and the \textsc{cteq6l1}~\cite{cteq} PDF set. They are passed to \textsc{pythia}, using the \textsc{perugia 2011C}~\cite{perugia} tune.
+\item[Single $\bm{t}$ production] Dominant production channels---$Wt$ and $s$---are simulated with \textsc{powheg + pythia}, again with \textsc{cteq6l1} and \textsc{perguia 2011C}.
+The $t$-channel is generated like the $Wt$ and $s$ channels, but using \textsc{AcerMC}~\cite{acermc} instead of \textsc{powheg}.
+\item[$\bm{t \bar{t}} + \bm{W}$/$\bm{Z}$] Top pairs produced in association with $W$ and $Z$ bosons are generated with \textsc{MadGraph}, with the \textsc{auet2}~\cite{auet2} tune. Again \textsc{pythia} with \textsc{cteq6l1} is used jet fragmentation.
+\item[$\bm{W}$/$\bm{Z} + $ jets] Bosons produced in association with jets are simulated using \textsc{sherpa}~\cite{sherpa}, which includes its own jet fragmentation model and a default tune. In this case, the \textsc{ct10}~\cite{CT10} PDF set is used.
+\item[Diboson] Diboson events---$WW$, $WZ$, and $ZZ$---are generated in the same manner as $W$/$Z + $ jets events.
+\end{description}
 
