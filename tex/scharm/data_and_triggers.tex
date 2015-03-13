@@ -1,0 +1,28 @@
+This analysis considered all data taken at the LHC in $\cmenergy$ proton-proton collisions, recorded beginning early 2012 and continuing throughout the year.
+In this time, the LHC accumulated total of $20.3 \pm 2.8\%\,\invfb$ of integrated luminosity after various data-cleaning requirements were applied.
+An additional $\sim 4.7\,\invfb$ of $\sqrt{s} = 7\,\tev$, taken in 2011, was not considered due to lower signal cross-sections, limited gain in data, and the complexity of combining datasets with different collision energies.
+
+As discussed in \cref{sec:trigger}, only a very small fraction of collisions in ATLAS are ever recorded, so in addition to being measurable at the LHC, signatures must match events which fire a trigger.
+
+\subsection{$\met$ Trigger}
+The signature of a $\sctoc$ decay is several $c$-jets plus $\met$.
+Charm-tagging isn't possible at trigger-level given the short timescales involved and the complexity of $c$-tagging.
+This leaves generic jets and $\met$ as trigger options.
+Of these, jet triggers are set with very high thresholds because jets are so common in hadron collisions; most of the jets $\sctoc$ would be below these thresholds.
+This leaves only $\met$ triggers as a viable option. \Cref{fig:etmiss-triggers} shows the efficiency of the $\met$ trigger used in this analysis. While the trigger threshold is, by design, roughly $80 \,\gev$, it only becomes $\sim 98\%$ efficient at approximately $150\,\gev$ due to the limited resolution of online $\met$ reconstruction.
+Typically data and simulation disagree somewhat in trigger efficiency; to mitigate any systematic uncertainty arising form this disagreement, events must satisfy an offline $\met > 150\,\gev$ requirement.
+
+\begin{figure}
+  \includegraphics[width=0.49\textwidth]{%
+int/figures/trigger/EF_xe80_tclcw_tight_efficiency_addLep_periodD.pdf}
+  \includegraphics[width=0.49\textwidth]{%
+int/figures/trigger/EF_xe80_tclcw_tight_efficiency_addLep_WmunuMC_leg.pdf}
+  \caption[$\met$ trigger efficienty]{Trigger efficiency for the $\met$ trigger. The left plot shows trigger efficiency in data, while the right shows efficiency in simulated $W \to \mu\nu$ events. A solid horizontal line indicates 100\% efficiency, while the dark dotted and light dotted lines indicate 98\% and 95\% efficiency. The vertical dotted line indicates the offline $\met$ requirement used in this search.}
+  \label{fig:etmiss-triggers}
+\end{figure}
+
+\subsection{Lepton Triggers}
+Background estimation is discussed in more detail in \cref{sec:backgrounds}, but to control for the larger backgrounds, we also require data with 1 or 2 leptons.
+The dominating background processes produce leptons through electroweak interactions, and thus give rise to roughly equal numbers of all three lepton generations.
+Of the three generations, $\tau$-leptons are exceptionally difficult to reconstruct and carry relatively large systematic uncertainties.
+
