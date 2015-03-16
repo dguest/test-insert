@@ -1,0 +1,44 @@
+\chapter{Selection of Lepton Triggers}
+\label{sec:dilepton-triggers}
+
+Both single lepton triggers and dilepton triggers were investigated for the 2-lepton same flavor control region, as detailed in table~\ref{tab:trigger_1Lvs2L}. In each case the triggering lepton $\pt$ must be above some offline threshold to assure near $\sim 100\%$ trigger efficiency.
+In general, dilepton triggers require a lower leading lepton offline threshold, but given the $\pt > 70\,\gev$ requirement in all dilepton control regions, this threshold is irrelevant: the single lepton trigger thresholds are also well below this requirement. A single lepton trigger, on the other hand, allows a subleading electron (muon) $\pt$ as low as 7(6) $\gev$. As shown in figure~\ref{fig:trigger_1Lvs2L}, a single-lepton trigger thus accepts more events.
+
+\begin{table}[ht]
+\begin{center}
+\footnotesize
+\begin{tabular}{| l | l | l | l | l | l |}
+\hline
+Strategy                                   & Channel    & Trigger chain                           & Leading lepton $\pt$             & Sub-leading lepton $\pt$ \\ \hline
+\multirow{2}{*}{Single lepton triggers}    & 2-electron & EF\_e24vhi\_medium1 OR EF\_e60\_medium1 & $\color{red} \pt(e)>25~\gev$             & $\color{blue} \pt(e)>7~\gev$ \\
+\cline{2-5}
+                                           & 2-muon     & EF\_mu24i\_tight OR EF\_mu36\_tight     & $\color{red} \pt(\mu)>25~\gev$           & $\color{blue} \pt(\mu)>6~\gev$\\
+\hline
+\hline
+\multirow{2}{*}{Dilepton triggers}         & 2-electron & EF\_2e12Tvh\_loose1                     & $\color{red} \pt(e)>20~\gev$             & $\color{red} \pt(e)>20~\gev$ \\
+\cline{2-5}
+                                           & 2-muon     & EF\_mu18\_tight\_mu8\_EFFS               & $\color{red} \pt(\mu)>20~\gev$           & $\color{red} \pt(\mu)>20~\gev$\\
+\hline
+\end{tabular}
+
+\caption{Summary of the two trigger strategies investigated for the dileptonic same flavor control region. Thresholds in red are set by the requirement that triggers are nearly $100 \%$ efficient, while the thresholds indicated in blue are dictated by the baseline lepton identification criteria.}
+\label{tab:trigger_1Lvs2L}
+\end{center}
+\end{table}
+
+
+
+\begin{figure}[ht!]
+\begin{center}
+\includegraphics[width=0.49\textwidth]{%
+int/figures/stackplots/dans/cr_z/mass_ll.pdf}
+\includegraphics[width=0.49\textwidth]{%
+int/figures/stackplots/dans/vr_z_2t_2l/mass_ll.pdf}\\
+\includegraphics[width=0.49\textwidth]{%
+int/figures/stackplots/dans/cr_z/second_lepton_pt.pdf}
+\includegraphics[width=0.49\textwidth]{%
+int/figures/stackplots/dans/vr_z_2t_2l/second_lepton_pt.pdf}\\
+\end{center}
+\caption[Comparison between single-lepton and dilepton triggers in $Z$ control region]{Comparison between the single lepton (left) and dilepton (right) triggers for the $Z$ control region. Top plots show $\mll$, while the lower plots show subleading lepton $\pt$. In all cases the $\pt$ threshold for the leading lepton is $70\,\gev$. To assure a trigger efficiency of $\sim 100 \%$ the dilepton selection also requires a subleading lepton $\pt$ above $20~\gev$. Using the single-lepton trigger, the $\pt$ requirement for the subleading electron (muon) can be relaxed to $7(6)\,\gev$.
+\label{fig:trigger_1Lvs2L}}
+\end{figure}
