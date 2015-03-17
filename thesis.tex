@@ -5,6 +5,7 @@
 \usepackage{mathrsfs}
 %% \usepackage{cprotect}
 \usepackage{bm}
+\usepackage{xspace}
 
 \usepackage{appendix}
 \usepackage{graphicx}
@@ -109,6 +110,7 @@
 \newcommand{\mcc}{m_{cc}}
 \newcommand{\mll}{m_{\ell \ell}}
 \newcommand{\mt}{m_{\rm T}}
+\newcommand{\metdphi}[1]{\Delta \phi(\met, #1)}
 \newcommand{\wjets}{W + \text{jets}}
 \newcommand{\zjets}{Z + \text{jets}}
 \newcommand{\topbg}{top}
@@ -124,6 +126,8 @@
 \newcommand{\crt}{CRT}
 \newcommand{\vrmcc}{VR $m_{cc}$}
 \newcommand{\vrmct}{VR $m_{\rm CT}$}
+\newcommand{\mctgt}[1]{\mct > #1\ \text{GeV}}
+\newcommand{\meff}{m_{\mathrm{eff}}}
 
 \begin{document}
 
@@ -157,8 +161,8 @@ excluded at 95\% confidence.}
 \include{tex/lepton_triggers}
 
 \chapter{Additional Plots}
-\include{tex/signal_region_plots}
-\include{tex/control_validation_region_plots}
+\include{tex/scharm/signal_region_plots}
+\include{tex/scharm/extra_plots}
 
 \bibliographystyle{extra/atlasBibStyleWithTitle.bst}
 \bibliography{references}

@@ -1,0 +1,61 @@
+\section{Signal Region Plots}
+Distributions for important variables in the signal regions are given on the following pages.
+
+\newcommand{\addsrplot}[2]{\includegraphics[width=#1\textwidth]{%
+int/figures/stackplots/dans/#2}}
+
+%% args: mct cut, variable name, fancy var name
+\newcommand{\plotjet}[3]{
+  \addsrplot{0.32}{signal_mct#1/j0_#2.pdf}
+  \addsrplot{0.32}{signal_mct#1/j1_#2.pdf}
+  \addsrplot{0.32}{signal_mct#1/j2_#2.pdf} \\
+}
+
+\newcommand{\srplots}[1]{
+\begin{figure}
+  \plotjet{#1}{pt}{\pt}
+  \plotjet{#1}{met_dphi}{\metdphi{j}}
+  \plotjet{#1}{antib}{Anti-$b$ discriminant}
+  \plotjet{#1}{antiu_log}{Anti-light discriminant}
+  %% \plotjet{#1}{flavor_truth_label}{flavor truth label}
+  \caption[Distributions for jet variables in the $\mctgt{#1}$ signal region]{Distributions for jet variables in the $\mctgt{#1}$ signal region. Left to right: jets 1, 2 and 3. Top to bottom: jet $\pt$, jet $\metdphi{j}$, JetFitterCharm anti-$b$ discriminant, JetFitterCharm anti-light discriminant.}
+\end{figure}
+
+\begin{figure}
+  \subfigure[$\Delta \phi(j_1, j_2)$]{
+    \addsrplot{0.45}{signal_mct#1/dphi_cc.pdf}
+  }
+  \subfigure[$\min \{ \metdphi{v} | v \in \{j_1, j_2, j_3 \} \}$]{
+    \addsrplot{0.45}{signal_mct#1/jetmet_dphi.pdf}
+  } \\
+  \subfigure[$m_{cc}$]{
+    \addsrplot{0.45}{signal_mct#1/mass_cc.pdf}
+  }
+  \subfigure[$m_{\rm CT}$]{
+    \addsrplot{0.45}{signal_mct#1/mass_ct.pdf}
+  } \\
+  \subfigure[$\meff$]{
+    \addsrplot{0.45}{signal_mct#1/met_eff.pdf}
+  }
+  \subfigure[$\met$]{
+    \addsrplot{0.45}{signal_mct#1/met.pdf}
+  }
+  \caption[Distributions for variables in the $\mctgt{#1}$ signal region]{Distributions for variables in the $\mctgt{#1}$ signal region.}
+\end{figure}
+}
+
+\subsection{SR $\mctgt{150}$ Plots}
+\srplots{150}
+\label{app:plots150}
+
+\clearpage
+
+\subsection{SR $\mctgt{200}$ Plots}
+\srplots{200}
+\label{app:plots200}
+
+\clearpage
+
+\subsection{SR $\mctgt{250}$ Plots}
+\srplots{250}
+\label{app:plots250}

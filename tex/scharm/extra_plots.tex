@@ -1,0 +1,272 @@
+%% The following pages show distribution grids of the variables used in
+%% this search. From left to right, the grids show the zero-tag, one-tag,
+%% and two-tag varient of each control region. Plots of event-wide
+%% variables (e.g. \met, \mcc) are given in
+%% \cref{app:plots_event_kinematics}, while jet and lepton kinematics are
+%% shown in
+%% \cref{app:plots_jet_kinematics,app:plots_lepton_kinematics}. The
+%% post-fit validation regions are given in
+%% \cref{app:plots_post_fit}.
+\section{Validation Region Plots}
+\label{sec:vr_plots}
+
+\newcommand{\addvrplot}[2]{\includegraphics[width=#1\textwidth]{%
+int/figures/stackplots/dans/#2}}
+\newcommand{\addpostfitetmiss}[1]{
+\addvrplot{0.49}{fr_mct/#1_afterFit.pdf}
+\addvrplot{0.49}{fr_mcc/#1_afterFit.pdf}
+}
+
+\newcommand{\etmisspostfitcaption}[1]{
+\caption[#1\xspace postfit distributions for validation regions]{Post-fit distributions for \lowercase{#1}\xspace in \vrmct{} (left) and \vrmcc{} (right).}
+}
+
+\newcommand{\addanylep}[1]{
+\addvrplot{0.32}{vr_z/#1}
+\addvrplot{0.32}{vr_z_1t/#1}
+\addvrplot{0.32}{cr_z/#1}\\
+\addvrplot{0.32}{vr_1e/#1}
+\addvrplot{0.32}{vr_1e_1t/#1}
+\addvrplot{0.32}{vr_1e_2t/#1}\\
+\addvrplot{0.32}{vr_1m/#1}
+\addvrplot{0.32}{vr_1m_1t/#1}
+\addvrplot{0.32}{vr_1m_2t/#1}\\
+\addvrplot{0.32}{vr_t/#1}
+\addvrplot{0.32}{vr_t_1t/#1}
+\addvrplot{0.32}{cr_t/#1}
+}
+
+\newcommand{\crvrcaption}[1]{
+\caption[#1\xspace distributions for control and validation regions]{Distributions for \lowercase{#1}\xspace in several regions. Top to bottom: $Z$, one $e$, one $\mu$, and $t$ regions. Right to left: 0, 1, and 2 $c$-tags}
+}
+
+\newcommand{\adddilep}[1]{
+\addvrplot{0.32}{vr_z/#1}
+\addvrplot{0.32}{vr_z_1t/#1}
+\addvrplot{0.32}{cr_z/#1}\\
+\addvrplot{0.32}{vr_t/#1}
+\addvrplot{0.32}{vr_t_1t/#1}
+\addvrplot{0.32}{cr_t/#1}
+}
+
+\newcommand{\dilepcaption}[1]{
+\caption[#1\xspace distributions for control and validation regions]{Distributions for \lowercase{#1}\xspace in several regions. Top to bottom: $Z$, and $t$ regions. Right to left: 0, 1, and 2 $c$-tags}
+}
+
+
+\newcommand{\addonelep}[1]{
+\addvrplot{0.32}{vr_1e/#1}
+\addvrplot{0.32}{vr_1e_1t/#1}
+\addvrplot{0.32}{vr_1e_2t/#1}\\
+\addvrplot{0.32}{vr_1m/#1}
+\addvrplot{0.32}{vr_1m_1t/#1}
+\addvrplot{0.32}{vr_1m_2t/#1}
+}
+
+\newcommand{\onelepcaption}[1]{
+\caption[#1\xspace distributions for control and validation regions]{Distributions for \lowercase{#1}\xspace in several regions. Top to bottom: one $e$ and one $\mu$ regions. Left to right: 0, 1, and 2 $c$-tags}
+}
+
+%% ________________________________________________________________________
+\subsection{Event Kinematics}
+\label{app:plots_event_kinematics}
+
+\begin{figure}
+\addanylep{dphi_cc.pdf}
+\crvrcaption{$\Delta \phi(j_1,j_2)$}
+\end{figure}
+
+\newcommand{\deltar}{\Delta R}  %hack to get around lowercase use above
+\begin{figure}
+\addanylep{dr_cc.pdf}
+\crvrcaption{$\deltar(j_1,j_2)$}
+\end{figure}
+
+%% these require only one lepton
+\begin{figure}
+\addonelep{mass_t.pdf}
+\onelepcaption{$\mt$}
+\end{figure}
+
+\begin{figure}
+\addanylep{met.pdf}
+\crvrcaption{$\met$}
+\end{figure}
+
+\begin{figure}
+\addanylep{mass_cc.pdf}
+\crvrcaption{$\mcc$}
+\end{figure}
+
+\begin{figure}
+\addanylep{mass_ct.pdf}
+\crvrcaption{$\mct$}
+\end{figure}
+
+%% \begin{figure}
+%% \addanylep{mass_ct_uncorr.pdf}
+%% \crvrcaption{$\mctraw$}
+%% \end{figure}
+
+\clearpage
+
+%% ________________________________________________________________________
+\subsection{Jet Kinematics}
+\label{app:plots_jet_kinematics}
+
+\begin{figure}
+\addanylep{j0_pt.pdf}
+\crvrcaption{Jet 1 $\pt$}
+\end{figure}
+
+\begin{figure}
+\addanylep{j1_pt.pdf}
+\crvrcaption{Jet 2 $\pt$}
+\end{figure}
+
+\begin{figure}
+\addanylep{j2_pt.pdf}
+\crvrcaption{Jet 3 $\pt$}
+\end{figure}
+
+\begin{figure}
+\addanylep{j0_met_dphi.pdf}
+\crvrcaption{$\metdphi{j_1}$}
+\end{figure}
+
+\begin{figure}
+\addanylep{j1_met_dphi.pdf}
+\crvrcaption{$\metdphi{j_2}$}
+\end{figure}
+
+\begin{figure}
+\addanylep{j2_met_dphi.pdf}
+\crvrcaption{$\metdphi{j_3}$}
+\end{figure}
+
+
+\clearpage
+
+%% ________________________________________________________________________
+\subsection{Tagging}
+\label{app:plots_jet_tagging}
+
+\begin{figure}
+\addanylep{j0_antiu_log.pdf}
+\crvrcaption{Jet 1 $\log(c/u)$ tagging discriminant}
+\end{figure}
+
+\begin{figure}
+\addanylep{j0_antib.pdf}
+\crvrcaption{Jet 1 $\log(c/b)$ tagging discriminant}
+\end{figure}
+
+\begin{figure}
+\addanylep{j1_antiu_log.pdf}
+\crvrcaption{Jet 2 $\log(c/u)$ tagging discriminant}
+\end{figure}
+
+\begin{figure}
+\addanylep{j1_antib.pdf}
+\crvrcaption{Jet 2 $\log(c/b)$ tagging discriminant}
+\end{figure}
+
+\clearpage
+
+%% ________________________________________________________________________
+\subsection{Lepton Kinematics}
+\label{app:plots_lepton_kinematics}
+
+%% lepton plots
+\begin{figure}
+\addanylep{leading_lepton_pt.pdf}
+\crvrcaption{First lepton $\pt$}
+\end{figure}
+
+\begin{figure}
+\adddilep{second_lepton_pt.pdf}
+\dilepcaption{Second lepton $\pt$}
+\end{figure}
+
+\begin{figure}
+\addanylep{leading_lepton_met_dphi.pdf}
+\crvrcaption{$\metdphi{\ell_1}$}
+\end{figure}
+
+\begin{figure}
+\adddilep{second_lepton_met_dphi.pdf}
+\dilepcaption{$\metdphi{\ell_2}$}
+\end{figure}
+
+\begin{figure}
+\addanylep{dphi_any.pdf}
+\crvrcaption{$\min \{ \metdphi{v} | v \in \{j_1, j_2, j_3, \ell_1, \ell_2 \} \}$}
+\end{figure}
+
+%% these require two leptons
+
+\begin{figure}
+\adddilep{mass_ll.pdf}
+\dilepcaption{$m_{\ell \ell}$}
+\end{figure}
+
+\begin{figure}
+\adddilep{dphi_ll.pdf}
+\dilepcaption{$\Delta \phi(\ell, \ell)$}
+\end{figure}
+
+%% post-fit validation regions
+
+\clearpage
+
+%% ________________________________________________________________________
+\subsection{Post-fit \vrmct{} and \vrmcc{} distributions}
+\label{app:plots_post_fit}
+
+\begin{figure}
+\addpostfitetmiss{met}
+\etmisspostfitcaption{$\met$}
+\end{figure}
+
+\begin{figure}
+\addpostfitetmiss{mass_cc}
+\etmisspostfitcaption{$\mcc$}
+\end{figure}
+
+\begin{figure}
+\addpostfitetmiss{mass_ct}
+\etmisspostfitcaption{$\mct$}
+\end{figure}
+
+\begin{figure}
+\addpostfitetmiss{j0_pt}
+\etmisspostfitcaption{Jet 1 $\pt$}
+\end{figure}
+
+\begin{figure}
+\addpostfitetmiss{j1_pt}
+\etmisspostfitcaption{Jet 2 $\pt$}
+\end{figure}
+
+\begin{figure}
+\addpostfitetmiss{j2_pt}
+\etmisspostfitcaption{Jet 3 $\pt$}
+\end{figure}
+
+\clearpage
+
+%% The EW MC background estimates were found not to describe well the dalo in the low \etmiss region of \VRA. Two effects contribute to this:
+%% \begin{itemize}
+%% \item The \VRA events are collected using a \met trigger, which reaches the efficiency plateau in data and MC for $\etmiss > 150~\GeV$. The efficiency is observed to be different in data and MC for $\etmiss < 150~\GeV$. For example, in the \etmiss bin 75-100~\GeV, the MC need to be scaled down by multiplying with a factor $1/1.33$; in the \etmiss bin 100-125~\GeV, the factor is $1/1.14$.
+%% \item There is considerable contamination from multijet events. An accurate estimate of this would require a dedicated study. The multijet estimate is made using events collected with single jet triggers, which have efficiency plateaus independent of the MET requirement. Therefore the multijet estimate would need to be scaled down by the MET trigger efficiency (i.e. $\times0.3$ for \etmiss between 75 and 100 GeV, $\times0.75$ for \etmiss between 100 and 125~\GeV). However, taking into account these effects would need a dedicated study, which we believe would add little to the understanding of the main backgrounds in the control and signal regions. We also note that the \VRA region with $\etmiss < 150~\GeV$ is not used in this analysis. Indeed we have removed the low-MET region from the VR0L plots in the main body of the text to make it obvious that a data/MC comparison in that region is in fact not appropriate.
+%% \end{itemize}
+
+%% Figure ~\ref{fig:QCDinVRA} shows the \etmiss distribution in the \VRA region.
+
+\begin{figure}[h!]
+\begin{center}
+  \includegraphics[width=0.49\columnwidth]{int/figures/QCD/can_SRAVRnoMet_eT_miss_afterFit}
+\end{center}
+\caption{$\met$ distribution in the \vrmct{} region. The region with $\met < 150~\gev$ isn't well described due to limitations in trigger efficiency.}
+\label{fig:qcd-vra}
+\end{figure}
