@@ -19,9 +19,31 @@ function convert-svg-to-pdf() {
     inkscape --without-gui --export-pdf=$OUT $1
 }
 
+function convert-eps-to-pdf() {
+    if ! hash epstopdf &> /dev/null ; then
+	echo "epstopdf not found, quitting" 2>&1
+	return 1
+    fi
+    local OUT=${1%.eps}.pdf
+    if [[ $OUT -nt $1 ]] ; then
+	echo "$OUT is newer than $1, not remaking"
+	return 0
+    fi
+    if [[ $1 != *.eps ]] ; then
+	echo "can't convert $1 with epstopdf" 2>&1
+	return 1
+    fi
+    epstopdf --outfile=$OUT $1
+}
+
 function get-file() {
     local BASE=$(basename $1)
     local OUT=${2-$BASE}
+    if [[ ${BASE##*.} != ${OUT##*.} ]]; then
+	echo -n "extension mismatch between $BASE and $OUT, " 2>&1
+	echo "(${BASE##*.} != ${OUT##*.}) quitting" 2>&1
+	return 1
+    fi
     if [[ -f $OUT ]]; then
 	echo "already have $OUT"
     else
@@ -33,13 +55,18 @@ function get-file() {
     if [[ $OUT == *.svg ]]; then
 	echo "converting $OUT to .pdf"
 	convert-svg-to-pdf $OUT
+    elif [[ $OUT == *.eps ]]; then
+	echo "converting $OUT to .pdf"
+	convert-eps-to-pdf $OUT
     fi
+
 }
 
 # graphs and schematics
 get-file http://upload.wikimedia.org/wikipedia/commons/4/4b/Standard_Model_of_Elementary_Particles_modified_version.svg standard-model.svg
 get-file http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2013-041/fig_06.pdf alpha-strong.pdf
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CombinedSummaryPlots/SM/ATLAS_b_SMSummary_FiducialXsect/ATLAS_b_SMSummary_FiducialXsect.pdf atlas-sm.pdf
+
 
 # cosmology things
 get-file http://apod.nasa.gov/apod/image/0608/bulletcluster_comp_f2048.jpg
