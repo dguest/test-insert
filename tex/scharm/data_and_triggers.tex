@@ -2,14 +2,14 @@ This analysis considered all data taken at the LHC in $\cmenergy$ proton-proton 
 In this time, the LHC accumulated total of $20.3 \pm 2.8\%\,\invfb$ of integrated luminosity after various data-cleaning requirements were applied.
 An additional $\sim 4.7\,\invfb$ of $\sqrt{s} = 7\,\tev$, taken in 2011, was not considered due to lower signal cross-sections, limited gain in data, and the complexity of combining datasets with different collision energies.
 
-As discussed in \cref{sec:trigger}, only a very small fraction of collisions in ATLAS are ever recorded, so in addition to being measurable at the LHC, signatures must match events which fire a trigger.
+As discussed in \cref{sec:det-design}, only a very small fraction of collisions in ATLAS are ever recorded, so in addition to being measurable at the LHC, signatures must match events which fire a trigger.
 
 \subsection{$\met$ Trigger}
 The signature of a $\sctoc$ decay is several $c$-jets plus $\met$.
-Charm-tagging isn't possible at trigger-level given the short timescales involved and the complexity of $c$-tagging.
+Charm-tagging isn't currently implemented at trigger-level given the short timescales involved and the complexity of $c$-tagging.
 This leaves generic jets and $\met$ as trigger options.
 Of these, jet triggers are set with very high thresholds because jets are so common in hadron collisions; most of the jets $\sctoc$ would be below these thresholds.
-This leaves only $\met$ triggers as a viable option. \Cref{fig:etmiss-triggers} shows the efficiency of the $\met$ trigger used in this analysis (\verb|EF_xe80_tclcw_tight|). While the trigger threshold is, by design, roughly $80 \,\gev$, it only becomes $\sim 98\%$ efficient at approximately $150\,\gev$ due to the limited resolution of online $\met$ reconstruction.
+This leaves only $\met$ triggers as a viable option. \Cref{fig:etmiss-triggers} shows the efficiency of the $\met$ trigger used in this analysis (\verb|EF_xe80_tclcw_tight|). While the trigger threshold is, by design, roughly $80 \,\gev$, it only becomes $\gtrsim 99\%$ efficient at approximately $150\,\gev$ due to the limited resolution of online $\met$ reconstruction.
 Typically data and simulation disagree somewhat in trigger efficiency; to mitigate any systematic uncertainty arising form this disagreement, events must satisfy an offline $\met > 150\,\gev$ requirement.
 
 %% \begin{table}
@@ -82,3 +82,4 @@ In general, the lowest non-prescaled trigger which is available for the entire 2
 As with the $\met$ trigger, an offline threshold is required to ensure that the trigger is nearly $100\,\%$ efficient.
 In control regions which require two leptons, dilepton triggers were considered since they allow lower offline $\pt$ thresholds (20 as opposed to 25 $\gev$).
 As discussed further in \cref{sec:dilepton-triggers}, these were rejected because the final control region definitions included a leading lepton requirement $\pt > 70\,\gev$; lowering the $\pt$ threshold on the leading lepton added very few events, and a $\pt > 20\,\gev$ requirement on the second lepton removed many more.
+All leptonic control regions thus used the single-lepton triggers listed in \cref{tab:lepton-triggers}. Each flavor combines two triggers: a low-$\pt$ trigger with lepton isolation requirements and a higher-$\pt$ trigger with no isolation requirements.
