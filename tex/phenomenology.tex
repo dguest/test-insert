@@ -1,15 +1,37 @@
 \section{Collider Physics}
 \label{sec:pheno}
-\begin{itemize}
-\item maybe say something about how SUSY feynman diagrams work.
-\end{itemize}
+%% \begin{itemize}
+%% \item maybe say something about how SUSY feynman diagrams work.
+%% \end{itemize}
 \subsection{Proton Collisions}
-For the purposes of this thesis, the details of the LHC \cref{sec:lhc} 
+The LHC (discussed in more detail in \cref{sec:lhc}) accelerates beams of protons and collides them in the center of the LHC's four main detectors.
+Of the many parameters that describe colliders, two of the most important are center-of-mass energy ($\sqrt{s}$) and instantaneous luminosity ($\lumi$). These are measures of how ``hard'' protons are colliding and how frequently collisions occur, respectively.
+
+Within a proton collider, $\sqrt{s}$ is only indirectly related to the energy of fundamental interactions.
+This is because a proton is composed of many strongly-bound partons---interactions between protons are in fact collisions between the constituent particles.
+As a result, the energy of the fundamental interaction is described by a convolution between the beam energy and the \emph{parton distribution function}.
+In 2012, individual protons within the counter-circulating proton beams collided with a center-of-mass energy of $8\,\tev$ ($\cmenergy$).
+
+\begin{figure}
+  \includegraphics[height=0.7\textheight]{misc/cc/crosssections2012HE_v4.pdf}
+  \caption[Standard model cross-sections as a function of collider energy]{%
+Standard model cross-sections as a function of collider energy. Taken from ref~\cite{sm-crosssec}.}
+\end{figure}
+
 \begin{figure}
   \includegraphics[width=\textwidth]{misc/cc/atlas-sm.pdf}
   \caption[Summary of measured SM cross-sections in ATLAS]{%
-Summary of measured SM cross-sections in ATLAS. Taken from ref~\cite{atlas-sm}.
-}
+    Summary of measured SM cross-sections in ATLAS. Taken from ref~\cite{atlas-sm}.}
+  \label{fig:sm-crosssection}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{misc/cc/mstw-proton.pdf}
+  \caption[Proton parton distribution function]{%
+    Proton parton distribution function. Taken from ref~\cite{mstw-proton}.}
+\end{figure}
+
+
 \begin{itemize}
 \item explain ISR
 \item explain cross-sections
@@ -42,7 +64,6 @@ the known unknowns
 \end{itemize}
 \subsection{Implications for Experiments}
 \label{sec:det-design}
-\end{figure}
 \begin{itemize}
 \item define ``the hard scatter'', explain why it's appropriate to use a definite article.
 \item explain implications for triggering
