@@ -10,31 +10,65 @@ Of the many parameters that describe colliders, two of the most important are ce
 Within a proton collider, $\sqrt{s}$ is only indirectly related to the energy of fundamental interactions.
 This is because a proton is composed of many strongly-bound partons---interactions between protons are in fact collisions between the constituent particles.
 As a result, the energy of the fundamental interaction is described by a convolution between the beam energy and the \emph{parton distribution function}.
+This interaction energy defines what physics is accessible to an accelerator; massive particles can only be created when the energy of incoming partons exceeds the rest mass of the created particles.
 In 2012, individual protons within the counter-circulating proton beams collided with a center-of-mass energy of $8\,\tev$ ($\cmenergy$).
+As shown on the left side of \cref{fig:parton-lumi}, the invariant mass of incoming partons (and thus the energy to available to create new particles) is skewed toward lighter masses at all proton energies.
+Higher proton-proton center-of-mass energy scales up the overall energy of parton-parton interactions.
 
 \begin{figure}
-  \includegraphics[height=0.7\textheight]{misc/cc/crosssections2012HE_v4.pdf}
-  \caption[Standard model cross-sections as a function of collider energy]{%
-Standard model cross-sections as a function of collider energy. Taken from ref~\cite{sm-crosssec}.}
+  \includegraphics[width=0.5\textwidth]{misc/cc/mstw-lumi.pdf}
+  \includegraphics[width=0.5\textwidth]{misc/cc/crosssections2012HE_v4.pdf}
+  \caption[Proton parton luminosity functions and SM cross-sections]{%
+    (left) Proton parton luminosity as a function of parton-parton invariant mass. (right) Cross-sections for SM processes as a function of proton collision energy. Taken from ref~\cite{stirling}.}
+  \label{fig:parton-lumi}
 \end{figure}
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{misc/cc/atlas-sm.pdf}
-  \caption[Summary of measured SM cross-sections in ATLAS]{%
-    Summary of measured SM cross-sections in ATLAS. Taken from ref~\cite{atlas-sm}.}
-  \label{fig:sm-crosssection}
-\end{figure}
+Luminosity in a collider is defined to be directly proportional to the collision rate.
+Intuitively, imagining pairs of homogeneous \emph{bunches}\footnote{Obviously a real particle beam isn't composed of particle bunches with homogeneous density. While a more precise treatment is technically possible, in practice luminosity is measured \emph{from} the collision rate; there's no need to compute the precise geometry of the collision.} of particles crossing through each other at regular time intervals, the number of collisions should be proportional to several quantities:
+\begin{itemize}
+\item The number particles in one bunch per unit area, when projected onto a plane perpendicular to the beam axis. As a number per unit area, this quantity has dimensions of $\mathrm{L}^{-2}$.
+\item The same quantity in the opposing bunch. Again this quantity has dimensions of $\mathrm{L}^{-2}$.
+\item The total area of the beam profile (projected perpendicular to the beam access). This is has dimensions of $\mathrm{L}^2$.
+\end{itemize}
+Multiplying by $\mathrm{T}^{-1}$ (because crossings happen at regular intervals), the overall units for luminosity must be $\mathrm{L}^{-2} \times \mathrm{T}^{-1}$.
+The rate of particle interactions should have units of $\mathrm{T}^{-1}$, thus the total rate is given by
+\begin{equation}
+  \frac{d N}{d t} = \sigma_{\text{tot}} \mathcal{L}
+  \label{eq:lumi-cross-section}
+\end{equation}
+where $\sigma_{\text{tot}}$ is the inelastic \emph{cross-section} of the collision process. By dimensional analysis $\sigma_{\text{tot}}$ must have units of area.
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{misc/cc/mstw-proton.pdf}
-  \caption[Proton parton distribution function]{%
-    Proton parton distribution function. Taken from ref~\cite{mstw-proton}.}
-\end{figure}
+Several cross-sections for processes involving proton collisions are shown on the right side of \cref{fig:parton-lumi}.
+The total proton-proton cross-section is many orders of magnitude larger than those for $W$ and $Z$ production, which, in turn, are many orders of magnitude larger than those for Higgs production.
+Given that cross-section is directly related to production rate, it's no surprise that particle discoveries over the last century move roughly from higher to lower cross-sections; the bottom quark was discovered before the $W$ and $Z$ bosons, which were discovered before the top quark and the Higgs boson.
 
+%% Cross-sections, which have units of area, mesh well with classical intuition. In particles with some physical extent, the ``larger'' particles are clearly more likely to collide than the smaller ones.
+%% Unfortunately this intuitive picture breaks down almost immediately; 
+
+This progression of discovery was enabled in part by more energetic accelerators, since cross-sections generally increase with energy. Increases in luminosity play an equally important part, however. To quantify the total number of collisions, particle physicists typically integrate luminosity over time, and quote \emph{integrated luminosity} in units of inverse \emph{barns} (b), where $1\,\mathrm{b} = 10^{-28}\,\mathrm{m}^2$, or more frequently \emph{femtobarns} ($1\,\mathrm{fb} = 10^{-43}\,\mathrm{m}^2$).
+Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\invfb$ in its two detectors~\cite{tevatron}. In 2012 alone, both ATLAS and CMS accumulated an integrated luminosity of roughly $20\,\invfb$.
+
+%% \begin{figure}
+%%   \includegraphics[height=0.7\textheight]{misc/cc/crosssections2012HE_v4.pdf}
+%%   \caption[Standard model cross-sections as a function of collider energy]{%
+%% Standard model cross-sections as a function of collider energy. Taken from ref~\cite{sm-crosssec}.}
+%% \end{figure}
+
+
+%% \begin{figure}
+%%   \includegraphics[width=\textwidth]{misc/cc/mstw-proton.pdf}
+%%   \caption[Proton parton distribution function]{%
+%%     Proton parton distribution function. Taken from ref~\cite{mstw-proton}.}
+%% \end{figure}
+
+\subsection{Hard Scattering}
+As shown in \cref{fig:parton-lumi}, parton-parton collisions are most commonly lower-energy \emph{soft} interactions.
+Higher-energy \emph{hard} interactions produce rarer particles which are of much greater interest to the LHC physics program.
+The design of ATLAS and CMS epitomize this bias toward hard interactions; as discussed more in \cref{sec:trigger}, the ATLAS data acquisition system is designed to record only the 0.001\% of collisions, and chooses these by requiring decay products over specified energy thresholds.
 
 \begin{itemize}
+\item (maybe) explain why we only care about one primary vertex
 \item explain ISR
-\item explain cross-sections
 \end{itemize}
 \subsection{Hadrons, Electrons, and Muons}
 \begin{itemize}
@@ -68,3 +102,8 @@ the known unknowns
 \item define ``the hard scatter'', explain why it's appropriate to use a definite article.
 \item explain implications for triggering
 \end{itemize}
+\begin{figure}
+  \includegraphics[width=\textwidth]{misc/cc/atlas-sm.pdf}
+  \caption[Summary of measured SM cross-sections in ATLAS]{%
+    Summary of measured SM cross-sections in ATLAS. Taken from ref~\cite{atlas-sm}.}
+\end{figure}
