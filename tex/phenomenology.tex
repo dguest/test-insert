@@ -23,20 +23,23 @@ Higher proton-proton center-of-mass energy scales up the overall energy of parto
   \label{fig:parton-lumi}
 \end{figure}
 
-Luminosity in a collider is defined to be directly proportional to the collision rate.
-Intuitively, imagining pairs of homogeneous \emph{bunches}\footnote{Obviously a real particle beam isn't composed of particle bunches with homogeneous density. While a more precise treatment is technically possible, in practice luminosity is measured \emph{from} the collision rate; there's no need to compute the precise geometry of the collision.} of particles crossing through each other at regular time intervals, the number of collisions should be proportional to several quantities:
+Luminosity in a collider is one of two quantities which is defined to be directly proportional to the collision rate.
+While luminosity is primarily a property of the accelerator, the \emph{cross-section} absorbs the properties of the particles and the specific interactions.
+The total rate is thus give by
+\begin{equation}
+  \frac{d N}{d t} = \sigma \mathcal{L}
+  \label{eq:lumi-cross-section}
+\end{equation}
+where $N$ is the number of collisions and $\sigma$ is the cross-section.
+The basic properties of $\mathcal{L}$ follow from simple dimensional analysis.
+Imagining pairs of homogeneous \emph{bunches}\footnote{Obviously a real particle beam isn't composed of particle bunches with homogeneous density. While a more precise treatment is technically possible, in practice luminosity is measured \emph{from} the collision rate; there's no need to compute the precise geometry of the collision.} of particles crossing through each other at regular time intervals, the number of collisions should be proportional to several quantities:
 \begin{itemize}
 \item The number particles in one bunch per unit area, when projected onto a plane perpendicular to the beam axis. As a number per unit area, this quantity has dimensions of $\mathrm{L}^{-2}$.
 \item The same quantity in the opposing bunch. Again this quantity has dimensions of $\mathrm{L}^{-2}$.
 \item The total area of the beam profile (projected perpendicular to the beam access). This is has dimensions of $\mathrm{L}^2$.
 \end{itemize}
 Multiplying by $\mathrm{T}^{-1}$ (because crossings happen at regular intervals), the overall units for luminosity must be $\mathrm{L}^{-2} \times \mathrm{T}^{-1}$.
-The rate of particle interactions should have units of $\mathrm{T}^{-1}$, thus the total rate is given by
-\begin{equation}
-  \frac{d N}{d t} = \sigma_{\text{tot}} \mathcal{L}
-  \label{eq:lumi-cross-section}
-\end{equation}
-where $\sigma_{\text{tot}}$ is the inelastic \emph{cross-section} of the collision process. By dimensional analysis $\sigma_{\text{tot}}$ must have units of area.
+The rate of particle interactions should have units of $\mathrm{T}^{-1}$. By dimensional analysis $\sigma$ must have units of area.
 
 Several cross-sections for processes involving proton collisions are shown on the right side of \cref{fig:parton-lumi}.
 The total proton-proton cross-section is many orders of magnitude larger than those for $W$ and $Z$ production, which, in turn, are many orders of magnitude larger than those for Higgs production.
