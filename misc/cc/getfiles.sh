@@ -76,3 +76,7 @@ get-file http://sci.esa.int/science-e-media/img/61/Planck_CMB_Mollweide_wallpape
 
 # ugly graphs
 get-file http://www.nobelprize.org/nobel_prizes/physics/laureates/2004/phypub4highen.jpg unification-ugly.jpg
+
+# on pantheon
+get-file http://pantheon.yale.edu/~dhg3/feyn/scsc-ccN1N1.pdf feyn-sctoc.pdf
+get-file http://pantheon.yale.edu/~dhg3/feyn/stst-ccN1N1-bWC1loop.pdf feyn-sttoc.pdf
