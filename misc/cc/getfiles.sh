@@ -69,6 +69,14 @@ get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CombinedSummaryPlots/SM/
 get-file http://www.hep.ph.ic.ac.uk/~wstirlin/plots/crosssections2012HE_v4.pdf
 get-file http://mstwpdf.hepforge.org/plots/mstw2008nlo68cl_allpdfs.eps mstw-proton.eps
 get-file http://www.hep.ph.ic.ac.uk/~wstirlin/plots/lumi2012_abs_v1.pdf mstw-lumi.pdf
+# tagging
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2012-039/fig_01c.pdf dstar-pion-mass.pdf
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2012-040/fig_01a.pdf negative-tag-sv0.pdf
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2014-004/fig_01a.pdf giacinto-mll.pdf
+# tagging SF --- NOTE: duplicates of the ones in JFC note
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/fig_05a.pdf sf-ctag-c-medium.pdf
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/fig_05b.pdf sf-ctag-b-medium.pdf
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/fig_06a.pdf sf-ctag-u-medium.pdf
 
 # cosmology things
 get-file http://apod.nasa.gov/apod/image/0608/bulletcluster_comp_f2048.jpg
@@ -76,6 +84,7 @@ get-file http://sci.esa.int/science-e-media/img/61/Planck_CMB_Mollweide_wallpape
 
 # ugly graphs
 get-file http://www.nobelprize.org/nobel_prizes/physics/laureates/2004/phypub4highen.jpg unification-ugly.jpg
+get-file http://ufldl.stanford.edu/wiki/images/0/0e/Stacked_SparseAE_Features1.png autoencoder-layer.png
 
 # on pantheon
 # feynman
@@ -84,7 +93,9 @@ get-file $PAN/feyn/scsc-ccN1N1.pdf feyn-sctoc.pdf
 get-file $PAN/feyn/stst-ccN1N1-bWC1loop.pdf feyn-sttoc.pdf
 get-file $PAN/feyn/stst-ccN1N1-bWC1loop-ISR.pdf feyn-sttoc-isr.pdf
 # tagging
-get-file $PAN/tagging-diagrams/b-jet.pdf
-get-file $PAN/tagging-diagrams/b-jet-ip.pdf
-get-file $PAN/tagging-diagrams/b-jet-sv.pdf
-get-file $PAN/tagging-diagrams/b-jet-jf.pdf
+get-file $PAN/tagging/diagrams/b-jet.pdf
+get-file $PAN/tagging/diagrams/b-jet-ip.pdf
+get-file $PAN/tagging/diagrams/b-jet-sv.pdf
+get-file $PAN/tagging/diagrams/b-jet-jf.pdf
+get-file $PAN/tagging/plots/ctag-2d-gaia-vs-jfc.pdf
+get-file $PAN/tagging/plots/uRejRoc.pdf

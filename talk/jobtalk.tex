@@ -2,6 +2,11 @@
 \useoutertheme{infolines}
 
 \usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,backgrounds}
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [baseline=-.5ex]
+\tikzstyle{background grid}=[draw, black!50,step=.5cm]
 
 \title[Charmed Searches]{Searches for Charmed Final States in ATLAS}
 \author[dhg3]{Dan Guest}
@@ -16,6 +21,9 @@
 \setbeamercolor{block title}{fg=darkred}
 \setbeamercolor{local structure}{fg=darkred}
 \usefonttheme{serif} % default family is serif
+
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{aqua}{rgb}{0,1,1}
 
 \input{../definitions.tex}
 
@@ -167,7 +175,11 @@ figures/external/feyn-sctoc.pdf}
       \end{enumerate}
       \begin{itemize}
       \item Can resolve any number of SVs
-      \item Vertex clustering is retuned for $c$-tagging version
+      \item Retuned for $c$-tagging:
+        \begin{itemize}
+        \item Looser track selection
+        \item Fewer tracks assigned to PV
+        \end{itemize}
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -214,22 +226,20 @@ figures/external/feyn-sctoc.pdf}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
-      \item Start with $b$-tagging tools
-      \item Loosen JetFitter:
+      \item Combine all three approaches
+      \item IP based: IP3D
         \begin{itemize}
-        \item Looser track selection
-        \item Assign more tracks to SV
+        \item 2D IP for each track
+        \item Lookup \fcolorbox{black}{aqua}{$\mathcal{L}_b$}, \fcolorbox{black}{aqua}{$\mathcal{L}_{\text{light}}$} for each track (based on simulation)
+        \item Calculate $\sum_{\text{trk}} \ln (\mathcal{L}_b / \mathcal{L}_{\text{light}})$
         \end{itemize}
-      \item Add JF Variables:
+      \item Add vertex variables, e.g.
         \begin{itemize}
-        \item $L_{xy}^1$, $L_{xy}^2$ (secondary and tertiary vertex displacement)
-        \item $\varphi_{\textrm{trk}}$ (track rapidity along jet axis)
+        \item Vertex significance
+        \item Vertex mass
+        \item Fraction of jet energy in vertices
         \end{itemize}
-      \item Feed all variables to a neural net
-        \begin{itemize}
-        \item 19-20-10-3 topology
-        \item Trained with JETNET on $t\bar{t}$
-        \end{itemize}
+      \item Feed all variables into a NN
       \item Cut on neural net outputs: \\
         $P_{b}$, $P_{c}$, and $P_{u}$ ($P_{\rm light}$)
       \end{itemize}
@@ -248,112 +258,164 @@ figures/external/feyn-sctoc.pdf}
 %% NOTE: should make sure I mention that there's no clean cut to isolate
 %% c-jets or b-jets
 \begin{frame}
-  \frametitle{Output Probabilities}
+  \frametitle{Tagging Discriminants}
   \begin{itemize}
   \item Define two discriminants based on NN outputs:
   \begin{align*}
     \text{anti-}b & \equiv \frac{P_c}{P_b} &
     \text{anti-light} & \equiv \frac{P_c}{P_{\text{light}}}
   \end{align*}
-  \item In all plots that follow, cut on these two variables
+  \item Can trade $b$-rejection for light-rejection
   \end{itemize}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{%
-figures/jfc/anti-bottom-discriminant.pdf}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{%
-figures/jfc/anti-light-discriminant.pdf}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-%% NOTE: should probably combine this and the previous slide
-\begin{frame}
-  \frametitle{Operating Points}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-      \item Prototype analysis: \link{$\tilde{t} \to c \chi_1^0$}{http://arxiv.org/abs/1407.0608}
-        \begin{itemize}
-        \item Backgrounds: $W/Z + \text{ Jets}$, $\sim 10\%$ top
-        \end{itemize}
-      \item Defined two operating points
-        \begin{itemize}
-        \item loose: reject $b$-jets
-        \item medium: reject light-, $b$-jets
-        \end{itemize}
-      \end{itemize}
+      \includegraphics[width=\textwidth]{figures/jfc/rejrej-simple.pdf}
     \end{column}
     \begin{column}{0.5\textwidth}
       \includegraphics[width=\textwidth]{figures/jfc/2d-cut.pdf}
     \end{column}
   \end{columns}
-  \begin{tabular}{c|c c | c c c }
-    Operating Point & $\log P_c / P_b$ & $\log P_c / P_{\text{light}}$ & $\epsilon_c$ & $1/\epsilon_b$ & $1/\epsilon_{\text{light}}$ \\ \hline
-    loose & $> -0.9$ & -- & 0.95 & 2.5 & 1.0 \\
-    medium & $> -0.9$ & $> 0.95$ & 0.20 & 8.0 & 200 \\
-  \end{tabular}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Performance: Other Potential Operating Points}
+  \frametitle{Charm tagging calibrations}
   \begin{columns}
-    \begin{column}{0.52\textwidth}
-      \includegraphics[width=\textwidth]{figures/jfc/jfc-ctag-roc.pdf}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+      \item Standard $b$-tagging calibrations:
+        \begin{itemize}
+        \item[light] Negative tags \tikz[na] \coordinate(neg-tag);
+        \item[$b$] dileptonic $t \bar{t}$ \tikz[na] \coordinate(dilep-tt);
+        \item[$c$] $D^*$ reconstruction \tikz[na] \coordinate(dzero);
+        \end{itemize}
+      \end{itemize}
+      \includegraphics[width=\textwidth]{%
+figures/external/dstar-pion-mass.pdf}\\
     \end{column}
-    \begin{column}{0.48\textwidth}
-      \includegraphics[width=\textwidth]{figures/jfc/rejrej-simple.pdf}
+    \begin{column}{0.34\textwidth}
+      \includegraphics[width=\textwidth]{%
+figures/external/negative-tag-sv0.pdf}\\
+      \includegraphics[width=\textwidth]{%
+figures/external/giacinto-mll.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Charm-Tagging Scale Factors}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+  \begin{itemize}
+  \item Standard $b$-tagging calibrations:
+    \begin{itemize}
+    \item[light] Negative tags \tikz[na] \coordinate(neg-tag);
+    \item[$b$] dileptonic $t \bar{t}$ \tikz[na] \coordinate(dilep-tt);
+    \item[$c$] $D^*$ reconstruction \tikz[na] \coordinate(dzero);
+    \end{itemize}
+  \end{itemize}
+      \includegraphics[width=\textwidth]{%
+figures/external/sf-ctag-c-medium.pdf}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{%
+figures/external/sf-ctag-u-medium.pdf} \\
+      \includegraphics[width=\textwidth]{%
+figures/external/sf-ctag-b-medium.pdf} \\
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Interlude: Deep Learning}
+%%   \begin{columns}
+%%     \begin{column}{0.5\textwidth}
+%%     \end{column}
+%%     \begin{column}{0.4\textwidth}
+%%       \includegraphics[width=\textwidth]{figures/external/autoencoder-layer.png}
+%%     \end{column}
+%%   \end{columns}
+%%   \begin{tiny}
+%%     figure credit: \url{http://ufldl.stanford.edu/wiki/index.php/Stacked_Autoencoders}
+%%   \end{tiny}
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Interlude: Deep Learning}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{center}
+        Flavor-Tagging Framework (Run 1)
+        \includegraphics[width=\textwidth]{%
+figures/tagging-graphs/tagging-full-nogaia.pdf} \\
+        \includegraphics[width=0.8\textwidth]{%
+figures/tagging-graphs/tagging-leg.pdf}
+      \end{center}
+    \end{column}
+    \vline
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        Goal for Run 2 \\[0.3cm]
+        \includegraphics[width=\textwidth]{%
+figures/tagging-graphs/tagging-gaia-future.pdf}
+      \end{center}
     \end{column}
   \end{columns}
   \begin{itemize}
-  \item Plots above: possible combinations of $1/\epsilon_{b}$ and $1/\epsilon_{\rm light}$ vs $\epsilon_c$
-  \item In all cases, use ``rectangular'' anti-$b$ and anti-light cut combination
-  \item Big trade-offs between light and $b$ rejection are possible
+  \item Framework complicated (left) because training NNs is hard
+  \item We can fix this (right) by training NNs with autoencoders
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Interlude: Calibration}
-  \begin{itemize}
-  \item Show some calibration plots
-  \item Mention that this took \emph{forever}
-  \item Say that we're going to keep talking about flavor tagging, but JFC is what we used
-  \end{itemize}
-\end{frame}
+%% \begin{frame}
+%%   \frametitle{Deep Learning for Flavor Tagging}
+%%   \begin{itemize}
+%%   \item find some autoencoder picture(s) on the internets.
+%%   \item maybe mention how awesome training on data could be
+%%   \item talk about denoising?
+%%   \end{itemize}
+%% \end{frame}
 
 \begin{frame}
-  \frametitle{JetFitterCharm in the Flavor-Tagging Framework}
+  \frametitle{Deep Learning: Performance}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        $b$-tagging
+       \includegraphics[width=\textwidth]{%
+figures/external/uRejRoc.pdf}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        $c$-tagging
+      \includegraphics[width=\textwidth]{%
+figures/external/ctag-2d-gaia-vs-jfc.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
   \begin{itemize}
-  \item show the mess of taggers that existed
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Deep Learning for Flavor Tagging}
-  \begin{itemize}
-  \item find some autoencoder picture(s) on the internets.
-  \item maybe mention how awesome training on data could be
-  \item talk about denoising?
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Deep Learning Performance}
-  \begin{itemize}
-  \item Show so many plots here
-  \item Point out how much more important efficiency gain is vs rejection
-  \item Mention that we have people working on this!
+  \item Autoencoders simplify the framework \emph{and} perform better
+    \begin{itemize}
+    \item For $b$-tagging \textcolor{red}{autoencoders} are always above \textcolor{darkgreen}{MV1}
+    \item More efficient $c$-tagger for any choice of $b$ or light rejection
+    \end{itemize}
+  \item Being ported to Athena as a qualification task
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Back to Searches: Scharm to Charm}
-  \begin{itemize}
-  \item show feynman diagram again
-  \item talk about general strategy: $\met$ + $c$-tagging
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item show feynman diagram again
+      \item talk about general strategy: $\met$ + $c$-tagging
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{figures/external/feyn-sctoc.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
