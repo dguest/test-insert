@@ -78,5 +78,13 @@ get-file http://sci.esa.int/science-e-media/img/61/Planck_CMB_Mollweide_wallpape
 get-file http://www.nobelprize.org/nobel_prizes/physics/laureates/2004/phypub4highen.jpg unification-ugly.jpg
 
 # on pantheon
-get-file http://pantheon.yale.edu/~dhg3/feyn/scsc-ccN1N1.pdf feyn-sctoc.pdf
-get-file http://pantheon.yale.edu/~dhg3/feyn/stst-ccN1N1-bWC1loop.pdf feyn-sttoc.pdf
+# feynman
+PAN=http://pantheon.yale.edu/~dhg3
+get-file $PAN/feyn/scsc-ccN1N1.pdf feyn-sctoc.pdf
+get-file $PAN/feyn/stst-ccN1N1-bWC1loop.pdf feyn-sttoc.pdf
+get-file $PAN/feyn/stst-ccN1N1-bWC1loop-ISR.pdf feyn-sttoc-isr.pdf
+# tagging
+get-file $PAN/tagging-diagrams/b-jet.pdf
+get-file $PAN/tagging-diagrams/b-jet-ip.pdf
+get-file $PAN/tagging-diagrams/b-jet-sv.pdf
+get-file $PAN/tagging-diagrams/b-jet-jf.pdf

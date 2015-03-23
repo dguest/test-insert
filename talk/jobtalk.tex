@@ -68,12 +68,14 @@ figures/external/unification-ugly.jpg}
       \begin{itemize}
       \item ``compressed'': $m_{\tilde{t}} - m_{\neut} < m_W$
       \item Forces $\tilde{t}$ decay via $c$-jets
-      \item \textcolor{red}{Not discussed in detail here (ADD LINK)}
+      \item Signature: boosted, $c$-jets + $\met$
+      \item See \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325}
+      %% \item \textcolor{red}{Not discussed in detail here (ADD LINK)}
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
       \includegraphics[width=\textwidth]{%
-figures/external/feyn-sttoc.pdf}
+figures/external/feyn-sttoc-isr.pdf}
     \end{column}
   \end{columns}
   \hrule
@@ -84,8 +86,9 @@ figures/external/feyn-sctoc.pdf}
     \end{column}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
-      \item \textcolor{red}{ADD LINK to theory papers}
-      \item \textcolor{red}{This is what I'm mainly talking about}
+      \item Same general signature as $\sttoc$, $m_{\tilde{t}} - m_{\neut} \nless m_W$
+      \item Most searches: degenerate ``light'' ($udcs$) $\tilde{q}$ masses, not needed though (see \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328})
+      \item \textcolor{red}{More on this in this talk}
       \end{itemize}
     \end{column}
   \end{columns}
@@ -93,33 +96,118 @@ figures/external/feyn-sctoc.pdf}
 
 \begin{frame}
   \frametitle{Charm Tagging}
+  \begin{block}{Soft Lepton}
   \begin{itemize}
-  \item Two main approaches: ``soft lepton'' and ``lifetime''
   \item Soft lepton: branching ratio to muons $<$ 7\% (18\%) for $D^0$ ($D^\pm$)
     \begin{itemize}
     \item Unacceptably low efficiency for most analyses
     \end{itemize}
-  \item Lifetime: limited mainly by detector resolution, but physically more difficult than $b$-tagging
-    \begin{itemize}
-    \item Shorter decay lengths for $D$ mesons
-    \item Fewer tracks than $b$-jets, hard to resolve SV
-    \item $c$-jets are ``between'' light and $b$ in many distributions
-    \item \textcolor{red}{should replace this with Will's figure}
-    \item \textcolor{red}{focus on how difficult it is to distinguish}
-    \end{itemize}
-    \begin{center}
-      \begin{tabular}{c | c c c}
-        Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
-        $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
-      \end{tabular}
-    \end{center}
-  \item May get better with the IBL
-  \item \link{JetFitterCharm}{%
-    https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/} used in two public results:
-    \link{$\tilde{c} \to c\chi_1^0$}{http://arxiv.org/abs/1501.01325} and
-    \link{$\tilde{t} \to c\chi_1^0$}{http://arxiv.org/abs/1407.0608}.
   \end{itemize}
+  \end{block}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{block}{Lifetime Based}
+      \begin{itemize}
+      \item Shorter decay lengths vs $b$-jets
+        \begin{center}
+          \begin{tabular}{c | c c c}
+            Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
+            $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
+          \end{tabular}
+        \end{center}
+      \item Fewer tracks than $b$-jets
+      \item $c$-jets are ``between'' light and $b$ in many distributions
+      \item \textbf{NOTE:} Vertices inside inner pixels, tracks extrapolated
+      \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{figures/external/b-jet.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Tagging Algorithms}
+  \begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        Impact Parameter (IP)
+      \includegraphics[width=\textwidth]{figures/external/b-jet-ip.pdf}
+      \end{center}
+      \begin{itemize}
+      \item Extrapolate tracks to perigee
+      \item Combine IPs
+      \end{itemize}
+    \end{column}
+    \vline{}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        Secondary Vertex (SV)
+      \includegraphics[width=0.8\textwidth]{figures/external/b-jet-sv.pdf}
+        \end{center}
+      \begin{itemize}
+      \item Fit secondary vertex to tracks
+      \item Use SV properties (mass, displacement from PV, etc)
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tagging Algorithms (continued)}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      JetFitter: the complicated tagger
+      \begin{enumerate}
+      \item Fits a ``Flight Line'' from the PV along jet axis
+      \item Line updated to cross tracks
+      \item Vertices clustered
+      \item Vertex properties extracted
+      \end{enumerate}
+      \begin{itemize}
+      \item Can resolve any number of SVs
+      \item Vertex clustering is retuned for $c$-tagging version
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \begin{center}
+          JetFitter
+      \includegraphics[width=\textwidth]{figures/external/b-jet-jf.pdf}
+        \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Charm Tagging}
+%%   \begin{itemize}
+%%   \item Two main approaches: ``soft lepton'' and ``lifetime''
+%%   \item Soft lepton: branching ratio to muons $<$ 7\% (18\%) for $D^0$ ($D^\pm$)
+%%     \begin{itemize}
+%%     \item Unacceptably low efficiency for most analyses
+%%     \end{itemize}
+%%   \item Lifetime: limited mainly by detector resolution, but physically more difficult than $b$-tagging
+%%     \begin{itemize}
+%%     \item Shorter decay lengths for $D$ mesons
+%%     \item Fewer tracks than $b$-jets, hard to resolve SV
+%%     \item $c$-jets are ``between'' light and $b$ in many distributions
+%%     \item \textcolor{red}{should replace this with Will's figure}
+%%     \item \textcolor{red}{focus on how difficult it is to distinguish}
+%%     \end{itemize}
+%%     \begin{center}
+%%       \begin{tabular}{c | c c c}
+%%         Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
+%%         $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
+%%       \end{tabular}
+%%     \end{center}
+%%   \item May get better with the IBL
+%%   \item \link{JetFitterCharm}{%
+%%     https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/} used in two public results:
+%%     \link{$\tilde{c} \to c\chi_1^0$}{http://arxiv.org/abs/1501.01325} and
+%%     \link{$\tilde{t} \to c\chi_1^0$}{http://arxiv.org/abs/1407.0608}.
+%%   \end{itemize}
+%% \end{frame}
 
 \begin{frame}
   \frametitle{JetFitterCharm Overview}
