@@ -1,0 +1,3 @@
+[submodule "misc/graphviz-tagging"]
+	path = misc/graphviz-tagging
+	url = git@github.com:dguest/graphviz-tagging.git
