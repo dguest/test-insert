@@ -7,6 +7,7 @@
 \tikzstyle{every picture}+=[remember picture]
 \tikzstyle{na} = [baseline=-.5ex]
 \tikzstyle{background grid}=[draw, black!50,step=.5cm]
+\usepackage{feynmp-auto}
 
 \title[Charmed Searches]{Searches for Charmed Final States in ATLAS}
 \author[dhg3]{Dan Guest}
@@ -24,6 +25,8 @@
 
 \definecolor{darkgreen}{rgb}{0,0.5,0}
 \definecolor{aqua}{rgb}{0,1,1}
+
+\newcommand{\feyninc}[2]{\scalebox{#1}{\input{../misc/feyngen/#2}}}
 
 \input{../definitions.tex}
 
@@ -396,24 +399,27 @@ figures/external/ctag-2d-gaia-vs-jfc.pdf}
   \begin{itemize}
   \item Autoencoders simplify the framework \emph{and} perform better
     \begin{itemize}
-    \item For $b$-tagging \textcolor{red}{autoencoders} are always above \textcolor{darkgreen}{MV1}
+    \item For $b$-tagging \textcolor{red}{autoencoders} are always above \textcolor{darkgreen}{M1}
     \item More efficient $c$-tagger for any choice of $b$ or light rejection
     \end{itemize}
   \item Being ported to Athena as a qualification task
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile=singleslide]
   \frametitle{Back to Searches: Scharm to Charm}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
+      %% \item \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328}
+      \item Signature: $c$-jets + $\met$
+      \item Trigger on $\met$ (\verb|EF_xe80_tclcw_tight|)
       \item show feynman diagram again
       \item talk about general strategy: $\met$ + $c$-tagging
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{figures/external/feyn-sctoc.pdf}
+      \feyninc{1.2}{scsc-ccN1N1}      %% \includegraphics[width=\textwidth]{figures/external/feyn-sctoc.pdf}
     \end{column}
   \end{columns}
 \end{frame}
