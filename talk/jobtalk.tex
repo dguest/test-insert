@@ -414,21 +414,74 @@ figures/external/ctag-2d-gaia-vs-jfc.pdf}
       %% \item \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328}
       \item Signature: \textcolor{darkgreen}{$c$-jets} + \textcolor{red}{$\met$}
       \item Trigger on $\met$ (\verb|EF_xe80_tclcw_tight|)
-
-      \item talk about general strategy: $\met$ + $c$-tagging
+      \item $c$-tag two leading jets
+      \item Veto leptons
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \feyninc{1.2}{scsc-ccN1N1}      %% \includegraphics[width=\textwidth]{figures/external/feyn-sctoc.pdf}
+      \feyninc{1.0}{scsc-ccN1N1}      %% \includegraphics[width=\textwidth]{figures/external/feyn-sctoc.pdf}
+    \end{column}
+  \end{columns}
+  \begin{itemize}
+  \item Problems for $\Delta m \equiv m_{\scharm} - m_{\neut} \lesssim 80\,\gev$:
+    \begin{itemize}
+    \item $\met$ trigger won't fire
+    \item $c$-jets harder to resolve
+    \end{itemize}
+  \item Solution: add an \textcolor{orange}{ISR boosted} signal region
+    \begin{itemize}
+    \item This SR already exists in the $\sttoc$ search
+    \item Even better: simplified SUSY models mean $\sigma_{\tilde{b}\tilde{b}} \approx \sigma_{\tilde{c}\tilde{c}}$
+    \item We can take $\cls$ values directly from $\sttoc$
+    \end{itemize}
+  \item Boosted region isn't discussed further here
+  \end{itemize}
+\end{frame}
+
+\newcommand{\feynincstd}[1]{\feyninc{1.0}{#1}}
+\begin{frame}
+  \frametitle{Backgrounds: Multijet QCD}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \feyninc{0.9}{multijet} \\[0.2cm]
+      \begin{itemize}
+        \item \textcolor{red}{one mismeasured jet} can result in large $\met$
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \includegraphics[width=\textwidth]{%
+int/figures/stackplots/dans/preselection/jetmet_dphi.pdf}
+    \end{column}
+  \end{columns}
+  \begin{itemize}
+  \item Requiring $\Delta R(j_{\{1,2,3\}},\met) > 0.4$ removes almost all these events
+  \item Remaining are mostly light flavor $\to$ removed by $c$-tagging
+  \item Estimated with ``jet smearing'' (see \url{https://cdsweb.cern.ch/record/1423310}), small after all cuts
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Backgrounds: $W$/$Z$ + jets}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \feynincstd{vjets}
     \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Backgrounds}
-  \begin{itemize}
-  \item show backgrounds, color code met
-  \end{itemize}
+  \frametitle{Backgrounds: $t\bar{t}$ + jets}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \feynincstd{wjets}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \feynincstd{zjets} \\[1cm]
+    \feynincstd{ttbar}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}

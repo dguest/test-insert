@@ -1,36 +1,38 @@
-\begin{fmffile}{TMP-multijet}
+\begin{fmffile}{TMP-vjets}
 \input{misc/feyngen/feynhead}
 % KEEP SIZE LOW SO THE LETTERS ARE LARGE
 \begin{fmfgraph*}(100,75)
 
 % PROTON-PROTON VERTEX
-%% \input{misc/feyngen/ppVertex.fmf}
-\fmfleft{,p1,,p2,} 
+\fmfleft{,p1,,p2,}
 \fmfv{lab=$p$,lab.an=-120}{p1}
 \fmfv{lab=$p$,lab.an=120}{p2}
-\fmf{plain,tension=2}{p1,ppVertex}
-\fmf{plain,tension=2}{p2,ppVertex}
+\fmf{plain,tension=3}{p1,ppVertex}
+\fmf{plain,tension=3}{p2,ppVertex}
 \fmfv{d.sh=circle,d.fi=30,d.si=20}{ppVertex}
-%% \fmf{phantom}{ppVertex,virtual}
-%% \fmfright{virtual}
+
 
 % UPPER CASCADE, EDIT BELOW
 
+\fmf{boson,lab=$W/Z$,lab.side=right,lab.di=0.2cm}{ppVertex,v3}
 
-%% \fmf{gluon,tension=4}{ppVertex,glv0}
-\fmf{plain}{ppVertex,jet3}
+\fmf{plain,fore=(1.0,,0.0,,0)}{v3,q1}
+\fmflabel{\color{red}$\ell/\nu$}{q1}
+
+\fmf{plain,fore=(1.0,,0.0,,0)}{v3,q2}
+\fmflabel{\color{red}$\nu$}{q2}
 
 % LOWER CASCADE, EDIT BELOW
-%% \fmf{gluon,tension=1}{ppVertex,glv}
-\fmf{plain,foreground=(1.0,,0.0,,0.0)}{ppVertex,jet1}
-\fmf{plain}{ppVertex,jet2}
-\fmflabel{\color{red}$j$}{jet1}
-\fmflabel{$j$}{jet2}
-\fmflabel{$j$}{jet3}
+%% \fmf{gluon,tension=3}{ppVertex,glv}
+\fmf{plain}{ppVertex,gl1}
+\fmf{plain}{ppVertex,gl2}
+\fmflabel{$j$}{gl1}
+%% \fmf{plain}{gl1,glv,gl2}
+\fmflabel{$j$}{gl2}
 
 % ORDER OF FINAL PARTICLES: BOTTOM, RIGHT, TOP    
 %% \fmftop{,,,}
-\fmfright{jet1,jet3,jet2}
+\fmfright{q2,q1,gl1,gl2}
 
 \fmffreeze
 \renewcommand{\P}[3]{\fmfi{plain}{%
@@ -39,7 +41,7 @@ vpath(__#1,__#2) shifted (thick*(#3))}}
 \P{p1}{ppVertex}{-0.7,0.7}
 \P{p2}{ppVertex}{0.7,0.7}
 \P{p2}{ppVertex}{-0.7,-0.7}
-%% \fmffreeze
+
 
 \end{fmfgraph*}
 \end{fmffile}
