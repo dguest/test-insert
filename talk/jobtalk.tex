@@ -407,7 +407,7 @@ figures/external/ctag-2d-gaia-vs-jfc.pdf}
 \end{frame}
 
 \begin{frame}[fragile=singleslide]
-  \frametitle{Back to Searches: Scharm to Charm}
+  \frametitle{Back to Searches: $\sctoc$}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
@@ -431,7 +431,7 @@ figures/external/ctag-2d-gaia-vs-jfc.pdf}
   \item Solution: add an \textcolor{orange}{ISR boosted} signal region
     \begin{itemize}
     \item This SR already exists in the $\sttoc$ search
-    \item Even better: simplified SUSY models mean $\sigma_{\tilde{b}\tilde{b}} \approx \sigma_{\tilde{c}\tilde{c}}$
+    \item Even better: simplified SUSY models mean $\sigma_{\tilde{t}\tilde{t}} \approx \sigma_{\tilde{c}\tilde{c}}$
     \item We can take $\cls$ values directly from $\sttoc$
     \end{itemize}
   \item Boosted region isn't discussed further here
@@ -454,8 +454,8 @@ int/figures/stackplots/dans/preselection/jetmet_dphi.pdf}
     \end{column}
   \end{columns}
   \begin{itemize}
-  \item Requiring $\Delta R(j_{\{1,2,3\}},\met) > 0.4$ removes almost all these events
-  \item Remaining are mostly light flavor $\to$ removed by $c$-tagging
+  \item Require $\Delta \phi(j_{\{1,2,3\}},\met) > 0.4$
+  \item Remaining QCD mostly light flavor $\to$ removed by $c$-tagging
   \item Estimated with ``jet smearing'' (see \url{https://cdsweb.cern.ch/record/1423310}), small after all cuts
   \end{itemize}
 \end{frame}
@@ -464,39 +464,80 @@ int/figures/stackplots/dans/preselection/jetmet_dphi.pdf}
   \frametitle{Backgrounds: $W$/$Z$ + jets}
   \begin{columns}
     \begin{column}{0.5\textwidth}
+    \feynincstd{vjets} \\[0.2cm]
+      \begin{itemize}
+      \item After anti-QCD cuts, backgrounds are $W$/$Z$ + jets
+      \item Real $\met$ from $Z \to \nu \nu$ and $W \to \tau \nu$
+      \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-    \feynincstd{vjets}
+      \begin{center}
+        After QCD cuts
+      \includegraphics[width=\textwidth]{%
+int/figures/stackplots/dans/preselection/j0_flavor_truth_label.pdf}
+      \end{center}
     \end{column}
   \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Backgrounds: $t\bar{t}$ + jets}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-    \feynincstd{wjets}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-    \feynincstd{zjets} \\[1cm]
-    \feynincstd{ttbar}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Discriminants}
   \begin{itemize}
-  \item $\mct$
-  \item $c$-tagging distributions?
+    \item Jets are dominantly light flavored, removed by two $c$-tag requirement (each tag: $1/\epsilon_c \approx 150$)
   \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Backgrounds: $t\bar{t}$}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{center}
+        \feynincstd{ttbar} \\[0.2cm]
+      \end{center}
+    \begin{itemize}
+    \item After $c$-tagging cuts, large $t\bar{t}$ background remains
+    \item Remove with two kinematic cuts:
+      \begin{itemize}
+      \item[$\mcc$]: also removes QCD
+      \item[$\mct$]: $t\bar{t}$ below $135\,\gev$
+      \end{itemize}
+    \end{itemize}
+    \begin{tiny}
+ $\mct \equiv \{[ E_\T(v_{1}) + E_\T(v_{2}) ]^2 -  [  \vpt(v_{1}) - \vpt(v_{2}) ]^2\}^{1/2}$
+    \end{tiny}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{%
+int/figures/stackplots/dans/signal_mct150/mass_cc_blinded.pdf}\\
+      \includegraphics[width=\textwidth]{%
+int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{Discriminants}
+%%   \begin{itemize}
+%%   \item $\mct$
+%%   \item $c$-tagging distributions?
+%%   \end{itemize}
+%% \end{frame}
 
 \begin{frame}
   \frametitle{Control Regions}
-  \begin{itemize}
-  \item not sure if this should be one slide or several\ldots
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+      \item $Z$ + jets, $W$ + jets, and $t\bar{t}$ can't be completely removed
+      \item Instead, constrained with 1 and 2 lepton control regions
+        \begin{itemize}
+        \item 
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{%
+int/figures/stackplots/dans/cr_z/mass_ll.pdf} \\
+      \includegraphics[width=\textwidth]{%
+int/figures/stackplots/dans/cr_w/mass_t.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
