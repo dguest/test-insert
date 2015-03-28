@@ -7,7 +7,7 @@ ALLSRC := $(wildcard *talk.tex)
 all: $(ALLSRC:.tex=.pdf)
 	@rm -f TMP-*
 
-TEXFILES := $(shell find . -name '*.tex')
+TEXFILES := $(shell find -L . -maxdepth 2 -name '*.tex')
 
 %.bbl: %.tex $(TEXFILES) *.bib
 	$(PDFTEX) $* --draftmode

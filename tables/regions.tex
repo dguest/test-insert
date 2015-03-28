@@ -1,0 +1,44 @@
+
+
+% For inclusion elsewhere: uses the following upstream includes / definitions:
+%\RequirePackage{color} % at top of file (\usepackage{color} broke something else)
+%\definecolor{orange}{rgb}{1.0, 0.49, 0.0}
+%\definecolor{midgreen}{rgb}{0.01, 0.75, 0.24}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newcommand{\nocut}{---}
+\begin{tabular}{|c|l| c | c | c | c | }
+\hline
+\multirow{2}{*}{Cut} &\multirow{2}{*}{Description}    & Signal regions  &\multicolumn{3}{c|}{Control regions}  \\
+\cline{3-6}
+ &  & SR & \crz & \crt & \crw \\
+\hline
+\hline
+1 & Trigger & $\met$  & \multicolumn{3}{c|}{single lepton} \\
+\hline
+2 & Event cleaning &\multicolumn{4}{c|}{ Common to all SR and CR } \\
+\hline
+
+\multirow{2}{*}{3} & \multirow{2}{*}{Lepton selection} & \nocut & 2 SF OS & 2 DF OS & 1 \\
+\cline{3-6}
+                                                    &  & \multicolumn{4}{c|}{No further $e$/$\mu$ after overlap removal with $\pt > 7(6)\,\gev$ for $e$($\mu$)}  \\ \hline
+
+\multirow{2}{*}{4} & $\met$ & $ > 150\,\gev$ & \nocut  & $>50\,\gev$ & $>100\,\gev$ \\ \cline{2-6}
+ & $\etmisslep$ & \nocut & $>100\,\gev$ & \multicolumn{2}{c|}{\nocut}   \\ \hline
+
+5 &Leading jet $\pt$ & $> 130\,\gev$ & \multicolumn{2}{c|}{$> 50\,\gev$}  & $> 130\,\gev$  \\ \hline
+6 &Second jet $\pt$ & $>100\,\gev$  & \multicolumn{3}{c|}{$> 50\,\gev$}  \\ \hline
+
+7 & $c$-tagging & \multicolumn{4}{c|}{leading 2 jets ($\pt > 50\,\gev$, $|\eta| < 2.5$)}  \\ \hline
+
+8 &$\metdphi{\text{3 jets}}$ & $> 0.4$ & \multicolumn{3}{c|}{\nocut} \\ \hline
+9 &$\meteff$ & $> 0.25$ & \multicolumn{3}{c|}{\nocut} \\ \hline
+
+10 & Leading lepton $p_{T}$ & \nocut & $>70\,\gev$ & $ > 25\,\gev$  & $ > 50\,\gev $ \\ \hline
+11 & $\mll$ & \nocut & $90 \pm 15\,\gev$ &  $>50\,\gev$ & \nocut \\ \hline
+12 & $\mt$ &  \multicolumn{3}{c|}{\nocut} & 40--100$\,\gev$ \\ \hline
+
+13 &$\mcc$ & $>200\,\gev$ & \multicolumn{3}{c|}{\nocut} \\ \hline
+14 &$ \mct $ & $>$ 150, 200, 250 \gev & \multicolumn{2}{c|}{\nocut} & $>150\,\gev$ \\ \hline
+
+\end{tabular}

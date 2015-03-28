@@ -3,6 +3,7 @@
 
 \usepackage{multirow}
 \usepackage{tikz}
+\usepackage{colortbl}
 \usetikzlibrary{arrows,shapes,backgrounds}
 \tikzstyle{every picture}+=[remember picture]
 \tikzstyle{na} = [baseline=-.5ex]
@@ -77,6 +78,8 @@ figures/external/unification-ugly.jpg}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
+      \item Assume $m_{\tilde{t}} > m_{\neut}$
+      \item All other sparticles heavy
       \item ``compressed'': $m_{\tilde{t}} - m_{\neut} < m_W$
       \item Forces $\tilde{t}$ decay via $c$-jets
       \item Signature: boosted, $c$-jets + $\met$
@@ -272,10 +275,10 @@ figures/external/feyn-sctoc.pdf}
   \end{itemize}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{figures/jfc/rejrej-simple.pdf}
+      \includegraphics[width=\textwidth]{figures/jfc/2d-cut.pdf}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{figures/jfc/2d-cut.pdf}
+      \includegraphics[width=\textwidth]{figures/jfc/rejrej-simple.pdf}
     \end{column}
   \end{columns}
 \end{frame}
@@ -479,7 +482,7 @@ int/figures/stackplots/dans/preselection/j0_flavor_truth_label.pdf}
     \end{column}
   \end{columns}
   \begin{itemize}
-    \item Jets are dominantly light flavored, removed by two $c$-tag requirement (each tag: $1/\epsilon_c \approx 150$)
+    \item Jets are dominantly light flavored, removed by two $c$-tag requirement (each tag: $1/\epsilon_{\text{light}} \approx 150$)
   \end{itemize}
 \end{frame}
 
@@ -495,7 +498,7 @@ int/figures/stackplots/dans/preselection/j0_flavor_truth_label.pdf}
     \item Remove with two kinematic cuts:
       \begin{itemize}
       \item[$\mcc$]: also removes QCD
-      \item[$\mct$]: $t\bar{t}$ below $135\,\gev$
+      \item[$\mct$]: if $b$-jets are leading, $\mct \lesssim 135\,\gev$
       \end{itemize}
     \end{itemize}
     \begin{tiny}
@@ -520,14 +523,30 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
 %% \end{frame}
 
 \begin{frame}
-  \frametitle{Control Regions}
+  \frametitle{Control Regions: $Z$ + jets, $W$ + jets, $t\bar{t}$}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
-      \item $Z$ + jets, $W$ + jets, and $t\bar{t}$ can't be completely removed
-      \item Instead, constrained with 1 and 2 lepton control regions
+      \item All regions use same $c$-tagging
+      \item All CR use single-lepton triggers
+      \item Different offline lepton requirements
+      \item[$Z$]: 2 $e$ or 2 $\mu$
         \begin{itemize}
-        \item 
+        \item Opposite sign, in $Z$-peak
+        \item Leptons added to $\met$ to mimic $Z \to \nu\nu$
+        \end{itemize}
+      \item[$W$]: $e$ or $\mu$, $\pt > 50\,\gev$
+        \begin{itemize}
+        \item $\mct$ window, $\mct > 150$
+        \item largely $t\bar{t}$
+          \begin{itemize}
+          \item  constrained by $t\bar{t}$ CR
+          \end{itemize}
+        \end{itemize}
+      \item[$t\bar{t}$]: 1 $e$, 1 $\mu$
+        \begin{itemize}
+        \item Opposite sign
+        \item Very pure, decent stats ($>100$)
         \end{itemize}
       \end{itemize}
     \end{column}
@@ -541,10 +560,30 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Systematics}
-  \begin{itemize}
-  \item probably show Will's table?
-  \end{itemize}
+  \frametitle{Region Summary}
+  \resizebox{\textwidth}{!}{\input{tables/regions.tex}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Global Fit and Systematics}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \resizebox{\textwidth}{!}{\input{tables/systable-color.tex}}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Major backgrounds estimated from global fit
+      \item Main causes of systematic errors:
+        \begin{enumerate}
+        \item \fcolorbox{red}{red}{Tagging}
+        \item \fcolorbox{green}{green}{Limited CR statistics}
+        \item \fcolorbox{aqua}{aqua}{Jet Energy Scale}
+        \end{enumerate}
+      \item Common tagging requirement mitigates systematic \ldots
+      \item \ldots but limits CR stats
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
