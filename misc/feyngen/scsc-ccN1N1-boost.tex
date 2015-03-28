@@ -1,4 +1,4 @@
-\begin{fmffile}{TMP-scsc}
+\begin{fmffile}{TMP-scsc-boost}
 \input{misc/feyngen/feynhead}
 % KEEP SIZE LOW SO THE LETTERS ARE LARGE
 \begin{fmfgraph*}(100,75)
@@ -24,6 +24,8 @@
     \fmf{plain,fore=(0.0,,0.5,,0)}{v2,b2}
     \fmflabel{\color{darkgreen}$c$}{b2}
 
+\fmf{plain,fore=(1.0,,0.5,,0)}{ppVertex,glv}
+\fmflabel{\color{orange}ISR}{glv}
 
 % ORDER OF FINAL PARTICLES: BOTTOM, RIGHT, TOP
 \fmfright{b2,LSP2,LSP1,b1}

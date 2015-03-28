@@ -1,0 +1,41 @@
+\begin{tabular}{c | c | c }
+  Algorithm             & Variable Name & Description \\
+  \hline
+  \multirow{4}{*}{Kinematic}
+  & \multirow{2}{*}{$p_{T}^{\rm cat}$} & $\pt$ category of	 jet, divisions [GeV]: \\
+  &                & \catpt \\
+  & \multirow{2}{*}{$\eta^{\rm cat}$}  & $|\eta|$ category of jet, divisions: \\
+  &                &  \cateta \\
+  \hline
+  \multirow{1}{*}{IP3D} & $\log (\mathcal{L}_{b}/ \mathcal{L}_{\rm light})$ & log ratio between $b$-jet and light-jet likelihood value \\
+  \hline
+  \multirow{4}{*}{SV1}               & $n_{\rm trk}^{{\rm SV1}}$     & Number of tracks matched to the vertex \\
+  & $n_{\rm 2t}$      & Number of two-track vertices found in the jet
+  \\
+  & $m_{\rm vx}$      & Secondary vertex mass \\
+  & $L / \sigma_{L}$ & Secondary vertex flight-length significance \\
+  \hline
+
+  \multirow{10}{*}{JetFitter}
+  & $m_{\rm chain}$      & Invariant mass of decay products \\
+  & $S_d^{\rm JF}$ & Total vertex flight-length significance \\
+  & $n_{\rm vx}$      & Number of reconstructed vertices with  $\ge 2$ tracks \\
+  & $n_{\rm trk}^{\rm JF}$     & Number of tracks matched to vertices with $\ge 2$ tracks \\
+  & $n_{\rm 1t}$      & Number of single-track vertices\\
+  & $L_{xy}^{1}$ & Transverse displacement of the secondary vertex \\
+  & $L_{xy}^{2}$ & Transverse displacement of the tertiary vertex \\
+  & $\min \varphi_{\rm trk}$ & Minimum track rapidity along jet axis \\
+  & $\langle \varphi_{\rm trk} \rangle$ & Mean track rapidity along jet axis \\
+  & $\max \varphi_{\rm trk} $ & Maximum track rapidity along jet axis \\
+  \hline
+
+  %% DG: the secondary vertex mass and flight length significance
+  %%     are listed separately for JF and SV1, since they aren't
+  %%     computed identically.
+
+  %% & $m_{\rm vx}$      & Secondary vertex mass \\
+  SV1, JetFitter& \multirow{2}{*}{$E_{\rm vx}/E_{\rm jet}$}  & Ratio of the vertex track energy sum \\
+  (variables input from both)         &                  & to the jet track energy sum \\
+  %% & $d / \sigma_{d}$ & Secondary vertex flight-length significance \\
+
+\end{tabular}

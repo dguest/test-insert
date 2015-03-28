@@ -28,6 +28,7 @@
 \definecolor{aqua}{rgb}{0,1,1}
 
 \newcommand{\feyninc}[2]{\scalebox{#1}{\input{../misc/feyngen/#2}}}
+\newcommand{\widegraphic}[1]{\includegraphics[width=\textwidth]{#1}}
 
 \input{../definitions.tex}
 
@@ -37,7 +38,7 @@
 }
 \newcommand{\backupend}{
    \addtocounter{framenumberappendix}{-\value{framenumber}}
-   \addtocounter{framenumber}{\value{framenumberappendix}} 
+   \addtocounter{framenumber}{\value{framenumberappendix}}
 }
 
 \newcommand{\link}[2]{\underline{\href{#2}{#1}}}
@@ -63,7 +64,7 @@
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/bulletcluster_comp_f2048.jpg} \\
     \end{column}
   \end{columns}
@@ -88,21 +89,21 @@ figures/external/unification-ugly.jpg}
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/feyn-sttoc-isr.pdf}
     \end{column}
   \end{columns}
   \hrule
   \begin{columns}
     \begin{column}{0.4\textwidth}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/feyn-sctoc.pdf}
     \end{column}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
       \item Same general signature as $\sttoc$, $m_{\tilde{t}} - m_{\neut} \nless m_W$
       \item Most searches: degenerate ``light'' ($udcs$) $\tilde{q}$ masses, not needed though (see \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328})
-      \item \textcolor{red}{More on this in this talk}
+      \item \textbf{Present talk focuses on this search}
       \end{itemize}
     \end{column}
   \end{columns}
@@ -136,7 +137,7 @@ figures/external/feyn-sctoc.pdf}
       \end{block}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{figures/external/b-jet.pdf}
+      \widegraphic{figures/external/b-jet.pdf}
     \end{column}
   \end{columns}
 \end{frame}
@@ -147,7 +148,7 @@ figures/external/feyn-sctoc.pdf}
     \begin{column}{0.5\textwidth}
       \begin{center}
         Impact Parameter (IP)
-      \includegraphics[width=\textwidth]{figures/external/b-jet-ip.pdf}
+      \widegraphic{figures/external/b-jet-ip.pdf}
       \end{center}
       \begin{itemize}
       \item Extrapolate tracks to perigee
@@ -191,7 +192,7 @@ figures/external/feyn-sctoc.pdf}
     \begin{column}{0.5\textwidth}
         \begin{center}
           JetFitter
-      \includegraphics[width=\textwidth]{figures/external/b-jet-jf.pdf}
+      \widegraphic{figures/external/b-jet-jf.pdf}
         \end{center}
     \end{column}
   \end{columns}
@@ -251,7 +252,7 @@ figures/external/feyn-sctoc.pdf}
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \includegraphics[width=\textwidth]{figures/jfc/dot/simple-arch.pdf}
+      \widegraphic{figures/jfc/dot/simple-arch.pdf}
     \end{column}
   \end{columns}
   \vspace{1em}
@@ -275,10 +276,10 @@ figures/external/feyn-sctoc.pdf}
   \end{itemize}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{figures/jfc/2d-cut.pdf}
+      \widegraphic{figures/jfc/2d-cut.pdf}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{figures/jfc/rejrej-simple.pdf}
+      \widegraphic{figures/jfc/rejrej-simple.pdf}
     \end{column}
   \end{columns}
 \end{frame}
@@ -295,13 +296,13 @@ figures/external/feyn-sctoc.pdf}
         \item[$c$] $D^*$ reconstruction \tikz[na] \coordinate(dzero);
         \end{itemize}
       \end{itemize}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/dstar-pion-mass.pdf}\\
     \end{column}
     \begin{column}{0.34\textwidth}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/negative-tag-sv0.pdf}\\
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/giacinto-mll.pdf}
     \end{column}
   \end{columns}
@@ -319,13 +320,13 @@ figures/external/giacinto-mll.pdf}
     \item[$c$] $D^*$ reconstruction \tikz[na] \coordinate(dzero);
     \end{itemize}
   \end{itemize}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/sf-ctag-c-medium.pdf}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/sf-ctag-u-medium.pdf} \\
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 figures/external/sf-ctag-b-medium.pdf} \\
     \end{column}
   \end{columns}
@@ -337,7 +338,7 @@ figures/external/sf-ctag-b-medium.pdf} \\
 %%     \begin{column}{0.5\textwidth}
 %%     \end{column}
 %%     \begin{column}{0.4\textwidth}
-%%       \includegraphics[width=\textwidth]{figures/external/autoencoder-layer.png}
+%%       \widegraphic{figures/external/autoencoder-layer.png}
 %%     \end{column}
 %%   \end{columns}
 %%   \begin{tiny}
@@ -351,7 +352,7 @@ figures/external/sf-ctag-b-medium.pdf} \\
     \begin{column}{0.6\textwidth}
       \begin{center}
         Flavor-Tagging Framework (Run 1)
-        \includegraphics[width=\textwidth]{%
+        \widegraphic{%
 figures/tagging-graphs/tagging-full-nogaia.pdf} \\
         \includegraphics[width=0.8\textwidth]{%
 figures/tagging-graphs/tagging-leg.pdf}
@@ -361,7 +362,7 @@ figures/tagging-graphs/tagging-leg.pdf}
     \begin{column}{0.4\textwidth}
       \begin{center}
         Goal for Run 2 \\[0.3cm]
-        \includegraphics[width=\textwidth]{%
+        \widegraphic{%
 figures/tagging-graphs/tagging-gaia-future.pdf}
       \end{center}
     \end{column}
@@ -387,15 +388,14 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
     \begin{column}{0.5\textwidth}
       \begin{center}
         $b$-tagging
-       \includegraphics[width=\textwidth]{%
+       \widegraphic{%
 figures/external/uRejRoc.pdf}
       \end{center}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{center}
         $c$-tagging
-      \includegraphics[width=\textwidth]{%
-figures/external/ctag-2d-gaia-vs-jfc.pdf}
+      \widegraphic{figures/external/ctag-2d-gaia-vs-jfc.pdf}
       \end{center}
     \end{column}
   \end{columns}
@@ -422,23 +422,9 @@ figures/external/ctag-2d-gaia-vs-jfc.pdf}
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \feyninc{1.0}{scsc-ccN1N1}      %% \includegraphics[width=\textwidth]{figures/external/feyn-sctoc.pdf}
+      \feyninc{1.0}{scsc-ccN1N1}      %% \widegraphic{figures/external/feyn-sctoc.pdf}
     \end{column}
   \end{columns}
-  \begin{itemize}
-  \item Problems for $\Delta m \equiv m_{\scharm} - m_{\neut} \lesssim 80\,\gev$:
-    \begin{itemize}
-    \item $\met$ trigger won't fire
-    \item $c$-jets harder to resolve
-    \end{itemize}
-  \item Solution: add an \textcolor{orange}{ISR boosted} signal region
-    \begin{itemize}
-    \item This SR already exists in the $\sttoc$ search
-    \item Even better: simplified SUSY models mean $\sigma_{\tilde{t}\tilde{t}} \approx \sigma_{\tilde{c}\tilde{c}}$
-    \item We can take $\cls$ values directly from $\sttoc$
-    \end{itemize}
-  \item Boosted region isn't discussed further here
-  \end{itemize}
 \end{frame}
 
 \newcommand{\feynincstd}[1]{\feyninc{1.0}{#1}}
@@ -452,7 +438,7 @@ figures/external/ctag-2d-gaia-vs-jfc.pdf}
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-    \includegraphics[width=\textwidth]{%
+    \widegraphic{%
 int/figures/stackplots/dans/preselection/jetmet_dphi.pdf}
     \end{column}
   \end{columns}
@@ -476,7 +462,7 @@ int/figures/stackplots/dans/preselection/jetmet_dphi.pdf}
     \begin{column}{0.5\textwidth}
       \begin{center}
         After QCD cuts
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 int/figures/stackplots/dans/preselection/j0_flavor_truth_label.pdf}
       \end{center}
     \end{column}
@@ -506,9 +492,9 @@ int/figures/stackplots/dans/preselection/j0_flavor_truth_label.pdf}
     \end{tiny}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 int/figures/stackplots/dans/signal_mct150/mass_cc_blinded.pdf}\\
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
     \end{column}
   \end{columns}
@@ -551,9 +537,9 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 int/figures/stackplots/dans/cr_z/mass_ll.pdf} \\
-      \includegraphics[width=\textwidth]{%
+      \widegraphic{%
 int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{column}
   \end{columns}
@@ -588,40 +574,98 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 
 \begin{frame}
   \frametitle{Results}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+\widegraphic{int/figures/stackplots/dans/signal_mct150/mass_ct_log_afterFit.pdf}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{int/figures/stackplots/dans/signal_mct150/mass_cc_log_afterFit.pdf}
+    \end{column}
+  \end{columns}
   \begin{itemize}
-  \item show the unblinded SR in $\mct$
+  \item After unblinding, no excess found
+  \item Roughly $1.5\sigma$ deficit
+  \item Three overlapping signal regions, defined by $\mct$ cut:\\
+    $\mct > 150,\ 200,\ 250,\,\gev$
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exclusion Fit}
+  \frametitle{Exclusion Plane}
   \begin{itemize}
-  \item Show combined exclusion for $\scharm$ regions
+  \item Showing combined exclusion for all three regions
+  \item Region with ``best'' expected $\cls$ taken for each point
   \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{int/figures/limit_tree/full_exclusion/upper_limits/scharm_combined.pdf}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Excludes up to $m_{\neut} = 200\,\gev$, $m_{\scharm} = 490\,\gev$
+      \item Region where $m_{\scharm} < m_{\neut}$ is kinematically forbidden
+      \item What's happening where $m_{\scharm} - m_{\neut} \lesssim 80\,\gev$?
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Near the Diagonal: $\sttoc$ search}
+  \frametitle{Near the Diagonal: Need a new SR}
   \begin{itemize}
-    \item show that exclusion
-    \item same cross-section, same final state!
+  \item Problems for $\Delta m \equiv m_{\scharm} - m_{\neut} \lesssim 80\,\gev$:
+    \begin{itemize}
+    \item Less $\met$, trigger won't fire
+    \item Less energetic $c$-jets, harder to resolve
+    \end{itemize}
+  \item Solution: add an \textcolor{orange}{ISR boosted} signal region
+    \begin{itemize}
+    \item This SR already exists in the $\sttoc$ search
+    \item Even better: simplified SUSY models mean $\sigma_{\tilde{t}\tilde{t}} \approx \sigma_{\tilde{c}\tilde{c}}$
+    \item We can take $\cls$ values directly from $\sttoc$
+    \end{itemize}
   \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \vspace{0.1cm}
+        \feyninc{1.0}{scsc-ccN1N1-boost}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \widegraphic{misc/cc/c1c2-exclusion.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
   \frametitle{Combined exclusion in the $\scharm$--$\neut$ plane}
-  \begin{itemize}
-  \item Show the dotted one, point out where the regions work well
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \widegraphic{int/figures/limit_tree/full_exclusion/exclusion_best.pdf}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+      \item C1 and C2 regions cover $\Delta m \lesssim 100\,\gev$
+      \item Larger $\Delta m$ covered by larger $\mct$ regions
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
   \frametitle{Comparison with inclusive $\tilde{q}$ search}
-  \begin{itemize}
-  \item Show inclusive comparison
-  \item Point out the increase
-  \item Mention the gained sensitivity to flavor
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \widegraphic{int/figures/limit_tree/full_exclusion/exclusion_inclusive.pdf}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+      \item Significantly larger exclusion than the inclusive search (assuming non-degenerate $\tilde{q}$ masses)
+      \item Wedge near $\Delta m = 0$ is covered by monojet
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -661,21 +705,49 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 
 \begin{frame}
   \frametitle{Comparison Between COMBNN and JFC}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/ctag-2d-jfc-vs-jfit.pdf}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item afd
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
   \frametitle{Comparison Between JFC and MVx}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/ctag-2d-jfc-vs-mv.pdf}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item afd
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Comparison Between GAIA and JFC}
+  \frametitle{Comparison Between GAIA and MVx}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/ctag-2d-gaia-vs-mv.pdf}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item afd
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
   \frametitle{List of Tagging Variables}
-  \begin{itemize}
-  \item should probably make some pictures of some of them
-  \end{itemize}
+  \resizebox{\textwidth}{!}{\input{tables/jfc-variables.tex}}
 \end{frame}
 
 \backupend

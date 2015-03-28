@@ -66,6 +66,7 @@ function get-file() {
 get-file http://upload.wikimedia.org/wikipedia/commons/4/4b/Standard_Model_of_Elementary_Particles_modified_version.svg standard-model.svg
 get-file http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2013-041/fig_06.pdf alpha-strong.pdf
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CombinedSummaryPlots/SM/ATLAS_b_SMSummary_FiducialXsect/ATLAS_b_SMSummary_FiducialXsect.pdf atlas-sm.pdf
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2013-21/fig_09b.pdf c1c2-exclusion.pdf
 get-file http://www.hep.ph.ic.ac.uk/~wstirlin/plots/crosssections2012HE_v4.pdf
 get-file http://mstwpdf.hepforge.org/plots/mstw2008nlo68cl_allpdfs.eps mstw-proton.eps
 get-file http://www.hep.ph.ic.ac.uk/~wstirlin/plots/lumi2012_abs_v1.pdf mstw-lumi.pdf
@@ -98,4 +99,7 @@ get-file $PAN/tagging/diagrams/b-jet-ip.pdf
 get-file $PAN/tagging/diagrams/b-jet-sv.pdf
 get-file $PAN/tagging/diagrams/b-jet-jf.pdf
 get-file $PAN/tagging/plots/ctag-2d-gaia-vs-jfc.pdf
+get-file $PAN/tagging/plots/ctag-2d-jfc-vs-jfit.pdf
+get-file $PAN/tagging/plots/ctag-2d-jfc-vs-mv.pdf
+get-file $PAN/tagging/plots/ctag-2d-gaia-vs-mv.pdf
 get-file $PAN/tagging/plots/uRejRoc.pdf

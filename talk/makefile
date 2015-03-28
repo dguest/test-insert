@@ -8,6 +8,7 @@ all: $(ALLSRC:.tex=.pdf)
 	@rm -f TMP-*
 
 TEXFILES := $(shell find -L . -maxdepth 2 -name '*.tex')
+TEXFILES += $(shell find -L misc/ -maxdepth 2 -name '*.tex')
 
 %.bbl: %.tex $(TEXFILES) *.bib
 	$(PDFTEX) $* --draftmode
