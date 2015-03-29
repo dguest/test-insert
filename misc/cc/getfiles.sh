@@ -98,6 +98,7 @@ get-file $PAN/tagging/diagrams/b-jet.pdf
 get-file $PAN/tagging/diagrams/b-jet-ip.pdf
 get-file $PAN/tagging/diagrams/b-jet-sv.pdf
 get-file $PAN/tagging/diagrams/b-jet-jf.pdf
+get-file $PAN/tagging/diagrams/sm-b-decay.pdf
 get-file $PAN/tagging/plots/ctag-2d-gaia-vs-jfc.pdf
 get-file $PAN/tagging/plots/ctag-2d-jfc-vs-jfit.pdf
 get-file $PAN/tagging/plots/ctag-2d-jfc-vs-mv.pdf

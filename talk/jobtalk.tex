@@ -2,6 +2,8 @@
 \useoutertheme{infolines}
 
 \usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage{cancel}
 \usepackage{tikz}
 \usepackage{colortbl}
 \usetikzlibrary{arrows,shapes,backgrounds}
@@ -110,36 +112,33 @@ figures/external/feyn-sctoc.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Charm Tagging}
-  \begin{block}{Soft Lepton}
-  \begin{itemize}
-  \item Soft lepton: branching ratio to muons $<$ 7\% (18\%) for $D^0$ ($D^\pm$)
-    \begin{itemize}
-    \item Unacceptably low efficiency for most analyses
-    \end{itemize}
-  \end{itemize}
-  \end{block}
+  \frametitle{Charm Quark: The $b$-quark's {Evil} Twin}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \begin{block}{Lifetime Based}
       \begin{itemize}
-      \item Shorter decay lengths vs $b$-jets
+        \item Both decay within beam-pipe
+        \item Both identified via decay vertex displacement
+        \item Traditionally \textcolor{darkgreen}{$c$-jets} are a background to \textcolor{red}{$b$-jets}
+        \item $b$-tagging is easier: longer lifetime\\
         \begin{center}
           \begin{tabular}{c | c c c}
             Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
             $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
           \end{tabular}
         \end{center}
-      \item Fewer tracks than $b$-jets
-      \item $c$-jets are ``between'' light and $b$ in many distributions
-      \item \textbf{NOTE:} Vertices inside inner pixels, tracks extrapolated
+      \item \textcolor{darkgreen}{$c$-decays} are part of \textcolor{red}{$b$-decays}
       \end{itemize}
-      \end{block}
     \end{column}
-    \begin{column}{0.5\textwidth}
-      \widegraphic{figures/external/b-jet.pdf}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+      \widegraphic{figures/external/b-jet.pdf}\\[0.1cm]
+      \includegraphics[width=\textwidth]{figures/external/sm-b-decay.pdf}
+      \end{center}
     \end{column}
   \end{columns}
+  \begin{tiny}
+    Figure credit: (lower right) Wikipedia ``Standard Model''
+  \end{tiny}
 \end{frame}
 
 \begin{frame}
@@ -285,30 +284,6 @@ figures/external/feyn-sctoc.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Charm tagging calibrations}
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-      \begin{itemize}
-      \item Standard $b$-tagging calibrations:
-        \begin{itemize}
-        \item[light] Negative tags (right)\tikz[na] \coordinate(neg-tag);
-        \item[$b$] dileptonic $t \bar{t}$ (bottom right) \tikz[na] \coordinate(dilep-tt);
-        \item[$c$] $D^*$ reconstruction (bottom) \tikz[na] \coordinate(dzero);
-        \end{itemize}
-      \end{itemize}
-      \widegraphic{%
-figures/external/dstar-pion-mass.pdf}\\
-    \end{column}
-    \begin{column}{0.34\textwidth}
-      \widegraphic{%
-figures/external/negative-tag-sv0.pdf}\\
-      \widegraphic{%
-figures/external/giacinto-mll.pdf}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
   \frametitle{Charm-Tagging Scale Factors}
   \begin{columns}
     \begin{column}{0.6\textwidth}
@@ -425,6 +400,13 @@ figures/external/uRejRoc.pdf}
       \feyninc{1.0}{scsc-ccN1N1}      %% \widegraphic{figures/external/feyn-sctoc.pdf}
     \end{column}
   \end{columns}
+  \begin{itemize}
+  \item Difficulties:
+    \begin{itemize}
+    \item As with all 0L searches, large multijet background
+    \item $W$, $Z$, and $t$ decaying to $\nu$
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \newcommand{\feynincstd}[1]{\feyninc{1.0}{#1}}
@@ -543,11 +525,6 @@ int/figures/stackplots/dans/cr_z/mass_ll.pdf} \\
 int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{column}
   \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Region Summary}
-  \resizebox{\textwidth}{!}{\input{tables/regions.tex}}
 \end{frame}
 
 \begin{frame}
@@ -711,6 +688,12 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 \end{frame}
 
 \begin{frame}
+  \frametitle{Region Summary}
+  \resizebox{\textwidth}{!}{\input{tables/regions.tex}}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{JetFitterCharm relative performance}
   \begin{itemize}
   \item Several other discriminants have been suggested, compared to JetFitterCharm
@@ -747,10 +730,70 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 \end{frame}
 
 \begin{frame}
+  \frametitle{Charm tagging calibrations}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+      \item Standard $b$-tagging calibrations:
+        \begin{itemize}
+        \item[light] Negative tags (right)\tikz[na] \coordinate(neg-tag);
+        \item[$b$] dileptonic $t \bar{t}$ (bottom right) \tikz[na] \coordinate(dilep-tt);
+        \item[$c$] $D^*$ reconstruction (bottom) \tikz[na] \coordinate(dzero);
+        \end{itemize}
+      \end{itemize}
+      \widegraphic{%
+figures/external/dstar-pion-mass.pdf}\\
+    \end{column}
+    \begin{column}{0.34\textwidth}
+      \widegraphic{%
+figures/external/negative-tag-sv0.pdf}\\
+      \widegraphic{%
+figures/external/giacinto-mll.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{List of Tagging Variables}
   \resizebox{\textwidth}{!}{\input{tables/jfc-variables.tex}}
 \end{frame}
 
+
+
 \backupend
 
 \end{document}
+\begin{frame}
+  \frametitle{Charm Tagging}
+  \begin{block}{Soft Lepton}
+  \begin{itemize}
+  \item Branching ratio to muons $<$ 7\% (18\%) for $D^0$ ($D^\pm$)
+    \begin{itemize}
+    \item Unacceptably low efficiency for most analyses
+    \end{itemize}
+  \end{itemize}
+  \end{block}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{block}{Lifetime Based}
+      \begin{itemize}
+      \item Shorter decay lengths vs $b$-jets
+        \begin{center}
+          \begin{tabular}{c | c c c}
+            Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
+            $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
+          \end{tabular}
+        \end{center}
+      \item Fewer tracks than $b$-jets
+      \item $c$-jets are ``between'' light and $b$ in many distributions
+      \item \textbf{NOTE:} Vertices inside inner pixels, tracks extrapolated
+      \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/b-jet.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
