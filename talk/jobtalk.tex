@@ -10,7 +10,7 @@
 \tikzstyle{background grid}=[draw, black!50,step=.5cm]
 \usepackage{feynmp-auto}
 
-\title[Charmed Searches]{Searches for Charmed Final States in ATLAS}
+\title[Charmed Searches]{Charm-Tagging and the $\sctoc$ Search}
 \author[dhg3]{Dan Guest}
 \institute[Yale]{Yale University}
 
@@ -51,7 +51,7 @@
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
-      \item Gives a DM candidate ($\neut$)
+      \item RPC: gives a DM candidate ($\neut$)
       \item Useful for GUT unification
       \item ``solves'' hierarchy  problem \\
         \ldots but only if superpartners are light
@@ -456,7 +456,7 @@ int/figures/stackplots/dans/preselection/jetmet_dphi.pdf}
     \feynincstd{vjets} \\[0.2cm]
       \begin{itemize}
       \item After anti-QCD cuts, backgrounds are $W$/$Z$ + jets
-      \item Real $\met$ from $Z \to \nu \nu$ and $W \to \tau \nu$
+      \item \textcolor{red}{Real $\met$} from $Z \to \nu \nu$ and $W \to \tau \nu$
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -558,6 +558,7 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
+      \item Define three signal regions: $\mct > 150,\ 200,\ 250,\,\gev$
       \item Major backgrounds estimated from global fit
       \item Main causes of systematic errors:
         \begin{enumerate}
@@ -585,8 +586,7 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
   \begin{itemize}
   \item After unblinding, no excess found
   \item Roughly $1.5\sigma$ deficit
-  \item Three overlapping signal regions, defined by $\mct$ cut:\\
-    $\mct > 150,\ 200,\ 250,\,\gev$
+  \item Move on to setting limits
   \end{itemize}
 \end{frame}
 
@@ -605,6 +605,11 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
       \item Excludes up to $m_{\neut} = 200\,\gev$, $m_{\scharm} = 490\,\gev$
       \item Region where $m_{\scharm} < m_{\neut}$ is kinematically forbidden
       \item What's happening where $m_{\scharm} - m_{\neut} \lesssim 150\,\gev$?
+        \begin{itemize}
+        \item Lower $\Delta m$
+        \item $c$ jets aren't resolved
+        \item $\met$ is small
+        \end{itemize}
       \end{itemize}
     \end{column}
   \end{columns}
@@ -616,7 +621,7 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
   \item Problems for $\Delta m \equiv m_{\scharm} - m_{\neut} \lesssim 150\,\gev$:
     \begin{itemize}
     \item Less $\met$, trigger won't fire
-    \item Less energetic $c$-jets, harder to resolve
+    \item Less energetic $c$-jets, below $50\,\gev$ threshold
     \end{itemize}
   \item Solution: add an \textcolor{orange}{ISR boosted} signal region
     \begin{itemize}
@@ -646,6 +651,7 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{column}
     \begin{column}{0.4\textwidth}
       \begin{itemize}
+      \item Dots indicate best expected $\cls$
       \item C1 and C2 regions cover $\Delta m \lesssim 100\,\gev$
       \item Larger $\Delta m$ covered by larger $\mct$ regions
       \end{itemize}
@@ -654,14 +660,15 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Comparison with inclusive $\tilde{q}$ search}
+  \frametitle{Comparison with $\tilde{q} \to \mathrm{0L} + \text{jets}$ search}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \widegraphic{int/figures/limit_tree/full_exclusion/exclusion_inclusive.pdf}
     \end{column}
     \begin{column}{0.4\textwidth}
       \begin{itemize}
-      \item Significantly larger exclusion than the inclusive search (assuming non-degenerate $\tilde{q}$ masses)
+      \item Extends $\tilde{q}$ search (non-degenerate $\tilde{q}$ masses)
+      \item Also flavor-sensitive
       \item Wedge near $\Delta m = 0$ is covered by monojet
       \end{itemize}
     \end{column}
@@ -704,29 +711,22 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Comparison Between COMBNN and JFC}
+  \frametitle{JetFitterCharm relative performance}
+  \begin{itemize}
+  \item Several other discriminants have been suggested, compared to JetFitterCharm
+  \end{itemize}
   \begin{columns}
     \begin{column}{0.5\textwidth}
+      \begin{center}
+        vs JetFitterCOMBNN
       \widegraphic{figures/external/ctag-2d-jfc-vs-jfit.pdf}
+      \end{center}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \begin{itemize}
-      \item afd
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Comparison Between JFC and MVx}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
+      \begin{center}
+        vs MV1 + MV1c
       \widegraphic{figures/external/ctag-2d-jfc-vs-mv.pdf}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-      \item afd
-      \end{itemize}
+      \end{center}
     \end{column}
   \end{columns}
 \end{frame}
@@ -739,7 +739,8 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-      \item afd
+      \item Showing Deep NN vs Run 1 ``baseline'' taggers
+      \item Never seriously considered
       \end{itemize}
     \end{column}
   \end{columns}
