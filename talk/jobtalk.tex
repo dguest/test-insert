@@ -12,7 +12,7 @@
 \tikzstyle{background grid}=[draw, black!50,step=.5cm]
 \usepackage{feynmp-auto}
 
-\title[Charmed Searches]{Charm-Tagging and the $\sctoc$ Search}
+\title[Charmed SUSY]{Charm-Tagging SUSY}
 \author[dhg3]{Dan Guest}
 \institute[Yale]{Yale University}
 
@@ -65,7 +65,7 @@
           \Delta m_{h}^2 = m_{\text{soft}}^2 \left[ \frac{\Gamma}{16 \pi^2} \ln(\cutoff / m_{\text{soft}}) + \ldots \right]
         \end{equation*}
       \end{tiny}
-      \item simple SUSY models: visible at LHC
+      \item Minimal SUSY models: visible at LHC
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
@@ -80,7 +80,7 @@ figures/external/unification-ugly.jpg}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Motivation: $c$-tagged SUSY}
+  \frametitle{Motivation: $\sttoc$ and $\sctoc$}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
@@ -179,13 +179,14 @@ figures/external/feyn-sctoc.pdf}
   \frametitle{Tagging Algorithms (continued)}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      JetFitter: the complicated tagger
+      JetFitter:
       \begin{enumerate}
       \item Fits a ``Flight Line'' from the PV along jet axis
       \item Line updated to cross tracks
       \item Vertices clustered
       \item Vertex properties extracted
       \end{enumerate}
+      Useful for $c$-tagging
       \begin{itemize}
       \item Can resolve any number of SVs
       \item Retuned for $c$-tagging:
@@ -623,7 +624,7 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \begin{itemize}
     \item This SR already exists in the $\sttoc$ search
     \item Even better: simplified SUSY models mean $\sigma_{\tilde{t}\tilde{t}} \approx \sigma_{\tilde{c}\tilde{c}}$
-    \item We can take $\cls$ values directly from $\sttoc$
+    \item We can use a simple reinterpretation of $\sttoc$
     \end{itemize}
   \end{itemize}
   \begin{columns}
@@ -663,7 +664,7 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{column}
     \begin{column}{0.4\textwidth}
       \begin{itemize}
-      \item Extends $\tilde{q}$ search (non-degenerate $\tilde{q}$ masses)
+      \item Extends $\tilde{q}$ limits (non-degenerate $\tilde{q}$ masses)
       \item Also flavor-sensitive
       \item Wedge near $\Delta m = 0$ is covered by monojet
       \end{itemize}
@@ -671,33 +672,43 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
   \end{columns}
 \end{frame}
 
-\section{Conclusions}
+\section{Summary}
 
 \begin{frame}
-  \frametitle{Conclusions}
+  \frametitle{Summary}
   \begin{itemize}
-  \item $c$-tagged SUSY: traditionally too hard
-  \item First-Generation $c$-tagging:
+  \item First iteration of $c$-taggers has been developed
     \begin{itemize}
-    \item Has been used in several searches (link to papers again)
+    \item Applied to several run 1 SUSY searches
     \end{itemize}
-  \item The next generation:
+  \item The next generation will use more sophisticated neural nets
     \begin{itemize}
-    \item Use autoencoders
-    \item Improved $c$ and $b$ tagging
+    \item Currently being developed with autoencoders
+    \item Could improve $b$ tagging as well
+    \end{itemize}
+  \item Still no SUSY, but new ways to look in run 2
+  \item Starting to see interest in $c$-tagging outside SUSY group
+    \begin{itemize}
+      \item $H \to c\bar{c}$, SM $\gamma + c$
+    \end{itemize}
+  \item Run 2 will be exciting:
+    \begin{itemize}
+      \item Insertable B-Layer,
+      \item Higher energy,
+      \item Improved simulation
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Outlook}
-  \begin{itemize}
-  \item $H \to c \bar{c}$ (will be hard but awesome)
-  \item more general taggers (include $\tau$, $g \to b \bar{b}$)
-  \item Better $b$-tagging means $H \to HH \to bbXX$ (include this diagram)
-  \item xAOD migration \emph{could} be promising
-  \end{itemize}
-\end{frame}
+%% \begin{frame}
+%%   \frametitle{Outlook}
+%%   \begin{itemize}
+%%   \item $H \to c \bar{c}$ (will be hard but awesome)
+%%   \item more general taggers (include $\tau$, $g \to b \bar{b}$)
+%%   \item Better $b$-tagging means $H \to HH \to bbXX$ (include this diagram)
+%%   \item xAOD migration \emph{could} be promising
+%%   \end{itemize}
+%% \end{frame}
 
 \section*{Backup}
 
