@@ -104,3 +104,4 @@ get-file $PAN/tagging/plots/ctag-2d-jfc-vs-jfit.pdf
 get-file $PAN/tagging/plots/ctag-2d-jfc-vs-mv.pdf
 get-file $PAN/tagging/plots/ctag-2d-gaia-vs-mv.pdf
 get-file $PAN/tagging/plots/uRejRoc.pdf
+get-file $PAN/tagging/plots/rejrej-simple.pdf
