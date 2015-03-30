@@ -121,23 +121,24 @@ figures/external/feyn-sctoc.pdf}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item Both decay within beam-pipe
-        \item Both identified via decay vertex displacement
-        \item Traditionally \textcolor{darkgreen}{$c$-jets} are a background to \textcolor{red}{$b$-jets}
-        \item $b$-tagging is easier: longer lifetime\\
+      \item Must separate $b$, $c$, and light
+      \item All decay within beam-pipe
+      \item Identified via decay vertex
+      \item $b$-tagging is easier: longer lifetime\\
         \begin{center}
           \begin{tabular}{c | c c c}
             Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
             $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
           \end{tabular}
         \end{center}
+      \item Requires both tracking resolution and luck
       \item \textcolor{darkgreen}{$c$-decays} are part of \textcolor{red}{$b$-decays}
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
       \begin{center}
-      \widegraphic{figures/external/b-jet.pdf}\\[0.1cm]
-      \includegraphics[width=\textwidth]{figures/external/sm-b-decay.pdf}
+        \widegraphic{figures/external/b-jet.pdf}\\[0.1cm]
+        \includegraphics[width=\textwidth]{figures/external/sm-b-decay.pdf}
       \end{center}
     \end{column}
   \end{columns}
@@ -466,7 +467,7 @@ int/figures/stackplots/dans/preselection/j0_flavor_truth_label.pdf}
     \end{column}
   \end{columns}
   \begin{itemize}
-    \item Jets are dominantly light flavored, removed by two $c$-tag requirement (each tag: $1/\epsilon_{\text{light}} \approx 150$)
+    \item Jets are dominantly light flavored, removed by two $c$-tag requirement (each tag: $1/\epsilon_{\text{light}} \approx 200$)
   \end{itemize}
 \end{frame}
 
@@ -553,7 +554,7 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-      \item Define three signal regions: $\mct > 150,\ 200,\ 250,\,\gev$
+      \item Define three signal regions: $\mct > 150,\ 200,\ 250\,\gev$
       \item Major backgrounds estimated from global fit
       \item Main causes of systematic errors:
         \begin{enumerate}
@@ -693,8 +694,9 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{itemize}
   \item Run 2 will be exciting:
     \begin{itemize}
-      \item Insertable B-Layer,
       \item Higher energy,
+      \item Insertable B-Layer,
+      %% \item Better neural nets
       \item Improved simulation
     \end{itemize}
   \end{itemize}
