@@ -75,7 +75,7 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
     \end{column}
   \end{columns}
   \begin{center}
-      \includegraphics[width=0.6\textwidth]{%
+    \includegraphics[width=0.6\textwidth]{%
 figures/external/unification-ugly.jpg}
   \end{center}
 \end{frame}
@@ -90,20 +90,18 @@ figures/external/unification-ugly.jpg}
       \item ``compressed'': $m_{\tilde{t}} - m_{\neut} < m_W$
       \item Forces $\tilde{t}$ decay via $c$-jets
       \item Signature: boosted, $c$-jets + $\met$
-      \item See \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325}
+      \item See \link{arXiv 1407.0608}{http://arxiv.org/abs/1407.0608}
       %% \item \textcolor{red}{Not discussed in detail here (ADD LINK)}
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \widegraphic{%
-figures/external/feyn-sttoc-isr.pdf}
+      \widegraphic{figures/external/feyn-sttoc-isr.pdf}
     \end{column}
   \end{columns}
   \hrule
   \begin{columns}
     \begin{column}{0.4\textwidth}
-      \widegraphic{%
-figures/external/feyn-sctoc.pdf}
+      \widegraphic{figures/external/feyn-sctoc.pdf}
     \end{column}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
@@ -296,18 +294,19 @@ figures/external/feyn-sctoc.pdf}
   \end{columns}
 \end{frame}
 
+\newcommand{\calnote}{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2014-046/}
 \begin{frame}
   \frametitle{Charm-Tagging Scale Factors}
   \begin{columns}
     \begin{column}{0.6\textwidth}
-  \begin{itemize}
-  \item Standard $b$-tagging calibrations:
-    \begin{itemize}
-    \item[light] Negative tags (right)\tikz[na] \coordinate(neg-tag);
-    \item[$b$] dileptonic $t \bar{t}$ (bottom right)\tikz[na] \coordinate(dilep-tt);
-    \item[$c$] $D^*$ reconstruction (bottom)\tikz[na] \coordinate(dzero);
-    \end{itemize}
-  \end{itemize}
+      \begin{itemize}
+      \item Standard $b$-tagging calibrations:
+        \begin{itemize}
+        \item[light] \link{Negative tags}{\calnote} (right)\tikz[na] \coordinate(neg-tag);
+        \item[$b$] \link{dileptonic $t \bar{t}$}{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2014-004/} (bottom right)\tikz[na] \coordinate(dilep-tt);
+        \item[$c$] \link{$D^*$ reconstruction}{\calnote} (bottom)\tikz[na] \coordinate(dzero);
+        \end{itemize}
+      \end{itemize}
       \widegraphic{%
 figures/external/sf-ctag-c-medium.pdf}
     \end{column}
@@ -540,10 +539,8 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
-      \widegraphic{%
-int/figures/stackplots/dans/cr_z/mass_ll.pdf} \\
-      \widegraphic{%
-int/figures/stackplots/dans/cr_w/mass_t.pdf}
+      \widegraphic{int/figures/stackplots/dans/cr_z/mass_ll.pdf} \\
+      \widegraphic{int/figures/stackplots/dans/cr_w/mass_t.pdf}
     \end{column}
   \end{columns}
 \end{frame}
@@ -731,6 +728,19 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 \end{frame}
 
 \begin{frame}
+  \frametitle{Useful Links (mostly restricted to ATLAS)}
+  \begin{itemize}
+  \item Scharm analysis twiki: \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/DirectScharmAnalysisTwiki}
+    \begin{itemize}
+    \item INT note: \url{https://cds.cern.ch/record/1698012}
+    \item Paper (public): \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2014-03/}
+    \end{itemize}
+  \item JetFitterCharm public: \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/}
+  \item $\sttoc$ paper: \url{http://arxiv.org/abs/1407.0608}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Background Tradeoffs: $b$ vs $c$ Tagging}
   \begin{columns}
     \begin{column}{0.5\textwidth}
@@ -777,7 +787,7 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 
 
 \begin{frame}
-  \frametitle{Comparison Between GAIA and MVx}
+  \frametitle{Comparison Between Deep Learning and MVx}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \widegraphic{figures/external/ctag-2d-gaia-vs-mv.pdf}
@@ -792,35 +802,78 @@ int/figures/stackplots/dans/cr_w/mass_t.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Charm tagging calibrations}
   \begin{columns}
-    \begin{column}{0.6\textwidth}
-      \begin{itemize}
-      \item Standard $b$-tagging calibrations:
-        \begin{itemize}
-        \item[light] Negative tags (right)\tikz[na] \coordinate(neg-tag);
-        \item[$b$] dileptonic $t \bar{t}$ (bottom right) \tikz[na] \coordinate(dilep-tt);
-        \item[$c$] $D^*$ reconstruction (bottom) \tikz[na] \coordinate(dzero);
-        \end{itemize}
-      \end{itemize}
-      \widegraphic{%
-figures/external/dstar-pion-mass.pdf}\\
+    \begin{column}{0.45\textwidth}
+      \widegraphic{int/figures/stackplots/dans/signal_mct150/met.pdf} \\
+      \widegraphic{int/figures/stackplots/dans/signal_mct150/j0_pt.pdf}
     \end{column}
-    \begin{column}{0.34\textwidth}
-      \widegraphic{%
-figures/external/negative-tag-sv0.pdf}\\
-      \widegraphic{%
-figures/external/giacinto-mll.pdf}
+    \begin{column}{0.45\textwidth}
+      \widegraphic{int/figures/stackplots/dans/signal_mct150/j1_pt.pdf} \\
+      \widegraphic{int/figures/stackplots/dans/signal_mct150/j2_pt.pdf}
     \end{column}
   \end{columns}
 \end{frame}
 
 
 \begin{frame}
+  \frametitle{Charm tagging calibrations}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item Standard $b$-tagging calibrations:
+        \begin{itemize}
+        \item[light] \link{Negative tags}{\calnote} (right)\tikz[na] \coordinate(neg-tag);
+        \item[$b$] \link{dileptonic $t \bar{t}$}{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2014-004/} (bottom right)\tikz[na] \coordinate(dilep-tt);
+        \item[$c$] \link{$D^*$ reconstruction}{\calnote} (bottom)\tikz[na] \coordinate(dzero);
+        \end{itemize}
+      \end{itemize}
+      \widegraphic{figures/external/dstar-pion-mass.pdf}\\
+    \end{column}
+    \begin{column}{0.34\textwidth}
+      \widegraphic{figures/external/negative-tag-sv0.pdf}\\
+      \widegraphic{figures/external/giacinto-mll.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Flavor Composition}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{int/figures/stackplots/will/jetsID_SRA_mCT_gt_150}\\
+      \widegraphic{int/figures/stackplots/will/jetsID_CRZ_final.pdf}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{int/figures/stackplots/will/jetsID_CRW_final.pdf}\\
+      \widegraphic{int/figures/stackplots/will/jetsID_CRT_final.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
   \frametitle{List of Tagging Variables}
   \resizebox{\textwidth}{!}{\input{tables/jfc-variables.tex}}
 \end{frame}
 
+
+\begin{frame}
+  \frametitle{Electron Definition}
+  \resizebox{\textwidth}{!}{\input{tables/electron.tex}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Muon Definition}
+  \begin{center}
+  \resizebox{0.8\textwidth}{!}{\input{tables/muon.tex}}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Trigger Definition}
+  \begin{center}
+  \resizebox{0.8\textwidth}{!}{\input{tables/triggers.tex}}
+  \end{center}
+\end{frame}
 
 
 \backupend
