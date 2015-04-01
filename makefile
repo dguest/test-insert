@@ -6,7 +6,7 @@ PDFTEX = pdflatex -interaction=nonstopmode -halt-on-error -shell-escape
 all: thesis.pdf
 	@rm -f TMP-*
 
-TEXFILES := $(shell find -L . -maxdepth 2 -name '*.tex')
+TEXFILES := $(shell find -L tex/ -maxdepth 2 -name '*.tex')
 
 %.bbl: %.tex $(TEXFILES) *.bib
 	$(PDFTEX) $* --draftmode

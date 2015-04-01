@@ -6,11 +6,37 @@
 \newcommand{\jfcplotswherefrom}{The jets are from $t \bar{t}$ simulated events generated with \textsc{Powheg+Pythia6}.}
 \newcommand{\wherefrom}{The jets are from $t \bar{t}$ simulated events generated with \textsc{Powheg+Pythia6}.}
 
-Final states including $c$-jets can arise from a number of interesting processes at the Large Hadron Collider (LHC).
+Final states including $c$-jets can arise from a number of interesting processes at the Large Hadron Collider.
 Some of these, including Beyond the Standard Model $H \to c\bar{c}$ production~\cite{charminghiggs} and SUSY models in which the lightest scalar quark decays to $c$-quarks~\cite{stoptocharm}, could be observed in LHC data.
 Unfortunately, in the absence of a designated $c$-quark jet ($c$-jet) identification algorithm, such searches are forced to contend with large Standard Model backgrounds: multijet production, $b$-quark jet ($b$-jet) backgrounds from $t\bar{t}$ decays, other electroweak processes, and $H \to b\bar{b}$ production can all overwhelm the $c$-jet signal.
 Assuming these backgrounds can be controlled, these searches have little sensitivity to the flavor couplings of a signal.
 To address these problems, a dedicated algorithm to identify $c$-jets ($c$-tagging) has been developed and applied to data collected by the ATLAS detector~\cite{DetPap}.
+
+\begin{figure}
+  \begin{center}
+\includegraphics[width=0.7\textwidth]{figures/external/sm-b-decay.pdf}
+\caption[The decay chain of a $b$-quark]{Diagram of a $b$-quark decay though standard model particles. The $b$-quark decays dominantly though a cascade as $b \to c \to s \to u$. Other decays are possible but are heavily CKM suppressed.}
+\label{fig:sm-b-decay}
+  \end{center}
+\end{figure}
+
+For the sake of charm-tagging, a $c$-quark decay is best explained as a component of a $b$-quark decay.
+The sequence of a typical $b$-quark decay is shown in \cref{fig:sm-b-decay}.
+Once created, a $b$-quark is only kinematically allowed to decay through less massive particles, and overwhelmingly does so through $c$-quarks.
+Because this first decay is CKM suppressed, the $b$-hadron travels a substantial distance before decaying, as shown in \cref{fig:b-jet}.
+The subsequent charmed-meson decay lacks CKM suppression and is slightly faster\footnote{The CKM-favored decay of the $c$ quark is counteracted by the decay having less avalible phase space, since the $c$--$s$ mass splitting is smaller}.
+Both decays are slow enough that the particles fly a measurable distance.
+In the case of a $b$-quark with average decay lengths, both the secondary and tertiary vertex can be reconstructed.
+A $c$-jet is simply the downstream part of a $b$-jet.
+In this sense, every $b$-jet in the LHC also contains a $c$-jet; the jet energy thresholds required by searches are high enough that $b$-jets remain columnated despite the energy released in the $b \to c$ decay.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{figures/external/b-jet.pdf}
+    \caption[Diagram of a $B$-meson decay.]{Diagram of a $B$ meson decay. The $B$ meson contains a $b$ quark and is thus unstable. At LHC energies, many $B$ mesons travel a measurable distance before decaying. The daughter $D$ meson, in turn, contains a $c$ quark, and is also unstable.}
+    \label{fig:b-jet}
+  \end{center}
+\end{figure}
 
 Flavor-tagging algorithms within ATLAS fall into two categories; those which identify $b$- and $c$-hadrons by their soft lepton decay products, and `lifetime-based' methods which rely on the displacement of the $b$- and $c$-hadron decay products with respect to the primary vertex.
 The branching ratio of $c$-hadrons to leptons places an upper limit on the efficiency of soft-lepton based $c$-jet tagging algorithms, which restricts their usefulness for many analyses and as such has not been pursued further at this point.
@@ -208,7 +234,13 @@ SFs_internal_nomistag/JetFitterCharm_loose_Light_default_SF_120_250.pdf}
 
 
 \section{The Future of $c$-tagging}
+JetFitterCharm, while effective, is plagued by several related issues.
+First, JetFitterCharm's $b$-vs-light discrimination is is inferior to that from MV1, the baseline $b$-tagger in run 1. This is surprising given that both are neural nets with roughly the same inputs.
+Secondly, the neural net training isn't reproducible; retraining on exactly the same dataset may produce performance that's better or worse by several percent.
+
 \begin{itemize}
-\item Talk about our experiments with deep learning
-\item  show performance comparisons between JFC, GAIA
+  \item Talk about why NN training isn't reproducible
+  \item show JFC vs MV1 $b$-tagging ROC
+  \item Talk about our experiments with deep learning
+  \item  show performance comparisons between JFC, GAIA
 \end{itemize}
