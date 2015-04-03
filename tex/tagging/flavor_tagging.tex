@@ -242,7 +242,7 @@ Both issues stem from the unreliable methods which are typically used to train n
 
 \subsection{Traditional Neural Networks}
 Traditional signal-processing neural nets are continuous mappings of input vectors $\vect{x}$ onto output vectors $\vect{y}$, where both $\vect{x}$ and $\vect{y}$ can be of arbitrary dimension for a given neural net.
-An $N + 1$ layer neural net can be represented as stack of linear transformations $A_{i}$ interleaved with a nonlinear activation function $f$~\cite{luke-thesis}:
+An $N + 1$ layer neural net can be represented as stack of linear transformations $A_{i}$ interleaved with a nonlinear activation function $f$:
 \begin{equation}
   \vect{y} = \mathcal{N}(\vect{x}) = f(A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N)
   \label{eq:nn-functional}
@@ -253,7 +253,7 @@ In \cref{eq:nn-functional}, $\vect{x}$ and $\vect{y}$ are referred to as the inp
 \begin{equation}
   \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
 \end{equation}
-Where $\vect{y} = \vect{z}_{N+1}$ and $\vect{x} = \vect{z}_{1}$.
+where $\vect{y} = \vect{z}_{N+1}$ and $\vect{x} = \vect{z}_{1}$.
 
 Note that the dimensions of the $A_{i}$ and $\vect{b}_i$ are constrained by the dimensions of the surrounding layers; if $\vect{x}$ has $n$ elements, $A_1$ is an $m \times n$ matrix, $A_{2}$ is an $o \times m$ matrix, $A_{3}$ is $p \times o$, etc.
 Thus given some number of inputs and outputs, the neural net is still left with $N - 1$ free dimensions---one for each hidden layer.
@@ -271,7 +271,7 @@ A particularly simple cost function is $E(\vect{y},\vect{t}) = \sum_{i} (y_i - t
 %% \begin{equation}
 %% \end{equation}
 The cost function determines an error for each output element.
-\item The error is backpropagated to the previous (hidden) layer using the $A_i$ matrix.
+\item The error is backpropagated to the previous (hidden) layer using the $A_i$ matrix. Details of backpropagation are discussed elsewhere~\cite{luke-thesis}.
 \end{enumerate}
 
 \begin{figure}
