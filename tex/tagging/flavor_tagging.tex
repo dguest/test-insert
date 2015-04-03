@@ -229,14 +229,58 @@ SFs_internal_nomistag/JetFitterCharm_loose_Light_default_SF_120_250.pdf}
   \label{JFC_SF_L1_loose}
 \end{figure}
 
+\clearpage
 
 %------------------- end calibration ----------------
 
 
-\section{The Future of $c$-tagging}
+\section{Autoencoders and the Future of $c$-tagging}
 JetFitterCharm, while effective, is plagued by several related issues.
-First, JetFitterCharm's $b$-vs-light discrimination is is inferior to that from MV1, the baseline $b$-tagger in run 1. This is surprising given that both are neural nets with roughly the same inputs.
-Secondly, the neural net training isn't reproducible; retraining on exactly the same dataset may produce performance that's better or worse by several percent.
+First, JetFitterCharm's $b$-vs-light discrimination is inferior to that from MV1, the baseline $b$-tagger in run 1. This discrepancy is illustrated in \cref{fig:u-rej-roc}, and is surprising given that both are neural nets with roughly the same inputs.
+In addition, the neural net training isn't reproducible; retraining on exactly the same dataset may produce performance that's better or worse by several percent.
+Both issues stem from the unreliable methods which are typically used to train neural nets.
+
+\subsection{Traditional Neural Networks}
+Traditional signal-processing neural nets are continuous mappings of input vectors $\vect{x}$ onto output vectors $\vect{y}$, where both $\vect{x}$ and $\vect{y}$ can be of arbitrary dimension for a given neural net.
+An $N + 1$ layer neural net can be represented as stack of linear transformations $A_{i}$ interleaved with a nonlinear activation function $f$~\cite{luke-thesis}:
+\begin{equation}
+  \vect{y} = \mathcal{N}(\vect{x}) = f(A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N)
+  \label{eq:nn-functional}
+\end{equation}
+where the $\vect{b}_i$ are \emph{bias} vectors and $f$ operates on each element of its input vector independently.
+A typical activation function is the sigmoid $f(x_j) = (1 + e^{-x_j})^{-1}$.
+In \cref{eq:nn-functional}, $\vect{x}$ and $\vect{y}$ are referred to as the input and output layers, respectively. The inputs to each $A_i$ (other than $A_1$) are referred to as \emph{hidden} layers $\vect{z_i}$. To make the hidden layers more explicet \cref{eq:nn-functional} can also be written recursively:
+\begin{equation}
+  \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
+\end{equation}
+Where $\vect{y} = \vect{z}_{N+1}$ and $\vect{x} = \vect{z}_{1}$.
+
+Note that the dimensions of the $A_{i}$ and $\vect{b}_i$ are constrained by the dimensions of the surrounding layers; if $\vect{x}$ has $n$ elements, $A_1$ is an $m \times n$ matrix, $A_{2}$ is an $o \times m$ matrix, $A_{3}$ is $p \times o$, etc.
+Thus given some number of inputs and outputs, the neural net is still left with $N - 1$ free dimensions---one for each hidden layer.
+The dimensions of the input, output, and hidden layers specify the \emph{topology} of the neural net.
+For historical reasons, the elements of $A_i$ are also known as synapse weights, while the elements of $\vect{b}_i$ are known as activation thresholds.
+Theoretically a deep neural net can fit a continuous function of $\vect{x}$ to arbitrary precision given an appropriate choice of the of $A_i$ and $\vect{b}_i$.
+
+In the case of flavor tagging, the elements of $\vect{x}$ correspond to measurable jet parameters, while the elements $\vect{y}$ correspond to jet flavor probabilities. Elements of $\{(A_i, \vect{b}_i)\}_{i=0}^{N}$ are ``trained'' using pairs of inputs corresponding to \emph{target} outputs $(\vect{x}, \vect{t})$, such that $\mathcal{N}(\vect{x}) \approx \vect{t}$. Traditionally, training progresses in several steps using a technique known as error backpropagation. The steps are as follows:
+\begin{enumerate}
+\item An activation function $f$ and topology are chosen.
+\item The neural net is initialized with random synapse weights and activation thresholds.
+\item A pattern is selected from a \emph{training sample} which includes the input values $\vect{x}$ and the \emph{target} values $\vect{t}$. The value of $\vect{y}$ is computed using the current $A_i$ and $\vect{b}$ parameters.
+\item An \emph{cost function} $E(\vect{y},\vect{t})$ quantifies the amount by which the pattern is misclassified.
+A particularly simple cost function is $E(\vect{y},\vect{t}) = \sum_{i} (y_i - t_i)^2 / 2$. %The error $\vect{e}$ on $\vect{y}$ is defined as
+%% \begin{equation}
+%% \end{equation}
+The cost function determines an error for each output element.
+\item The error is backpropagated to the previous (hidden) layer using the $A_i$ matrix.
+\end{enumerate}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=\textwidth]{figures/external/uRejRoc.pdf}
+    \caption[Light jet rejection as a function of $b$-tagging efficiency]{Light jet rejection vs $b$-tagging efficiency for several taggers. The MV1 tagger (labeled \plt{mv1}) was the baseline $b$-tagger for Run 1. Both \plt{gaiaAntiU} and \plt{jfcAntiU} (from  GAIA and JetFitterCharm respectively) rely on neural nets with multiple outputs and use the $\log (P_{b} / P_{\text{light}})$ ratio as a discriminant. A final tagger \plt{gaiaGr1}, is tuned to reject both $c$ and light jets, and discriminates with $\log [P_{b}^2 / (P_{c} P_{\text{light}})]$.  The bottom panel shows relative efficiency vs the \plt{gaiaGr1} baseline.}
+    \label{fig:u-rej-roc}
+  \end{center}
+\end{figure}
 
 \begin{itemize}
   \item Talk about why NN training isn't reproducible

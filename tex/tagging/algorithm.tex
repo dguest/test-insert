@@ -119,21 +119,21 @@ network (as shown in \cref{fig:jfc-arch}) which calculates the posterior probabi
 The network was trained on $b$-, $c$- and light-jets drawn from simulated $t \bar{t}$. Training begins by initializing the synapse weights and node activation thresholds with random values. The classification error $E \equiv \sum_{f} (T_{f} - P_{f})^2$, where $f \in \{b,c,\mathrm{light}\}$ and $T_{f}$ are target posteriors, is then minimized with the backpropagation algorithm as implemented in the JETNET~\cite{Peterson:1993nk} package. Target posteriors are assigned according to the labeling scheme described in section~\ref{tag:sec:data-and-simulation}: the target value $T_{f}$ is defined to be 1 if $f$ matches the jet flavor label and zero otherwise. As a precaution against training the neural network with a kinematic flavor bias, the training sample is reweighed in two-dimensional categories of $\pt^{\rm cat}$ and $\eta^{\rm cat}$, such that the relative  fractions of $b$, $c$ and light jets are constant in all categories. In this training scheme, the target posteriors sum to 1 in each jet by definition, whereas the $P_{f}$ values would sum to one only in the limit of perfect training, and in reality show a deviation from one at the percent level.
 
 %GP I would not add this part, with a comparison of the information flow of the other taggers
-%\begin{figure}
-%  \begin{center}
-%    \includegraphics[width=0.6\textwidth]{figures/dot/tagging-arch.pdf}\\
-%    \includegraphics[width=0.6\textwidth]{figures/dot/tagging-leg.pdf}
-%  \caption[flavor tagging architecture]{The ATLAS flavor tagging
-%    information flow. JetFitterCharm is similar to JetFitterCOMBNN, but uses
-%    looser vertexing cuts in JetFitter, and adds the SV1 secondary-vertex finder outputs as inputs
-%    to the neural network.}
-%  \label{fig:tagging-arch}
-%  \end{center}
-%\end{figure}
+\begin{figure}
+ \begin{center}
+   \includegraphics[width=0.6\textwidth]{jfc/figures/dot/tagging-arch.pdf}\\
+   \includegraphics[width=0.6\textwidth]{jfc/figures/dot/tagging-leg.pdf}
+ \caption[flavor tagging architecture]{The ATLAS flavor tagging
+   information flow. JetFitterCharm is similar to JetFitterCOMBNN, but uses
+   looser vertexing cuts in JetFitter, and adds the SV1 secondary-vertex finder outputs as inputs
+   to the neural network.}
+ \label{fig:tagging-arch}
+ \end{center}
+\end{figure}
 
-%The similarity between JetFitterCharm and the standard ATLAS flavor-tagging tools is illustrated in figure~\ref{fig:tagging-arch}. Both JetFitterCharm and MV1 require the IP3D posteriors as inputs, and both use outputs from SV1 and some variant of JetFitter.  MV1 does not take JetFitter and SV1 outputs directly: instead it relies on posteriors from a lookup table (in the case of SV1) or from a neural net (in the case of JetFitter). JetFitterCharm, by contrast, uses the SV1 and JetFitter outputs directly.
+The similarity between JetFitterCharm and the standard ATLAS flavor-tagging tools is illustrated in figure~\ref{fig:tagging-arch}. Both JetFitterCharm and MV1 require the IP3D posteriors as inputs, and both use outputs from SV1 and some variant of JetFitter.  MV1 does not take JetFitter and SV1 outputs directly: instead it relies on posteriors from a lookup table (in the case of SV1) or from a neural net (in the case of JetFitter). JetFitterCharm, by contrast, uses the SV1 and JetFitter outputs directly.
 
-%% JetFitterCharm uses a $\charm$-tuned variant of JetFitter which is able to
+%% JetFitterCharm uses a $c$-tuned variant of JetFitter which is able to
 %% resolve slightly more $D$ decay vertices than the original. As in the
 %% standard $\bottom$ tagging framework, the top level outputs are
 %% are fed into a neural net, which maps the input variables to three posterior
