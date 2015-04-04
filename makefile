@@ -7,6 +7,7 @@ all: thesis.pdf
 	@rm -f TMP-*
 
 TEXFILES := $(shell find -L tex/ -maxdepth 2 -name '*.tex')
+TEXFILES += $(shell find tables/ -name '*.tex')
 
 %.bbl: %.tex $(TEXFILES) *.bib
 	$(PDFTEX) $* --draftmode

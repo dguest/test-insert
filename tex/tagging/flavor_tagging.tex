@@ -140,7 +140,7 @@ The $c$-tagging efficiencies as a function of $\pt$ and $|\eta|$ for the medium 
 \includegraphics[width=0.49\textwidth]{ttbar_mc_efficiency_JetFitterCharm20_etaAbs.pdf}\\
 \includegraphics[width=0.49\textwidth]{ttbar_mc_efficiency_JetFitterCharm90_pt.pdf}
 \includegraphics[width=0.49\textwidth]{ttbar_mc_efficiency_JetFitterCharm90_etaAbs.pdf}
-\caption{Dependence of the tagging efficiencies on the jet transverse momentum (left) or pseudorapidity (right) for $b$-, $c$-, and light-flavor jets for the JetFitterCharm medium (top) and loose (bottom) operating points. The medium and loose operating points were chosen to give an average $c$-tagging efficiency of $\approx 20\%$ and $\approx 95\%$. \wherefrom}
+\caption[JetFitterCharm efficiency vs $\pt$]{Dependence of the tagging efficiencies on the jet transverse momentum (left) or pseudorapidity (right) for $b$-, $c$-, and light-flavor jets for the JetFitterCharm medium (top) and loose (bottom) operating points. The medium and loose operating points were chosen to give an average $c$-tagging efficiency of $\approx 20\%$ and $\approx 95\%$. \wherefrom}
   \label{fig:merged-eff}
   \end{center}
 \end{figure}
@@ -179,10 +179,10 @@ All three calibrations are performed as a function of jet transverse momentum an
 Light-jet scale factors are further binned as a function of $|\eta|$. No $\eta$-binning is used for $b$- and $c$-jet scale factors, as these scale factors have no significant dependence on jet $\eta$.
 Figures~\ref{JFC_SF_B} and~\ref{JFC_SF_L1} give scale factors for all jets at the medium operating point. Figures~\ref{JFC_SF_B_loose} and~\ref{JFC_SF_L1_loose} give the same information for the loose operating point.
 
-\newcommand{\lSF}{as detailed in~\cite{bc2014}. The scale factors are measured relative to dijet Pythia8+EvtGen} %\ref{lSF}
-\newcommand{\cSF}{as detailed in~\cite{bc2014}. The scale factors are measured relative to dijet Pythia8} %\ref{cSF}
-\newcommand{\bSF}{as detailed in~\cite{Giacinto}. The scale factors are measured relative to $t \bar{t}$ Powheg+Pythia6} %\ref{clSF}
-\newcommand{\bcSF}{The derivation of the $b$-tagging ($c$-tagging) scale factors, shown here relative to $t \bar{t}$ Powheg+Pythia6 (dijet Pythia8), is detailed in~\cite{Giacinto} (\hspace{1sp}\cite{bc2014})}
+\newcommand{\lSF}{as described in~\cite{bc2014}. The scale factors are measured relative to dijet \textsc{Pythia8 + EvtGen}} %\ref{lSF}
+\newcommand{\cSF}{as described in~\cite{bc2014}. The scale factors are measured relative to dijet \textsc{Pythia8}} %\ref{cSF}
+\newcommand{\bSF}{as described in~\cite{Giacinto}. The scale factors are measured relative to $t \bar{t}$ \textsc{Powheg + Pythia6}} %\ref{clSF}
+\newcommand{\bcSF}{The derivation of the $b$-tagging ($c$-tagging) scale factors, shown here relative to $t \bar{t}$ \textsc{Powheg + Pythia6} (dijet \textsc{Pythia8}), is described in~\cite{Giacinto} (\hspace{1sp}\cite{bc2014})}
 
 \begin{figure}
   \centering
@@ -190,8 +190,7 @@ Figures~\ref{JFC_SF_B} and~\ref{JFC_SF_L1} give scale factors for all jets at th
 SFs_internal_nomistag/JetFitterCharm_medium_C_default_SF_oldcalib_000_250.pdf}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_medium_B_default_SF_000_250.pdf}
-  \caption{Dependence of the $c$-jet (left) and $b$-jet (right) efficiency scale factors on the jet transverse momentum for the medium operating point of the
-    JetFitterCharm tagging algorithm. \bcSF.}
+  \caption[JetFitterCharm medium $b$ and $c$ scale factors]{Dependence of the $c$-jet (left) and $b$-jet (right) efficiency scale factors on the jet $\pt$ for the JetFitterCharm medium operating point. \bcSF.}
   \label{JFC_SF_B}
 \end{figure}
 
@@ -201,8 +200,8 @@ SFs_internal_nomistag/JetFitterCharm_medium_B_default_SF_000_250.pdf}
 SFs_internal_nomistag/JetFitterCharm_medium_Light_default_SF_000_120.pdf}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_medium_Light_default_SF_120_250.pdf}
-  \caption{Dependence of the light-jet efficiency scale factor on the jet transverse momentum, for jet pseudorapidity $0.0 < | \eta | < 1.2$ (left) or 
-    $1.2 < | \eta | < 2.5$ (right), for the medium operating point of the  JetFitterCharm tagging algorithm, \lSF.}
+  \caption[JetFitterCharm light scale factors]{Dependence of the light-jet efficiency scale factor on the jet $\pt$, for $0.0 < | \eta | < 1.2$ (left) or
+    $1.2 < | \eta | < 2.5$ (right), for the JetFitterCharm medium operating point, \lSF.}
   \label{JFC_SF_L1}
 \end{figure}
 
@@ -213,8 +212,7 @@ SFs_internal_nomistag/JetFitterCharm_medium_Light_default_SF_120_250.pdf}
 SFs_internal_nomistag/JetFitterCharm_loose_C_default_SF_oldcalib_000_250.pdf}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_loose_B_default_SF_000_250.pdf}
-  \caption{Dependence of the $c$-jet (left) and $b$-jet (right) efficiency scale factors on the jet transverse momentum for the loose operating point of the 
-    JetFitterCharm tagging algorithm. \bcSF.}
+  \caption[JetFitterCharm loose $b$ and $c$ scale factors]{Dependence of the $c$-jet (left) and $b$-jet (right) efficiency scale factors on the jet $\pt$ for the JetFitterCharm loose operating point. \bcSF.}
   \label{JFC_SF_B_loose}
 \end{figure}
 
@@ -224,8 +222,8 @@ SFs_internal_nomistag/JetFitterCharm_loose_B_default_SF_000_250.pdf}
 SFs_internal_nomistag/JetFitterCharm_loose_Light_default_SF_000_120.pdf}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_loose_Light_default_SF_120_250.pdf}
-  \caption{Dependence of the light-jet efficiency scale factor on the jet transverse momentum, for jet pseudorapidity $0.0 < | \eta | < 1.2$ (left) or 
-    $1.2 < | \eta | < 2.5$ (right), for the loose operating point of the JetFitterCharm tagging algorithm, \lSF. The total uncertainty is constrained to give a maximum corrected efficiency of 1.}
+  \caption[JetFitterCharm loose light scale factors]{Dependence of the light-jet efficiency scale factor on the jet $\pt$, for $0.0 < | \eta | < 1.2$ (left) or 
+    $1.2 < | \eta | < 2.5$ (right), for the JetFitterCharm loose operating point, \lSF. The total uncertainty is constrained to give a maximum corrected efficiency of 1.}
   \label{JFC_SF_L1_loose}
 \end{figure}
 
@@ -264,6 +262,7 @@ For historical reasons, the elements of $A_i$ are also known as synapse weights,
 The inputs to each $A_i$ (other than $A_1$) are referred to as \emph{hidden} layers $\vect{z_i}$. To make the hidden layers more explicet \cref{eq:nn-functional} can also be written recursively:
 \begin{equation}
   \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
+  \label{eq:recursive-nn}
 \end{equation}
 where $\vect{y} = \vect{z}_{N+1}$ and $\vect{x} = \vect{z}_{1}$.
 In some cases the activation function is omitted for the final layer, as in \cref{eq:nn-functional}
@@ -320,8 +319,8 @@ At this point it's convenient to rewrite \cref{eq:autoencoder-1st} as
 \begin{equation}
     \tilde{\vect{x}} = D \vect{z}_2 + \vect{c}
 \end{equation}
-using the above definition of $\vect{z}_i$.
-The content of $A_1$ and $b_1$ describe a (lossy) \emph{encoding} of the input space, such that $\vect{z}_2$ is a lower-dimensional representation of $\vect{x}$.
+using the definition of $\vect{z}_i$ from \cref{eq:recursive-nn}.
+The application of $A_1$ and $\vect{b}_1$ describe a (lossy) \emph{encoding} of the input space, such that $\vect{z}_2$ is a lower-dimensional representation of $\vect{x}$.
 Applying $D$ and $\vect{c}$ decodes the compressed $\vect{z}_2$ and reconstructs the original inputs. Note that this only requires input patterns; the training sequence is \emph{unsupervised} because no traditional target values are required.
 
 \item Both $D$ and $\vect{c}$ are discarded, and a new neural net is defined:
@@ -335,7 +334,7 @@ Applying $D$ and $\vect{c}$ decodes the compressed $\vect{z}_2$ and reconstructs
 \item As a result of the unsupervised training, the final feature space is unlikely to be aligned with the actual target values. Within the flavor tagging context jets are clumped in features which may reflect flavor, but which aren't aligned with the flavor basis.
 A final \emph{fine tuning} step aligns these features in the correct basis using the full backpropagation sequence described in \cref{sec:trad-nn}.
 \end{enumerate}
-This training sequence can is orders of magnitude faster and far more robust than traditional backpropagation.
+This training sequence can be orders of magnitude faster and far more robust than traditional backpropagation.
 It is therefore able to construct more complicated neural nets which squeeze much more discrimination out of the input variables.
 
 \subsection{Performance Comparisons}

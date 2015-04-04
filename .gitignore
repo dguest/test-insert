@@ -12,4 +12,6 @@
 *.eps
 *.nav
 *.snm
+*.lof
+*.lot
 /jfc
