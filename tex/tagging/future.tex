@@ -14,7 +14,8 @@ Both issues stem from the unreliable methods which are typically used to train n
 \subsection{Traditional Neural Networks}
 \label{sec:trad-nn}
 Traditional signal-processing neural nets are continuous mappings of input vectors $\vect{x}$ onto output vectors $\vect{y}$, where both $\vect{x}$ and $\vect{y}$ can be of arbitrary dimension for a given neural net.
-An $N + 1$ layer neural net can be represented as stack of linear transformations $A_{i}$ interleaved with a nonlinear activation function $f$:
+In the case of flavor tagging, the elements of $\vect{x}$ correspond to measurable jet parameters, while the elements $\vect{y}$ correspond to jet flavor probabilities.
+An $N + 1$ layer neural net can be represented as stack of linear transformations represented as matrices $A_{i}$ interleaved with a nonlinear activation function $f$:
 \begin{equation}
   \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
   \label{eq:nn-functional}
@@ -28,7 +29,7 @@ The inputs to each $A_i$ (other than $A_1$) are referred to as \emph{hidden} lay
   \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
   \label{eq:recursive-nn}
 \end{equation}
-where $\vect{y} = \vect{z}_{N+1}$ and $\vect{x} = \vect{z}_{1}$.
+where $\vect{y} = \vect{z}_{N+1}$ and $\vect{x} = \vect{z}_{1}$. The elements of each layer are referred to as \emph{nodes}.
 In some cases the activation function is omitted for the final layer, as in \cref{eq:nn-functional}
 
 Note that the dimensions of the $A_{i}$ and $\vect{b}_i$ are constrained by the dimensions of the surrounding layers; if $\vect{x}$ has $n$ elements, $A_1$ is an $m \times n$ matrix, $A_{2}$ is an $o \times m$ matrix, $A_{3}$ is $p \times o$, etc.
@@ -38,10 +39,9 @@ These dimensions typically decrease through successive layers, since the neural 
 Traditional neural nets can include several hidden layers; those with more layers are described as ``deep''.
 Theoretically a deep neural net can fit a continuous function of $\vect{x}$ to arbitrary precision given an appropriate choice of the of $A_i$ and $\vect{b}_i$.
 
-In the case of flavor tagging, the elements of $\vect{x}$ correspond to measurable jet parameters, while the elements $\vect{y}$ correspond to jet flavor probabilities. Elements of $\{(A_i, \vect{b}_i)\}_{i=0}^{N}$ are ``trained'' using inputs with corresponding \emph{target} outputs $\vect{t}$, such that $\mathcal{N}(\vect{x}) \approx \vect{t}$.
+Elements of $\{(A_i, \vect{b}_i)\}_{i=0}^{N}$ are ``trained'' using inputs with corresponding \emph{target} outputs $\vect{t}$, such that $\mathcal{N}(\vect{x}) \approx \vect{t}$.
 Within flavor tagging these targets correspond to jet flavor probabilities, with one element for each flavor.
 This training scheme is said to be \emph{supervised} because it requires known target values.
-
 Traditionally, training progresses in several steps using a technique known as error backpropagation. The steps are as follows:
 \begin{enumerate}
 \item An activation function $f$ and topology are chosen.
@@ -52,8 +52,8 @@ A particularly simple cost function is $E(\vect{y},\vect{t}) = \sum_{i} (y_i - t
 %% \begin{equation}
 %% \end{equation}
 The cost function determines an error for each output element.
-\item The error is backpropagated to the previous (hidden) layer using the $A_i$ matrix. By recursively applying backpropagation to each successive layer an error can be established for each element in each hidden layer~\cite{luke-thesis}.
-\item The values of $A_i$ and $\vect{b}_i$ are updated by moving both in a direction that will decrease the cost function. The size of the update is dictated by the \emph{learning rate}.\label{item:nn-update}
+\item The error is backpropagated to the previous (hidden) layer using the $A_i$ matrix and a first-order expansion of the activation function. By recursively applying backpropagation to each successive layer an error can be established for each element in each hidden layer~\cite{luke-thesis}.
+\item Using the errors associated with each node, the elements of $A_i$ and $\vect{b}_i$ are updated by moving them in a direction that will decrease the error. The size of the update is dictated by the \emph{learning rate}.\label{item:nn-update}
 \item Steps~\ref{item:nn-pattern-select} through~\ref{item:nn-update} are repeated until the cost is minimized.
 \end{enumerate}
 
@@ -67,7 +67,7 @@ Autoencoders solve these problems, as discussed in the next section.
 \subsection{Autoencoders}
 
 The conceptual key to autoencoders is recognition that hidden layers are more than placeholders in a numeric filtering sequence.
-Instead, they are cast as \emph{feature spaces} which describe the characteristics of input patterns in terms of a reduced set of parameters.
+Instead, the hidden layers are cast as \emph{feature spaces} which describe the characteristics of input patterns in terms of a reduced set of parameters.
 In this view, each layer of a neural net is a compression; it reduces the dimension of the input space while preserving the important information.
 The next important principle is that feature spaces can be agnostic to the target patterns on which the neural net is trained or, in the flavor-tagging context, agnostic to the jet flavor.
 These two ideas motivate a completely new approach to training neural nets, which proceeds as follows:
@@ -84,7 +84,7 @@ At this point it's convenient to rewrite \cref{eq:autoencoder-1st} as
     \tilde{\vect{x}} = D \vect{z}_2 + \vect{c}
 \end{equation}
 using the definition of $\vect{z}_i$ from \cref{eq:recursive-nn}.
-The application of $A_1$ and $\vect{b}_1$ describe a (lossy) \emph{encoding} of the input space, such that $\vect{z}_2$ is a lower-dimensional representation of $\vect{x}$.
+The application of $A_1$ and $\vect{b}_1$ can be viewed as a lossy \emph{encoding} of the input space, such that $\vect{z}_2$ is a lower-dimensional representation of $\vect{x}$.
 Applying $D$ and $\vect{c}$ decodes the compressed $\vect{z}_2$ and reconstructs the original inputs. Note that this only requires input patterns; the training sequence is \emph{unsupervised} because no traditional target values are required.
 
 \item Both $D$ and $\vect{c}$ are discarded, and a new neural net is defined:
@@ -92,7 +92,7 @@ Applying $D$ and $\vect{c}$ decodes the compressed $\vect{z}_2$ and reconstructs
     \tilde{\vect{z}_2} = D f(A_2 \vect{z_2} + \vect{b}_2) + \vect{c}
     \label{eq:autoencoder-2st}
   \end{equation}
-  where $\vect{z}_2 \equiv f(A_1 \vect{x} + \vect{b}_1)$, and $A_2$ is a dimension-reducing transform as before. Again the neural net is trained with backpropagation, ignoring the first layer and focusing only on the second.
+  where $\vect{z}_2 \equiv f(A_1 \vect{x} + \vect{b}_1)$, and $A_2$ is a dimension-reducing transform as before. Again the neural net is trained with backpropagation, ignoring the first layer and updating only the second.
 \label{item:autoencoder-layer}
 \item Step~\ref{item:autoencoder-layer} is repeated as many times as desired. The resulting stack of encoding layers transforms an input into low-dimensional representation.
 \item As a result of the unsupervised training, the final feature space is unlikely to be aligned with the actual target values. Within the flavor tagging context jets are clumped in features which may reflect flavor, but which aren't aligned with the flavor basis.
@@ -105,11 +105,11 @@ It is therefore able to construct more complicated neural nets which squeeze muc
 
 Explicit proof are few and far between in machine learning---what counts as ``proof'' is generally empirical.
 In the case of flavor-tagging, the improvement due to autoencoders is demonstrated in simulated data, with various metrics depending on the tagged flavor.
-In the performance comparisons that follow, we compare several new taggers: MV1 was the baseline $b$-tagging tool for Run 1 analyses; GAIA is a new autoencoder-based neural network.
+In the performance comparisons that follow, we compare several taggers which havne't been introduced: MV1 was the baseline $b$-tagging tool for Run 1 analyses; GAIA is a new autoencoder-based neural network.
 Like JetFitterCharm, GAIA includes three outputs, and discriminates signal from background by selecting jets above a $\log(P_{\text{signal}} / P_{\text{background}})$ threshold.
 
 \subsubsection{$b$ tagging}
-In the $b$-tagging case, performance is generally quantified with a Receiver Operating Characteristic (ROC) curve, which is produced by plotting light-jet rejection vs $b$-jet efficiency improvement for a range of selections. Each selection is defined by a specific threshold, over which all jets are accepted.
+In the $b$-tagging case, performance is generally quantified with a Receiver Operating Characteristic (ROC) curve, which is produced by plotting light-jet rejection vs $b$-jet efficiency improvement for a range of selections. Each selection is defined by a specific threshold over which all jets are accepted.
 A comparison on ROC curves for various taggers is given in \cref{fig:u-rej-roc}.
 Clearly the GAIA's deep architecture outperforms MV1 when configured as an anti-light tagger using the $\log(P_{b}/P_{\text{light}})$ discriminant.
 
