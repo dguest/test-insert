@@ -3,8 +3,8 @@
 \section{Introduction}
 \label{tag:sec:into}
 
-\newcommand{\jfcplotswherefrom}{The jets are from $t \bar{t}$ simulated events generated with \textsc{Powheg+Pythia6}.}
-\newcommand{\wherefrom}{The jets are from $t \bar{t}$ simulated events generated with \textsc{Powheg+Pythia6}.}
+\newcommand{\jfcplotswherefrom}{The jets are from $t \bar{t}$ simulated events generated with \textsc{powheg+pythia6}.}
+\newcommand{\wherefrom}{The jets are from $t \bar{t}$ simulated events generated with \textsc{powheg+pythia6}.}
 
 Final states including $c$-jets can arise from a number of interesting processes at the Large Hadron Collider.
 Some of these, including Beyond the Standard Model $H \to c\bar{c}$ production~\cite{charminghiggs} and SUSY models in which the lightest scalar quark decays to $c$-quarks~\cite{stoptocharm}, could be observed in LHC data.
@@ -63,8 +63,8 @@ For Run 2 the additional new innermost pixel layer inserted into the ATLAS detec
 \section{Data and Simulation Samples}
 \label{tag:sec:data-and-simulation}
 
-Plots in this chapter are produced with $\ttbar$ events corresponding to 8 TeV proton-proton collisions simulated with \textsc{Powheg+Pythia6}~\cite{powheg,pythia2} and \textsc{CT10}~\cite{CT10} parton distribution functions. Only $t\bar{t}$ decays with at least one downstream lepton are included. To simulate pileup, minimum bias interactions consistent with 2012 run conditions are generated with \textsc{Pythia8}~\cite{Pythia8} and overlaid on the $\ttbar$ events.
-The propagation of particles through the detector and the detector response are modeled using \textsc{GEANT4}~\cite{geant}. The primary vertex is defined as the vertex with the largest sum of squared transverse momenta of the associated tracks.
+Plots in this chapter are produced with $\ttbar$ events corresponding to 8 TeV proton-proton collisions simulated with \textsc{powheg+pythia6}~\cite{powheg,pythia2} and \textsc{ct10}~\cite{CT10} parton distribution functions. Only $t\bar{t}$ decays with at least one downstream lepton are included. To simulate pileup, minimum bias interactions consistent with 2012 run conditions are generated with \textsc{pythia8}~\cite{Pythia8} and overlaid on the $\ttbar$ events.
+The propagation of particles through the detector and the detector response are modeled using \textsc{geant4}~\cite{geant}. The primary vertex is defined as the vertex with the largest sum of squared transverse momenta of the associated tracks.
 
 Jets are reconstructed by clustering energy deposits in the calorimeter with the anti-$k_t$ algorithm~\cite{antikt} and a radius parameter of 0.4, where clusters are calibrated with local cluster weighting~\cite{LCJets}. Jet energy scale calibration and criteria to reject low quality jets are standard across most analyses of 2012 data, and are described in detail elsewhere~\cite{JES}. In this note, only jets with transverse momentum, $\pt$, above 20 GeV and $|\eta| < 2.5$ are considered.
 To mitigate effects from pileup, jets with $\pt < 50\,\gev$ and $|\eta| < 2.4$ are rejected if less than half of the sum of track $\pt$ is associated with tracks matched to the primary vertex~\cite{2013JVF}. The same selection cuts are also applied for the data based calibrations presented in the second part of this document.
@@ -179,10 +179,10 @@ All three calibrations are performed as a function of jet transverse momentum an
 Light-jet scale factors are further binned as a function of $|\eta|$. No $\eta$-binning is used for $b$- and $c$-jet scale factors, as these scale factors have no significant dependence on jet $\eta$.
 Figures~\ref{JFC_SF_B} and~\ref{JFC_SF_L1} give scale factors for all jets at the medium operating point. Figures~\ref{JFC_SF_B_loose} and~\ref{JFC_SF_L1_loose} give the same information for the loose operating point.
 
-\newcommand{\lSF}{as described in~\cite{bc2014}. The scale factors are measured relative to dijet \textsc{Pythia8 + EvtGen}} %\ref{lSF}
-\newcommand{\cSF}{as described in~\cite{bc2014}. The scale factors are measured relative to dijet \textsc{Pythia8}} %\ref{cSF}
-\newcommand{\bSF}{as described in~\cite{Giacinto}. The scale factors are measured relative to $t \bar{t}$ \textsc{Powheg + Pythia6}} %\ref{clSF}
-\newcommand{\bcSF}{The derivation of the $b$-tagging ($c$-tagging) scale factors, shown here relative to $t \bar{t}$ \textsc{Powheg + Pythia6} (dijet \textsc{Pythia8}), is described in~\cite{Giacinto} (\hspace{1sp}\cite{bc2014})}
+\newcommand{\lSF}{as described in~\cite{bc2014}. The scale factors are measured relative to dijet \textsc{pythia8 + EvtGen}} %\ref{lSF}
+\newcommand{\cSF}{as described in~\cite{bc2014}. The scale factors are measured relative to dijet \textsc{pythia8}} %\ref{cSF}
+\newcommand{\bSF}{as described in~\cite{Giacinto}. The scale factors are measured relative to $t \bar{t}$ \textsc{powheg + pythia6}} %\ref{clSF}
+\newcommand{\bcSF}{The derivation of the $b$-tagging ($c$-tagging) scale factors, shown here relative to $t \bar{t}$ \textsc{powheg + pythia6} (dijet \textsc{pythia8}), is described in~\cite{Giacinto} (\hspace{1sp}\cite{bc2014})}
 
 \begin{figure}
   \centering

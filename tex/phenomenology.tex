@@ -64,10 +64,37 @@ Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\inv
 %%     Proton parton distribution function. Taken from ref~\cite{mstw-proton}.}
 %% \end{figure}
 
+\subsection{Detector Coordinates}
+The ATLAS detector is discussed in much more detail in \cref{sec:atlas}, but the discussion in the following sections requires a brief introduction to the standard coordinate system.
+ATLAS uses a right-handed cylindrical coordinate system with $\hat{z}$ pointing down the beam axis. Vectors with $\phi = 0$ point toward the center of the LHC ring, and $\hat{\phi}$ points upward when $\phi = 0$.
+%% Owing to rough invariance to $\phi$ transformations and rough reflection symmetry about $z = 0$
+Given that most particles are created within a tiny volume in the center of the detector and move quickly outward,
+physicists are generally more interested in the momentum of particles than the absolute position.
+The chosen momentum coordinates will seem contrived to the uninitiated, but are standard between collider experiments.
+
+The momenta of colliding protons at the LHC are anti-parallel; any post-collision momentum transverse to the beam access is the result of a momentum transfer within the collision.
+Since the momentum transfer is more intimately tied to the underlying physics, the transverse momentum (abbreviated as $\pt$) is generally used in lieu of absolute momentum.
+High $\pt$ particles are often described as ``hard'' (presumably because high momentum transfer indicates a hard collision) in contrast to ``soft'' low $\pt$ particles.
+
+Complementing $\pt$, which describes the outward momentum of particles, the component of momentum along the beam axis is described by pseudorapidity $\eta$, defined as $\eta \equiv - \ln [ \tan(\theta / 2) ]$, where $\theta$ is the angle relative to the beam axis.
+Particles with high $|\eta|$ are refereed to as ``forward'', in contrast to ``central'' particles with low $|\eta|$.
+Despite the contrived name and the odd definition, $\eta$ is useful because differences in particle $\eta$ are invariant to boosts along the beam axis.
+
+The third standard coordinate, $\phi$, is identical to the spacial $\phi$ coordinate.
+Given the (approximate) axial symmetry of ATLAS about the beam axis, this coordinate is relatively uninteresting on its own.
+The lack of physical implications and its periodic nature have left this coordinate without slang terms for ``bigger'' and ``smaller''.
+Nonetheless, the relative differences in $\phi$ between particles can be an important parameter.
+
+
 \subsection{Hard Scattering}
 As shown in \cref{fig:parton-lumi}, parton-parton collisions are most commonly lower-energy \emph{soft} interactions.
 Higher-energy \emph{hard} interactions produce rarer particles which are of much greater interest to the LHC physics program.
 The designs of ATLAS and CMS epitomize the bias toward hard interactions; as discussed more in \cref{sec:trigger}, the ATLAS data acquisition system is designed to record only the 0.001\% of collisions, and chooses these by requiring decay products over specified energy thresholds.
+
+Given to the extremely low probability of keeping a single event, the probability of multiple interesting interactions in a single event is obviously quite low as well.
+In Run 1 data analysis, this allows for a rather simple heuristic to filter unwanted background behavior; a single \emph{primary vertex} is assigned to each event, defined as the vertex with the highest sum of associated track $\pt$.
+In this scheme, tracks associated to other vertices are generally ignored.
+MOVE THIS SOMEWHERE ELSE.
 
 \begin{itemize}
 \item (maybe) explain why we only care about one primary vertex
@@ -79,6 +106,7 @@ The designs of ATLAS and CMS epitomize the bias toward hard interactions; as dis
 \item Lifetimes and time dilation
 \item electromagnetic and strong interactions in detectors
 \item Magnitude of cross-sections: EW vs strong
+\item explain fake rates / efficiency
 \end{itemize}
 \subsection{Neutrinos (and Neutrilinos)}
 the known unknowns
