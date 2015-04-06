@@ -9,7 +9,7 @@ Cut & Description & Implementation \\
 3  & Good primary vertex & At least 4 tracks pointing to primary vertex\\ \hline       
 4  & Bad muons cleaning & No pre-selected muons before overlap removal with $\sigma({q}/{p})/{|{q}/{p}|} > 0.2$ \\ \hline       
 
-\multirow{2}{*}{5}  & \multirow{2}{*}{Jet cleaning} & Veto events with \textsc{VeryLooseBad} bad jets and $\pt > 20\,\gev$ \\
+\multirow{2}{*}{5}  & \multirow{2}{*}{Jet cleaning} & Veto events with jets failing \veryloose{} and $\pt > 20\,\gev$ \\
    &  & (after jet-electron overlap removal) \\ \hline
 6  & Bad Tile Cells & Reject events affected by not-operational tile drawers \\ \hline
 7  & LAr \& Tile quality & $\mathtt{larError} \neq 2$ \& $\mathtt{tileError} \neq 2$\\ \hline
@@ -18,6 +18,6 @@ Cut & Description & Implementation \\
 10 & Jet centrality & Jets with $\left|\eta\right| > 2.5$ are removed from the list of jets\\ \hline
 11 & Pile-up jets & Jets with $\pt \leq 50\,\gev$, $\left|\eta\right| \leq 2.4$ and $|\mathrm{JVF}| \leq 0.5$ are removed \\ \hline
 12 & Timing & Average timing of two leading jets within 5 ns of bunch crossing\\ \hline
-13 & Jet charged fraction & Both two leading jets must satisfy the CHF criteria.\\ \hline
+13 & Jet charged fraction & Both two leading jets must satisfy the $\chargedfrac{}$ criteria.\\ \hline
 \hline
 \end{tabular}
