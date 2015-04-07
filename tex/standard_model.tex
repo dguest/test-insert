@@ -1,6 +1,6 @@
 \section{The Standard Model}
 \label{sec:standard-model}
-The Standard Model of Particle Physics (SM) unifies the string, weak, and electromagnetic forces under a single theoretical framework.
+The Standard Model of Particle Physics (SM) unifies the strong, weak, and electromagnetic forces under a single theoretical framework.
 The known fundamental particles are shown in \cref{fig:sm}.
 Interactions among these particles are introduced through internal gauge symmetries of the form
 % Poincar\'e group?
@@ -43,7 +43,7 @@ When quarks within protons ``hard scatter'' (i.e. transfer a large amount of mom
 %% , especially at lower energies where $\alphas$ grows so large that perturbative calculations are impossible. Fortunately,
  %% at LHC energies $\alphas$ is small enough to be modeled perturbatively following the hard scatter. Even so, modeling jets accurately is an ongoing challenge;
 Several algorithms~\cite{pythiatheory,herwigpretheory} have been developed for this purpose, but generally give slightly different predictions and deviate from observation.
-Experimentally, effects from this deviation are some of the largest sources of systematic uncertainty.
+Experimentally, effects from this deviation propagate into jet measurements. In the case of analyses which depend heavily on jets (which are the subject of this thesis) these deviations are responsible for considerable systematic uncertainty.
 
 \subsection{The Electroweak Force}
 
@@ -69,7 +69,8 @@ A Lagrangian for these interactions can be written as
   \sum_{\mathrm{R}} \bar{\psi}_{\mathrm{R}} i \slashed{D}_{\mathrm{R}} \psi_{\mathrm{R}}
   \label{eq:shittysm}
 \end{equation}
-where the sums are over all left or right handed fermions. The two gauge field strength tensors, $F^{a}_{\mu\nu}$ and $B_{\mu \nu}$,  correspond to the $\su{2}$ and $\mathrm{U}(1)$ symmetries, and are defined by
+where the sums are over all left or right handed fermions~\cite{peskin,srednicki}.
+The two gauge field strength tensors, $F^{a}_{\mu\nu}$ and $B_{\mu \nu}$,  correspond to the $\su{2}$ and $\mathrm{U}(1)$ symmetries, and are defined by
 \begin{align}
  F^{a}_{\mu\nu} &= \partial_\mu A^{a}_\nu - \partial_\nu A^{a}_\mu +
  g f^{abc} A^b_\mu A^c_\nu &
@@ -90,7 +91,7 @@ The lagrangian $\lagr_\psi$ has some nice properties: it can model the weak inte
 
 \subsection{The Higgs Field}
 
-Mass interactions can be added $\lagr_\psi$ with the Higgs field, which takes the form of a complex doublet. This gives the field four degrees of freedom at every point in space:
+Mass interactions can be added $\lagr_\psi$ with the Higgs field, which takes the form of a complex doublet~\cite{ewuv,ewgaugeinvariance,weakinthev}. This gives the field four degrees of freedom at every point in space:
 \begin{equation}
   \phi = \frac{1}{\sqrt{2}} \begin{pmatrix} \phi_1 + i \phi_2 \\ \phi_3 + i \phi_4 \end{pmatrix}.
 \end{equation}
@@ -155,7 +156,7 @@ The last term does not couple to any fields and is thus a non-physical artifact.
   m_{Z} &= \frac{v\sqrt{g^2 + {g'}^2}}{2} = \frac{m_{W}}{\cos \theta_W}
 \end{align}
 where $\theta_W$ is the \emph{weak mixing angle} defined as $\theta_W = \tan ^{-1} (g'/g)$.
-This simple set of parameters, $g$, $g'$, and $v$, which govern both the gauge boson masses and their coupling to fermions is one of the most remarkable successes of the standard model. In every observable parameter theory and experiment are in perfect agreement.
+This simple set of parameters, $g$, $g'$, and $v$, which govern both the gauge boson masses and their coupling to fermions is one of the most remarkable successes of the standard model. In nearly every observable parameter theory and experiment are in near perfect agreement.
 
 \subsection{Yukawa Couplings and the CKM Matrix}
 \label{sec:yukawa}
@@ -207,7 +208,8 @@ V_{\text{CKM}} = \begin{pmatrix}
   \ckmrow{u} \\ \ckmrow{c} \\ \ckmrow{t}
 \end{pmatrix}
 \end{equation}
-where, for example, $V_{cd}$ gives the amplitude for the $W$-mediated $c \leftrightarrow d$ transition. In addition to the weak transition amplitudes, the CKM matrix encodes a CP-violating phase. For the purposes of this thesis, the CKM matrix can be approximated as
+where, for example, $V_{cd}$ gives the amplitude for the $W$-mediated $c \leftrightarrow d$ transition. In addition to the weak transition amplitudes, the CKM matrix encodes a CP-violating phase.
+In general, off-diagonal elements are relatively small~\cite{pdg2014}---as a crude heuristic, the CKM matrix can be approximated as
 \begin{equation}
 V_{\text{CKM}} \approx
 \begin{pmatrix}
@@ -230,8 +232,8 @@ More specifically, assuming a fermion with Yukawa coupling $\Gamma_f$, the corre
   \Delta m_{h}^2 = - \frac{|\Gamma_f|^2}{8 \pi^2} \left(\cutoff^2 + \ldots \right)
   \label{eq:higgs-deltam}
 \end{equation}
-where $\cutoff$ is the cutoff scale for the theory.
-At face value this correction isn't problematic; free parameters of the standard model can be tuned, leaving mathematically consistent even if $\cutoff$ is taken to infinity. In fact, under alternative regularization schemes $\cutoff$ won't appear at all, so it's tempting to dismiss the Higgs mass fine-tuning as a non-physical artifact which can be renormalized away.
+where $\cutoff$ is the cutoff scale for the theory~\cite{susyprimer}.
+At face value this correction isn't problematic; free parameters of the standard model can be tuned, leaving them mathematically consistent even if $\cutoff$ is taken to infinity. In fact, under dimensional regularization $\cutoff$ won't appear at all, so it's tempting to dismiss the Higgs mass fine-tuning as a non-physical artifact which can be renormalized away.
 
 The problem is that the fine-tuning \emph{is} physical if any additional particles are added to the standard model, and given the known incompleteness of the standard model accommodating new particles is essential. As a simple example, adding a new scalar particle with mass $m_{s}$ and Yukawa coupling $\Gamma_s$ results in a mass correction
 \begin{equation}
@@ -251,9 +253,9 @@ This enormous fine-tuning suggests that some unseen symmetry may produce particl
 %% The $h^3$ and $h^4$ couplings also remain untested; the shape of the Higgs potential is unconfirmed beyond the second order.
 
 
-\begin{itemize}
-\item Should cite~\cite{ewuv,ewgaugeinvariance,weakinthev}.
-\end{itemize}
+%% \begin{itemize}
+%% \item Should cite~\cite{ewuv,ewgaugeinvariance,weakinthev}.
+%% \end{itemize}
 
 %% Discuss how the standard model makes accurate predictions of phenomena: it's not supposed to explain everything.
 %% \subsection{Electromagnetism}

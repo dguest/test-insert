@@ -12,22 +12,25 @@ Jets are formed from calorimeter clusters, which are clustered with the anti-$k_
 All jets are calibrated with a local cluster weighting~\cite{LCJets}.
 In the case of simulated jets the same flavor labeling scheme as described in \cref{tag:sec:data-and-simulation} is applied. The preselected jets consist of all jets with with $\pt > 20\,\gev$. To remove electrons which have been reconstructed as jets, any jet with a preselected electron within $\Delta R < 0.2$ is discarded.
 
-A number of quality requirements are applied to the preselected jets, as tabulated in \cref{tab:veryloosejet}. If a preselected jet fails any of these requirements, the entire event is discarded. These requirements rely on the following parameters:
+A number of quality requirements are applied to the preselected jets, as tabulated in \cref{tab:veryloosejet}. If a preselected jet fails any of these requirements, the entire event is discarded. These requirements rely on the following parameters~\cite{beam-backgrounds}:
 \begin{description}
 \item[$\emf$] The fraction of the jet energy deposited in the electromagnetic calorimeter.
 \item[$\chf$] Charged jet fraction is defined as
   \begin{equation}
-    \chf = \frac{\sum_{\text{tracks}} \pt^{\text{trk}}}{\pt^{\text{jet}}},
+    \chf = \sum_{i \in \{\text{tracks}\}} \pt^{i} / \pt^{\text{jet}},
   \end{equation}
   where the sum is over all tracks associated to the jet.
-\item[$\fmax$] ...
-\item[$\nege$] ...
-\item[$\hecf$] ...
-\item[$\hecq$] ...
-\item[$\larq$] ...
-\item[$\qmean$] ...
-\item[$\chargedfrac$] ...
-\item[$\jvf$] ...
+\item[$\fmax$] Maximum fraction of calorimeter energy contained in one layer.
+\item[$\nege$] Sum of negative energy in cells used by the jet.
+\item[$\hecf$] Fraction of jet energy in the hadronic end cap.
+\item[$\hecq$] Fraction of jet energy in the hadronic end cap which corresponds to cells with a $Q$-factor above 4000. The $Q$-factor is a measurement of pulse shape quality for a cell. It is defined as
+\begin{equation}
+  Q = \sum_{i \in \{\text{samples}\}} (m_i - s_i)^2
+\end{equation}
+where $m_i$ is the measured amplitude in sample $i$, and $s_i$ is the simulated amplitude for the same sample.
+\item[$\larq$] Same as $\hecq$, but for the liquid argon calorimeter.
+\item[$\qmean$] Average $Q$-factor for cells in the jet, weighted by energy squared.
+\item[$\jvf$] Jet vertex fraction is the sum of the $\pt$ of tracks matched to the primary vertex divided by the $\pt$ sum of all tracks in a jet.
 \end{description}
 
 \begin{table}
