@@ -3,12 +3,38 @@ Object definitions are thus a compromise between efficiency and fake rates.
 Since events contain multiple objects, the optimal efficiencies and fake rates are very analysis dependent.
 This section gives a detailed description of the object definitions in the $\sctoc$ search.
 
+In general, objects are selected in three steps: first a ``preselected'' collection is formed for jets, electrons, and muons; next an overlap removal stage resolves ambiguity between objects, and finally ``signal'' objects are defined with more stringent quality requirements.
+
 \subsection{Jets}
-The baseline jet definition is clearly one of the most 
+%% Hadronic QCD jets are orders of magnitude more common than leptons at the LHC.
+%% They are also difficult to measure properly, since they consist of
+Jets are formed from calorimeter clusters, which are clustered with the anti-$k_t$ algorithm~\cite{antikt} with a radius parameter of 0.4.
+All jets are calibrated with a local cluster weighting~\cite{LCJets}.
+In the case of simulated jets the same flavor labeling scheme as described in \cref{tag:sec:data-and-simulation} is applied. The preselected jets consist of all jets with with $\pt > 20\,\gev$. To remove electrons which have been reconstructed as jets, any jet with a preselected electron within $\Delta R < 0.2$ is discarded.
+
+A number of quality requirements are applied to the preselected jets, as tabulated in \cref{tab:veryloosejet}. If a preselected jet fails any of these requirements, the entire event is discarded. These requirements rely on the following parameters:
+\begin{description}
+\item[$\emf$] The fraction of the jet energy deposited in the electromagnetic calorimeter.
+\item[$\chf$] Charged jet fraction is defined as
+  \begin{equation}
+    \chf = \frac{\sum_{\text{tracks}} \pt^{\text{trk}}}{\pt^{\text{jet}}},
+  \end{equation}
+  where the sum is over all tracks associated to the jet.
+\item[$\fmax$] ...
+\item[$\nege$] ...
+\item[$\hecf$] ...
+\item[$\hecq$] ...
+\item[$\larq$] ...
+\item[$\qmean$] ...
+\item[$\chargedfrac$] ...
+\item[$\jvf$] ...
+\end{description}
+
 \begin{table}
   \begin{center}
     \input{tables/jetveryloose.tex}
     \caption[Jet \veryloose{} requirements]{Jet requirements to pass the \veryloose{} selection.}
+    \label{tab:veryloosejet}
   \end{center}
 \end{table}
 \begin{table}
@@ -18,6 +44,8 @@ The baseline jet definition is clearly one of the most
   \end{center}
 \end{table}
 \subsubsection{$c$-tagging Operating Points}
+%% Charm tagging takes place before the final stage of calibration.
+%% As such, the 
 \subsection{Leptons}
 \subsubsection{Electrons}
 \begin{table}
