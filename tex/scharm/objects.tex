@@ -3,7 +3,7 @@ Object definitions are thus a compromise between efficiency and fake rates.
 Since events contain multiple objects, the optimal efficiencies and fake rates are very analysis dependent.
 This section gives a detailed description of the object definitions in the $\sctoc$ search.
 
-In general, objects are selected in three steps: first a ``preselected'' collection is formed for jets, electrons, and muons; next an overlap removal stage resolves ambiguity between objects, and finally ``signal'' objects are defined with more stringent quality requirements.
+In general, objects are selected in three steps: first a \emph{preselected} collection is formed for jets, electrons, and muons; next an overlap removal stage resolves ambiguity between objects, and finally \emph{signal} objects are defined with more stringent quality requirements.
 
 \subsection{Jets}
 %% Hadronic QCD jets are orders of magnitude more common than leptons at the LHC.
@@ -12,7 +12,15 @@ Jets are formed from calorimeter clusters, which are clustered with the anti-$k_
 All jets are calibrated with a local cluster weighting~\cite{LCJets}.
 In the case of simulated jets the same flavor labeling scheme as described in \cref{tag:sec:data-and-simulation} is applied. The preselected jets consist of all jets with with $\pt > 20\,\gev$. To remove electrons which have been reconstructed as jets, any jet with a preselected electron within $\Delta R < 0.2$ is discarded.
 
-A number of quality requirements are applied to the preselected jets, as tabulated in \cref{tab:veryloosejet}. If a preselected jet fails any of these requirements, the entire event is discarded. These requirements rely on the following parameters~\cite{beam-backgrounds}:
+\begin{table}
+  \begin{center}
+    \input{tables/jetveryloose.tex}
+    \caption[Jet \veryloose{} requirements]{Jet requirements to pass the \veryloose{} selection.}
+    \label{tab:veryloosejet}
+  \end{center}
+\end{table}
+
+A number of quality requirements are applied to the preselected jets, as tabulated in \cref{tab:veryloosejet}. These requirements rely on the following parameters~\cite{beam-backgrounds}:
 \begin{description}
 \item[$\emf$] The fraction of the jet energy deposited in the electromagnetic calorimeter.
 \item[$\chf$] Charged jet fraction is defined as
@@ -32,14 +40,12 @@ where $m_i$ is the measured amplitude in sample $i$, and $s_i$ is the simulated 
 \item[$\qmean$] Average $Q$-factor for cells in the jet, weighted by energy squared.
 \item[$\jvf$] Jet vertex fraction is the sum of the $\pt$ of tracks matched to the primary vertex divided by the $\pt$ sum of all tracks in a jet.
 \end{description}
+If a preselected jet fails any of these requirements, the entire event is discarded.
 
-\begin{table}
-  \begin{center}
-    \input{tables/jetveryloose.tex}
-    \caption[Jet \veryloose{} requirements]{Jet requirements to pass the \veryloose{} selection.}
-    \label{tab:veryloosejet}
-  \end{center}
-\end{table}
+Signal jets are subjected to two further requirements.
+The first requirement is due to $c$-tagging; jets must be within the central region of the detector where tracking is possible. To this end jets with $|\eta| < 2.5$ are skipped when selecting signal jets.
+The second requirement mitigates pileup; low $\pt$ central jets are required to be associated with the primary vertex. For jets with $\pt \leq 50\,\gev$ and $|\eta| \leq 2.4$, more than half the sum of track $\pt$ must be carried by tracks associated to the primary vertex.
+
 \begin{table}
   \begin{center}
     \input{tables/jet.tex}
