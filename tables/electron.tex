@@ -5,20 +5,20 @@ Requirement            & Value \\
 \hline
 \multicolumn{2}{|c|}{Preselected Electron}\\
 \hline
-AuthorElectron      &  1 or 3 \\
+Author      &  1 or 3 \\
 \hline
 Acceptance     & $E_\T > 7~\gev, |\eta^\mathrm{clust}| < 2.47$         \\
 \hline
-Quality & MediumPP \\
+Quality & \textsc{Medium++} \\
 \hline
-Cleaning & cut on quality flag \texttt{el\_OQ} \\
+Cleaning & $(\mathtt{el\_OQ \& 1446}) = 0$  \\
 \hline
 Overlap      & $\Delta{}R(e,j)<0.2$ OR $>0.4$, $j \in$ preselected jets \\
 \hline
 \hline
 \multicolumn{2}{|c|}{Signal Electron}\\
 \hline
-Quality & Tight++ \\
+Quality & \textsc{Tight++} \\
 %\hline
 %Acceptance     & $|\eta^\mathrm{clust}| < 2.47$, ($E_T > 20~\gev$)        \\%the \pt requirement is driven by the trigger thresholds. For leading lepton in any lepton-triggered region it is 25 GeV, for sub-leading leptons use the preselected lepton acceptance cuts.
 \hline
@@ -29,11 +29,11 @@ Quality & Tight++ \\
 %\hline
 %\multicolumn{2}{|c|}{New IsSignalElectronExp} \\
 % _etcut(25000.), _id_isocut(0.16), _calo_isocut(0.18), _d0sigcut(5.), _z0cut(0.4), _pt_isoMax(0.) 
-Track Isolation   & $\mathtt{ptCone30}/\pt < 0.15$\\
+Track Isolation   & $\mathtt{ptCone30} < 0.16 \pt$\\
 \hline
-PU corr Calo Isolation & $\mathtt{topoEtcone30\_corrected} (+ \text{PU corr})/\pt < 0.18$\\
+Corrected Calo Isolation & $\mathtt{topoEtcone30\_corrected} - k \nvxp < 0.18 \pt$\\
 \hline
-Longitudinal IP & $z_0 <$ 0.4mm\\
+Longitudinal IP & $z_0 \sin(\theta) < 0.4\,\text{mm}$\\
 \hline
 Transverse IP signifiance & $d_0/\sigma_{d_0} < 5$\\
 \hline

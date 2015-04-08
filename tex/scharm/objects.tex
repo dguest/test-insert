@@ -49,20 +49,64 @@ The second requirement mitigates pileup; low $\pt$ central jets are required to 
 \begin{table}
   \begin{center}
     \input{tables/jet.tex}
-    \caption[Jet definitions]{Jet definitions.}
+    \caption[Jet definitions for the $\sctoc$ search]{Jet definitions in the $\sttoc$ search.}
   \end{center}
 \end{table}
 \subsubsection{$c$-tagging Operating Points}
-%% Charm tagging takes place before the final stage of calibration.
-%% As such, the 
+The $\sctoc$ signal regions assume the most energetic jets in the event will be $c$-jets from the $\scharm$ decay.
+Based on this assumption, the leading two jets must pass the ``medium'' $c$-tagging requirement as discussed in \cref{tag:sec:op}. The location of this operating point in the light vs $b$ rejection plane is given in \cref{fig:c-tag-medium}.
+Uncertainties associated with $c$-tagging are potentially very large, and
+these uncertainties propagate to an uncertainty in the expected yield in each region.
+To diminish the total yield uncertainty in the signal region, all signal and control regions include the same $c$-tagging requirement.
+Ideally this allows the fit to absorb $c$-tagging systematics into the normalization of the backgrounds.
+In practice, due to differing flavor composition between regions, this absorption is imperfect and flavor-tagging systematics remain large.
+
+\begin{figure}
+  \begin{center}
+  \includegraphics[width=0.7\textwidth]{figures/external/rejrej-simple.pdf}
+  \caption[JetFitterCharm medium operating point on the light vs $b$ rejection plane]{Light vs $b$ rejection for various $c$ tagging efficiencies, showing the medium operating point.}
+  \label{fig:c-tag-medium}
+  \end{center}
+\end{figure}
+
 \subsection{Leptons}
+Leptons are excluded from the signal region, but are nonetheless important to identify events in the control region.
+As with jets, preselected leptons are selected with relatively loose criteria.
+These leptons veto events from the signal region.
+The more stringent signal leptons are required in events populating the control regions.
+
 \subsubsection{Electrons}
+All tracks in ATLAS are initially fit under the pion hypothesis.
+A subset of these tracks are identified as electrons with several algorithms.
+The standard \textsc{electron} algorithm seeds electrons with calorimeter clusters.
+A second \textsc{softe} algorithm seeds electrons from tracks, and a third \textsc{frwd} reconstructs electrons in the forward calorimeter.
+In all cases the initial track refit as an electron which allows the fitter to account for bremsstrahlung.
+
+This analysis only considers electrons seeded with the \textsc{electron} algorithm. Electrons that are seeded with both \textsc{electron} and \textsc{softe} are also allowed.\footnote{Within ATLAS the \textsc{electron} authorship requirement is usually summarized as ``require author equal to 1 or 3''; the electron authorship is stored in a bit field, where the first bit corresponds to \textsc{electron} and the second to \textsc{softe}.}
+Preselected electrons must also have $\pt > 7\,\gev$ and $|\eta| < 2.47$, where both are based on the calorimeter cluster information, to ensure that tracks are within the tracking system.
+Electrons reconstructed with problematic hardware are marked with designated \texttt{el\_OQ} flags and removed.
+Fake electrons are reduced by the \textsc{Medium++} requirement, which combines electron shower shapes, track--cluster matching, tracking hit requirements, and TRT high-threshold hits.
+
+Real electrons can be produced within jets, which causes potential ambiguity with object definitions.
+As stated above, when $\Delta R(e,j) < 0.2$, the object is defined as an electron and the jet is removed.
+In cases where $0.2< \Delta R(e,j) < 0.4$, the jet is kept and the electron is removed.
+With larger separation both objects are kept.
+
+Several further requirements are imposed on signal electrons.
+The quality requirement is raised to \textsc{Tight++} (which uses more stringent versions of the \textsc{Medium++} requirements).
+In addition the electron must be isolated in both the tracker and the calorimeter.
+%% In the tracker, the combined $\pt$ of tracks surrounding the electron in a cone defined by $\Delta R < 0.3$ must sum to less than 15\% of the electron $\pt$.
+These isolation requirements are described in \cref{tab:electrons}.
+Finally, we require a low impact parameter: the significance of the transverse impact parameter must be below 5, and a shift of less than $0.4\,\text{mm}$ perpendicular to the track direction must bring the longitudinal displacement into agreement with the primary vertex.
+
 \begin{table}
   \begin{center}
   \input{tables/electron.tex}
-  \caption[List of electron selection criteria]{Electron definitions.}
+  \caption[List of electron selection criteria]{Electron definitions. The \textsc{Medium++} and \textsc{Tight++} requirements are standard ATLAS-wide definitions to reject fake electrons. Object quality flags (\texttt{el\_OQ}) indicate that hardware issues may compromise the electron; requiring \texttt{(el\_OQ \& 1446) == 0} means that none of the bits in the \texttt{BADCLUSTERELECTRON} are set. The pileup correction $k$ in the calorimeter isolation depends on the number of vertices in the event with 5 or more tracks ($\nvxp$), and is different in data ($20.15\,\mev/\text{vertex}$) and simulation $17.94\,\mev/\text{vertex}$.}
+  \label{tab:electrons}
   \end{center}
 \end{table}
+
 \subsubsection{Muons}
 \begin{table}
   \begin{center}
