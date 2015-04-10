@@ -127,11 +127,19 @@ The pileup corrections $k_1$ and $k_2$ in the calorimeter isolation depends on t
   \end{center}
 \end{table}
 %% \subsection{Overlap Removal}
-\subsection{Higher Variables}
-The objects described above are combined to produce a number of high level variables.
+\subsection{Missing Energy}
+The objects described above are combined to produce a number of high level variables, which will be described where appropriate.
+One of the most fundamental is $\met$, which in this search is defined by~\cite{metpaper}
 \begin{equation}
-\meff = \sum_{i\leq n} (\pt^{\rm jet})_i + \met
+E^{\text{miss}}_{\T\,\mathrm{RefFinal}} =  \left| \subvmet{RefJet} + \subvmet{RefGamma} + \subvmet{Muon} +  \subvmet{RefEle} + \subvmet{CellOut} \right|.
 \end{equation}
-Most of this will be a table
-\subsubsection{$\met$}
+The terms $\subvmet{RefJet}$, $\subvmet{RefGamma}$, $\subvmet{Muon}$, and $\subvmet{RefEle}$ are defined as the negative vector sum of the calibrated jet, photon, muon, and electron objects, respectively.
+The $\subvmet{CellOut}$ term accounts for clusters not assigned to any calibrated objects.
+Some acceptance limitations apply to these objects: jets below $\pt = 20\,\gev$ aren't considered, nor are muons with $\pt < 7\,\gev$ or electrons with $\pt < 10\,\gev$~\cite{koomet}.
+
+%% \begin{equation}
+%% \meff = \sum_{i\leq n} (\pt^{\rm jet})_i + \met
+%% \end{equation}
+%% Most of this will be a table
+%% \subsubsection{$\met$}
 

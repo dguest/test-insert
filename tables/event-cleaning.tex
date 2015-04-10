@@ -5,19 +5,21 @@ Cut & Description & Implementation \\
 \hline
 \multirow{2}{*}{1}  & \multirow{2}{*}{Data quality GRL} & Lumi blocks must be in Good Runs List  \\
    & & GRL: \texttt{data12\_8TeV DetStatus-v61-pro14-02} \\ \hline
-2  & Trigger & \texttt{EF\_xe80\_tclcw\_tight} \\\hline
-3  & Good primary vertex & At least 4 tracks pointing to primary vertex\\ \hline       
-4  & Bad muons cleaning & No pre-selected muons before overlap removal with $\sigma({q}/{p})/{|{q}/{p}|} > 0.2$ \\ \hline       
+%% 2  & Trigger & \texttt{EF\_xe80\_tclcw\_tight} \\\hline
+2  & Good primary vertex & At least 4 tracks pointing to primary vertex\\ \hline
+\multirow{2}{*}{3}  & \multirow{2}{*}{Bad muon cleaning} & Veto if preselected muons (before overlap removal) \\
+& &  with $\sigma({q}/{p})/{|{q}/{p}|} > 0.2$ \\ \hline
 
-\multirow{2}{*}{5}  & \multirow{2}{*}{Jet cleaning} & Veto events with jets failing \veryloose{} and $\pt > 20\,\gev$ \\
+\multirow{2}{*}{4}  & \multirow{2}{*}{Jet cleaning} & Veto events with jets failing \veryloose{} and $\pt > 20\,\gev$ \\
    &  & (after jet-electron overlap removal) \\ \hline
-6  & Bad Tile Cells & Reject events affected by not-operational tile drawers \\ \hline
-7  & LAr \& Tile quality & $\mathtt{larError} \neq 2$ \& $\mathtt{tileError} \neq 2$\\ \hline
-8  & \textsc{TileTripReader} & Veto if event coincides with trip in TileCal \\ \hline
-9  & TTC reset & \texttt{(coreFlags \& 0x40000) \!= 0}\\ \hline
-10 & Jet centrality & Jets with $\left|\eta\right| > 2.5$ are removed from the list of jets\\ \hline
-11 & Pile-up jets & Jets with $\pt \leq 50\,\gev$, $\left|\eta\right| \leq 2.4$ and $|\mathrm{JVF}| \leq 0.5$ are removed \\ \hline
-12 & Timing & Average timing of two leading jets within 5 ns of bunch crossing\\ \hline
-13 & Jet charged fraction & Both two leading jets must satisfy the $\chf{}$ criteria.\\ \hline
+5  & Bad Tile Cells & Reject events affected by nonoperational tile drawers \\ \hline
+6  & LAr \& Tile quality & $\mathtt{larError} \neq 2$ \& $\mathtt{tileError} \neq 2$\\ \hline
+7  & \textsc{TileTripReader} & Veto if event coincides with trip in TileCal \\ \hline
+8  & TTC reset & \texttt{(coreFlags \& 0x40000) \!= 0}\\ \hline
+%% 10 & Jet centrality & Jets with $\left|\eta\right| > 2.5$ are removed from the list of jets\\ \hline
+%% 11 & Pile-up jets & Jets with $\pt \leq 50\,\gev$, $\left|\eta\right| \leq 2.4$ and $|\mathrm{JVF}| \leq 0.5$ are removed \\ \hline
+9 & Timing & Average timing of two leading jets within 5 ns of bunch crossing\\ \hline
+\multirow{3}{*}{10} & \multirow{3}{*}{Jet charged fraction} & Veto event if for either of the leading two jets: \\ & & $\pt > 100\,\gev$, $|\eta| < 2$, and \\
+& & $\chf < 0.02$ \logicor ($\chf < 0.05$ and $\emf > 0.9$)\\ \hline
 \hline
 \end{tabular}
