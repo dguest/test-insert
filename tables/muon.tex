@@ -5,13 +5,13 @@ Requirement            & Value \\
 \hline
 \multicolumn{2}{|c|}{Preselected muon}\\
 \hline
-Algorithm      & STACO, combined or segment-tagged muon \\
+Algorithm      & \textsc{staco}, combined or segment-tagged muon \\
 \hline
 Acceptance     & $\pt > 6~\gev, |\eta| < 2.4$          \\
 \hline
-Quality        & Loose    \\
+Quality        & \textsc{Loose}    \\
 \hline
-ID track quality & $\geq 1$ b-layer hit when it can be expected \\
+\multirow{6}{*}{ID track quality} & $\geq 1$ b-layer hit when it can be expected \\
                  & $\geq 1$ pixel hit or crossed dead pixel sensor \\
                  & $\geq 5$ SCT hits or crossed dead SCT sensor\\
                  & pixel holes + SCT holes $< 3$\\
@@ -25,9 +25,10 @@ Overlap     & $\Delta{}R(\mu,j) > 0.4$, $j \in $ preselected jets\\
 \hline
 %Acceptance     & $|\eta| < 2.4$ ($\pt > 20~\gev$)          \\%the \pt requirement is driven by the trigger thresholds. For leading lepton in any lepton-triggered region it is 25 GeV, for sub-leading leptons use the preselected lepton acceptance cuts.
 %\hline
-Quality        & Loose    \\
-\hline
-Cosmics        & $|z_{\mu} - z_{\mathrm{PV}}| < 1\,\mathrm{mm}$, $d_0 < 0.2$ mm          \\
+%% Quality        & Loose    \\
+%% \hline
+Cosmics Veto   & %% $|z_{\mu} - z_{\mathrm{PV}}| < 1\,\mathrm{mm}$
+$d_0 < 0.2\,\text{mm}$          \\
 \hline
 %\hline
 %\multicolumn{2}{|c|}{Old IsSignalMuon} \\
@@ -38,11 +39,11 @@ Cosmics        & $|z_{\mu} - z_{\mathrm{PV}}| < 1\,\mathrm{mm}$, $d_0 < 0.2$ mm 
 %\multicolumn{2}{|c|}{New IsSignalMuonExp} \\
 %_ptcut(25000.), _id_isocut(0.12), _calo_isocut(0.12), _d0sigcut(3.), _z0cut(0.4), _pt_isoMax(0.) {}
 %\hline
-Track Isolation & $\mathtt{ptcone30\_trkelstyle}/\pt < 0.12$ \\
+Track Isolation & $\mathtt{ptcone30\_trkelstyle} < 0.12 \pt$ \\
 \hline
-PU corr Calo Iso & $\mathtt{etcone30} (+ \text{PU corr})/\pt < 0.12$ \\
+Calorimeter Isolation & $\mathtt{etcone30} - k_1 \nvxp - k_2 (\nvxp)^2 < 0.12 \pt$ \\
 \hline
-Longitudinal IP & $z_0 <$ 0.4mm\\
+Longitudinal IP & $z_0 < 0.4\,\text{mm}$ \\
 \hline
 Transverse IP signifiance & $d_0/\sigma_{d_0} < 3$\\
 \hline

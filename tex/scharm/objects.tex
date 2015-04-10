@@ -74,6 +74,7 @@ Leptons are excluded from the signal region, but are nonetheless important to id
 As with jets, preselected leptons are selected with relatively loose criteria.
 These leptons veto events from the signal region.
 The more stringent signal leptons are required in events populating the control regions.
+Control regions are populated with events which fire single lepton triggers. To simplify the interpenetration of trigger efficiencies, only signal leptons which fire the trigger are considered.
 
 \subsubsection{Electrons}
 All tracks in ATLAS are initially fit under the pion hypothesis.
@@ -102,20 +103,32 @@ Finally, we require a low impact parameter: the significance of the transverse i
 \begin{table}
   \begin{center}
   \input{tables/electron.tex}
-  \caption[List of electron selection criteria]{Electron definitions. The \textsc{Medium++} and \textsc{Tight++} requirements are standard ATLAS-wide definitions to reject fake electrons. Object quality flags (\texttt{el\_OQ}) indicate that hardware issues may compromise the electron; requiring \texttt{(el\_OQ \& 1446) == 0} means that none of the bits in the \texttt{BADCLUSTERELECTRON} are set. The pileup correction $k$ in the calorimeter isolation depends on the number of vertices in the event with 5 or more tracks ($\nvxp$), and is different in data ($20.15\,\mev/\text{vertex}$) and simulation $17.94\,\mev/\text{vertex}$.}
+  \caption[List of electron selection criteria]{Electron definitions. The \textsc{Medium++} and \textsc{Tight++} requirements are standard ATLAS-wide definitions to reject fake electrons. Object quality flags (\texttt{el\_OQ}) indicate that hardware issues may compromise the electron; requiring \texttt{(el\_OQ \& 1446) == 0} means that none of the bits in the \texttt{BADCLUSTERELECTRON} bitmask are set. The pileup correction $k$ in the calorimeter isolation depends on the number of vertices in the event with 5 or more tracks ($\nvxp$), and is different in data ($20.15\,\mev/\text{vertex}$) and simulation ($17.94\,\mev/\text{vertex}$).}
   \label{tab:electrons}
   \end{center}
 \end{table}
 
 \subsubsection{Muons}
+Muons in this analysis are seeded from inner detector tracks and either combined with a full track in the muon spectrometer or with track segments, using the \textsc{staco} algorithm.
+Preselected muon tracks must have $\pt > 6\,\gev$ and $|\eta| < 2.4$.
+A number of quality further quality requirements are listed in \cref{tab:muons}.
+Muons created within hadronic jets are removed by discarding any within $\Delta R < 0.4$ of a preselected jet.
+
+Signal muon selection adds requirements. High energy cosmic muons from the upper atmosphere occasionally penetrate the ATLAS cavern and leave tracks in the detector. To guard against these, only muons which pass near the primary vertex are accepted.
+As with electrons, signal muons must be isolated in the tracker and calorimeter.
+
 \begin{table}
   \begin{center}
   \input{tables/muon.tex}
-  \caption[List of muon selection criteria]{Muon definitions.}
+  \caption[List of muon selection criteria]{Muon definitions. The \textsc{Loose} quality requirement is an ATLAS-wide standard.
+The pileup corrections $k_1$ and $k_2$ in the calorimeter isolation depends on the number of vertices in the event with 5 or more tracks ($\nvxp$). In data these corrections are $k_1 = 64.8\,\mev/\text{vertex}$, $k_2 = 0.98\,\mev/\text{vertex}^2$. In simulation they are $k_1 = 69.2\,\mev/\text{vertex}$, $k_2 = 0.76\,\mev/\text{vertex}^2$.
+}
+  \label{tab:muons}
   \end{center}
 \end{table}
-\subsection{Overlap Removal}
-\subsection{Higher Vairables}
+%% \subsection{Overlap Removal}
+\subsection{Higher Variables}
+The objects described above are combined to produce a number of high level variables.
 \begin{equation}
 \meff = \sum_{i\leq n} (\pt^{\rm jet})_i + \met
 \end{equation}
