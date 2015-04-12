@@ -1,16 +1,17 @@
 While the LHC and ATLAS detector operated continuously through 2012 with very little down time, some data is inevitably corrupted by detector issues.
-Relatively ``slow'' electronic or data acquisition issues are filtered with the help of a \emph{good runs list} (GRL).
+Electronic or data acquisition issues that arise on timescales of minutes--hours are filtered with the help of a \emph{good runs list} (GRL).
 Good runs lists are tailored to the demands of the analysis, since not all analyses require the same functional subsystems.
-All runs recorded by ATLAS are broken into 1 minute \emph{lumi-blocks} which are reviewed by data quality ``shifters''.
+All runs recorded by ATLAS are broken into 1 minute \emph{lumi-blocks} which are reviewed by ATLAS personnel.
 Lumi-blocks with defects in critical subsystems removed.
 
- In addition some recorded events may result from noncollision background processes. In either case, events must be ``cleaned'' for analysis.
-
-
+On a shorter timescale, some recorded events may be corrupted by physical processes or detector issues. In either case, events must be cleaned for analysis. To remove poorly reconstructed events, the primary vertex must be assigned at least 4 tracks.
+Events with badly reconstructed muons or jets are also removed, as are events where the timing of the leading two jets suggests they may have been produced outside the bunch-crossing.
+These requirements, and several others more specific to hardware issues, are listed in \cref{tab:event-clean}.
 
 \begin{table}
   \begin{center}
   \input{tables/event-cleaning.tex}
   \caption[Event cleaning requirements]{Event cleaning requirements. }
+  \label{tab:event-clean}
   \end{center}
 \end{table}
