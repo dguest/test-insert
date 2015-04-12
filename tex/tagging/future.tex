@@ -48,7 +48,13 @@ Traditionally, training progresses in several steps using a technique known as e
 \item The neural net is initialized with random synapse weights and activation thresholds.
 \item A pattern is selected from a \emph{training sample} which includes the input values $\vect{x}$ and the \emph{target} values $\vect{t}$. The value of $\vect{y}$ is computed using the current $A_i$ and $\vect{b}$ parameters. \label{item:nn-pattern-select}
 \item An \emph{cost function} $E(\vect{y},\vect{t})$ quantifies the amount by which the pattern is misclassified.
-A particularly simple cost function is $E(\vect{y},\vect{t}) = \sum_{i} (y_i - t_i)^2 / 2$. %The error $\vect{e}$ on $\vect{y}$ is defined as
+A particularly simple cost function is $E(\vect{y},\vect{t}) = \sum_{i} (y_i - t_i)^2 / 2$, but other cost functions can be optimal in some situations.
+In the case of classification, it's often convenient to use \emph{cross-entropy}:
+\begin{equation}
+  E(\vect{y}, \vect{t}) = - \frac{1}{n} \sum_{i=1}^n [ y_i \log_2 t_i + (1 - y_i ) \log_2 (1 - t_i) ]
+\end{equation}
+where $n$ is the dimension of the output space.
+ %The error $\vect{e}$ on $\vect{y}$ is defined as
 %% \begin{equation}
 %% \end{equation}
 The cost function determines an error for each output element.
@@ -95,7 +101,8 @@ Applying $D$ and $\vect{c}$ decodes the compressed $\vect{z}_2$ and reconstructs
   where $\vect{z}_2 \equiv f(A_1 \vect{x} + \vect{b}_1)$, and $A_2$ is a dimension-reducing transform as before. Again the neural net is trained with backpropagation, ignoring the first layer and updating only the second.
 \label{item:autoencoder-layer}
 \item Step~\ref{item:autoencoder-layer} is repeated as many times as desired. The resulting stack of encoding layers transforms an input into low-dimensional representation.
-\item As a result of the unsupervised training, the final feature space is unlikely to be aligned with the actual target values. Within the flavor tagging context jets are clumped in features which may reflect flavor, but which aren't aligned with the flavor basis.
+\item At this point the final feature space isn't particularly useful as a classifier.
+Within the flavor-tagging context jets are clumped in space where the unit vectors of the output space point in arbitrary directions; we'd prefer a basis in which coordinates correspond to flavor-probabilities.
 A final \emph{fine tuning} step aligns these features in the correct basis using the full backpropagation sequence described in \cref{sec:trad-nn}.
 \end{enumerate}
 This training sequence can be orders of magnitude faster and far more robust than traditional backpropagation.
@@ -105,7 +112,7 @@ It is therefore able to construct more complicated neural nets which squeeze muc
 
 Explicit proof are few and far between in machine learning---what counts as ``proof'' is generally empirical.
 In the case of flavor-tagging, the improvement due to autoencoders is demonstrated in simulated data, with various metrics depending on the tagged flavor.
-In the performance comparisons that follow, we compare several taggers which havne't been introduced: MV1 was the baseline $b$-tagging tool for Run 1 analyses; GAIA is a new autoencoder-based neural network.
+In the performance comparisons that follow, we compare several taggers which havne't been introduced: MV1 was the baseline $b$-tagging tool for Run 1 analyses; GAIA is a new autoencoder-based neural network trained with a cross-entropy cost function.
 Like JetFitterCharm, GAIA includes three outputs, and discriminates signal from background by selecting jets above a $\log(P_{\text{signal}} / P_{\text{background}})$ threshold.
 
 \subsubsection{$b$ tagging}
