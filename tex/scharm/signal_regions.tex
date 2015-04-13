@@ -4,7 +4,7 @@ To this end the search uses a $\met$ trigger in addition to an offline threshold
 After this requirement a small fraction of the original QCD events still remain; if a single energetic jet is badly mismeasured, the overall $\met$ can be pushed above threshold.
 
 Fortunately this mismeasurement is statistically unlikely to effect more than a single jet in the event, and as a result the event $\vmet$ aligns with the jet momentum.
-Data distributions of $\metdphi{j}$ and $\met$ after the $\met$ trigger, are given in \cref{fig:jm-dphi}.
+Distributions of $\metdphi{j}$ and $\met$ after the $\met$ trigger, are given in \cref{fig:jm-dphi}.
 The expected standard model backgrounds are also overlaid. Clearly the vast majority of events are accounted for with $\wjets$, $\zjets$, and $\ttbar$ after the $\met > 150\,\gev$ and $\metdphi{j} > 0.4$ requirements.
 As shown in \cref{fig:meteff}, a very small excess of QCD events is still visible at low values of $\meteffshort \equiv \meteff$. In the signal region these events are removed with a $\meteffshort > 0.25$ requirement.
 
@@ -37,13 +37,12 @@ At the same time, applying two $c$~tags reduces the signal by a factor of 20.
   \end{center}
 \end{figure}
 
-After the $c$~tagging requirement, the number of $\wjets$, $\zjets$, and $\ttbar$ events are on similar within an order of magnitude.
-These backgrounds can be further reduced thanks to several variables.
+After the $c$~tagging requirement, the number of $\wjets$, $\zjets$, and $\ttbar$ events are similar within an order of magnitude, although the $\ttbar$ fraction is increased.
+The $\ttbar$ background can be further reduced thanks to several variables.
 Among the most important is $\mct$, which was introduced in \cref{eq:mctdef}.
-In the case of $b$-lead $\ttbar$ (decays where the leading two jets are $b$-jets), the boost-corrected $\mct$ is bound according to $\mct < 135\,\gev$~\cite{mctboost}.
-In non-$b$-lead cases, where the two leading jets don't correspond to the $b$-jets in $t \to b \nu$, this bound no longer holds.
-These cases give rise to the long tail of $\ttbar$ events shown in
-\cref{fig:massctblind}.
+The desirable properties of $\mct$ only hold when the two leading particles are identical and decay semi-invisibly.
+In the case of $\ttbar$, this means the two leading jets must contain $t \to b \nu$ decays.
+Unfortunately this assumption doesn't always hold, and there are two distinct populations of $\ttbar$: $b$-lead $\ttbar$, where the leading two jets are $b$-jets, and non-$b$-lead where one of these jets is a $c$-jet.
 
 \begin{cfig}
   \graphic{0.48}{%
@@ -54,11 +53,20 @@ int/figures/mCT/shapeStudies/mct_mbb_bb_ttbar_nominalDphiMin3.pdf}
   \label{fig:mctmcc}
 \end{cfig}
 
-\begin{itemize}
-\item[$\pt^{\text{j1}}$:] The leading jet must have $\pt > 130\,\gev$ to reject generic backgrounds.
-\item[$\pt^{\text{j2}}$:] Electroweak $W$/$Z$ + jet production often yields subleading jets with $\pt \lesssim 100\,\gev$. Events with $\pt^{\mathrm{j2}} < 100\,\gev$ are removed.
-\item[$\mcc$:] Events with low values of the dijet mass of the leading two jets ($\mcc$) can also correspond to $\ttbar$ events where one of the leading jets is not from $t \to b \nu$. This is also a signature of $g \to b \bar{b}$ splitting.
-\end{itemize}
+In the case of $b$-lead $\ttbar$, the boost-corrected $\mct$ is bound according to $\mct < 135\,\gev$~\cite{mctboost}.
+In non-$b$-lead cases, where the two leading jets don't correspond to the $b$-jets in $t \to b \nu$, this bound no longer holds.
+These cases give rise to the long tail of $\ttbar$ events shown in
+\cref{fig:massctblind}.
+Fortunately, the invariant mass of the leading two jets $\mcc$ gives another handle on these events.
+Two dimensional $\ttbar$ distributions in the $\mcc$--$\mct$ plane are given in \cref{fig:mctmcc}.
+In the case where the $b$-lead hypothesis holds, most events are concentrated with low $\mct$. When this assumption is violated, a second population appears at low $\mcc$ and slightly higher $\mct$.
+This observation motivates a pair of anti-$\ttbar$ requirements; events are removed if $\mct < 150\,\gev$ or $\mcc < 200\,\gev$.
+
+Additional $\pt$ requirements are imposed on the leading jets to reduce both $W$/$Z$ + jets and generic backgrounds.
+A leading jet is required $\pt > 130\,\gev$, while the subleading jet must satisfy $\pt > 100\,\gev$.
+Stack plots showing standard model background distributions, with overlaid signal points, are given in \cref{fig:discrim-sr}.
+The final set of three signal regions are differentiated by their $\mct$ requirement;
+these regions correspond to $\mct < 150$, $200$, and $250\,\gev$.
 
 \newcommand{\srplot}[1]{int/figures/stackplots/dans/signal_mct150/#1}
 \begin{cfig}
@@ -70,9 +78,6 @@ int/figures/mCT/shapeStudies/mct_mbb_bb_ttbar_nominalDphiMin3.pdf}
   \caption[Discriminants in the signal region]{Discriminants used in the signal region.}
   \label{fig:discrim-sr}
 \end{cfig}
-
-Three signal regions are considered in the final analysis.
-These regions correspond to $\mct < 150$, $200$, and $250\,\gev$.
 
 \begin{figure}
   \begin{center}
