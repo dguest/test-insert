@@ -117,13 +117,14 @@ The signal regions include several additional cuts to purify the signal and remo
   \mct^2 &\equiv [p_\T(j_1) + p_\T(j_2)]^2 - [\vpt(j_1) - \vpt(j_2)]^2
   \label{eq:mctdef}
 \end{align}
-where $j_1$ and $j_2$ are the highest and second-highest energy jets, respectively. This quantity has two uses. First, when pair-produced  $\scharm$ decay to $\neut + c$, $j_1$ and $j_2$ are the resulting $c$-jets and $\mct$ has an upper bound:
+where $j_1$ and $j_2$ are the highest and second-highest energy jets, respectively.
+Since this quantity isn't invariant to boosts perpendicular to the beam line, a boost-corrected version~\cite{mctboost} is used instead.
+When pair-produced  $\scharm$ decay to $\neut + c$, the boost-corrected $\mct$ has an upper bound:
 \begin{align}
   \mct < \frac{m^2_{\scharm} - m^2_{\neut}}{m_{\scharm}}.
   \label{eq:mctlim}
 \end{align}
 This makes it a useful quantity to constrain the mass any discovered SUSY particles.
-The second use is in background discrimination. In the case of $\ttbar$ decays where $j_1$ and $j_2$ are $b$-jets, \cref{eq:mctlim} holds with $\scharm \to t$ and $\neut \to W$, and thus $\mct < 135\,\gev$ for $\ttbar$.
 Three signal regions are defined with successively higher requirements on $\mct$: $\mct > 150\,\gev$, $\mct > 200\,\gev$, and $\mct > 250\,\gev$.
 
 Signal points at which the mass splitting $\Delta m \equiv m_{\scharm} - m_{\neut}$ is small are especially problematic. At these points, a $\sctoc$ decay produces relatively little energy, making the $c$-jets and $\met$ difficult to resolve. Rather than loose sensitivity in the $\Delta m$ region, a ``boosted'' signal region is borrowed from the $\sttoc$ search~\cite{stoptocharm}. This region assumes the $\scharm \scharm^{*}$ system recoils against initial state radiation, which boosts the decay products such that they are resolvable in ATLAS. Conveniently, the $\sttoc$ search targets exactly the same final state as the $\sctoc$ search, and under the simplified SUSY models considered $\tilde{t}$ and $\scharm$ have identical production cross-sections; the $\cls$ values for $\sctoc$ where $\Delta m < m_{W}$ are thus lifted directly from $\sttoc$.

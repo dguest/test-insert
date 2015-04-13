@@ -1,17 +1,75 @@
 As a 0-lepton search in a hadron collider, the $\sttoc$ search is forced to contend with a large multijet QCD background.
 This background can be suppressed with an absolute $\met$ threshold, since most transverse momentum from QCD events should be captured by the ATLAS calorimeter and very little real $\met$ should exist.
-To this end the search uses a $\met$ trigger, in addition to an offline threshold of $\met > 150\,\gev$.
-After this requirement a small fraction of QCD events still remains; if a single energetic jet is badly mismeasured, the overall $\met$ can be pushed above threshold.
+To this end the search uses a $\met$ trigger in addition to an offline threshold of $\met > 150\,\gev$.
+After this requirement a small fraction of the original QCD events still remain; if a single energetic jet is badly mismeasured, the overall $\met$ can be pushed above threshold.
+
 Fortunately this mismeasurement is statistically unlikely to effect more than a single jet in the event, and as a result the event $\vmet$ aligns with the jet momentum.
-A distribution of $\Delta \phi(j,\vmet)$ is given in \cref{fig:jm-dphi}.
+Data distributions of $\metdphi{j}$ and $\met$ after the $\met$ trigger, are given in \cref{fig:jm-dphi}.
+The expected standard model backgrounds are also overlaid. Clearly the vast majority of events are accounted for with $\wjets$, $\zjets$, and $\ttbar$ after the $\met > 150\,\gev$ and $\metdphi{j} > 0.4$ requirements.
+A very small excess of QCD events is still visible at low values of $\meteffshort \equiv \meteff$. In the signal region these events are removed with a $\meteffshort > 0.25$ requirement.
 
 \begin{figure}
   \begin{center}
   \includegraphics[width=0.49\textwidth]{%
     int/figures/stackplots/dans/preselection/jetmet_dphi.pdf}
   \includegraphics[width=0.49\textwidth]{%
-    int/figures/stackplots/dans/preselection/met_log.pdf}
-  \caption[$\Delta \phi(j,\vmet)$ and $\met$ early in the selection process]{Distribution of data and simulated SM backgrounds after the $\met > 150\,\gev$ and $\Delta \phi(j,\vmet)$ requirements.}
+    int/figures/stackplots/dans/preselection/met.pdf} \\
+  \includegraphics[width=0.50\textwidth]{%
+    int/figures/stackplots/dans/preselection/met_eff.pdf}
+  \caption[Distributions showing only the anti-QCD requirements in the signal region]{Distribution of data and simulated SM backgrounds after the $\met > 150\,\gev$ and $\Delta \phi(j,\vmet)$ requirements. Clockwise from upper left: $\metdphi{j} | j \in \{\text{three leading signal jets}\}$, $\met$, $\meteffshort$.
+For comparison the expected signal events for two choices of $\scharm$ and $\neut$ masses are also shown---they are overwhelmed by the SM backgrounds.
+}
   \label{fig:jm-dphi}
   \end{center}
 \end{figure}
+
+Following the anti-QCD cuts, the signal remains small relative to the SM backgrounds. As shown in figure \cref{fig:flavor-comp-presel}, the leading two jets in these two backgrounds are dominantly light flavored.
+To reduce these backgrounds the two leading jets are $c$-tagged.
+Each tag rejects over $99\%$ of light jets and over $80\%$ of $b$~jets, which reduces electroweak backgrounds by 4 orders of magnitude.
+At the same time, applying two $c$~tags reduces the signal by a factor of 20.
+
+\begin{figure}
+  \begin{center}
+  \includegraphics[width=0.49\textwidth]{%
+    int/figures/stackplots/dans/preselection/j0_flavor_truth_label.pdf}
+  \includegraphics[width=0.49\textwidth]{%
+    int/figures/stackplots/dans/preselection/j1_flavor_truth_label.pdf}
+  \caption[Flavor truth label of leading two jets after QCD cuts]{Flavor truth label of leading two jets after QCD cuts have been applied. The truth matching scheme applied is explained in \cref{sec:flavor-truth-matching}.}
+  \label{fig:flavor-comp-presel}
+  \end{center}
+\end{figure}
+
+After the $c$~tagging requirement, the number of $\wjets$, $\zjets$, and $\ttbar$ events are on similar within an order of magnitude.
+These backgrounds can be further reduced thanks to several variables.
+Among the most important is $\mct$, which was introduced in \cref{eq:mctdef}.
+In the case of $b$-lead $\ttbar$ (decays where the leading two jets are $b$-jets), the boost-corrected $\mct$ is bound according to $\mct < 135\,\gev$~\cite{mctboost}.
+In non-$b$-lead cases, where the two leading jets don't correspond to the $b$-jets in $t \to b \nu$, this bound no longer holds.
+These cases give rise to the long tail of $\ttbar$ events shown in
+\cref{fig:discrim-sr}.
+
+\begin{cfig}
+  \graphic{0.48}{%
+int/figures/mCT/shapeStudies/mct_mbb_bb_ttbar_nominalDphiMin3.pdf}
+  \graphic{0.48}{%
+    int/figures/mCT/shapeStudies/mct_mbb_bc_cb_ttbar_nominalDphiMin3.pdf}
+  \caption[Correlations between $\mct$ and $\mcc$ in $\ttbar$]{Correlations between $\mct$ and $\mcc$ in $\ttbar$ in the signal region.}
+\end{cfig}
+
+\begin{itemize}
+\item[$\pt^{\text{j1}}$:] The leading jet must have $\pt > 130\,\gev$ to reject generic backgrounds.
+\item[$\pt^{\text{j2}}$:] Electroweak $W$/$Z$ + jet production often yields subleading jets with $\pt \lesssim 100\,\gev$. Events with $\pt^{\mathrm{j2}} < 100\,\gev$ are removed.
+\item[$\mcc$:] Events with low values of the dijet mass of the leading two jets ($\mcc$) can also correspond to $\ttbar$ events where one of the leading jets is not from $t \to b \nu$. This is also a signature of $g \to b \bar{b}$ splitting.
+\end{itemize}
+
+\newcommand{\srplot}[1]{int/figures/stackplots/dans/signal_mct150/#1}
+\begin{cfig}
+  \graphic{0.49}{\srplot{mass_cc_blinded.pdf}}
+  \graphic{0.49}{\srplot{mass_ct_blinded.pdf}} \\
+  \graphic{0.49}{\srplot{j0_pt_blinded.pdf}}
+  \graphic{0.49}{\srplot{j1_pt_blinded.pdf}}
+  \caption[Discriminants in the signal region]{Discriminants used in the signal region.}
+  \label{fig:discrim-sr}
+\end{cfig}
+
+Three signal regions are considered in the final analysis.
+These regions correspond to $\mct < 150$, $200$, and $250\,\gev$.

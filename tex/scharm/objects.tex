@@ -81,7 +81,7 @@ All tracks in ATLAS are initially fit under the pion hypothesis.
 A subset of these tracks are identified as electrons with several algorithms.
 The standard \textsc{electron} algorithm seeds electrons with calorimeter clusters.
 A second \textsc{softe} algorithm seeds electrons from tracks, and a third \textsc{frwd} reconstructs electrons in the forward calorimeter.
-In all cases the initial track refit as an electron which allows the fitter to account for bremsstrahlung.
+In all cases the initial track is refit as an electron which allows the fitter to account for bremsstrahlung.
 
 This analysis only considers electrons seeded with the \textsc{electron} algorithm. Electrons that are seeded with both \textsc{electron} and \textsc{softe} are also allowed.\footnote{Within ATLAS the \textsc{electron} authorship requirement is usually summarized as ``require author equal to 1 or 3''; the electron authorship is stored in a bit field, where the first bit corresponds to \textsc{electron} and the second to \textsc{softe}.}
 Preselected electrons must also have $\pt > 7\,\gev$ and $|\eta| < 2.47$, where both are based on the calorimeter cluster information, to ensure that tracks are within the tracking system.
@@ -94,7 +94,7 @@ In cases where $0.2< \Delta R(e,j) < 0.4$, the jet is kept and the electron is r
 With larger separation both objects are kept.
 
 Several further requirements are imposed on signal electrons.
-The quality requirement is raised to \textsc{Tight++} (which uses more stringent versions of the \textsc{Medium++} requirements).
+The quality requirement is raised to \textsc{Tight++}.\footnote{The \textsc{Tight++} electron requirement uses roughly the same variables as \textsc{Medium++}, but tightens the thresholds.}
 In addition the electron must be isolated in both the tracker and the calorimeter.
 %% In the tracker, the combined $\pt$ of tracks surrounding the electron in a cone defined by $\Delta R < 0.3$ must sum to less than 15\% of the electron $\pt$.
 These isolation requirements are described in \cref{tab:electrons}.
