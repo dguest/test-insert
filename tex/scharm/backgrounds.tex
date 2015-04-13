@@ -1,12 +1,31 @@
+Following the selection discussed in the previous section, simulation still predicts considerable background contamination in the signal region.
+The expected backgrounds are roughly 50\% $\zjets$, with the remaining split evenly between $\ttbar$ and $\wjets$.
+Unfortunately, the overall magnitudes of these processes aren't particularly constrained in simulation; they are dependent on the proton PDFs and assumptions about jet production, which are still relatively unknown at LHC energy scales.
+Instead of estimating these major backgrounds (and extrapolating uncertainties) from previously published results, the backgrounds were estimated from a series of control regions.
 
-\subsection{$\wjets$ Background}
-would be cool to put a feynman diagram here
 \subsection{$\zjets$ Background}
-also another feynman diagram here
+The $\zjets$ process accounts for the largest predicted background in the signal regions.
+Roughly 70\% of $Z$ decays are hadronic~\cite{pdg2014}, but these decays are unlikely fake signal events given their low $\met$.
+The remaining decays are split between leptons (10\%) and neutrinos (20\%).
+The leptonic decays are also unlikely to fake a signal event, since the two leptons must evade both the signal region lepton veto and the $\met$ calculation.
+The dominant events which contribute to the signal region are thus $\zjets$ events where the $Z$ decays to neutrinos.
+
+Fortunately, designing a control region for $Z \to \nu\nu$ is relatively easy.
+Branching ratios for $Z$ bosons are known to exceptional accuracy, so the full suite of $Z$ decays can be extrapolated from any $Z \to \ell \bar{\ell}$ cross-section measurement.
+Ideally this cross-section is measured in a region demanding an underlying event similar to that in the signal region---the precision of $Z$ branching ratios can't mitigate large uncertainties in the associated jet production.
+
+With this in mind, we construct a control region populated by events where $Z$ bosons are reconstructed from leptons.
+Such events won't fire the $\met$ trigger and thus must be drawn from the lepton trigger streams.
+For consistency with the $Z$-decay hypothesis, the events must contain two leptons of the same flavor, with opposite sign, and with an invariant mass of $90 \pm 15\,\gev$.
+The leptons are added to the event $\met$ to mimic the contribution from neutrinos.
+
+
+
 \subsection{$\topbg$ Background}
 and another one here
 \subsection{QCD Background}
 this will be short, paraphrasing the QCD section in the INT
+\subsection{$\wjets$ Background}
 
 \begin{table}
   \begin{center}
