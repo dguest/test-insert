@@ -48,25 +48,50 @@
 \begin{document}
 
 \maketitle
-%% \tableofcontents
+\tableofcontents
 
 \section{Motivation}
 
 \begin{frame}
-  \frametitle{Motivation: Why SUSY?}
+  \frametitle{What is SUSY?}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Start with standard model
+      \item Problem: Higgs Yukawa couplings give \emph{huge} corrections
+      \item Add ``superpartners''
+        \begin{itemize}
+          \item bosons $\leftrightarrow$ fermions
+        \end{itemize}
+      \item Add a second $H$
+      \item Now we have 36 particles!
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/standard-model.pdf}
+    \end{column}
+  \end{columns}
+  \begin{itemize}
+  \item In the simplest case, identical masses to SM
+    \begin{itemize}
+    \item Required to cancel Higgs corrections
+    \end{itemize}
+  \item Clearly not physical $\to$ add \emph{soft} terms
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{So\ldots 19 new particles? Isn't that ugly?}
   \begin{columns}
     \begin{column}{0.6\textwidth}
+      Yes, but\ldots
       \begin{itemize}
-      \item RPC: gives a DM candidate ($\neut$)
+      \item Gives a dark matter candidate ($\neut$)
       \item Useful for GUT unification
-      \item ``solves'' hierarchy  problem \\
-        \ldots but only if superpartners are light
-      \begin{tiny}
-        \begin{equation*}
-          \Delta m_{h}^2 = m_{\text{soft}}^2 \left[ \frac{\Gamma}{16 \pi^2} \ln(\cutoff / m_{\text{soft}}) + \ldots \right]
-        \end{equation*}
-      \end{tiny}
-      \item Minimal SUSY models: visible at LHC
+      \item In short, it fixes more than one problem
+      %% \item Minimal SUSY models: visible at LHC
+      %% \item ``solves'' hierarchy  problem \\
+      %%   \ldots but only if superpartners are light
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
@@ -75,9 +100,65 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
     \end{column}
   \end{columns}
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{%
-figures/external/unification-ugly.jpg}
+    \includegraphics[width=0.8\textwidth]{%
+      figures/external/unification-ugly.jpg}
   \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Motivation: LHC SUSY}
+  \begin{itemize}
+    \item SUSY ``solves'' the hierarchy problem
+    \item Hierarchy only solved with light particles
+      \begin{small}
+      \begin{equation*}
+        \Delta m_{h}^2 = m_{\text{soft}}^2 \left[ \frac{\Gamma}{16 \pi^2} \ln(\cutoff / m_{\text{soft}}) + \ldots \right]
+      \end{equation*}
+      \end{small}
+    \item If minimal SUSY exists, we could see it at the LHC
+  \end{itemize}
+\end{frame}
+
+\section{The ATLAS Experiment}
+\begin{frame}
+  \frametitle{The LHC}
+  \begin{itemize}
+  \item Mention that we have a lot of collisions
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The ATLAS Experiment}
+  \begin{itemize}
+  \item Start outside, move inward
+  \item mention calo as ``neutrino'' detector
+  \item end with pixels and tracking / magnetic field
+  \end{itemize}
+\end{frame}
+
+\section{Charmed Searches}
+\begin{frame}
+  \frametitle{Motivation: $\sttoc$}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{%
+      figures/external/blocked-stop-lsp.pdf}
+  \end{center}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \widegraphic{figures/external/feyn-sttoc-isr.pdf}\\
+      \begin{itemize}
+      \item Assume $m_{\tilde{t}} > m_{\neut}$
+      \item All other sparticles heavy
+      \item ``compressed'': $m_{\tilde{t}} - m_{\neut} < m_W$
+      \item Forces $\tilde{t}$ decay via $c$-jets
+      %% \item Signature: boosted, $c$-jets + $\met$
+      %% \item See \link{arXiv 1407.0608}{http://arxiv.org/abs/1407.0608}
+      %% \item \textcolor{red}{Not discussed in detail here (ADD LINK)}
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}

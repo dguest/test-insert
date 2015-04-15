@@ -110,3 +110,5 @@ get-file $PAN/tagging/plots/cRej70_ptbins.pdf
 get-file $PAN/tagging/plots/rejrej-simple.pdf
 get-file $PAN/tagging/plots/rejrej-btag.pdf
 get-file $PAN/tagging/plots/rejrej-cprob.pdf
+# other
+get-file $PAN/misc-fig/blocked-stop-lsp.pdf
