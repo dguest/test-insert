@@ -365,6 +365,11 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
       \item Name is biologically inspired
       \item Have \textbf{absolutely nothing} to do with biology
       \item Standard ``black box'' supervised classifier
+      \item Inputs: any observable
+        \begin{itemize}
+        \item Jet characteristics\ldots
+        \item \ldots or anything else
+        \end{itemize}
       %% \item Layers composed of \emph{nodes}
       %% \item Each node 
       %% \item Output layer: anything you want
@@ -376,6 +381,10 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 figures/tagging-graphs/simple-nn_gen.pdf} \\
     \end{column}
   \end{columns}
+  \begin{itemize}
+  \item Outputs: any number of interesting parameters (e.g. jet flavor)
+  \item Edges (``synapses'') activate or suppress the nodes in following layer
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -391,8 +400,45 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
         \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
       \end{equation*}
       where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
+    \item $f$ is the \emph{activation function}, some sigmoid
     \end{small}
   \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item $A_i$ and $\vect{b}_i$ are arbitrary
+      \item Start with random $A_i$, $\vect{b}_i$
+      \item ``train'' with backpropagation
+      \item Requires labeled data
+      \item Training is \textbf{hard to do well}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/logistic-curve.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Backpropagation}
+  \begin{itemize}
+  \item Explain backprop
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{How hard is this?}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+    \widegraphic{%
+figures/tagging-graphs/tagging-full-nogaia.pdf} \\
+%%     \includegraphics[width=0.8\textwidth]{%
+%% figures/tagging-graphs/tagging-leg.pdf}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+    \end{column}
+  \end{columns}
+
 \end{frame}
 
 %% NOTE: should make sure I mention that there's no clean cut to isolate

@@ -70,6 +70,7 @@ get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2013-21/fig_
 get-file http://www.hep.ph.ic.ac.uk/~wstirlin/plots/crosssections2012HE_v4.pdf
 get-file http://mstwpdf.hepforge.org/plots/mstw2008nlo68cl_allpdfs.eps mstw-proton.eps
 get-file http://www.hep.ph.ic.ac.uk/~wstirlin/plots/lumi2012_abs_v1.pdf mstw-lumi.pdf
+get-file http://upload.wikimedia.org/wikipedia/commons/8/88/Logistic-curve.svg logistic-curve.svg
 # tagging
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2014-046/fig_03b.pdf dstar-pion-mass.pdf
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2012-040/fig_01a.pdf negative-tag-sv0.pdf
