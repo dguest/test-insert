@@ -2,6 +2,22 @@
 
 set -eu
 
+function curl-checked() {
+    local BASE=$(basename $1)
+    local OUT=${2-$BASE}
+
+    local RM_IF_FAIL=0
+    if [[ ! -f $OUT ]] ; then RM_IF_FAIL=1 ; fi
+
+    local RET_CODE=$(curl -s $1 -o $OUT -w '%{http_code}')
+    if [[ $RET_CODE != 200 ]]; then
+	if [[ $RM_IF_FAIL ]] ; then
+	    rm -f $OUT
+	fi
+	return 1
+    fi
+}
+
 function convert-svg-to-pdf() {
     if ! hash inkscape &> /dev/null ; then
 	echo "inkscape not found, quitting" 2>&1
@@ -48,7 +64,10 @@ function get-file() {
 	echo "already have $OUT"
     else
 	echo -n "getting $OUT..."
-	curl -s $1 -o $OUT
+	if ! curl-checked $1 $OUT ; then
+	    echo "failed!" 2>&1
+	    return 1
+	fi
 	echo "done"
     fi
 
@@ -113,3 +132,5 @@ get-file $PAN/tagging/plots/rejrej-btag.pdf
 get-file $PAN/tagging/plots/rejrej-cprob.pdf
 # other
 get-file $PAN/misc-fig/blocked-stop-lsp.pdf
+# get-file $PAN/misc-fig/atlas.tif
+get-file $PAN/misc-fig/atlas-medium.jpeg
