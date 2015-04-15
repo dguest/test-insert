@@ -132,6 +132,7 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \begin{itemize}
   \item Start outside, move inward
   \item mention calo as ``neutrino'' detector
+  \item Introduce $\pt$, $\met$
   \item end with pixels and tracking / magnetic field
   \end{itemize}
 \end{frame}
@@ -286,6 +287,11 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \end{columns}
 \end{frame}
 
+\begin{frame}
+  \frametitle{List of Tagging Variables}
+  \resizebox{\textwidth}{!}{\input{tables/jfc-variables.tex}}
+\end{frame}
+
 %% \begin{frame}
 %%   \frametitle{Charm Tagging}
 %%   \begin{itemize}
@@ -351,6 +357,43 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
     \end{tiny}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Neural Nets}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Name is biologically inspired
+      \item Have \textbf{absolutely nothing} to do with biology
+      \item Standard ``black box'' supervised classifier
+      %% \item Layers composed of \emph{nodes}
+      %% \item Each node 
+      %% \item Output layer: anything you want
+      %% \item hidden layers: no obvious physical meaning
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \widegraphic{%
+figures/tagging-graphs/simple-nn_gen.pdf} \\
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Neural Nets}
+  \begin{itemize}
+  \item The idea: a neural net can approximate any continuous function
+    \begin{small}
+      \begin{equation*}
+          \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
+      \end{equation*}
+    \item Can also be written recursively
+      \begin{equation*}
+        \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
+      \end{equation*}
+      where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
+    \end{small}
+  \end{itemize}
+\end{frame}
 
 %% NOTE: should make sure I mention that there's no clean cut to isolate
 %% c-jets or b-jets
@@ -929,11 +972,6 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
       \widegraphic{int/figures/stackplots/will/jetsID_CRT_final.pdf}
     \end{column}
   \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{List of Tagging Variables}
-  \resizebox{\textwidth}{!}{\input{tables/jfc-variables.tex}}
 \end{frame}
 
 
