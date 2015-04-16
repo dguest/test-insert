@@ -52,6 +52,7 @@
 
 \section{Motivation}
 
+\subsection{SUSY}
 \begin{frame}
   \frametitle{What is SUSY?}
   \begin{columns}
@@ -115,6 +116,10 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
         \Delta m_{h}^2 = m_{\text{soft}}^2 \left[ \frac{\Gamma}{16 \pi^2} \ln(\cutoff / m_{\text{soft}}) + \ldots \right]
       \end{equation*}
       \end{small}
+    \item The largest Yukawa coupling ($\Gamma$) is to $t$
+      \begin{itemize}
+      \item needs to be canceled by a relatively light $\tilde{t}$
+      \end{itemize}
     \item If minimal SUSY exists, we could see it at the LHC
     \item If we saw it at the LHC, you'd have heard about it
       \begin{itemize}
@@ -122,6 +127,44 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
       \item All the more reason to look at data in new ways
       \end{itemize}
   \end{itemize}
+\end{frame}
+
+\subsection{Charmed Searches}
+\begin{frame}
+  \frametitle{Why charm tag: $\sttoc$}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+  \begin{center}
+    \includegraphics[width=\textwidth]{%
+      figures/external/blocked-stop-lsp.pdf}
+  \end{center}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \widegraphic{figures/external/feyn-sttoc-isr.pdf}\\
+      \begin{itemize}
+      \item Assume $m_{\tilde{t}} > m_{\neut}$
+      \item All other sparticles heavy
+      \item ``compressed'': $m_{\tilde{t}} - m_{\neut} < m_W$
+      \item Forces $\tilde{t}$ decay via $c$-jets
+      %% \item Signature: boosted, $c$-jets + $\met$
+      %% \item See \link{arXiv 1407.0608}{http://arxiv.org/abs/1407.0608}
+      %% \item \textcolor{red}{Not discussed in detail here (ADD LINK)}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Why charm tag: $\sctoc$}
+  \begin{center}
+  \includegraphics[width=0.3\textwidth]{figures/external/feyn-sctoc.pdf}
+  \begin{itemize}
+  \item Same general signature as $\sttoc$, $m_{\scharm} - m_{\neut} \nless m_W$
+  \item ``Light'' ($udcs$) $\tilde{q}$ masses needn't be degenerate (see \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328})
+  \item \textbf{Present talk focuses on this search} (also \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325})
+  \end{itemize}
+  \end{center}
 \end{frame}
 
 \section{The ATLAS Experiment}
@@ -166,8 +209,6 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   %% \end{itemize}
 \end{frame}
 
-\subsection{Particle Identification}
-
 \begin{frame}
   \frametitle{Tracking and Vertexing}
   \includegraphics[width=\textwidth]{figures/external/pileup-vertices.png}
@@ -210,109 +251,6 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \end{columns}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Particle Identification}
-  \begin{itemize}
-  \item We only directly reconstruct 7 ``particles''
-  \end{itemize}
-  \begin{columns}
-    \begin{column}{0.35\textwidth}
-      \begin{itemize}
-      \item \textcolor{darkgreen}{\textbf{Some are easy}}
-        \begin{itemize}
-        \item $\mu$ spectrometer
-        \item Calorimeter
-        \end{itemize}
-      \item \textcolor{red}{Some are hard}
-        \begin{itemize}
-        \item Vertexing
-        \item Easily confused
-        \end{itemize}
-      \item \colorbox{aqua}{Many are indirect}
-      \item Light jets ($u$, $d$, $s$) aren't distinguished
-      \item \textcolor{orange}{\textbf{charm}} used to be ``light''
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.65\textwidth}
-      \widegraphic{figures/external/sm-detectable.pdf}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-
-\section{Charmed Searches}
-\begin{frame}
-  \frametitle{Why charm tag: $\sttoc$}
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-  \begin{center}
-    \includegraphics[width=\textwidth]{%
-      figures/external/blocked-stop-lsp.pdf}
-  \end{center}
-    \end{column}
-    \begin{column}{0.4\textwidth}
-      \widegraphic{figures/external/feyn-sttoc-isr.pdf}\\
-      \begin{itemize}
-      \item Assume $m_{\tilde{t}} > m_{\neut}$
-      \item All other sparticles heavy
-      \item ``compressed'': $m_{\tilde{t}} - m_{\neut} < m_W$
-      \item Forces $\tilde{t}$ decay via $c$-jets
-      %% \item Signature: boosted, $c$-jets + $\met$
-      %% \item See \link{arXiv 1407.0608}{http://arxiv.org/abs/1407.0608}
-      %% \item \textcolor{red}{Not discussed in detail here (ADD LINK)}
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\iffalse
-\begin{frame}
-  \frametitle{Motivation: $\sttoc$ and $\sctoc$}
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-      \begin{itemize}
-      \item Assume $m_{\tilde{t}} > m_{\neut}$
-      \item All other sparticles heavy
-      \item ``compressed'': $m_{\tilde{t}} - m_{\neut} < m_W$
-      \item Forces $\tilde{t}$ decay via $c$-jets
-      \item Signature: boosted, $c$-jets + $\met$
-      \item See \link{arXiv 1407.0608}{http://arxiv.org/abs/1407.0608}
-      %% \item \textcolor{red}{Not discussed in detail here (ADD LINK)}
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.4\textwidth}
-      \widegraphic{figures/external/feyn-sttoc-isr.pdf}
-    \end{column}
-  \end{columns}
-  \hrule
-  \begin{columns}
-    \begin{column}{0.4\textwidth}
-      \widegraphic{figures/external/feyn-sctoc.pdf}
-    \end{column}
-    \begin{column}{0.6\textwidth}
-      \begin{itemize}
-      \item Same general signature as $\sttoc$, $m_{\scharm} - m_{\neut} \nless m_W$
-      \item ``Light'' ($udcs$) $\tilde{q}$ masses needn't be degenerate (see \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328})
-      \item \textbf{Focus of this talk} (also \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325})
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
-\end{comment}
-\fi
-
-\begin{frame}
-  \frametitle{Why charm tag: $\sctoc$}
-  \begin{center}
-  \includegraphics[width=0.3\textwidth]{figures/external/feyn-sctoc.pdf}
-  \begin{itemize}
-  \item Same general signature as $\sttoc$, $m_{\scharm} - m_{\neut} \nless m_W$
-  \item ``Light'' ($udcs$) $\tilde{q}$ masses needn't be degenerate (see \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328})
-  \item \textbf{Present talk focuses on this search} (also \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325})
-  \end{itemize}
-  \end{center}
-\end{frame}
-
 \section{Charm Tagging}
 
 \begin{frame}
@@ -347,10 +285,10 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \end{tiny}
 \end{frame}
 
-\subsection{Algorithms}
+\subsection{Vertex Finding}
 
 \begin{frame}
-  \frametitle{Tagging Algorithms}
+  \frametitle{Vertex Finding}
   \begin{columns}[t]
     \begin{column}{0.5\textwidth}
       \begin{center}
@@ -377,7 +315,7 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 \end{frame}
 
 \begin{frame}
-  \frametitle{Tagging Algorithms (continued)}
+  \frametitle{Vertex Finding (continued)}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       JetFitter:
@@ -409,6 +347,80 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 \begin{frame}
   \frametitle{List of Tagging Variables}
   \resizebox{\textwidth}{!}{\input{tables/jfc-variables.tex}}
+\end{frame}
+
+\subsection{Neural Nets}
+
+\begin{frame}
+  \frametitle{Neural Nets}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Name is biologically inspired
+      \item Have \textbf{absolutely nothing} to do with biology
+      \item Standard ``black box'' supervised classifier
+      \item Inputs: any observable
+        \begin{itemize}
+        \item Jet characteristics\ldots
+        \item \ldots or anything else
+        \end{itemize}
+      %% \item Layers composed of \emph{nodes}
+      %% \item Each node
+      %% \item Output layer: anything you want
+      %% \item hidden layers: no obvious physical meaning
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \widegraphic{%
+figures/tagging-graphs/simple-nn_gen.pdf} \\
+    \end{column}
+  \end{columns}
+  %% \begin{columns}
+  %%   \begin{column}{0.5\textwidth}
+  \begin{itemize}
+  \item Connections activate or suppress nodes in the next layer
+  \item Nodes have sigmoid activation threshold
+  \item Outputs: any number of interesting parameters (e.g. jet flavor)
+  %% \item Connections, thresholds initially random
+  %% \item Trained via backpropagation (steepest descent)
+  \end{itemize}
+  %%   \end{column}
+  %%   \begin{column}{0.5\textwidth}
+  %%     \widegraphic{figures/external/logistic-curve.pdf}
+  %%   \end{column}
+  %% \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Neural Nets}
+  \begin{itemize}
+  \item The idea: a neural net can approximate any continuous function
+    \begin{small}
+      \begin{equation*}
+          \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
+      \end{equation*}
+    \item Can also be written recursively
+      \begin{equation*}
+        \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
+      \end{equation*}
+      where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
+    \item $f$ is the \emph{activation function}, some sigmoid
+    \end{small}
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item $A_i$ and $\vect{b}_i$ are arbitrary
+      \item Start with random $A_i$, $\vect{b}_i$
+      \item ``train'' with backpropagation
+      \item Requires labeled data
+      \item Training is \textbf{hard to do well}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/logistic-curve.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 %% \begin{frame}
@@ -476,77 +488,15 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
     \end{tiny}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Neural Nets}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-      \item Name is biologically inspired
-      \item Have \textbf{absolutely nothing} to do with biology
-      \item Standard ``black box'' supervised classifier
-      \item Inputs: any observable
-        \begin{itemize}
-        \item Jet characteristics\ldots
-        \item \ldots or anything else
-        \end{itemize}
-      %% \item Layers composed of \emph{nodes}
-      %% \item Each node 
-      %% \item Output layer: anything you want
-      %% \item hidden layers: no obvious physical meaning
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-        \widegraphic{%
-figures/tagging-graphs/simple-nn_gen.pdf} \\
-    \end{column}
-  \end{columns}
-  \begin{itemize}
-  \item Outputs: any number of interesting parameters (e.g. jet flavor)
-  \item Connections activate or suppress nodes in the next layer
-  \end{itemize}
-\end{frame}
+%% \begin{frame}
+%%   \frametitle{Backpropagation}
+%%   \begin{itemize}
+%%   \item Explain backprop
+%%   \end{itemize}
+%% \end{frame}
 
 \begin{frame}
-  \frametitle{Neural Nets}
-  \begin{itemize}
-  \item The idea: a neural net can approximate any continuous function
-    \begin{small}
-      \begin{equation*}
-          \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
-      \end{equation*}
-    \item Can also be written recursively
-      \begin{equation*}
-        \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
-      \end{equation*}
-      where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
-    \item $f$ is the \emph{activation function}, some sigmoid
-    \end{small}
-  \end{itemize}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-      \item $A_i$ and $\vect{b}_i$ are arbitrary
-      \item Start with random $A_i$, $\vect{b}_i$
-      \item ``train'' with backpropagation
-      \item Requires labeled data
-      \item Training is \textbf{hard to do well}
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \widegraphic{figures/external/logistic-curve.pdf}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Backpropagation}
-  \begin{itemize}
-  \item Explain backprop
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{How hard could training a NN be?}
+  \frametitle{The ATLAS Flavor-tagging framework}
   \begin{columns}
     \begin{column}{0.8\textwidth}
     \widegraphic{%
@@ -559,8 +509,8 @@ figures/tagging-graphs/tagging-full-nogaia.pdf} \\
     \end{column}
   \end{columns}
   \begin{itemize}
-  \item For a deep NN, it's really hard
-  \item The ATLAS flavor tagging framework grew very complicated
+  \item MV1 was the standard $b$-tagger for run 1, note the number of upstream algorithms
+  \item For a deep NN, training is \textbf{really} hard
   \end{itemize}
 \end{frame}
 
@@ -626,7 +576,7 @@ figures/external/sf-ctag-b-medium.pdf} \\
 %%   \end{tiny}
 %% \end{frame}
 
-\subsection{Deep Learning}
+\subsection{Deep Neural Nets}
 
 \begin{frame}
   \frametitle{Interlude: Deep Learning}
@@ -965,7 +915,75 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
   \end{columns}
 \end{frame}
 
+
+\section{Tagging Improvements}
+
+\begin{frame}
+  \frametitle{Neural Nets Revisited}
+  \begin{itemize}
+  \item Reminder: a neural net can approximate any continuous function
+    \begin{equation*}
+          \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
+    \end{equation*}
+  \item $A_i$ and $\vect{b}_i$ are initially random
+  \end{itemize}
+\end{frame}
+
+%%     \item And can be written
+%%       \begin{equation*}
+%%         \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
+%%       \end{equation*}
+%%       where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
+%%     \item $f$ is the \emph{activation function}, some sigmoid
+%%     \end{small}
+%%   \end{itemize}
+%%   \begin{columns}
+%%     \begin{column}{0.5\textwidth}
+%%       \begin{itemize}
+%%       \item Start with random $A_i$, $\vect{b}_i$
+%%       \item ``train'' with backpropagation
+%%       \item Requires labeled data
+%%       \item Training is \textbf{hard to do well}
+%%       \end{itemize}
+%%     \end{column}
+%%     \begin{column}{0.5\textwidth}
+%%       \widegraphic{figures/external/logistic-curve.pdf}
+%%     \end{column}
+%%   \end{columns}
+%% \end{frame}
+
+
 \section{Outlook}
+
+\begin{frame}
+  \frametitle{Particle Identification}
+  \begin{itemize}
+  \item We only directly reconstruct 7 ``particles''
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.35\textwidth}
+      \begin{itemize}
+      \item \textcolor{darkgreen}{\textbf{Some are easy}}
+        \begin{itemize}
+        \item $\mu$ spectrometer
+        \item Calorimeter
+        \end{itemize}
+      \item \textcolor{red}{Some are hard}
+        \begin{itemize}
+        \item Vertexing
+        \item Easily confused
+        \end{itemize}
+      \item \colorbox{aqua}{Many are indirect}
+      \item Light jets ($u$, $d$, $s$) aren't distinguished
+      \item \textcolor{orange}{\textbf{charm}} used to be ``light''
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.65\textwidth}
+      \widegraphic{figures/external/sm-detectable.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 \begin{frame}
 \begin{block}{$\tilde{c}$--$\tilde{t}$ mixing}
   \begin{itemize}
@@ -978,6 +996,7 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
 \begin{block}{Higgs Couplings}
 \end{block}
 \end{frame}
+
 
 \section{Summary}
 
@@ -1214,3 +1233,36 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
   \end{columns}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Motivation: $\sttoc$ and $\sctoc$}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+      \item Assume $m_{\tilde{t}} > m_{\neut}$
+      \item All other sparticles heavy
+      \item ``compressed'': $m_{\tilde{t}} - m_{\neut} < m_W$
+      \item Forces $\tilde{t}$ decay via $c$-jets
+      \item Signature: boosted, $c$-jets + $\met$
+      \item See \link{arXiv 1407.0608}{http://arxiv.org/abs/1407.0608}
+      %% \item \textcolor{red}{Not discussed in detail here (ADD LINK)}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \widegraphic{figures/external/feyn-sttoc-isr.pdf}
+    \end{column}
+  \end{columns}
+  \hrule
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \widegraphic{figures/external/feyn-sctoc.pdf}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+      \item Same general signature as $\sttoc$, $m_{\scharm} - m_{\neut} \nless m_W$
+      \item ``Light'' ($udcs$) $\tilde{q}$ masses needn't be degenerate (see \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328})
+      \item \textbf{Focus of this talk} (also \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325})
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+\end{comment}
