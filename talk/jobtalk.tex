@@ -76,7 +76,7 @@
     \begin{itemize}
     \item Required to cancel Higgs corrections
     \end{itemize}
-  \item Clearly not physical $\to$ add \emph{soft} terms
+  \item Clearly not physical $\to$ add \emph{soft} terms to raise sparticle mass
   \end{itemize}
 \end{frame}
 
@@ -126,26 +126,123 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 
 \section{The ATLAS Experiment}
 \begin{frame}
-  \frametitle{The LHC}
+  \frametitle{The LHC / ATLAS}
   \begin{itemize}
-  \item Mention that we have a lot of collisions
+  \item ``biggest experiment ever'' (it's 27 km \emph{long}, is that big?)
+  \item ``highest energy ever'' (pretty high energy $~\sim 10\,\tev$\ldots)
+  \item ``as much power as a city'' ($\approx$ 50 MW, 4\% of Geneva, pop 470k)
+  \item More importantly, it collides \textbf{a lot of protons}
   \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item bunch crossing: 20--40 MHz
+      \item collisions / crossing (ATLAS):
+        \begin{description}[Run 2:]
+        \item[Run 1:] 20
+        \item[Run 2:] $\sim 100$
+        \end{description}
+      \item Fills take 2 hours, last 1 day
+      \item $\sim 1000$ bunches / fill
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/cern-from-air.jpg}
+    \end{column}
+  \end{columns}
+  %% \begin{itemize}
+  %% \item Taking data requires a three-level trigger
+  %% \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{The ATLAS Experiment}
   \widegraphic{figures/external/atlas-medium.jpeg}
+  %% \begin{itemize}
+  %% \item Start outside, move inward
+  %% \item mention calo as ``neutrino'' detector
+  %% \item Introduce $\pt$, $\met$
+  %% \item end with pixels and tracking / magnetic field
+  %% \end{itemize}
+\end{frame}
+
+\subsection{Particle Identification}
+
+\begin{frame}
+  \frametitle{Tracking and Vertexing}
+  \includegraphics[width=\textwidth]{figures/external/pileup-vertices.png}
   \begin{itemize}
-  \item Start outside, move inward
-  \item mention calo as ``neutrino'' detector
-  \item Introduce $\pt$, $\met$
-  \item end with pixels and tracking / magnetic field
+  \item In 2012, $\approx 20$ vertices per bunch crossing
+  \item Vertices inflated to 20 times actual size
+  \item Inner pixel layer (gray) is approximately 5 cm from the beam
+  \item For a $10\,\gev$ track, transverse resolution is $\sim 30\,\mathrm{\mu m}$
+  \item Displaced vertices can travel mm--cm
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Heavy Quark Decays}
+  \begin{itemize}
+  \item Quark mixing angles measured to extraordinary precision
+  \item For the sake of flavor-tagging, we make some approximations:
+    \begin{equation*}
+      %% V_{\text{CKM}} =
+      \begin{pmatrix}
+        \ckmrowabs{u} \\ \ckmrowabs{c} \\ \ckmrowabs{t}
+      \end{pmatrix} = \ckmmatrixapprox \approx \ckmparticle
+    \end{equation*}
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      On our timescale:
+      \begin{description}
+      \item[$t \to b$:] instant
+      \item[$b \to c$:] slow
+      \item[$c \to s$:] fast
+      \item[$s \to u$:] too long
+      \end{description}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \includegraphics[width=\textwidth]{figures/external/sm-t-decay.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Particle Identification}
+  \begin{itemize}
+  \item We only directly reconstruct 7 ``particles''
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.35\textwidth}
+      \begin{itemize}
+      \item \textcolor{darkgreen}{\textbf{Some are easy}}
+        \begin{itemize}
+        \item $\mu$ spectrometer
+        \item Calorimeter
+        \end{itemize}
+      \item \textcolor{red}{Some are hard}
+        \begin{itemize}
+        \item Vertexing
+        \item Easily confused
+        \end{itemize}
+      \item \colorbox{aqua}{Many are indirect}
+      \item Light jets ($u$, $d$, $s$) aren't distinguished
+      \item \textcolor{orange}{\textbf{charm}} used to be ``light''
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.65\textwidth}
+      \widegraphic{figures/external/sm-detectable.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
 \section{Charmed Searches}
 \begin{frame}
-  \frametitle{Motivation: $\sttoc$}
+  \frametitle{Why charm tag: $\sttoc$}
   \begin{columns}
     \begin{column}{0.6\textwidth}
   \begin{center}
@@ -168,6 +265,7 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \end{columns}
 \end{frame}
 
+\iffalse
 \begin{frame}
   \frametitle{Motivation: $\sttoc$ and $\sctoc$}
   \begin{columns}
@@ -195,10 +293,24 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
       \begin{itemize}
       \item Same general signature as $\sttoc$, $m_{\scharm} - m_{\neut} \nless m_W$
       \item ``Light'' ($udcs$) $\tilde{q}$ masses needn't be degenerate (see \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328})
-      \item \textbf{Present talk focuses on this search} (also \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325})
+      \item \textbf{Focus of this talk} (also \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325})
       \end{itemize}
     \end{column}
   \end{columns}
+\end{frame}
+\end{comment}
+\fi
+
+\begin{frame}
+  \frametitle{Why charm tag: $\sctoc$}
+  \begin{center}
+  \includegraphics[width=0.3\textwidth]{figures/external/feyn-sctoc.pdf}
+  \begin{itemize}
+  \item Same general signature as $\sttoc$, $m_{\scharm} - m_{\neut} \nless m_W$
+  \item ``Light'' ($udcs$) $\tilde{q}$ masses needn't be degenerate (see \link{arXiv 1212.3328}{http://arxiv.org/abs/1212.3328})
+  \item \textbf{Present talk focuses on this search} (also \link{arXiv 1501.01325}{http://arxiv.org/abs/1501.01325})
+  \end{itemize}
+  \end{center}
 \end{frame}
 
 \section{Charm Tagging}
@@ -217,6 +329,7 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
             Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
             $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
           \end{tabular}
+          $\langle L_{xy} \rangle \approx 6.4\,\mathrm{mm}$, $B$ @ $70\,\gev$
         \end{center}
       \item Requires both tracking resolution and luck
       \item \textcolor{darkgreen}{$c$-decays} are part of \textcolor{red}{$b$-decays}
@@ -389,7 +502,7 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
   \end{columns}
   \begin{itemize}
   \item Outputs: any number of interesting parameters (e.g. jet flavor)
-  \item Edges (``synapses'') activate or suppress the nodes in following layer
+  \item Connections activate or suppress nodes in the next layer
   \end{itemize}
 \end{frame}
 
@@ -850,6 +963,20 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
       \end{itemize}
     \end{column}
   \end{columns}
+\end{frame}
+
+\section{Outlook}
+\begin{frame}
+\begin{block}{$\tilde{c}$--$\tilde{t}$ mixing}
+  \begin{itemize}
+  \item \link{arXiv 1302.7232}{http://arxiv.org/abs/1302.7232}
+  \item Helps fine-tuning (a little)
+  \item Predicts decays like $\tilde{t} + \tilde{c} \to (t \bar{c} + c \bar{t}) \neut$
+  \item Not investigated (so far)
+  \end{itemize}
+\end{block}
+\begin{block}{Higgs Couplings}
+\end{block}
 \end{frame}
 
 \section{Summary}
