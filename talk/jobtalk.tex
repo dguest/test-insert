@@ -12,6 +12,7 @@
 \tikzstyle{na} = [baseline=-.5ex]
 \tikzstyle{background grid}=[draw, black!50,step=.5cm]
 \usepackage{feynmp-auto}
+\usepackage{bbold}
 
 \title[Charmed SUSY]{Charm-Tagging SUSY}
 \author[dhg3]{Dan Guest}
@@ -401,7 +402,7 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
       \end{equation*}
     \item Can also be written recursively
       \begin{equation*}
-        \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
+        \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}), \qquad f = \mathbb{1} \quad \text{if}\quad i = N
       \end{equation*}
       where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
     \item $f$ is the \emph{activation function}, some sigmoid
@@ -412,6 +413,7 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
       \begin{itemize}
       \item $A_i$ and $\vect{b}_i$ are arbitrary
       \item Start with random $A_i$, $\vect{b}_i$
+      \item Calculate error for $\vect{y}$, $\xi = (\vect{t} - \vect{y})$
       \item ``train'' with backpropagation
       \item Requires labeled data
       \item Training is \textbf{hard to do well}
@@ -576,70 +578,6 @@ figures/external/sf-ctag-b-medium.pdf} \\
 %%   \end{tiny}
 %% \end{frame}
 
-\subsection{Deep Neural Nets}
-
-\begin{frame}
-  \frametitle{Interlude: Deep Learning}
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-      \begin{center}
-        Flavor-Tagging Framework (Run 1)
-        \widegraphic{%
-figures/tagging-graphs/tagging-full-nogaia.pdf} \\
-        \includegraphics[width=0.8\textwidth]{%
-figures/tagging-graphs/tagging-leg.pdf}
-      \end{center}
-    \end{column}
-    \vline
-    \begin{column}{0.4\textwidth}
-      \begin{center}
-        Goal for Run 2 \\[0.1cm]
-        \widegraphic{%
-figures/tagging-graphs/tagging-gaia-future.pdf}
-      \end{center}
-    \end{column}
-  \end{columns}
-  \begin{itemize}
-  \item Framework complicated (left) because training NNs is hard
-  %% \item We can fix this (right) by training NNs with autoencoders
-  \end{itemize}
-\end{frame}
-
-%% \begin{frame}
-%%   \frametitle{Deep Learning for Flavor Tagging}
-%%   \begin{itemize}
-%%   \item find some autoencoder picture(s) on the internets.
-%%   \item maybe mention how awesome training on data could be
-%%   \item talk about denoising?
-%%   \end{itemize}
-%% \end{frame}
-
-\begin{frame}
-  \frametitle{Deep Learning: Performance}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{center}
-        $b$-tagging
-       \widegraphic{%
-figures/external/uRejRoc.pdf}
-      \end{center}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{center}
-        $c$-tagging
-      \widegraphic{figures/external/ctag-2d-gaia-vs-jfc.pdf}
-      \end{center}
-    \end{column}
-  \end{columns}
-  \begin{itemize}
-  \item Autoencoders simplify the framework \emph{and} perform better
-    \begin{itemize}
-    \item For $b$-tagging \textcolor{red}{autoencoders} are always above \textcolor{darkgreen}{M1}
-    \item More efficient $c$-tagger for any choice of $b$ or light rejection
-    \end{itemize}
-  \item Being ported to Athena as a qualification task
-  \end{itemize}
-\end{frame}
 
 \section{The $\sctoc$ Search}
 
@@ -918,6 +856,34 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
 
 \section{Tagging Improvements}
 
+
+\begin{frame}
+  \frametitle{Reminder: The flavor-tagging stack}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{center}
+        Flavor-Tagging Framework (Run 1)
+        \widegraphic{%
+figures/tagging-graphs/tagging-full-nogaia.pdf} \\
+        \includegraphics[width=0.8\textwidth]{%
+figures/tagging-graphs/tagging-leg.pdf}
+      \end{center}
+    \end{column}
+    \vline
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        Goal for Run 2 \\[0.1cm]
+        \widegraphic{%
+figures/tagging-graphs/tagging-gaia-future.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \begin{itemize}
+  \item Framework complicated (left) because training NNs is hard
+  %% \item We can fix this (right) by training NNs with autoencoders
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Neural Nets Revisited}
   \begin{itemize}
@@ -926,6 +892,7 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
           \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
     \end{equation*}
   \item $A_i$ and $\vect{b}_i$ are initially random
+  \item Training relies on backpropagation, 
   \end{itemize}
 \end{frame}
 
@@ -951,6 +918,43 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
 %%     \end{column}
 %%   \end{columns}
 %% \end{frame}
+
+
+%% \begin{frame}
+%%   \frametitle{Deep Learning for Flavor Tagging}
+%%   \begin{itemize}
+%%   \item find some autoencoder picture(s) on the internets.
+%%   \item maybe mention how awesome training on data could be
+%%   \item talk about denoising?
+%%   \end{itemize}
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Deep Learning: Performance}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        $b$-tagging
+       \widegraphic{%
+figures/external/uRejRoc.pdf}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        $c$-tagging
+      \widegraphic{figures/external/ctag-2d-gaia-vs-jfc.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \begin{itemize}
+  \item Autoencoders simplify the framework \emph{and} perform better
+    \begin{itemize}
+    \item For $b$-tagging \textcolor{red}{autoencoders} are always above \textcolor{darkgreen}{M1}
+    \item More efficient $c$-tagger for any choice of $b$ or light rejection
+    \end{itemize}
+  %% \item Being ported to Athena as a qualification task
+  \end{itemize}
+\end{frame}
 
 
 \section{Outlook}
