@@ -14,7 +14,7 @@
 \usepackage{feynmp-auto}
 \usepackage{bbold}
 
-\title[Charmed SUSY]{Charm-Tagging SUSY}
+\title[Charmed SUSY]{Charming SUSY with ATLAS}
 \author[dhg3]{Dan Guest}
 \institute[Yale]{Yale University}
 
@@ -122,17 +122,18 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
       \item needs to be canceled by a relatively light $\tilde{t}$
       \end{itemize}
     \item If minimal SUSY exists, we could see it at the LHC
-    \item If we saw it at the LHC, you'd have heard about it
       \begin{itemize}
-      \item Starting to look rather ``un-natural''
+      \item The ``easy'' searches have come back negative
       \item All the more reason to look at data in new ways
       \end{itemize}
+    \item Focus on ``simplified'' searches: only one or two low-mass sparticles (e.g. $\tilde{t}$ + $\neut$)
+    \item In many cases, assume $R$ parity (conservation of twiddles), and that the $\neut$ is the lightest SUSY particle (LSP)
   \end{itemize}
 \end{frame}
 
 \subsection{Charmed Searches}
 \begin{frame}
-  \frametitle{Why charm tag: $\sttoc$}
+  \frametitle{$\tilde{t}$ Searches: $\sttoc$}
   \begin{columns}
     \begin{column}{0.6\textwidth}
   \begin{center}
@@ -157,7 +158,7 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 
 
 \begin{frame}
-  \frametitle{Why charm tag: $\sctoc$}
+  \frametitle{Supersymmetric charm ($\sctoc$)}
   \begin{center}
   \includegraphics[width=0.3\textwidth]{figures/external/feyn-sctoc.pdf}
   \begin{itemize}
@@ -172,8 +173,8 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 \begin{frame}
   \frametitle{The LHC / ATLAS}
   \begin{itemize}
-  \item ``biggest experiment ever'' (it's 27 km \emph{long}, is that big?)
-  \item ``highest energy ever'' (pretty high energy $~\sim 10\,\tev$\ldots)
+  \item Big experiment (27 km long), $\sim 3000$ authors on ATLAS
+  \item High energy: $7,8,13\,\tev$\ldots
   \item ``as much power as a city'' ($\approx$ 50 MW, 4\% of Geneva, pop 470k)
   \item More importantly, it collides \textbf{a lot of protons}
   \end{itemize}
@@ -214,11 +215,11 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \frametitle{Tracking and Vertexing}
   \includegraphics[width=\textwidth]{figures/external/pileup-vertices.png}
   \begin{itemize}
-  \item In 2012, $\approx 20$ vertices per bunch crossing
+  \item In 2012, $\sim 20$ vertices per bunch crossing
   \item Vertices inflated to 20 times actual size
   \item Inner pixel layer (gray) is approximately 5 cm from the beam
   \item For a $10\,\gev$ track, transverse resolution is $\sim 30\,\mathrm{\mu m}$
-  \item Displaced vertices can travel mm--cm
+  \item \textbf{Flavor-tagging relies on displaced vertices, can travel mm--cm}
   \end{itemize}
 \end{frame}
 
@@ -400,26 +401,28 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
       \begin{equation*}
           \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
       \end{equation*}
+    \item $f$ is the \emph{activation function}, some sigmoid
     \item Can also be written recursively
       \begin{equation*}
-        \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}), \qquad f = \mathbb{1} \quad \text{if}\quad i = N
+        \vect{z}_{i+1} = g(A_{i} \vect{z}_{i} + \vect{b}_{i}), \qquad g = \mathbb{1} \quad \text{if}\quad i = N \quad \text{otherwise} \quad f
       \end{equation*}
       where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
-    \item $f$ is the \emph{activation function}, some sigmoid
     \end{small}
   \end{itemize}
   \begin{columns}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.7\textwidth}
       \begin{itemize}
-      \item $A_i$ and $\vect{b}_i$ are arbitrary
+      %% \item $A_i$ and $\vect{b}_i$ are arbitrary
       \item Start with random $A_i$, $\vect{b}_i$
-      \item Calculate error for $\vect{y}$, $\xi = (\vect{t} - \vect{y})$
-      \item ``train'' with backpropagation
-      \item Requires labeled data
-      \item Training is \textbf{hard to do well}
+      \item For each target $\vect{t}$ and input $\vect{x}$
+      \item Calculate error for $\vect{y}$, $\vect{\xi}_{N+1} = (\vect{t} - \vect{y})$
+      \item Backpropagate errors $\xi_i = (A_i^{\intercal} \xi_{(i+1)}) \circ f'(\vect{z}_i)$
+      \item Update $A_i \to A - \gamma \xi_{(i+1)}g(\vect{z}_i)^{\intercal}$, $\vect{b}_i \to \vect{b} - \gamma \xi_{(i+1)}$
+      %% \item Requires labeled data
+      %% \item Training is \textbf{hard to do well}
       \end{itemize}
     \end{column}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.3\textwidth}
       \widegraphic{figures/external/logistic-curve.pdf}
     \end{column}
   \end{columns}
@@ -892,7 +895,7 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
           \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
     \end{equation*}
   \item $A_i$ and $\vect{b}_i$ are initially random
-  \item Training relies on backpropagation, 
+  \item Training relies on backpropagation,
   \end{itemize}
 \end{frame}
 
@@ -952,7 +955,7 @@ figures/external/uRejRoc.pdf}
     \item For $b$-tagging \textcolor{red}{autoencoders} are always above \textcolor{darkgreen}{M1}
     \item More efficient $c$-tagger for any choice of $b$ or light rejection
     \end{itemize}
-  %% \item Being ported to Athena as a qualification task
+  \item Still an active area of development in ATLAS
   \end{itemize}
 \end{frame}
 
@@ -960,9 +963,9 @@ figures/external/uRejRoc.pdf}
 \section{Outlook}
 
 \begin{frame}
-  \frametitle{Particle Identification}
+  \frametitle{Overview: What $c$-tagging gives us}
   \begin{itemize}
-  \item We only directly reconstruct 7 ``particles''
+  \item We only directly reconstruct $\cancelto{7}{6}$ ``particles''
   \end{itemize}
   \begin{columns}
     \begin{column}{0.35\textwidth}
