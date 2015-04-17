@@ -14,6 +14,8 @@
 \usepackage{feynmp-auto}
 \usepackage{bbold}
 \usepackage{bm}
+\usepackage{booktabs}
+\usepackage{siunitx}
 
 \title[Charmed SUSY]{Charming SUSY with ATLAS}
 \author[dhg3]{Dan Guest}
@@ -37,6 +39,7 @@
 
 \input{../definitions.tex}
 
+
 \newcommand{\backupbegin}{
    \newcounter{framenumberappendix}
    \setcounter{framenumberappendix}{\value{framenumber}}
@@ -49,8 +52,21 @@
 \newcommand{\link}[2]{\underline{\href{#2}{#1}}}
 \begin{document}
 
+\section*{Intro}
+
 \maketitle
-\tableofcontents
+\begin{frame}
+  \frametitle{Contents}
+  \tableofcontents
+\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+  \frametitle{Contents}
+  \tableofcontents[currentsection]
+  \end{frame}
+}
 
 \section{Motivation}
 
@@ -61,7 +77,7 @@
     \begin{column}{0.5\textwidth}
       \begin{itemize}
       \item Start with standard model
-      \item Problem: Higgs Yukawa couplings give \emph{huge} corrections
+      \item Problem: Higgs loop corrections are \emph{huge}
       \item Add ``superpartners''
         \begin{itemize}
           \item bosons $\leftrightarrow$ fermions
@@ -209,12 +225,44 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \item Vertices inflated to 20 times actual size
   \item Inner pixel layer (gray) is approximately 5 cm from the beam
   \item For a $10\,\gev$ track, transverse resolution is $\sim 30\,\mathrm{\mu m}$
-  \item \textbf{Flavor-tagging relies on displaced vertices, can travel mm--cm}
+  \item \textbf{Flavor-tagging relies on displaced vertices, can travel $\bm{\mu}$m--cm}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{The Calorimeter (Our ``Dark Matter'' Detector)}
+  \frametitle{Heavy Quark Decays}
+  \begin{itemize}
+  \item Quark mixing angles measured to extraordinary precision
+  \item For the sake of flavor-tagging, we make some approximations:
+    \begin{equation*}
+      %% V_{\text{CKM}} =
+      \begin{pmatrix}
+        \ckmrowabs{u} \\ \ckmrowabs{c} \\ \ckmrowabs{t}
+      \end{pmatrix} = \ckmmatrixapprox \approx \ckmparticle
+    \end{equation*}
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \begin{tabular}{l S[table-format=3.0e1] c} % [table-format=1.3e1]
+          Decay & $c\tau$ [$\mu$m] & Hadron \\ \hline
+          $t \to b$ & 150E-12 & --- \\
+          $b \to c$ & 492  & $B$ \\
+          $c \to s$ & 312  & $D^0$ \\
+          $s \to u$ & 27E3  & $K_{\mathrm{s}}$
+        \end{tabular}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \includegraphics[width=\textwidth]{figures/external/sm-t-decay.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Calorimeter (Our Neutrino Detector)}
   \widegraphic{figures/external/atlas-cal.jpg}
 \end{frame}
 
@@ -232,7 +280,7 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 \begin{frame}
   \frametitle{The Standard Model to ATLAS}
   \begin{itemize}
-  \item We only directly reconstruct $\cancelto{7}{6}$ ``particles''
+  \item Many particles are built from 
   \end{itemize}
   \begin{columns}
     \begin{column}{0.35\textwidth}
@@ -263,54 +311,18 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{Heavy Quark Decays}
-  \begin{itemize}
-  \item Quark mixing angles measured to extraordinary precision
-  \item For the sake of flavor-tagging, we make some approximations:
-    \begin{equation*}
-      %% V_{\text{CKM}} =
-      \begin{pmatrix}
-        \ckmrowabs{u} \\ \ckmrowabs{c} \\ \ckmrowabs{t}
-      \end{pmatrix} = \ckmmatrixapprox \approx \ckmparticle
-    \end{equation*}
-  \end{itemize}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      On our timescale:
-      \begin{description}
-      \item[$t \to b$:] instant
-      \item[$b \to c$:] slow
-      \item[$c \to s$:] fast
-      \item[$s \to u$:] too long
-      \end{description}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{center}
-        \includegraphics[width=\textwidth]{figures/external/sm-t-decay.pdf}
-      \end{center}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\section{Charm Tagging}
+\section{Flavor Tagging}
 
 \begin{frame}
-  \frametitle{Charm Tagging}
+  \frametitle{Flavor Tagging Basics}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
+      \item Secondary vertex based
       \item Must separate $b$, $c$, and light
       \item All decay within beam-pipe
-      \item Identified via decay vertex
-      \item $b$-tagging is easier: longer lifetime\\
-        \begin{center}
-          \begin{tabular}{c | c c c}
-            Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
-            $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
-          \end{tabular}
-          $\langle L_{xy} \rangle \approx 6.4\,\mathrm{mm}$, $B$ @ $70\,\gev$
-        \end{center}
+      \item Approximate decay distance  \\
+        $\beta \gamma c \tau \approx 6.4\,\mathrm{mm}$, $B$ @ $70\,\gev$
       \item Requires both tracking resolution and luck
       \item \textcolor{darkgreen}{$c$-decays} are part of \textcolor{red}{$b$-decays}
       \end{itemize}
@@ -322,9 +334,9 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
       \end{center}
     \end{column}
   \end{columns}
-  \begin{tiny}
-    Figure credit: (lower right) Wikipedia ``Standard Model''
-  \end{tiny}
+  %% \begin{tiny}
+  %%   Figure credit: (lower right) Wikipedia ``Standard Model''
+  %% \end{tiny}
 \end{frame}
 
 \subsection{Vertex Finding}
@@ -355,6 +367,8 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
     \end{column}
   \end{columns}
 \end{frame}
+
+
 
 \begin{frame}
   \frametitle{Vertex Finding (continued)}
@@ -421,10 +435,10 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
   %%   \begin{column}{0.5\textwidth}
   \begin{itemize}
   \item Connections activate or suppress nodes in the next layer
-  \item Nodes have sigmoid activation threshold
+  %% \item Nodes have sigmoid activation threshold
   \item Outputs: any number of interesting parameters (e.g. jet flavor)
-  \item Must be ``trained'' using labeled data
-  %% \item Connections, thresholds initially random
+  \item The problem: what are the connection weights\ldots
+  \item \ldots selected at random, ``trained'' using labeled data
   %% \item Trained via backpropagation (steepest descent)
   \end{itemize}
   %%   \end{column}
@@ -465,14 +479,14 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
 %%   \end{itemize}
 %% \end{frame}
 
-\subsection{JetFitterCharm}
+\subsection{Charm Tagging}
 
 \begin{frame}
-  \frametitle{JetFitterCharm Overview}
+  \frametitle{Charm Tagger Overview}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
-      \item Combine all three approaches
+      \item Combine all three vertex finders
       \item IP based: IP3D
         \begin{itemize}
         \item {2D IP} for each track
@@ -1019,23 +1033,6 @@ figures/external/uRejRoc.pdf}
 \end{frame}
 
 
-\section{Outlook}
-
-
-\begin{frame}
-\begin{block}{$\tilde{c}$--$\tilde{t}$ mixing}
-  \begin{itemize}
-  \item \link{arXiv 1302.7232}{http://arxiv.org/abs/1302.7232}
-  \item Helps fine-tuning (a little)
-  \item Predicts decays like $\tilde{t} + \tilde{c} \to (t \bar{c} + c \bar{t}) \neut$
-  \item Not investigated (so far)
-  \end{itemize}
-\end{block}
-\begin{block}{Higgs Couplings}
-\end{block}
-\end{frame}
-
-
 \section{Summary}
 
 \begin{frame}
@@ -1233,6 +1230,21 @@ figures/external/uRejRoc.pdf}
   \resizebox{0.8\textwidth}{!}{\input{tables/triggers.tex}}
   \end{center}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Outlook}
+  \begin{block}{$\tilde{c}$--$\tilde{t}$ mixing}
+    \begin{itemize}
+    \item \link{arXiv 1302.7232}{http://arxiv.org/abs/1302.7232}
+    \item Helps fine-tuning (a little)
+    \item Predicts decays like $\tilde{t} + \tilde{c} \to (t \bar{c} + c \bar{t}) \neut$
+    \item Not investigated (so far)
+    \end{itemize}
+  \end{block}
+  \begin{block}{Higgs Couplings}
+  \end{block}
+\end{frame}
+
 
 
 \backupend
