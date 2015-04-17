@@ -13,6 +13,7 @@
 \tikzstyle{background grid}=[draw, black!50,step=.5cm]
 \usepackage{feynmp-auto}
 \usepackage{bbold}
+\usepackage{bm}
 
 \title[Charmed SUSY]{Charming SUSY with ATLAS}
 \author[dhg3]{Dan Guest}
@@ -201,6 +202,23 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 \end{frame}
 
 \begin{frame}
+  \frametitle{The interaction point}
+  \includegraphics[width=\textwidth]{figures/external/pileup-vertices.png}
+  \begin{itemize}
+  \item In 2012, $\sim 20$ vertices per bunch crossing
+  \item Vertices inflated to 20 times actual size
+  \item Inner pixel layer (gray) is approximately 5 cm from the beam
+  \item For a $10\,\gev$ track, transverse resolution is $\sim 30\,\mathrm{\mu m}$
+  \item \textbf{Flavor-tagging relies on displaced vertices, can travel mm--cm}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Calorimeter (Our ``Dark Matter'' Detector)}
+  \widegraphic{figures/external/atlas-cal.jpg}
+\end{frame}
+
+\begin{frame}
   \frametitle{The ATLAS Experiment}
   \widegraphic{figures/external/atlas-medium.jpeg}
   %% \begin{itemize}
@@ -212,16 +230,38 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 \end{frame}
 
 \begin{frame}
-  \frametitle{Tracking and Vertexing}
-  \includegraphics[width=\textwidth]{figures/external/pileup-vertices.png}
+  \frametitle{The Standard Model to ATLAS}
   \begin{itemize}
-  \item In 2012, $\sim 20$ vertices per bunch crossing
-  \item Vertices inflated to 20 times actual size
-  \item Inner pixel layer (gray) is approximately 5 cm from the beam
-  \item For a $10\,\gev$ track, transverse resolution is $\sim 30\,\mathrm{\mu m}$
-  \item \textbf{Flavor-tagging relies on displaced vertices, can travel mm--cm}
+  \item We only directly reconstruct $\cancelto{7}{6}$ ``particles''
   \end{itemize}
+  \begin{columns}
+    \begin{column}{0.35\textwidth}
+      \begin{itemize}
+      \item \textcolor{darkgreen}{\textbf{Some are easy}}
+        \begin{itemize}
+        \item $\mu$ spectrometer
+        \item Calorimeter
+        \end{itemize}
+      \item \textcolor{red}{Some are hard}
+        \begin{itemize}
+        \item Vertexing
+        %% \item Easily confused
+        \end{itemize}
+      \item \colorbox{aqua}{Many are indirect}
+        \begin{itemize}
+        \item $\met$
+        \item Symmetries
+        \end{itemize}
+      %% \item Light jets ($u$, $d$, $s$) aren't distinguished
+      \item \textcolor{orange}{\textbf{charm}} used to be a ``light'' quark, charm-tagging makes it heavy
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.65\textwidth}
+      \widegraphic{figures/external/sm-detectable.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
+
 
 \begin{frame}
   \frametitle{Heavy Quark Decays}
@@ -358,9 +398,9 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-      \item Name is biologically inspired
-      \item Have \textbf{absolutely nothing} to do with biology
-      \item Standard ``black box'' supervised classifier
+      %% \item Name is biologically inspired
+      %% \item Have \textbf{absolutely nothing} to do with biology
+      \item Standard ``black box'' \textbf{supervised} classifier
       \item Inputs: any observable
         \begin{itemize}
         \item Jet characteristics\ldots
@@ -383,6 +423,7 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
   \item Connections activate or suppress nodes in the next layer
   \item Nodes have sigmoid activation threshold
   \item Outputs: any number of interesting parameters (e.g. jet flavor)
+  \item Must be ``trained'' using labeled data
   %% \item Connections, thresholds initially random
   %% \item Trained via backpropagation (steepest descent)
   \end{itemize}
@@ -393,40 +434,6 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
   %% \end{columns}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Neural Nets}
-  \begin{itemize}
-  \item The idea: a neural net can approximate any continuous function
-    \begin{small}
-      \begin{equation*}
-          \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
-      \end{equation*}
-    \item $f$ is the \emph{activation function}, some sigmoid
-    \item Can also be written recursively
-      \begin{equation*}
-        \vect{z}_{i+1} = g(A_{i} \vect{z}_{i} + \vect{b}_{i}), \qquad g = \mathbb{1} \quad \text{if}\quad i = N \quad \text{otherwise} \quad f
-      \end{equation*}
-      where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
-    \end{small}
-  \end{itemize}
-  \begin{columns}
-    \begin{column}{0.7\textwidth}
-      \begin{itemize}
-      %% \item $A_i$ and $\vect{b}_i$ are arbitrary
-      \item Start with random $A_i$, $\vect{b}_i$
-      \item For each target $\vect{t}$ and input $\vect{x}$
-      \item Calculate error for $\vect{y}$, $\vect{\xi}_{N+1} = (\vect{t} - \vect{y})$
-      \item Backpropagate errors $\xi_i = (A_i^{\intercal} \xi_{(i+1)}) \circ f'(\vect{z}_i)$
-      \item Update $A_i \to A - \gamma \xi_{(i+1)}g(\vect{z}_i)^{\intercal}$, $\vect{b}_i \to \vect{b} - \gamma \xi_{(i+1)}$
-      %% \item Requires labeled data
-      %% \item Training is \textbf{hard to do well}
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.3\textwidth}
-      \widegraphic{figures/external/logistic-curve.pdf}
-    \end{column}
-  \end{columns}
-\end{frame}
 
 %% \begin{frame}
 %%   \frametitle{Charm Tagging}
@@ -890,13 +897,65 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
 \begin{frame}
   \frametitle{Neural Nets Revisited}
   \begin{itemize}
-  \item Reminder: a neural net can approximate any continuous function
-    \begin{equation*}
+  \item The idea: a neural net can approximate any continuous function
+    \begin{small}
+      \begin{equation*}
           \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
-    \end{equation*}
-  \item $A_i$ and $\vect{b}_i$ are initially random
-  \item Training relies on backpropagation,
+      \end{equation*}
+    \item $f$ is the \emph{activation function}, some sigmoid
+    \item Can also be written recursively
+      \begin{equation*}
+        \vect{z}_{i+1} = g(A_{i} \vect{z}_{i} + \vect{b}_{i}), \qquad g = \mathbb{1} \quad \text{if}\quad i = N \quad \text{otherwise} \quad f
+      \end{equation*}
+      where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
+    \end{small}
   \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Again, $A_i$ and $\vect{b}_i$ are initialized randomly
+      \item Neural net is ``trained'' with backpropagation
+      \item This is the hard part
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/external/logistic-curve.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Backpropagation}
+  \begin{itemize}
+    %% \item $A_i$ and $\vect{b}_i$ are arbitrary
+  \item Start with random $A_i$, $\vect{b}_i$
+  \item Goal is for $\vect{t} \approx \vect{y} = \mathcal{N}(\vect{x})$,
+    where $\vect{t}$ are \emph{target} values
+  \item For each target $\vect{t}$ and input $\vect{x}$, calculate error for $\vect{y}$,
+    \[\vect{\xi}_{N+1} \equiv (\vect{y} - \vect{t})\]
+  \item \textbf{Backpropagate errors} \[\vect{\xi}_i \equiv (A_i^{\intercal} \vect{\xi}_{(i+1)}) \circ f'(\vect{z}_i)\]
+  \item Update \begin{align*} A_i &\to A_i - \gamma \vect{\xi}_{(i+1)}g(\vect{z}_i)^{\intercal} & \vect{b}_i &\to \vect{b}_i - \gamma \vect{\xi}_{(i+1)}
+  \end{align*}
+    where $\gamma$ is the \emph{learning rate}
+    %% \item Requires labeled data
+    %% \item Training is \textbf{hard to do well}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Problem (and solution)}
+      \begin{itemize}
+      \item For a deep (many layer) network, backpropagation breaks down \[\vect{\xi}_i \equiv (A_i^{\intercal} \vect{\xi}_{(i+1)}) \circ f'(\vect{z}_i)\]
+      \item Instead, use \emph{autoencoders}: train one layer at a time
+        \begin{equation*}
+          \tilde{\vect{x}} = D \underbrace{f(A_1 \vect{x} + \vect{b}_1)}_{\text{encoder}} + \vect{c}
+        \end{equation*}
+      \item The \emph{encoder} compresses $\vect{x}$ into a lower dimensional space, $D$ and $\vect{c}$ decode back to the original input
+      \item Throw away $D$, $\vect{c}$, repeat with $\vect{x} \to \vect{z_2}$, $i \to i+1$
+      \item Trains much more rapidly, more reliably, also \textbf{unsupervised}
+      \item As a last step ``fine tune'' using full supervised backpropagation
+      \end{itemize}
 \end{frame}
 
 %%     \item And can be written
@@ -933,7 +992,7 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
 %% \end{frame}
 
 \begin{frame}
-  \frametitle{Deep Learning: Performance}
+  \frametitle{Deep NN: Performance}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{center}
@@ -962,34 +1021,6 @@ figures/external/uRejRoc.pdf}
 
 \section{Outlook}
 
-\begin{frame}
-  \frametitle{Overview: What $c$-tagging gives us}
-  \begin{itemize}
-  \item We only directly reconstruct $\cancelto{7}{6}$ ``particles''
-  \end{itemize}
-  \begin{columns}
-    \begin{column}{0.35\textwidth}
-      \begin{itemize}
-      \item \textcolor{darkgreen}{\textbf{Some are easy}}
-        \begin{itemize}
-        \item $\mu$ spectrometer
-        \item Calorimeter
-        \end{itemize}
-      \item \textcolor{red}{Some are hard}
-        \begin{itemize}
-        \item Vertexing
-        \item Easily confused
-        \end{itemize}
-      \item \colorbox{aqua}{Many are indirect}
-      \item Light jets ($u$, $d$, $s$) aren't distinguished
-      \item \textcolor{orange}{\textbf{charm}} used to be ``light''
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.65\textwidth}
-      \widegraphic{figures/external/sm-detectable.pdf}
-    \end{column}
-  \end{columns}
-\end{frame}
 
 \begin{frame}
 \begin{block}{$\tilde{c}$--$\tilde{t}$ mixing}
