@@ -411,14 +411,12 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
+      \item No single good discriminant
       %% \item Name is biologically inspired
       %% \item Have \textbf{absolutely nothing} to do with biology
-      \item Standard ``black box'' \textbf{supervised} classifier
-      \item Inputs: any observable
-        \begin{itemize}
-        \item Jet characteristics\ldots
-        \item \ldots or anything else
-        \end{itemize}
+      \item Good modeling in simulation
+      \item Inputs: jet characteristics
+      \item Outputs: flavor probabilities
       %% \item Layers composed of \emph{nodes}
       %% \item Each node
       %% \item Output layer: anything you want
@@ -426,18 +424,20 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-        \widegraphic{%
-figures/tagging-graphs/simple-nn_gen.pdf} \\
+      \widegraphic{figures/tagging-graphs/simple-nn_gen.pdf} \\
     \end{column}
   \end{columns}
   %% \begin{columns}
   %%   \begin{column}{0.5\textwidth}
   \begin{itemize}
-  \item Connections activate or suppress nodes in the next layer
-  %% \item Nodes have sigmoid activation threshold
-  \item Outputs: any number of interesting parameters (e.g. jet flavor)
-  \item The problem: what are the connection weights\ldots
-  \item \ldots selected at random, ``trained'' using labeled data
+    \item Simple mathematical form: given \fcolorbox{black}{green}{inputs $\vect{x}$} and \fcolorbox{black}{orange}{outputs $\vect{y}$}
+      \begin{equation*}
+          \vect{y} = \mathcal{N}(\vect{x}) = A_{N-1} f( \cdots  A_2 \underbrace{f(A_1 \vect{x} + \vect{b}_1)}_{\vect{z_2}} + \vect{b}_2 \cdots  ) + \vect{b}_{N-1}
+      \end{equation*}
+
+  \item $f$ is the element-wise \emph{activation function}: $f(x) = \frac{1}{1 + e^{-x}}$
+  \item The problem: what are $A_i$ and $\vect{b}_i$?
+  \item Selected at random, ``trained'' using \textbf{simulated} data
   %% \item Trained via backpropagation (steepest descent)
   \end{itemize}
   %%   \end{column}
@@ -447,36 +447,31 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
   %% \end{columns}
 \end{frame}
 
-
-%% \begin{frame}
-%%   \frametitle{Charm Tagging}
-%%   \begin{itemize}
-%%   \item Two main approaches: ``soft lepton'' and ``lifetime''
-%%   \item Soft lepton: branching ratio to muons $<$ 7\% (18\%) for $D^0$ ($D^\pm$)
-%%     \begin{itemize}
-%%     \item Unacceptably low efficiency for most analyses
-%%     \end{itemize}
-%%   \item Lifetime: limited mainly by detector resolution, but physically more difficult than $b$-tagging
-%%     \begin{itemize}
-%%     \item Shorter decay lengths for $D$ mesons
-%%     \item Fewer tracks than $b$-jets, hard to resolve SV
-%%     \item $c$-jets are ``between'' light and $b$ in many distributions
-%%     \item \textcolor{red}{should replace this with Will's figure}
-%%     \item \textcolor{red}{focus on how difficult it is to distinguish}
-%%     \end{itemize}
-%%     \begin{center}
-%%       \begin{tabular}{c | c c c}
-%%         Meson  &  $B$ & $D^0$ & $D^{\pm}$ \\ \hline
-%%         $c\tau$ [$\mu$m] & 492 & 312 & 123 \\
-%%       \end{tabular}
-%%     \end{center}
-%%   \item May get better with the IBL
-%%   \item \link{JetFitterCharm}{%
-%%     https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/} used in two public results:
-%%     \link{$\tilde{c} \to c\chi_1^0$}{http://arxiv.org/abs/1501.01325} and
-%%     \link{$\tilde{t} \to c\chi_1^0$}{http://arxiv.org/abs/1407.0608}.
-%%   \end{itemize}
-%% \end{frame}
+\begin{frame}
+  \frametitle{Backpropagation}
+  \begin{itemize}
+  \item Draw inputs $\vect{x}$ and target values $\vect{t}$ from a training sample
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Calculate outputs $\vect{y}$
+      \item Calculate error \textcolor{red}{$\vect{\xi}_{N} \equiv (\vect{y} - \vect{t})$}
+      \item Backpropagate
+        \[\textcolor{red}{\vect{\xi}_i} \equiv (A_i^{\intercal} \textcolor{red}{\vect{\xi}_{(i+1)}}) \circ f'(\vect{z}_i)\]
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \widegraphic{figures/tagging-graphs/backprop_gen.pdf} \\
+    \end{column}
+  \end{columns}
+  \begin{itemize}
+  \item Update \begin{align*} A_i &\to A_i - \gamma \vect{\xi}_{(i+1)}g(\vect{z}_i)^{\intercal} & \vect{b}_i &\to \vect{b}_i - \gamma \vect{\xi}_{(i+1)}
+  \end{align*}
+    where $\gamma$ is the \emph{learning rate}, $g \equiv f$ when $i \neq N-1$
+  \item \textbf{This has problems for large} $\bm{N}$ (come back later)
+  \end{itemize}
+\end{frame}
 
 \subsection{Charm Tagging}
 
@@ -757,15 +752,15 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
   \frametitle{Results}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-\widegraphic{int/figures/stackplots/dans/signal_mct150/mass_ct_log_afterFit.pdf}
+\widegraphic{int/figures/stackplots/dans/signal_mct150/mass_ct_afterFit.pdf}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \widegraphic{int/figures/stackplots/dans/signal_mct150/mass_cc_log_afterFit.pdf}
+      \widegraphic{int/figures/stackplots/dans/signal_mct150/mass_cc_afterFit.pdf}
     \end{column}
   \end{columns}
   \begin{itemize}
   \item After unblinding, no excess found
-  \item Three signal regions: $\mct > 150,\ 200,\ 250\,\gev$
+  \item \textbf{Three signal regions:} $\mct > 150,\ 200,\ 250\,\gev$
   \item Roughly $1.5\sigma$ deficit
   \item Move on to setting limits
   \end{itemize}
@@ -884,7 +879,7 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
 
 
 \begin{frame}
-  \frametitle{Reminder: The flavor-tagging stack}
+  \frametitle{The ATLAS Flavor-Tagging Stack}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{center}
@@ -913,99 +908,63 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
 \begin{frame}
   \frametitle{Neural Nets Revisited}
   \begin{itemize}
-  \item The idea: a neural net can approximate any continuous function
-    \begin{small}
-      \begin{equation*}
-          \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
-      \end{equation*}
-    \item $f$ is the \emph{activation function}, some sigmoid
-    \item Can also be written recursively
-      \begin{equation*}
-        \vect{z}_{i+1} = g(A_{i} \vect{z}_{i} + \vect{b}_{i}), \qquad g = \mathbb{1} \quad \text{if}\quad i = N \quad \text{otherwise} \quad f
-      \end{equation*}
-      where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
-    \end{small}
+  \item The problem: A \emph{deep} (many layer) neural net converges slowly
   \end{itemize}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-      \item Again, $A_i$ and $\vect{b}_i$ are initialized randomly
-      \item Neural net is ``trained'' with backpropagation
-      \item This is the hard part
+    \item 27 inputs for flavor-tagging
+    \item Takes many hours to train
+    \item \textbf{Many local minima}
+    \item Performance not reproducible between training
+    \item This is an applied math problem, but\ldots
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \widegraphic{figures/external/logistic-curve.pdf}
+      \widegraphic{figures/tagging-graphs/complicated-train_gen.pdf}
     \end{column}
   \end{columns}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Backpropagation}
   \begin{itemize}
-    %% \item $A_i$ and $\vect{b}_i$ are arbitrary
-  \item Start with random $A_i$, $\vect{b}_i$
-  \item Goal is for $\vect{t} \approx \vect{y} = \mathcal{N}(\vect{x})$,
-    where $\vect{t}$ are \emph{target} values
-  \item For each target $\vect{t}$ and input $\vect{x}$, calculate error for $\vect{y}$,
-    \[\vect{\xi}_{N+1} \equiv (\vect{y} - \vect{t})\]
-  \item \textbf{Backpropagate errors} \[\vect{\xi}_i \equiv (A_i^{\intercal} \vect{\xi}_{(i+1)}) \circ f'(\vect{z}_i)\]
-  \item Update \begin{align*} A_i &\to A_i - \gamma \vect{\xi}_{(i+1)}g(\vect{z}_i)^{\intercal} & \vect{b}_i &\to \vect{b}_i - \gamma \vect{\xi}_{(i+1)}
-  \end{align*}
-    where $\gamma$ is the \emph{learning rate}
-    %% \item Requires labeled data
-    %% \item Training is \textbf{hard to do well}
+  \item \textbf{The solution continues to evolve}
+  \item We needed to talk to experts
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{The Problem (and solution)}
+% \[\vect{\xi}_i \equiv (A_i^{\intercal} \vect{\xi}_{(i+1)}) \circ f'(\vect{z}_i)\]
+
+\begin{frame}[t]
+  \frametitle{The Solution: Autoencoders}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
       \begin{itemize}
-      \item For a deep (many layer) network, backpropagation breaks down \[\vect{\xi}_i \equiv (A_i^{\intercal} \vect{\xi}_{(i+1)}) \circ f'(\vect{z}_i)\]
-      \item Instead, use \emph{autoencoders}: train one layer at a time
-        \begin{equation*}
-          \tilde{\vect{x}} = D \underbrace{f(A_1 \vect{x} + \vect{b}_1)}_{\text{encoder}} + \vect{c}
-        \end{equation*}
-      \item The \emph{encoder} compresses $\vect{x}$ into a lower dimensional space, $D$ and $\vect{c}$ decode back to the original input
-      \item Throw away $D$, $\vect{c}$, repeat with $\vect{x} \to \vect{z_2}$, $i \to i+1$
-      \item Trains much more rapidly, more reliably, also \textbf{unsupervised}
-      \item As a last step ``fine tune'' using full supervised backpropagation
+      \item Train one layer at a time
+      \item Targets $\vect{t} \equiv \vect{z}_{N-2}$
+      \item Each layer $\to$ \emph{feature space}
+      \item Last layer discarded with each step
+      \item Faster, more robust
+      \item Final step: fine-tuning
       \end{itemize}
+      \hspace{4in}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \only<1>{\widegraphic{figures/tagging-graphs/autoencoder1_gen.pdf}}
+      \only<2>{\widegraphic{figures/tagging-graphs/autoencoder2_gen.pdf}}
+      \only<3>{\widegraphic{figures/tagging-graphs/autoencoder3_gen.pdf}}
+      \only<4>{\widegraphic{figures/tagging-graphs/autoencoder3-fine_gen.pdf}}
+    \end{column}
+  \end{columns}
+  %% \begin{itemize}
+  %% \item Trains much more rapidly, more reliably, also \textbf{unsupervised}
+  %% \item As a last step ``fine tune'' using full supervised backpropagation
+  %% \end{itemize}
 \end{frame}
 
-%%     \item And can be written
-%%       \begin{equation*}
-%%         \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
-%%       \end{equation*}
-%%       where $\vect{z}_1 = \vect{x}$, $\vect{z}_{N + 1} = \vect{y}$, elements of $\vect{z}$ are nodes
-%%     \item $f$ is the \emph{activation function}, some sigmoid
-%%     \end{small}
-%%   \end{itemize}
-%%   \begin{columns}
-%%     \begin{column}{0.5\textwidth}
-%%       \begin{itemize}
-%%       \item Start with random $A_i$, $\vect{b}_i$
-%%       \item ``train'' with backpropagation
-%%       \item Requires labeled data
-%%       \item Training is \textbf{hard to do well}
-%%       \end{itemize}
-%%     \end{column}
-%%     \begin{column}{0.5\textwidth}
-%%       \widegraphic{figures/external/logistic-curve.pdf}
-%%     \end{column}
-%%   \end{columns}
-%% \end{frame}
+  %%   \begin{equation*}
+  %%     \tilde{\vect{x}} = D \underbrace{f(A_1 \vect{x} + \vect{b}_1)}_{\text{encoder}} + \vect{c}
+  %%   \end{equation*}
+  %% \item The \emph{encoder} compresses $\vect{x}$ into a lower dimensional space, $D$ and $\vect{c}$ decode back to the original input
+  %% \item Throw away $D$, $\vect{c}$, repeat with $\vect{x} \to \vect{z_2}$, $i 
 
-
-%% \begin{frame}
-%%   \frametitle{Deep Learning for Flavor Tagging}
-%%   \begin{itemize}
-%%   \item find some autoencoder picture(s) on the internets.
-%%   \item maybe mention how awesome training on data could be
-%%   \item talk about denoising?
-%%   \end{itemize}
-%% \end{frame}
 
 \begin{frame}
   \frametitle{Deep NN: Performance}
@@ -1044,9 +1003,9 @@ figures/external/uRejRoc.pdf}
     \begin{itemize}
     \item Applied to several run 1 SUSY searches
     \end{itemize}
-  \item The next generation will use more sophisticated neural nets
+  \item Charm-tagging continues to evolve
     \begin{itemize}
-    \item Currently being developed with autoencoders
+    \item Machine learning, simulation evolve with it
     \item Could improve $b$ tagging as well
     \end{itemize}
   \item Still no SUSY, but new ways to look in run 2
@@ -1056,10 +1015,10 @@ figures/external/uRejRoc.pdf}
     \end{itemize}
   \item Run 2 will be exciting:
     \begin{itemize}
-      \item Higher energy,
-      \item Insertable B-Layer,
+      \item Higher energy, higher luminosity
+      \item New inner pixel layer (Insertable B-Layer),
       %% \item Better neural nets
-      \item Improved simulation
+      %% \item Improved simulation
     \end{itemize}
   \end{itemize}
 \end{frame}
