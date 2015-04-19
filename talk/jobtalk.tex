@@ -750,28 +750,6 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
   \end{columns}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Global Fit and Systematics}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-    \resizebox{\textwidth}{!}{\input{tables/systable-color.tex}}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-      \item Define three signal regions: $\mct > 150,\ 200,\ 250\,\gev$
-      \item Major backgrounds estimated from global fit
-      \item Main causes of systematic errors:
-        \begin{enumerate}
-        \item \fcolorbox{red}{red}{Tagging}
-        \item \fcolorbox{green}{green}{Limited CR statistics}
-        \item \fcolorbox{aqua}{aqua}{Jet Energy Scale}
-        \end{enumerate}
-      \item Common tagging requirement mitigates systematic \ldots
-      \item \ldots but limits CR stats
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
 
 \subsection{Results}
 
@@ -787,10 +765,34 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
   \end{columns}
   \begin{itemize}
   \item After unblinding, no excess found
+  \item Three signal regions: $\mct > 150,\ 200,\ 250\,\gev$
   \item Roughly $1.5\sigma$ deficit
   \item Move on to setting limits
   \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Systematics}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+    \resizebox{\textwidth}{!}{\input{tables/systable-color.tex}}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Major backgrounds estimated from global fit
+      \item Main causes of systematic errors:
+        \begin{enumerate}
+        \item \fcolorbox{red}{red}{Tagging}
+        \item \fcolorbox{green}{green}{Limited CR statistics}
+        \item \fcolorbox{aqua}{aqua}{Jet Energy Scale}
+        \end{enumerate}
+      \item Common tagging requirement mitigates systematic \ldots
+      \item \ldots but limits CR stats
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 
 \begin{frame}
   \frametitle{Exclusion Plane}
