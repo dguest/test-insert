@@ -117,13 +117,6 @@ get-file $PAN/feyn/scsc-ccN1N1.pdf feyn-sctoc.pdf
 get-file $PAN/feyn/stst-ccN1N1-bWC1loop.pdf feyn-sttoc.pdf
 get-file $PAN/feyn/stst-ccN1N1-bWC1loop-ISR.pdf feyn-sttoc-isr.pdf
 # tagging
-get-file $PAN/tagging/diagrams/b-jet.pdf
-get-file $PAN/tagging/diagrams/b-jet-ip.pdf
-get-file $PAN/tagging/diagrams/b-jet-sv.pdf
-get-file $PAN/tagging/diagrams/b-jet-jf.pdf
-get-file $PAN/tagging/diagrams/sm-b-decay.pdf
-get-file $PAN/tagging/diagrams/sm-t-decay.svg
-get-file $PAN/tagging/diagrams/sm-detectable.svg
 get-file $PAN/tagging/plots/ctag-2d-gaia-vs-jfc.pdf
 get-file $PAN/tagging/plots/ctag-2d-jfc-vs-jfit.pdf
 get-file $PAN/tagging/plots/ctag-2d-jfc-vs-mv.pdf
@@ -140,3 +133,14 @@ get-file $PAN/misc-fig/blocked-stop-lsp.pdf
 # get-file $PAN/misc-fig/atlas.tif
 get-file $PAN/misc-fig/atlas-medium.jpeg
 get-file $PAN/misc-fig/pileup-vertices.png
+
+# on github
+GHGRAPH=https://raw.githubusercontent.com/dguest/tagging-diagrams/master/
+# GHGRAPH=https://github.com/dguest/tagging-diagrams/blob/master
+get-file $GHGRAPH/sm-detectable.svg
+get-file $GHGRAPH/b-jet.svg
+get-file $GHGRAPH/b-jet-ip.svg
+get-file $GHGRAPH/b-jet-sv.svg
+get-file $GHGRAPH/b-jet-jf.svg
+get-file $GHGRAPH/sm-b-decay.svg
+get-file $GHGRAPH/sm-t-decay.svg

@@ -31,14 +31,11 @@
 \setbeamercolor{local structure}{fg=darkred}
 \usefonttheme{serif} % default family is serif
 
-\definecolor{darkgreen}{rgb}{0,0.5,0}
-\definecolor{aqua}{rgb}{0,1,1}
-
 \newcommand{\feyninc}[2]{\scalebox{#1}{\input{../misc/feyngen/#2}}}
 \newcommand{\widegraphic}[1]{\includegraphics[width=\textwidth]{#1}}
 
 \input{../definitions.tex}
-
+\input{../colors.tex}
 
 \newcommand{\backupbegin}{
    \newcounter{framenumberappendix}
@@ -279,35 +276,37 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 
 \begin{frame}
   \frametitle{The Standard Model to ATLAS}
-  \begin{itemize}
-  \item Many particles are constructed from a few basic pieces
-  \end{itemize}
+  %% \begin{itemize}
+  %% \item Many particles are constructed from a few basic pieces
+  %% \end{itemize}
   \begin{columns}
     \begin{column}{0.35\textwidth}
       \begin{itemize}
-      \item \textcolor{darkgreen}{\textbf{Some are easy}}
-        \begin{itemize}
-        \item $\mu$ spectrometer
-        \item Calorimeter
-        \end{itemize}
-      \item \textcolor{red}{Some are hard}
-        \begin{itemize}
-        \item Vertexing
-        %% \item Easily confused
-        \end{itemize}
-      \item \colorbox{aqua}{Many are indirect}
-        \begin{itemize}
-        \item $\met$
-        \item Symmetries
-        \end{itemize}
+      \item \textcolor{darkgreen}{\textbf{Some are stable}}
+        %% \begin{itemize}
+        %% \item $\mu$ spectrometer
+        %% \item Calorimeter
+        %% \end{itemize}
+      \item \textcolor{red}{\textbf{Some form a secondary vx}}
+        %% \begin{itemize}
+        %% \item Can form secondary 
+        %% %% \item Easily confused
+        %% \end{itemize}
+      \item \colorbox{aqua}{Neutrinos $\to \met$}
+        %% \begin{itemize}
+        %% \item $\met$
+        %% \item Symmetries
+        %% \end{itemize}
       %% \item Light jets ($u$, $d$, $s$) aren't distinguished
-      \item \textcolor{orange}{\textbf{charm}} used to be a ``light'' quark, charm-tagging makes it heavy
       \end{itemize}
     \end{column}
     \begin{column}{0.65\textwidth}
       \widegraphic{figures/external/sm-detectable.pdf}
     \end{column}
   \end{columns}
+  \begin{itemize}
+      \item \fcolorbox{black}{lightgray}{The rest decay instantly, reconstructed from decay products}
+  \end{itemize}
 \end{frame}
 
 
@@ -521,29 +520,29 @@ figures/tagging-graphs/simple-nn_gen.pdf} \\
 %%   \end{itemize}
 %% \end{frame}
 
-\begin{frame}
-  \frametitle{The ATLAS Flavor-tagging framework}
-  \begin{columns}
-    \begin{column}{0.8\textwidth}
-    \widegraphic{%
-figures/tagging-graphs/tagging-full-nogaia.pdf} \\
-%%     \includegraphics[width=0.8\textwidth]{%
-%% figures/tagging-graphs/tagging-leg.pdf}
-    \end{column}
-    \begin{column}{0.2\textwidth}
-      \widegraphic{figures/tagging-graphs/tagging-leg-vert.pdf}
-    \end{column}
-  \end{columns}
-  \begin{itemize}
-  \item MV1 was the standard $b$-tagger for run 1, note the number of upstream algorithms
-  \item For a deep NN, training is \textbf{really} hard
-  \end{itemize}
-\end{frame}
+%% \begin{frame}
+%%   \frametitle{The ATLAS Flavor-tagging framework}
+%%   \begin{columns}
+%%     \begin{column}{0.8\textwidth}
+%%     \widegraphic{%
+%% figures/tagging-graphs/tagging-full-nogaia.pdf} \\
+%% %%     \includegraphics[width=0.8\textwidth]{%
+%% %% figures/tagging-graphs/tagging-leg.pdf}
+%%     \end{column}
+%%     \begin{column}{0.2\textwidth}
+%%       \widegraphic{figures/tagging-graphs/tagging-leg-vert.pdf}
+%%     \end{column}
+%%   \end{columns}
+%%   \begin{itemize}
+%%   \item MV1 was the standard $b$-tagger for run 1, note the number of upstream algorithms
+%%   \item For a deep NN, training is \textbf{really} hard
+%%   \end{itemize}
+%% \end{frame}
 
 %% NOTE: should make sure I mention that there's no clean cut to isolate
 %% c-jets or b-jets
 \begin{frame}
-  \frametitle{Tagging Discriminants}
+  \frametitle{Operating Point}
   \begin{itemize}
   \item Define two discriminants based on NN outputs:
   \begin{align*}
