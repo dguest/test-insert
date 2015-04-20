@@ -72,16 +72,19 @@
   \frametitle{What is SUSY?}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \begin{itemize}
+      \begin{enumerate}
       \item Start with standard model
-      \item Problem: Higgs loop corrections are \emph{huge}
+        \begin{itemize}
+        \item \emph{huge} $\Delta m_h$ corrections
+        \end{itemize}
       \item Add ``superpartners''
         \begin{itemize}
           \item bosons $\leftrightarrow$ fermions
         \end{itemize}
-      \item Add a second $H$
-      \item (more than) double the particles!
-      \end{itemize}
+      %% \item Add a second $H$
+      %% \item (more than) double the particles!
+      \item Problem solved\ldots almost\ldots
+      \end{enumerate}
     \end{column}
     \begin{column}{0.5\textwidth}
       \widegraphic{figures/external/standard-model.pdf}
@@ -93,61 +96,70 @@
     \item Required to cancel Higgs corrections
     \end{itemize}
   \item Clearly not physical $\to$ add \emph{soft} terms to raise sparticle mass
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{So\ldots 19 new particles? Isn't that ugly?}
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-      Yes, but\ldots
-      \begin{itemize}
-      \item Gives a dark matter candidate ($\neut$)
-      \item Useful for GUT unification
-      \item In short, it fixes more than one problem
-      %% \item Minimal SUSY models: visible at LHC
-      %% \item ``solves'' hierarchy  problem \\
-      %%   \ldots but only if superpartners are light
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.4\textwidth}
-      \widegraphic{%
-figures/external/bulletcluster_comp_f2048.jpg} \\
-    \end{column}
-  \end{columns}
-  \begin{center}
-    \includegraphics[width=0.8\textwidth]{%
-      figures/external/unification-ugly.jpg}
-  \end{center}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Motivation: LHC SUSY}
-  \begin{itemize}
-    \item SUSY ``solves'' the hierarchy problem
-    \item Hierarchy only solved with light particles
       \begin{small}
       \begin{equation*}
         \Delta m_{h}^2 = m_{\text{soft}}^2 \left[ \frac{\Gamma}{16 \pi^2} \ln(\cutoff / m_{\text{soft}}) + \ldots \right]
       \end{equation*}
       \end{small}
-    \item The largest Yukawa coupling ($\Gamma$) is to $t$
-      \begin{itemize}
-      \item needs to be canceled by a relatively light $\tilde{t}$
-      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{So\ldots 19 new particles? Isn't that ugly?}
+%%   \begin{columns}
+%%     \begin{column}{0.6\textwidth}
+%%       Yes, but\ldots
+%%       \begin{itemize}
+%%       \item Gives a dark matter candidate ($\neut$)
+%%       \item Useful for GUT unification
+%%       \item In short, it fixes more than one problem
+%%       %% \item Minimal SUSY models: visible at LHC
+%%       %% \item ``solves'' hierarchy  problem \\
+%%       %%   \ldots but only if superpartners are light
+%%       \end{itemize}
+%%     \end{column}
+%%     \begin{column}{0.4\textwidth}
+%%       \widegraphic{%
+%% figures/external/bulletcluster_comp_f2048.jpg} \\
+%%     \end{column}
+%%   \end{columns}
+%%   \begin{center}
+%%     \includegraphics[width=0.8\textwidth]{%
+%%       figures/external/unification-ugly.jpg}
+%%   \end{center}
+%% \end{frame}
+
+\begin{frame}
+  \frametitle{Motivation: LHC SUSY}
+  \begin{itemize}
+    %% \item SUSY ``solves'' the hierarchy problem
+    %% \item Hierarchy only solved with light particles
+    %%   \begin{small}
+    %%   \begin{equation*}
+    %%     \Delta m_{h}^2 = m_{\text{soft}}^2 \left[ \frac{\Gamma}{16 \pi^2} \ln(\cutoff / m_{\text{soft}}) + \ldots \right]
+    %%   \end{equation*}
+    %%   \end{small}
+    %% \item The largest Yukawa coupling ($\Gamma$) is to $t$
+    %%   \begin{itemize}
+    %%   \item needs to be canceled by a relatively light $\tilde{t}$
+    %%   \end{itemize}
     \item If minimal SUSY exists, we could see it at the LHC
       \begin{itemize}
       \item The ``easy'' searches have come back negative
-      \item All the more reason to look at data in new ways
+      %% \item All the more reason to look at data in new ways
       \end{itemize}
     \item Focus on ``simplified'' searches: only one or two low-mass sparticles (e.g. $\tilde{t}$ + $\neut$)
     \item In many cases, assume $R$ parity (conservation of twiddles), and that the $\neut$ is the lightest SUSY particle (LSP)
   \end{itemize}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{%
+      figures/external/bulletcluster_comp_f2048.jpg}
+  \end{center}
 \end{frame}
 
 \subsection{Charmed Searches}
 \begin{frame}
-  \frametitle{$\tilde{t}$ Searches: $\sttoc$}
+  \frametitle{Charm-tagged Searches: $\sttoc$}
   \begin{columns}
     \begin{column}{0.6\textwidth}
   \begin{center}
@@ -172,7 +184,7 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
 
 
 \begin{frame}
-  \frametitle{Supersymmetric charm ($\sctoc$)}
+  \frametitle{Scalar charm ($\sctoc$)}
   \begin{center}
   \includegraphics[width=0.3\textwidth]{figures/external/feyn-sctoc.pdf}
   \begin{itemize}
@@ -338,10 +350,10 @@ figures/external/bulletcluster_comp_f2048.jpg} \\
   %% \end{tiny}
 \end{frame}
 
-\subsection{Vertex Finding}
+\subsection{Discriminants}
 
 \begin{frame}
-  \frametitle{Vertex Finding}
+  \frametitle{Turning Jets into Discriminants}
   \begin{columns}[t]
     \begin{column}{0.5\textwidth}
       \begin{center}
@@ -655,7 +667,7 @@ int/figures/stackplots/dans/preselection/jetmet_dphi.pdf}
     \begin{column}{0.5\textwidth}
     \feynincstd{vjets} \\[0.2cm]
       \begin{itemize}
-      \item After anti-QCD cuts, backgrounds are $W$/$Z$ + jets
+      %% \item After anti-QCD cuts, backgrounds are $W$/$Z$ + jets
       \item \textcolor{red}{Real $\met$} from $Z \to \nu \nu$ and $W \to \tau \nu$
       \end{itemize}
     \end{column}
@@ -680,8 +692,8 @@ int/figures/stackplots/dans/preselection/j0_flavor_truth_label.pdf}
         \feynincstd{ttbar} \\[0.2cm]
       \end{center}
     \begin{itemize}
-    \item After $c$-tagging cuts, large $t\bar{t}$ background remains
-    \item Remove with two kinematic cuts:
+    \item Large $t\bar{t}$ background remains
+    \item Kinematic cuts on leading two jets:
       \begin{itemize}
       \item[$\mcc$]: also removes QCD
       \item[$\mct$]: if $b$-jets are leading, $\mct \lesssim 135\,\gev$
@@ -913,11 +925,11 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-    \item 27 inputs for flavor-tagging
-    \item Takes many hours to train
-    \item \textbf{Many local minima}
-    \item Performance not reproducible between training
-    \item This is an applied math problem, but\ldots
+      \item 27 inputs for flavor-tagging
+        %% \item Takes many hours to train
+      \item \textbf{Many local minima}
+        %% \item Performance not reproducible between training
+        %% \item This is an applied math problem, but\ldots
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -925,8 +937,9 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
     \end{column}
   \end{columns}
   \begin{itemize}
-  \item \textbf{The solution continues to evolve}
-  \item We needed to talk to experts
+  \item This has been a known problem for decades
+  \item \textbf{This is a solved problem} (In applied math)
+  %% \item We needed to talk to experts
   \end{itemize}
 \end{frame}
 
@@ -938,7 +951,7 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
       \item Train one layer at a time
-      \item Targets $\vect{t} \equiv \vect{z}_{N-2}$
+      \item Targets \fcolorbox{black}{orange}{$\vect{t} \equiv \vect{z}_{N-2}$}
       \item Each layer $\to$ \emph{feature space}
       \item Last layer discarded with each step
       \item Faster, more robust
