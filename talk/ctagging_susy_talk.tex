@@ -330,13 +330,16 @@
     \begin{column}{0.5\textwidth}
       \begin{itemize}
       \item Secondary vertex based
-      \item Must separate $b$, $c$, and light
-      \item All decay within beam-pipe
+      \item Must separate \textcolor{red}{$b$}, \textcolor{darkgreen}{$c$}, and light
+      %% \item All decay within beam-pipe
       \item Approximate decay distance  \\
         $\beta \gamma c \tau \approx 6.4\,\mathrm{mm}$, $B$ @ $70\,\gev$
       \item Requires both tracking resolution and luck
-      \item \textcolor{darkgreen}{$c$-decays} are part of \textcolor{red}{$b$-decays}
+      %% \item \textcolor{darkgreen}{$c$-decays} are part of \textcolor{red}{$b$-decays}
       \end{itemize}
+      \begin{center}
+        \includegraphics[width=\textwidth]{figures/external/mv1.pdf}
+      \end{center}
     \end{column}
     \begin{column}{0.4\textwidth}
       \begin{center}
@@ -957,10 +960,10 @@ figures/tagging-graphs/tagging-gaia-future.pdf}
       \item Train two layers at a time
       \item Targets \fcolorbox{black}{orange}{$\vect{t} \equiv \vect{z}_{N-2}$}
       \item Each layer $\to$ \emph{feature space}
-      \item Last layer discarded with each step
-      \item Faster, more robust
-      \item Unsupervised until last step
-      \item Final step: fine-tuning
+      \item<2-> Last layer discarded with each step
+      %% \item Faster, more robust
+      \item<4-> Unsupervised until last step
+      \item<5-> Final step: fine-tuning
       \end{itemize}
       \hspace{4in}
     \end{column}
