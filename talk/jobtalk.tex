@@ -69,7 +69,7 @@
 
 \subsection{SUSY}
 \begin{frame}
-  \frametitle{What is SUSY?}
+  \frametitle{Why SUSY?}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{enumerate}
@@ -382,7 +382,7 @@
 
 
 \begin{frame}
-  \frametitle{Vertex Finding (continued)}
+  \frametitle{More Discriminants}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       JetFitter:
@@ -481,7 +481,7 @@
   \item Update \begin{align*} A_i &\to A_i - \gamma \vect{\xi}_{(i+1)}g(\vect{z}_i)^{\intercal} & \vect{b}_i &\to \vect{b}_i - \gamma \vect{\xi}_{(i+1)}
   \end{align*}
     where $\gamma$ is the \emph{learning rate}, $g \equiv f$ when $i \neq N-1$
-  \item \textbf{This has problems for large} $\bm{N}$ (come back later)
+  \item \textbf{This has problems for large NNs} (more on this later)
   \end{itemize}
 \end{frame}
 
@@ -621,6 +621,10 @@ figures/external/sf-ctag-b-medium.pdf} \\
       \item Trigger on $\met$ (\verb|EF_xe80_tclcw_tight|)
       %% \item $c$-tag two leading jets
       \item Veto leptons
+        \begin{itemize}
+        \item[$\mu$:] $\pt > 6\,\gev$
+        \item[$e$:] $\pt > 7 \,\gev$
+        \end{itemize}
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -827,16 +831,16 @@ int/figures/stackplots/dans/signal_mct150/mass_ct_blinded.pdf}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Near the Diagonal: Need a new SR}
+  \frametitle{Near the Diagonal: $\scharm$ Needs a Boost}
   \begin{itemize}
-  \item Problems for $\Delta m \equiv m_{\scharm} - m_{\neut} \lesssim 150\,\gev$:
+  %% \item Problems for $\Delta m \equiv m_{\scharm} - m_{\neut} \lesssim 150\,\gev$:
+  %%   \begin{itemize}
+  %%   \item Less $\met$, trigger won't fire
+  %%   \item Less energetic $c$-jets, below $50\,\gev$ threshold
+  %%   \end{itemize}
+  \item We need a \textcolor{orange}{boosted} signal region
     \begin{itemize}
-    \item Less $\met$, trigger won't fire
-    \item Less energetic $c$-jets, below $50\,\gev$ threshold
-    \end{itemize}
-  \item Solution: add an \textcolor{orange}{ISR boosted} signal region
-    \begin{itemize}
-    \item This SR already exists in the $\sttoc$ search
+    \item Already exists in the $\sttoc$ search
     \item Even better: simplified SUSY models mean $\sigma_{\tilde{t}\tilde{t}} \approx \sigma_{\tilde{c}\tilde{c}}$
     \item We can use a simple reinterpretation of $\sttoc$
     \end{itemize}
