@@ -134,6 +134,7 @@ get-file $PAN/misc-fig/blocked-stop-lsp.pdf
 # get-file $PAN/misc-fig/atlas.tif
 get-file $PAN/misc-fig/atlas-medium.jpeg
 get-file $PAN/misc-fig/pileup-vertices.png
+get-file $PAN/misc-fig/stop.svg
 
 # on github
 GHGRAPH=https://raw.githubusercontent.com/dguest/tagging-diagrams/master/
