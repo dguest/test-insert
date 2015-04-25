@@ -18,15 +18,29 @@ Ideally this cross-section is measured in a region demanding an underlying event
 
 With this in mind, we construct a control region populated by events where $Z$ bosons are reconstructed from leptons.
 Such events won't fire the $\met$ trigger and thus must be drawn from the lepton trigger streams.
-For consistency with the $Z$-decay hypothesis, the events must contain two leptons of the same flavor, with opposite sign, and with an invariant mass of $90 \pm 15\,\gev$.
+For consistency with the $Z$-decay hypothesis, the events must contain two leptons of the same flavor, with opposite sign, and with an invariant mass of $90 \pm 15\,\gev$ as shown in \cref{fig:crz_mll}.
 The leptons are added to the event $\met$ to mimic the contribution from neutrinos.
 
+\begin{figure}
+  \subfigure[$\mll$ in the $Z$ control region]{
+    \graphic{0.49}{int/figures/stackplots/dans/cr_z/mass_ll.pdf}
+    \label{fig:crz_mll}
+  }
+  \subfigure[$\mll$ in the $Z$ control region]{
+    \graphic{0.49}{int/figures/stackplots/dans/cr_t/met.pdf}
+    \label{fig:crt_met}
+  }
+\end{figure}
 
 \subsection{Top Background}
 A considerable number of $\ttbar$ events are expected in the signal region.
 The normalization of these events is controlled via a dileptonic $\ttbar$ selection; exactly one $e$ and one $\mu$ are required.
-The resulting sample is extremely pure in $\ttbar$.
-
+The resulting sample is more than 99\% $\ttbar$.
+Dileptonic $\ttbar$ generally lack $\met$, as shown in \cref{fig:crt_met}.
+To accumulate sufficient statistics, the $\met$ threshold is lowered to $50\,\gev$.
+The leading two jets must have $\pt > 50\,\gev$.
+To assure $\sim 100\%$ lepton trigger efficiency, the leading lepton must have $\pt > 25\,\gev$.
+A $\mll > 50\,\gev$ is also included to reject QCD and generic backgrounds.
 
 \subsection{QCD Background}
 this will be short, paraphrasing the QCD section in the INT
