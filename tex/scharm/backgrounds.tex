@@ -3,6 +3,8 @@ The expected backgrounds are roughly 50\% $\zjets$, with the remaining split eve
 Unfortunately, the overall magnitudes of these processes aren't particularly constrained in simulation; they are dependent on the proton PDFs and assumptions about jet production, which are still relatively unknown at LHC energy scales.
 Instead of estimating these major backgrounds (and extrapolating uncertainties) from previously published results, the backgrounds were estimated from a series of control regions.
 
+In all cases, the $c$-tagging requirements in the control regions is identical to that in the signal regions. Wherever possible, other kinematic requirements are also similar to the signal region requirements. In many cases, however, these requirements must be relaxed to yield sufficient statistics to control the backgrounds.
+
 \subsection{$\zjets$ Background}
 The $\zjets$ process accounts for the largest predicted background in the signal regions.
 Roughly 70\% of $Z$ decays are hadronic~\cite{pdg2014}, but these decays are unlikely fake signal events given their low $\met$.
@@ -16,16 +18,37 @@ Ideally this cross-section is measured in a region demanding an underlying event
 
 With this in mind, we construct a control region populated by events where $Z$ bosons are reconstructed from leptons.
 Such events won't fire the $\met$ trigger and thus must be drawn from the lepton trigger streams.
-For consistency with the $Z$-decay hypothesis, the events must contain two leptons of the same flavor, with opposite sign, and with an invariant mass of $90 \pm 15\,\gev$.
+For consistency with the $Z$-decay hypothesis, the events must contain two leptons of the same flavor, with opposite sign, and with an invariant mass of $90 \pm 15\,\gev$ as shown in \cref{fig:crz_mll}.
 The leptons are added to the event $\met$ to mimic the contribution from neutrinos.
 
+\begin{figure}
+  \subfigure[$\mll$ in the $Z$ control region]{
+    \graphic{0.49}{int/figures/stackplots/dans/cr_z/mass_ll.pdf}
+    \label{fig:crz_mll}
+  }
+  \subfigure[$\mll$ in the $Z$ control region]{
+    \graphic{0.49}{int/figures/stackplots/dans/cr_t/met.pdf}
+    \label{fig:crt_met}
+  }
+\end{figure}
 
+\subsection{Top Background}
+A considerable number of $\ttbar$ events are expected in the signal region.
+The normalization of these events is controlled via a dileptonic $\ttbar$ selection; exactly one $e$ and one $\mu$ are required.
+The resulting sample is more than 99\% $\ttbar$.
+Dileptonic $\ttbar$ generally lack $\met$, as shown in \cref{fig:crt_met}.
+To accumulate sufficient statistics, the $\met$ threshold is lowered to $50\,\gev$.
+The leading two jets must have $\pt > 50\,\gev$.
+To assure $\sim 100\%$ lepton trigger efficiency, the leading lepton must have $\pt > 25\,\gev$.
+A $\mll > 50\,\gev$ is also included to reject QCD and generic backgrounds.
 
-\subsection{$\topbg$ Background}
-and another one here
-\subsection{QCD Background}
-this will be short, paraphrasing the QCD section in the INT
 \subsection{$\wjets$ Background}
+The $\wjets$ background is estimated with the help of a 1 lepton control region.
+To reject QCD backgrounds, this region requires a leading lepton $\pt > 50\,\gev$, $\met > 100\,\gev$, and leading and subleading jet $\pt > 130$ and $50\,\gev$. Two additional criteria are imposed on the event $\mt$: $\mt < 100\,\gev$ to reject $\ttbar$; and $\mt > 40\,\gev$ to reject generic backgrounds.
+An additional requirement of $\mct > 150\,\gev$ is imposed to reject $\ttbar$ and decrease kinematic discrepancy with the signal regions.
+
+Despite several anti-$\ttbar$ cuts, the $\wjets$ control region is dominated by $\ttbar$, which accounts for 27\% of the simulated yield. This top-rich composition is an unfortunate side-effect of the $c$-tagging operating points, which reject far more of the light-flavored jets associated with $W$ production than $b$ flavored jets from $\ttbar$.
+The high $\ttbar$ composition leads to a weak constraint on the $\wjets$ normalization, but isn't disastrous; thanks to a very pure top control region, the $\ttbar$ component in the $\wjets$ control region is reasonably constrained.
 
 \begin{table}
   \begin{center}
@@ -33,3 +56,44 @@ this will be short, paraphrasing the QCD section in the INT
   \caption[Summary of the signal regions]{Summary of the regions in the $\sctoc$ search.}
   \end{center}
 \end{table}
+
+\newcommand{\rsim}{r_{\text{sim}}}
+\newcommand{\Rsim}{R_{\text{sim}}}
+\subsection{QCD Background}
+The QCD background is estimated with a ``jet smearing'' method.
+This method relies on the assumption that multijet events with high $\met$ are the result of a single mismeasured jet.
+Accurately measured events are selected from data by requiring $\metsig < 0.7\,\gev^{1/2}$, where
+\begin{equation}
+  \metsig \equiv \frac{\met}{\sqrt{\sum_{\text{jets}} \pt^{\text{jet}}}}.
+\end{equation}
+These \emph{seed} events are also required to pass the two $c$-tag requirement.
+The $\met$ of poorly measured events is then estimated by smearing the seed events according to
+\begin{equation}
+  \vmet \to \vmet - \sum_{\text{jets}} \vpt (r - 1)
+  \label{eq:jetsmear}
+\end{equation}
+where $r$ is drawn from a \emph{response distribution} $R$, which is binned in $\pt$.
+The smearing procedure is repeated 20,000 times for each seed event, to generate a large ensemble of QCD pseudo-events.
+
+The response distribution itself is calculated in several steps.
+First, an approximate distribution $\Rsim$ is derived from simulation by defining
+\begin{equation}
+  \rsim \equiv \frac{\pt^{\text{reco}}}{\pt^{\text{true}}},
+\end{equation}
+where $\pt^{\text{reco}}$ and $\pt^{\text{truth}}$ are the reconstructed and true jet $\pt$ respectively.
+The resulting $\Rsim$ distribution technically smears true jet $\pt$ to simulated reconstructed $\pt$, and must be modified to accurately smear events in data as in \cref{eq:jetsmear}.
+%% The approximation that $\Rsim \approx R$ only holds in the case where $\pt^{\text{truth}} \approx \pt^{\text{reco}}$,  for events with low $\metsig$.
+This is accomplished by scaling the response distribution such that event parameters agree in simulation and data in a two and three jet selection~\cite{jet-smearing}.
+
+The QCD pseudo-events are normalized by defining a QCD control region identical to the signal-region, with the exception that the $\metdphi{j_{\{1,2,3\}}} > 0.4$ requirement is inverted.
+After subtracting non-QCD standard model backgrounds from data, the pseudo-events are scaled to match the yield in this region.
+Scaled pseudo-events are then subjected to the normal signal region selection, yielding 0.34, 0.21, and 0.05 expected QCD events in the $\mct > 150$, $200$, and $250\,\gev$ regions, respectively.
+A conservative 100\% systematic is assigned to these estimates.
+
+
+%% This method relies on the assumptions that high $\met$ QCD events are created by jet mismeasurement and that these mismeasurements are uncorrelated within a single event.
+%% It attempts to emulate the high $\met$ background by 
+%% The procedure is as follows:
+%% \begin{enumerate}
+%% \item A 2-dimensional smearing distribution is estimated from simulation. This distribution corresponds to the probability of 
+%% \end{enumerate}

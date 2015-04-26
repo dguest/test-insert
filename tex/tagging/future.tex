@@ -15,9 +15,9 @@ Both issues stem from the unreliable methods which are typically used to train n
 \label{sec:trad-nn}
 Traditional signal-processing neural nets are continuous mappings of input vectors $\vect{x}$ onto output vectors $\vect{y}$, where both $\vect{x}$ and $\vect{y}$ can be of arbitrary dimension for a given neural net.
 In the case of flavor tagging, the elements of $\vect{x}$ correspond to measurable jet parameters, while the elements $\vect{y}$ correspond to jet flavor probabilities.
-An $N + 1$ layer neural net can be represented as stack of linear transformations represented as matrices $A_{i}$ interleaved with a nonlinear activation function $f$:
+An $N$ layer neural net can be represented as stack of linear transformations represented as matrices $A_{i}$ interleaved with a nonlinear activation function $f$:
 \begin{equation}
-  \vect{y} = \mathcal{N}(\vect{x}) = A_N f(A_{N -1} \cdots f(A_1 \vect{x} + \vect{b}_1) \cdots + \vect{b}_{N-1} ) + \vect{b}_N
+  \vect{y} = \mathcal{N}(\vect{x}) = A_{N-1} f( \cdots A_{2} f(A_1 \vect{x} + \vect{b}_1) + \vect{b}_{2} \cdots ) + \vect{b}_{N-1}
   \label{eq:nn-functional}
 \end{equation}
 where the $\vect{b}_i$ are \emph{bias} vectors and $f$ operates on each element of its input vector independently.
@@ -29,17 +29,17 @@ The inputs to each $A_i$ (other than $A_1$) are referred to as \emph{hidden} lay
   \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
   \label{eq:recursive-nn}
 \end{equation}
-where $\vect{y} = \vect{z}_{N+1}$ and $\vect{x} = \vect{z}_{1}$. The elements of each layer are referred to as \emph{nodes}.
+where $\vect{y} = \vect{z}_{N}$ and $\vect{x} = \vect{z}_{1}$. The elements of each layer are referred to as \emph{nodes}.
 In some cases the activation function is omitted for the final layer, as in \cref{eq:nn-functional}
 
 Note that the dimensions of the $A_{i}$ and $\vect{b}_i$ are constrained by the dimensions of the surrounding layers; if $\vect{x}$ has $n$ elements, $A_1$ is an $m \times n$ matrix, $A_{2}$ is an $o \times m$ matrix, $A_{3}$ is $p \times o$, etc.
-Thus given some number of inputs and outputs, the neural net is still left with $N - 1$ free dimensions---one for each hidden layer.
+Thus given some number of inputs and outputs, the neural net is still left with $N - 2$ free dimensions---one for each hidden layer.
 The dimensions of the input, output, and hidden layers specify the \emph{topology} of the neural net.
 These dimensions typically decrease through successive layers, since the neural net is designed to filter a large number of parameters into a smaller number of categories.
 Traditional neural nets can include several hidden layers; those with more layers are described as ``deep''.
 Theoretically a deep neural net can fit a continuous function of $\vect{x}$ to arbitrary precision given an appropriate choice of the of $A_i$ and $\vect{b}_i$.
 
-Elements of $\{(A_i, \vect{b}_i)\}_{i=0}^{N}$ are ``trained'' using inputs with corresponding \emph{target} outputs $\vect{t}$, such that $\mathcal{N}(\vect{x}) \approx \vect{t}$.
+Elements of $\{(A_i, \vect{b}_i)\}_{i=1}^{N - 1}$ are ``trained'' using inputs with corresponding \emph{target} outputs $\vect{t}$, such that $\mathcal{N}(\vect{x}) \approx \vect{t}$.
 Within flavor tagging these targets correspond to jet flavor probabilities, with one element for each flavor.
 This training scheme is said to be \emph{supervised} because it requires known target values.
 Traditionally, training progresses in several steps using a technique known as error backpropagation. The steps are as follows:
@@ -51,15 +51,36 @@ Traditionally, training progresses in several steps using a technique known as e
 A particularly simple cost function is $E(\vect{y},\vect{t}) = \sum_{i} (y_i - t_i)^2 / 2$, but other cost functions can be optimal in some situations.
 In the case of classification, it's often convenient to use \emph{cross-entropy}:
 \begin{equation}
-  E(\vect{y}, \vect{t}) = - \frac{1}{n} \sum_{i=1}^n [ y_i \log_2 t_i + (1 - y_i ) \log_2 (1 - t_i) ]
+  E(\vect{y}, \vect{t}) = - \frac{1}{n} \sum_{i=1}^n [ t_i \log_2 y_i + (1 - t_i ) \log_2 (1 - y_i) ]
 \end{equation}
 where $n$ is the dimension of the output space.
  %The error $\vect{e}$ on $\vect{y}$ is defined as
 %% \begin{equation}
 %% \end{equation}
 The cost function determines an error for each output element.
-\item The error is backpropagated to the previous (hidden) layer using the $A_i$ matrix and a first-order expansion of the activation function. By recursively applying backpropagation to each successive layer an error can be established for each element in each hidden layer~\cite{luke-thesis}.
-\item Using the errors associated with each node, the elements of $A_i$ and $\vect{b}_i$ are updated by moving them in a direction that will decrease the error. The size of the update is dictated by the \emph{learning rate}.\label{item:nn-update}
+\item An error calculated for each output node, according to
+\begin{equation}
+  \vect{\xi}_N \equiv \frac{\partial }{\partial \vect{y}} E(\vect{y}, \vect{t})
+  \label{eq:output-error}
+\end{equation}
+\item The error is backpropagated to the previous (hidden) layer using the $A_i$ matrix and a first-order expansion of the activation function:
+\begin{equation}
+  \vect{\xi}_i \equiv (A_i^{\intercal} \vect{\xi}_{(i+1)}) \circ f'(\vect{z}_i)
+\end{equation}
+By recursively applying backpropagation to each successive layer an error can be established for each element in each hidden layer.
+\item Using the errors associated with each node, the elements of $A_i$ and $\vect{b}_i$ are updated by moving them in a direction that will decrease the error.
+  \begin{align*}
+    A_i &\to A_i - \gamma \vect{\xi}_{(i+1)}g(\vect{z}_i)^{\intercal} & \vect{b}_i &\to \vect{b}_i - \gamma \vect{\xi}_{(i+1)}
+  \end{align*}
+  where $\gamma$ is the \emph{learning rate}. The function $g$ is given by\footnote{Note that \cref{eq:output-error,eq:general-activation-function} assume that the final activation function is set to $\mathbb{1}$. In many cases the neural output is subjected to a final non-linear transformation, and both equations must be modified accordingly.}
+\begin{equation}
+  g = \begin{dcases*}
+    f & if $i \neq N - 1$ \\
+    \mathbb{1} & if $i = N - 1$
+  \end{dcases*}.
+  \label{eq:general-activation-function}
+\end{equation}
+\label{item:nn-update}
 \item Steps~\ref{item:nn-pattern-select} through~\ref{item:nn-update} are repeated until the cost is minimized.
 \end{enumerate}
 
