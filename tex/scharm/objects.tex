@@ -6,6 +6,7 @@ This section gives a detailed description of the object definitions in the $\sct
 In general, objects are selected in three steps: first a \emph{preselected} collection is formed for jets, electrons, and muons; next an overlap removal stage resolves ambiguity between objects, and finally \emph{signal} objects are defined with more stringent quality requirements.
 
 \subsection{Jets}
+\label{sec:jets}
 %% Hadronic QCD jets are orders of magnitude more common than leptons at the LHC.
 %% They are also difficult to measure properly, since they consist of
 Jets are formed from calorimeter clusters, which are clustered with the anti-$k_t$ algorithm~\cite{antikt} with a radius parameter of 0.4.
@@ -128,6 +129,7 @@ The pileup corrections $k_1$ and $k_2$ in the calorimeter isolation depends on t
 \end{table}
 %% \subsection{Overlap Removal}
 \subsection{Missing Energy}
+\label{sec:met}
 The objects described above are combined to produce a number of high level variables, which will be described where appropriate.
 One of the most fundamental is $\met$, which in this search is defined by~\cite{metpaper}
 \begin{equation}

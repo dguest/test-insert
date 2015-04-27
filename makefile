@@ -10,7 +10,7 @@ TEXFILES := $(shell find -L tex/ -maxdepth 2 -name '*.tex')
 TEXFILES += $(shell find tables/ -name '*.tex')
 TEXFILES += $(shell find . -maxdepth 1 -name '*.tex')
 
-%.bbl: %.tex $(TEXFILES) *.bib
+%.bbl: %.tex $(TEXFILES) $(wildcard refs/*.bib)
 	$(PDFTEX) $* --draftmode
 	$(BIBTEX) $*
 

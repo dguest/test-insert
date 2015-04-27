@@ -102,6 +102,9 @@ get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-201
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/fig_05a.pdf sf-ctag-c-medium.pdf
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/fig_05b.pdf sf-ctag-b-medium.pdf
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2015-001/fig_06a.pdf sf-ctag-u-medium.pdf
+# random ATLAS lumi
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/DATAPREPARATION/PublicPlots/2011-2012/Luminosity/intlumivstime2011-2012DQ.eps atlas-lumi.eps
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/DATAPREPARATION/InteractionsperCrossing/muplot/2012/mu_2011_2012-dec.eps int-per-bx.eps
 
 # cosmology things
 get-file http://apod.nasa.gov/apod/image/0608/bulletcluster_comp_f2048.jpg

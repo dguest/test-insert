@@ -1,0 +1,60 @@
+Uncertainties in this search arise from several sources.
+Some are fairly obvious: the number of events populating the signal region is inherently Poissonian, as is the number of events in the control regions.
+The far more difficult systematic uncertainties are described here.
+As a convention, systematic uncertainties are applied to simulation and not to data.
+
+These are roughly divided into \emph{experimental} (associated with the detector response) and \emph{theoretical} (associated with parameters of event generation and hadronization).
+It's important to note that this division is only approximate.
+For example, the flavor-tagging systematics are are entered as a set of several experimental uncertainties, but represent a reduced set of uncertainties corresponding to several analyses, each of which inherits uncertainty from limited statistics, uncertain detector response, and inexact modeling.
+The same is true of other systematic uncertainties.
+
+\subsection{Experimental}
+\label{sec:sys_experimental}
+Experimental uncertainties are applied to every simulated sample.
+In general these systematics will be correlated between the signal and control regions, and may thus cancel to some extent in the final fit.
+These systematics are implemented in two separate ways: normalization-based systematics are applied eventwise by multiplying the event normalization by an additional systematic factor; the remaining systematics involve recalculating object or event parameters with a perturbation applied, which will propagate to the event yield.
+
+\subsubsection{Jet Related Uncertainties}
+\paragraph{Jet Energy Scale} There is considerable uncertainty in the measurement and calibration of jet energy.
+For the purposes of this analysis this uncertainty is condensed into a single pair of variations; all jet energies are scaled up or down according to the recommendations of the Jet/$\met$ group~\cite{JES,alt-jes,jes-twiki}.
+\paragraph{Jet Energy Resolution} Jets are smeared in $\pt$ as a function of their $\pt$ and $\eta$, to account for overly optimistic jet resolution in simulation~\cite{jer}.
+The up and down yield variations are defined to be $n_{\text{nom}} \pm (n_{\text{nom}} - n_{\text{smear}})/2$ where $n_{\text{nom}}$ and $n_{\text{smear}}$ are the nominal yield and the yield with jet smearing, respectively.
+\paragraph{Jet Vertex Fraction} To reduce backgrounds from pileup, signal jets are required $\jvf > 0.5$ as defined in \cref{sec:jets}. An upward and downward yield uncertainty is derived by requiring $\jvf > 0.53$ and $\jvf > 0.47$, respectively.
+\paragraph{Flavor Tagging} As discussed in \cref{sec:calib}, flavor-tagging uncertainties are derived from several designated analyses, separately for $b$, $c$, light, and $\tau$ jets. Each systematic is implemented as a normalization scale-factor.
+
+\subsubsection{Lepton Uncertainties}
+While not directly required in the search, leptons play an important role in the control regions.
+Various systematics associated with lepton identification and calibration propagate into the background prediction in the signal region.
+The systematic variations listed below are calculated from measurements of $Z \to \ell \ell$ and $J/\psi \to \ell \ell$ decays in data and simulation~\cite{el-gamma,muon}.
+\paragraph{Lepton Identification} A normalization scale-factor is applied to leptons to account for discrepancies in the identification efficiency between simulation and data.
+\paragraph{Lepton Energy and Momentum Resolution} Lepton energies are known within a few percent. To account for the uncertainty, the momentum of leptons is scaled in several ways:
+\begin{itemize}
+\item The low $\pt$ electron spectrum is shifted up or down to account for mismodeling.
+\item The spectrum of higher $\pt$ electrons is shifted up or down to account for mismodeling measured via the $Z \to ee$ calibration.
+\item The muon energy is shifted up or down to account for any muon energy mismodeling.
+\end{itemize}
+
+\subsubsection{Other Eventwise Uncertainties}
+\paragraph{$\mathbb{\met}$ Resolution} Since $\met$ is computed partially using calibrated jets, leptons, and photons, the majority of $\met$ uncertainty is accounted for through the object uncertainties listed above.
+As discussed in \cref{sec:met}, the final component of $\met$ is the $\subvmet{CellOut}$ term associated to the remaining calorimeter clusters.
+This component is smeared to produce a corresponding event yield variation~\cite{met-tool}.
+The up and down yield variations are defined to be $n_{\text{nom}} \pm (n_{\text{nom}} - n_{\text{smear}})/2$ where $n_{\text{nom}}$ and $n_{\text{smear}}$ are the nominal yield and the yield with $\met$ smearing, respectively.
+
+\paragraph{Pileup} To account for differences between simulation and data in the number of primary vertices per bunch crossing $n_{\textrm{vxp}}$, simulated events are reweighted such the $n_{\textrm{vxp}}$ distributions match.
+This reweighting also scales up the overall $n_{\textrm{vxp}}$ in simulation by $1.09 \pm 0.04$. The yields on either end of this range form another systematic variation.
+
+\paragraph{Luminosity} The integrated luminosity using the $\met$ trigger is $\lumiunct$ in 2012, corresponding to a 2.8\% uncertainty, as measured through several techniques~\cite{atlas-lumi}.
+This uncertainty is propagated to the fit, but since the major backgrounds are normalized by control regions it technically only influences the normalization of the signal and minor backgrounds.
+
+\paragraph{Trigger} Uncertainties in the lepton triggers are negligible given the offline lepton $\pt$ requirement. To account for uncertainty in the $\met$ trigger, an overall $2\%$ uncertainty is applied in all $\met$ triggered regions.
+
+\subsubsection{Minor Backgrounds}
+
+\paragraph{Electroweak Processes} A flat 50\% uncertainty is applied to the minor single $t$, $\ttbar V$, and $VV$ backgrounds. The actual uncertainty is expected to be much smaller, but this inflated uncertainty has a negligible effect on the analysis given the minuscule number of events from these processes in the signal region.
+
+\paragraph{QCD Multijet} A conservative 100\% uncertainty is applied to the QCD background, as discussed in \cref{sec:qcd-background}.
+
+\subsection{Theoretical}
+\subsubsection{Signal}
+\subsubsection{Background}
+\label{sec:sys_theorybkg}
