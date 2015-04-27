@@ -46,7 +46,7 @@ This reweighting also scales up the overall $n_{\textrm{vxp}}$ in simulation by 
 \paragraph{Luminosity} The integrated luminosity using the $\met$ trigger is $\lumiunct$ in 2012, corresponding to a 2.8\% uncertainty, as measured through several techniques~\cite{atlas-lumi}.
 This uncertainty is propagated to the fit, but since the major backgrounds are normalized by control regions it technically only influences the normalization of the signal and minor backgrounds.
 
-\paragraph{Trigger} Uncertainties in the lepton triggers are negligible given the offline lepton $\pt$ requirement. To account for uncertainty in the $\met$ trigger, an overall $2\%$ uncertainty is applied in all $\met$ triggered regions.
+\paragraph{Trigger} Uncertainties in the lepton triggers are negligible given the offline lepton $\pt$ requirement. To account for uncertainty in the $\met$ trigger, an overall $\pm 2\%$ uncertainty is applied in all $\met$ triggered regions.
 
 \subsubsection{Minor Backgrounds}
 
@@ -55,6 +55,15 @@ This uncertainty is propagated to the fit, but since the major backgrounds are n
 \paragraph{QCD Multijet} A conservative 100\% uncertainty is applied to the QCD background, as discussed in \cref{sec:qcd-background}.
 
 \subsection{Theoretical}
+Theoretical uncertainties in generator tunes, cross-sections, and proton PDFs propagate to expected yields.
+These uncertainties are generally independent of detector modeling, so in the interest of computational efficiency they are estimated without full event reconstruction.
+Instead, the events are simulated up to the formation of stable particles, at which point a proxy signal selection is applied.
+Flavor-tagging efficiency is estimated through \emph{tagging rate functions} which are provided by the flavor-tagging group as a function of $\pt$ and $\eta$.
+
 \subsubsection{Signal}
+\paragraph{Cross Section} Squark cross-sections are calculated with next-to-leading-order (NLO) strong couplings, with next-to-leading-logarithmic treatment of soft gluons.
+The uncertainties come from an envelope of PDF sets, and factorization and renormalization scales~\cite{susy-xsec}. SAY MORE ABOUT HOW THIS IS BASICALLY SBOTTOM.
+
+
 \subsubsection{Background}
 \label{sec:sys_theorybkg}
