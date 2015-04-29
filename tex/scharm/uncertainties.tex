@@ -71,7 +71,44 @@ An overall uncertainty is nonetheless estimated from samples from $\sbtob$ sampl
 The factorization and renormalization, parton-jet matching, and  $\alpha_{s}$ scales are varied over a range of 50--200\% of the nominal value. In addition, the \textsc{pythia} final state radiation tune is varied.
 A combination of these uncertainties results in an expected yield variation of $\pm 10.7\%$.
 
+\newcommand{\nsig}{n_{\text{sig}}}
+\newcommand{\nctl}{n_{\text{ctl}}}
+\newcommand{\effsig}{\epsilon_{\text{sig}}}
+\newcommand{\effctl}{\epsilon_{\text{ctl}}}
+\newcommand{\ndata}{n^{\text{data}}_{\text{ctl}}}
+\newcommand{\nother}{n^{\text{other}}_{\text{ctl}}}
 \subsubsection{Background}
 \label{sec:sys_theorybkg}
+All theoretical background uncertainties are propagated to the signal region via \emph{transfer factors}, which relate the number of expected events for a given process in the signal region $\nsig$ to the number in the control region $\nctl$.
+With transfer factors, the number of predicted events in the signal region is given by
+\begin{equation}
+  \nsig = \frac{\effsig}{\effctl} \underbrace{(\ndata - \nother)}_{\nctl}.
+  \label{eq:transfer-factor}
+\end{equation}
+Here $\effsig$ and $\effctl$ are the efficiencies for the process in the signal and control region selection, respectively.
+The number of control region events is expressed explicitly in terms of the number of data events $\ndata$ and the number of events in other simulated processes $\nother$.
+Within \cref{eq:transfer-factor}, the transfer factor is $\effsig / \effctl$.
 
-All theoretical background uncertainties are propagated to the signal region via transfer factors.
+Theoretical uncertainties are propagated by assuming they apply independently for each sample, and thus that only $\effsig$ and $\effctl$ are affected by the uncertainty.
+Upper and lower bounds on $\nsig$ are thus calculated by
+\begin{equation}
+  \nsig^\pm = \frac{\effsig^\pm}{\effctl^\pm} (\ndata - \nother) \quad \Rightarrow \quad \frac{\nsig^\pm}{\nctl} = \frac{\effsig^\pm}{\effctl^\pm}.
+\end{equation}
+The various uncertainties are combined for each process into an overall top, $\wjets$, and $\zjets$ uncertainty.
+
+\paragraph{Top} Both $\ttbar$ and single top $Wt$-channel samples are generated independently with \textsc{powheg} and \textsc{mc@nlo}, then passed to \textsc{herwig} for parton showering and hadronization, since \textsc{mc@nlo} can't interface to \textsc{pythia}.
+The difference in yields between the two samples is taken as a systematic uncertainty.
+To account for differences in parton showering between generators, a sample generated with \textsc{powheg} is showered with both \textsc{pythia} and \textsc{herwig}. The difference forms another uncertainty.
+
+An uncertainty for the single top $s$-channel is calculated by combining the showing and generator systematics together.
+A sample generated with \textsc{powheg} and showed with \textsc{pythia} is compared with a sample generated with \textsc{mc@nlo} and showered with \textsc{herwig}.
+Renormalization, factorization, ISR, and FSR uncertainties are calculated with a method identical to that used in the signal. In the case of ISR/FSR variations, \textsc{acerMC} is used.
+
+The interference between the single top $Wt$-channel and $\ttbar$ production is non-negligible.
+Two schemes to estimate this effect are diagram removal~\cite{single-t-dr} and diagram subtraction~\cite{single-t-ds}.
+Diagram removal is used by default.
+A systematic error is estimated from the difference in yields between the two methods.
+
+\paragraph{$\wjets$} As with $\ttbar$ the factorization and renormalization scales for $\wjets$ simulation are varied within an envelope.
+The baseline $\wjets$ sample only simulates up to 4 additional partons in the event.
+To account for this limitation, two other samples are compared to the baseline; one with exactly four additional partons, and one with 
