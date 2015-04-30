@@ -111,4 +111,22 @@ A systematic error is estimated from the difference in yields between the two me
 
 \paragraph{$\wjets$} As with $\ttbar$ the factorization and renormalization scales for $\wjets$ simulation are varied within an envelope.
 The baseline $\wjets$ sample only simulates up to 4 additional partons in the event.
-To account for this limitation, two other samples are compared to the baseline; one with exactly four additional partons, and one with 
+To account for this limitation, a sample with exactly 4 partons is compared to a sample with 4 or 5 partons. The relative difference in yields is taken as a relative systematic.
+
+\paragraph{$\zjets$} The factorization and renormalization scale uncertainties, along with uncertainties associated with matrix-element--parton-shower matching are calculated by reweighting samples based on the number of jets with $\pt > 30\,\gev$~\cite{zero-l-int}.
+As with $\wjets$, the generator is only able to cope with a limited number of partons.
+A systematic to quantify this limitation is again derived from the yield difference between the 4-parton sample and the 4-or-5--parton sample.
+
+\newcommand{\xct}{X_{\textsc{ct10}}}
+\newcommand{\xmstw}{X_{\textsc{mstw}}}
+\paragraph{PDF Uncertainties} Electroweak samples use the \textsc{ct10} PDF sets. For these samples an intra-PDF uncertainty is computed according to
+\begin{equation}
+  \Delta \xct = \frac{1}{2} \sqrt{\sum_i (X^{+}_{i} - X^{-}_{i})^2 } / 1.64
+  \label{eq:intra-pdf}
+\end{equation}
+where $X_i^{+}$ and $X_i^{-}$ are yields from the $i$th variation in the \textsc{ct10} PDF set. The factor of 1.64 is needed because these variations correspond to a 95\% confidence limit, whereas the desired variation is $1\sigma$.
+This uncertainty is combined with the inter-PDF uncertainty by comparing to the \textsc{mstw} pdf set:
+\begin{equation}
+  \sigma_{\mathrm{PDF}} = \frac{1}{2} \frac{ \max (\xct + \Delta \xct, \xmstw) - \min( \xct - \Delta \xct, \xmstw ) }{\xct}.
+\end{equation}
+The corresponding uncertainties in $\ttbar$ are computed with the \textsc{mc@nlo} generator, since \textsc{powheg} isn't expected to give accurate results.
