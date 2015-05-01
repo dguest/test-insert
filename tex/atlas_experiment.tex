@@ -58,19 +58,22 @@ In the LHC, each of the 12 SPS fills passes within 5.8 to 7.9 $\mu$s, separated 
 
 Once filled, the LHC slowly ramps up to a maximum energy of $7\,\tev$ per beam in 20 minutes and commences collisions. These collisions are the dominant cause of beam loss during normal operation; neglecting all other loss channels the beam lifetime is approximately 29 hours, although when other loss channels are accounted for this lifetime drops to roughly 15 hours~\cite{lhc-machine}.
 In theory, the LHC can therefore collide protons almost continuously with less than two \emph{runs} a day, where a run refers to a single LHC fill and the subsequent collisions.
-In practice beam physics is an evolving science and runs rarely last longer than 12 hours. The LHC beams dump by default if any beam monitoring, cryogenic, timing, or detector subsystems give vaguely suspicious readings, and the vast majority of all dumps are unscheduled. In 2012 the mean length of a run was 6.1 hours. Of roughly 300 runs, approximately 16 continued for more than 15 hours, with one run dumping after 23 hours~\cite{lhc-run1}.
+In practice the LHC is an evolving and finicky instrument and runs rarely last longer than 12 hours. The LHC beams dump by default if any beam monitoring, cryogenic, timing, or detector subsystems give vaguely suspicious readings, and the vast majority of all dumps are unscheduled. In 2012 the mean length of a run was 6.1 hours. Of roughly 300 runs, approximately 16 continued for more than 15 hours, with one run dumping after 23 hours~\cite{lhc-run1}.
 
 In the long periods between LHC fills, the injection chain can be put to other uses.
 A number of fixed-target experiments occupy the ``north area'' in Pr\'evessin or detector halls within the Meyrin site, as showin in \cref{fig:lhc-accelerator-complex}.
 In general, when the more powerful of two sequential accelerators in the injection chain is ramping up in energy, the less powerful accelerator is left with spare cycles which can be diverted to lower-energy experiments.
 
 \section{The Large Hadron Collider}
-Throughout the ring of the LHC, 1,232 dipole magnets, each $16.5\,\text{m}$ long, bend the two counter-rotating proton beams into a circular path, while radio frequency cavities accelerate the protons from an initial injection energy of $450\,\gev$ to a collision energy of up to $14\,\tev$.
+Throughout the ring of the LHC, 1,232 dipole magnets, each $16.5\,\text{m}$ long, bend the two counter-rotating proton beams into a circular path, while radio frequency (RF) cavities accelerate the protons from an initial injection energy of $450\,\gev$ to a collision energy of up to $14\,\tev$.
 The dipole magnets rely on the exceptionally intense magnetic fields, above $8\,\mathrm{T}$, to contain the beams.
 Generating these fields in an electromagnet requires extremely high current, which is only possible with superconducting NbTi coils.
 Since NbTi is only superconducting below $\sim 10\,\text{K}$, the entire 26.7 km of the LHC is bathed in $2\,\text{K}$ liquid helium~\cite{lhc-machine}.
 
-
+The total cryogenic mass of the LHC is roughly 37 metric kilotons.
+This mass is normally kept cold for months on end, but the occasional need for maintenance, and the exclusive use of liquid helium as a coolant\footnote{Liquid nitrogen is avoided in the LHC tunnel for safety reasons.} necessitate the worlds most powerful helium refrigerator. At maximum capacity, the LHC refrigerators can sustain a heat load of $144\,\mathrm{kW}$ at $4.5\,\mathrm{K}$~\cite{lhc-machine}.
+The total input power for the LHC cryogenic system is much higher, roughly $27.5\,\text{MW}$.
+For comparison, the entire CERN complex consumes roughly $180\,\text{MW}$ when while the LHC is running. When accelerators are shut down in the winter months the overall CERN power consumption is comparable to the LHC cryogenics at $35\,\text{MW}$~\cite{lhc-energy}.
 
 \begin{cfig}
   \graphic{0.8}{misc/cc/cern-map.jpg}
@@ -78,15 +81,30 @@ Since NbTi is only superconducting below $\sim 10\,\text{K}$, the entire 26.7 km
   \label{fig:cern-map}
 \end{cfig}
 
+A map of the large hadron collider is shown in \cref{fig:cern-map}.
+The original Meyrin site is near point 1, where the ATLAS detector is located.
+Across the ring at point 5 is CMS, while LHCb and ALICE are located at points 8 and 2.
+Points 3 and 7 house various beam cleaning systems.
+Point 4 houses the RF accelerator cavities, while the beam dump sits at point 6.
 
-\subsection{Power Use}
-The LHC uses about 4\% of the energy of Geneva~\cite{lhc-energy}. Half is on cryogenics.
-\begin{itemize}
-\item LHC cryogenics 27.5 MW
-\item LHC experiments 22 MW
-\item CERN 180 MW
-\item Geneva 1.3 GW
-\end{itemize}
+The RF accelerator cavities impart an additional $485\,\text{keV}$ on each proton per turn during the 20 minute ramp up period. The tune of these cavities must be extremely precise to maintain phase with the proton bunches at the LHC's 35,640th harmonic. When protons are injected at $450\,\gev$, this corresponds to a frequency of $400.789\,\text{MHz}$.
+As the protons are accelerated, this frequency increases to accommodate the decrease in proton transit time.
+At the maximum design energy of $7\,\tev$ per beam, the cavity frequency must increase by $1\,\text{kHz}$, to $400.790\,\text{MHz}$~\cite{lhc-machine}.
+
+In optimal running conditions, each beam contains 2,808 bunches of $1.15 \times 10^{11}$ protons each.
+While the beam current is only $0.582\,\text{A}$, this corresponds to an impressive energy energy of $362\,\text{MJ}$ per beam~\cite{lhc-machine}.
+Even with 2012 run conditions, with beams at half-energy and only 1,380 bunches, each beam carried $143\,\text{MJ}$ in protons moving at nearly the speed of light.
+Needless to say, each beam would make an inefficient weapon but still has potential to cause enormous damage to very expensive equipment.
+TALK ABOUT BEAM DUMP.
+
+%% \subsection{Power Use}
+%% The LHC uses about 4\% of the energy of Geneva~\cite{lhc-energy}. Half is on cryogenics.
+%% \begin{itemize}
+%% \item LHC cryogenics 27.5 MW
+%% \item LHC experiments 22 MW
+%% \item CERN 180 MW
+%% \item Geneva 1.3 GW
+%% \end{itemize}
 \begin{figure}
   \subfigure[Total Luminosity Delivered to ATLAS]{
     \graphic{0.5}{misc/cc/atlas-lumi.pdf} \label{fig:atlas-lumi}}
