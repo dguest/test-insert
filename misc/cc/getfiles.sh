@@ -92,6 +92,10 @@ get-file http://www.hep.ph.ic.ac.uk/~wstirlin/plots/lumi2012_abs_v1.pdf mstw-lum
 get-file http://upload.wikimedia.org/wikipedia/commons/8/88/Logistic-curve.svg logistic-curve.svg
 get-file http://i2.cdn.turner.com/cnnnext/dam/assets/120622060142-hadron-collider-aerial-view-story-top.jpg cern-from-air.jpg
 get-file http://mediastream.cern.ch/MediaArchive/Photo/Public/2008/0803015/0803015_01/0803015_01-A4-at-144-dpi.jpg atlas-cal.jpg
+get-file https://cds.cern.ch/record/1621583/files/CERN%27s-accelerator-complex2013.jpg accelerator-complex.jpg
+get-file https://cds.cern.ch/record/842418/files/lhc-pho-1997-181.jpg cern-map.jpg
+
+
 # get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/EventDisplayStandAlone/zpileup_20vtx_sept2011.png pileup-vertices.png
 # tagging
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2014-046/fig_03b.pdf dstar-pion-mass.pdf
