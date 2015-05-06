@@ -66,11 +66,12 @@ Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\inv
 
 \subsection{Detector Coordinates}
 The ATLAS detector is discussed in much more detail in \cref{sec:atlas}, but the discussion in the following sections requires a brief introduction to the standard coordinate system.
-ATLAS uses a right-handed cylindrical coordinate system with $\hat{z}$ pointing down the beam axis. Vectors with $\phi = 0$ point toward the center of the LHC ring, and $\hat{\phi}$ points upward when $\phi = 0$.
+ATLAS uses a right-handed cylindrical coordinate system centered at the nominal collision point, with $\hat{z}$ pointing down the beam axis. Vectors with $\phi = 0$ point toward the center of the LHC ring, and $\hat{\phi}$ points upward when $\phi = 0$.
+Typically $R$ refers to the radius.
 %% Owing to rough invariance to $\phi$ transformations and rough reflection symmetry about $z = 0$
 Given that most particles are created within a tiny volume in the center of the detector and move quickly outward,
 physicists are generally more interested in the momentum of particles than the absolute position.
-The chosen momentum coordinates will seem contrived to the uninitiated, but are standard between collider experiments.
+%% The chosen momentum coordinates will seem contrived to the uninitiated, but are standard between collider experiments.
 
 The momenta of colliding protons at the LHC are anti-parallel; any post-collision momentum transverse to the beam access is the result of a momentum transfer within the collision.
 Since the momentum transfer is more intimately tied to the underlying physics, the transverse momentum (abbreviated as $\pt$) is generally used in lieu of absolute momentum.
@@ -84,7 +85,8 @@ The third standard coordinate, $\phi$, is identical to the spacial $\phi$ coordi
 Given the (approximate) axial symmetry of ATLAS about the beam axis, this coordinate is relatively uninteresting on its own.
 The lack of physical implications and its periodic nature have left this coordinate without slang terms for ``bigger'' and ``smaller''.
 Nonetheless, the relative differences in $\phi$ between particles can be an important parameter.
-
+Separation between particles is generally quantified as the quadrature sum of $\phi$ and $\eta$ separation: $\Delta R \equiv (\Delta \phi^2 + \Delta \eta^2)^{1/2}$.
+We rely on context to distinguish this variable from the radial distance $R$.
 
 \subsection{Hard Scattering}
 As shown in \cref{fig:parton-lumi}, parton-parton collisions are most commonly lower-energy \emph{soft} interactions.

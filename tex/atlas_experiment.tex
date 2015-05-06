@@ -2,6 +2,7 @@
 
 \atlas\ is one of two ``general purpose'' detectors at the LHC focusing on proton collisions.
 The detector is composed of several nested sub-detectors which provide complementary information when reconstructing an event.
+In general, \atlas\ is approximately symmetric about the beam axis, and also across the $z = 0$ plane.
 An inner-detector includes both silicon and drift-tube based trackers which measure the paths of charged particles as they move outward from the interaction point.
 Surrounding the tracker is a superconducting solenoid which creates a $2\,\text{T}$ axial magnetic field.
 By measuring the curvature of charged particles within this field, ATLAS is able to establish the particle momentum and charge.
@@ -11,13 +12,27 @@ Only two known particles normally penetrate the calorimeter: muons and neutrinos
 Of these, muon momentum is measured by the muon spectrometer, which surrounds the calorimeter.
 Neutrinos are inferred by an overall momentum imbalance transverse to the beam axis after summing the momenta of all other particles.
 
-\subsection{Inner Detector}
+\subsection{Tracker}
+
+The \atlas\ tracker consists of several inner pixel layers, surrounded by a silicon strip detector, surrounded by a drift-tube tracker which doubles as a transition radiation detector.
+Particles within the tracker volume are bent into helical paths by the axial magnetic field and reconstructed as \emph{tracks}.
+
+Like all \atlas\ subdetectors the tracker covers as much solid angle as possible surrounding the interaction point: the full range of $\phi$ and out to $|\eta| < 2.5$.
+One quadrant of the inner detector is shown in \cref{fig:atlas-id-acceptance}.
+Sensors are arranged in layers and angled to maximize coverage in $\eta$; \emph{barrel} layers at low $\eta$ are aligned with the beam axis, while \emph{wheel} layers at higher $\eta$ extend radially out from the beam.
+Out to the maximum coverage in $\eta$ each particle is expected to cross several layers.
+Energy deposits within these layers serve both as seeds and 3-dimensional constraints for reconstructed tracks.
 
 \begin{cfig}
   \graphic{1.0}{misc/cc/atlas-id-acceptance.pdf}
   \caption[ATLAS inner detector geometry]{Geometry of the ATLAS inner detector.}
   \label{fig:atlas-id-acceptance}
 \end{cfig}
+
+\paragraph{The Pixel Detector} The \atlas\ pixel detector consists of three barrel layers and three wheels on each side of the $z = 0$ plane.
+The barrel layers are positioned 50, 89, and 123$\,\mathrm{mm}$ from the beam and extend out to $|z| < 400\,\mathrm{mm}$.
+Beyond the extent of the barrel layers, the six wheels are positioned at $|z| = 495$, $580$, and $650\,\mathrm{mm}$, and extend from $R = 89$ to $150\,\mathrm{mm}$.
+Pixels are SOMETHING.
 
 %% While currently the world's most powerful and expensive particle collider, the LHC was designed to use existing infrastructure where possible to mitigate costs.
 %% The vast majority of the machine was designed to fit in the tunnel bored for the Large Electron-Positron collider in the 1980s.
