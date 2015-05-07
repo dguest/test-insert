@@ -95,6 +95,9 @@ get-file http://mediastream.cern.ch/MediaArchive/Photo/Public/2008/0803015/08030
 get-file https://cds.cern.ch/record/1621583/files/CERN%27s-accelerator-complex2013.jpg accelerator-complex.jpg
 get-file https://cds.cern.ch/record/842418/files/lhc-pho-1997-181.jpg cern-map.jpg
 get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/FigID26-mod-011107.pdf atlas-id-acceptance.pdf
+get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/HTonsetFit_detpaper_bw.pdf trt-high-threshold.pdf
+get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/ITCconcept_new.pdf atlas-calo-quarter.pdf
+get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/FCal1-FCALsetupv4.pdf atlas-fcal-quarter.pdf
 
 # get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/EventDisplayStandAlone/zpileup_20vtx_sept2011.png pileup-vertices.png
 # tagging

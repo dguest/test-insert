@@ -1,4 +1,5 @@
 \section{The \atlas\ Detector}
+\label{sec:atlas}
 
 \atlas\ is one of two ``general purpose'' detectors at the LHC focusing on proton collisions.
 The detector is composed of several nested sub-detectors which provide complementary information when reconstructing an event.
@@ -14,30 +15,93 @@ Neutrinos are inferred by an overall momentum imbalance transverse to the beam a
 
 \subsection{Tracker}
 
-The \atlas\ tracker consists of several inner pixel layers, surrounded by a silicon strip detector, surrounded by a drift-tube tracker which doubles as a transition radiation detector.
+The \atlas\ tracker~\cite{atlas-id1,atlas-id2} consists of several inner pixel layers, surrounded by a silicon strip detector, surrounded by a drift-tube tracker which doubles as a transition radiation detector.
 Particles within the tracker volume are bent into helical paths by the axial magnetic field and reconstructed as \emph{tracks}.
 
 Like all \atlas\ subdetectors the tracker covers as much solid angle as possible surrounding the interaction point: the full range of $\phi$ and out to $|\eta| < 2.5$.
 One quadrant of the inner detector is shown in \cref{fig:atlas-id-acceptance}.
 Sensors are arranged in layers and angled to maximize coverage in $\eta$; \emph{barrel} layers at low $\eta$ are aligned with the beam axis, while \emph{wheel} layers at higher $\eta$ extend radially out from the beam.
-Out to the maximum coverage in $\eta$ each particle is expected to cross several layers.
+Out to the maximum coverage in $\eta$ each particle is expected to cross at least 7 silicon sensors and 35--40 drift-tubes~\cite{DetPap,atlas-trt2}.
 Energy deposits within these layers serve both as seeds and 3-dimensional constraints for reconstructed tracks.
 
 \begin{cfig}
   \graphic{1.0}{misc/cc/atlas-id-acceptance.pdf}
-  \caption[ATLAS inner detector geometry]{Geometry of the ATLAS inner detector.}
+  \caption[ATLAS inner detector geometry]{Quarter section view of the ATLAS inner detector.}
   \label{fig:atlas-id-acceptance}
 \end{cfig}
+
 
 \paragraph{The Pixel Detector} The \atlas\ pixel detector consists of three barrel layers and three wheels on each side of the $z = 0$ plane.
 The barrel layers are positioned 50, 89, and 123$\,\mathrm{mm}$ from the beam and extend out to $|z| < 400\,\mathrm{mm}$.
 Beyond the extent of the barrel layers, the six wheels are positioned at $|z| = 495$, $580$, and $650\,\mathrm{mm}$, and extend from $R = 89$ to $150\,\mathrm{mm}$.
-Pixels are SOMETHING.
+These layers are composed of a total of 1744 $19 \times 63\,\mathrm{mm}$ identical modules.
+Each module contains 46,080 active pixels, 90\% of which measure $50 \times 50\,\mathrm{\mu m}$, and the rest of which measure $50 \times 600\,\mathrm{\mu m}$.
+The modules are oriented such that the smaller pixel dimension points along $\hat{\phi}$~\cite{DetPap}.
+
+\paragraph{The Semiconductor Tracker}
+The Semiconductor Tracker (SCT) occupies the space outside the pixel detector, where charged tracks from collisions are slightly less numerous and occupancies (the fraction of events where a given element registers a hit) are lower.
+It consists of 4 barrel layers which span $299 < R < 514\,\mathrm{mm}$, $|z| < 749\,\mathrm{mm}$, and 9 wheels which range in $|z|$ over 854--2720$\,\mathrm{mm}$ and span $275 < R < 560\,\mathrm{mm}$.
+The SCT consists of 2112 barrel modules and $2 \times 1976$ modules in the two wheel sections, for a total of 4088 modules.
+Each module consists of several strip sensors with 768 active strips each.
+The width of these strips varies between modules: barrel strips are each $80\,\mathrm{\mu m}$ wide; wheel strips are trapezoidal such that strip edges fan out radially from the beam line, but are roughly 57--90$\,\mathrm{\mu m}$ in width.
+Each sensor contains 768 active strips.
+Pairs of overlapping strip sensors are mounted back-to-back on modules with an offset of $\pm 20\,\mathrm{mrad}$ to give a stereo measurement of $z$ (in the case of the barrel) or $R$~\cite{DetPap}.
+
+\paragraph{The Transition Radiation Tracker}
+The Transition Radiation Tracker~\cite{atlas-trt,atlas-trt2} (TRT) is a combined drift-tube tracker and transition radiation detector.
+The basic elements of the trackers are $4\,\mathrm{mm}$ diameter polyimide (Kapton) straws, coated with aluminum to increase conductivity and reinforced with carbon fiber.
+Through the center of each straw runs a $31\,\mathrm{\mu m}$ diameter gold-plated tungsten wire.
+This wire acts as an anode and is kept grounded, while the straw cathode is held at $-1530\,\mathrm{V}$.
+The gas within the straws is constantly circulated and consists of 70\% Xenon, 27\% CO$_2$, and 3\% O$_2$, held at 5--10$\,\mathrm{mbar}$ over atmospheric pressure.
+
+Charged particles crossing the straws liberate electrons which drift toward the anode at roughly $0.05\,\mathrm{mm/ns}$, creating an avalanche of charge along the way.
+The typical gain of the charge avalanche is $2.5 \times 10^4$.
+When this avalanche reaches the anode the charges are transmitted down the wires and digitized as \emph{low threshold} or \emph{high threshold} hits.
+The leading edge of a low threshold hit defines a \emph{drift circle}, which constrains the distance between the straw wire and track within roughly $130\,\mathrm{\mu m}$.
+
+\begin{cfig}
+  \graphic{0.6}{misc/cc/trt-high-threshold.pdf}
+  \caption[TRT high threshold probability for $e$, $\mu$, and pions]{
+    Probability of a high-threshold hit in the TRT barrel section as a function of the $\gamma$ for $e$ (open squares), $\mu$ (full triangles) and pions (open circles) in the energy range 2--350$\,\gev$, as measured in the combined test-beam.}
+  \label{fig:trt-high-threshold}
+\end{cfig}
+
+In addition to low threshold hits, charged particles in the TRT produce \emph{transition radiation} in proportion to their Lorentz $\gamma$ factor.
+The gas mixture within the TRT is designed to absorb transition radiation photons, which create much larger electron cascades and result in high threshold hits.
+As shown in \cref{fig:trt-high-threshold}, these high threshold hits offer an additional discriminant between electrons and pions, since pions are much more massive and thus have a lower $\gamma$ for the same momentum.
+
+\paragraph{Front-end Readouts} Each of the three inner detector components includes a memory buffer and receives a clock signal synchronized with the LHC clock.
+Charged particles leave hits, which are recorded in the buffer along with a time-stamp indicating the associated bunch crossing.
+The buffers store hits for approximately $3.2\,\mathrm{\mu s}$, long enough for the level 1 trigger decision (see \cref{sec:trigger}).
+%% Hits are only read off the front-end boards only when a level 1 trigger fires.
+
 
 %% While currently the world's most powerful and expensive particle collider, the LHC was designed to use existing infrastructure where possible to mitigate costs.
 %% The vast majority of the machine was designed to fit in the tunnel bored for the Large Electron-Positron collider in the 1980s.
 
-\label{sec:atlas}
+\subsection{Calorimeters}
+Outside the \atlas\ tracker two concentric calorimeters measure particle energy out to $|\eta| < 4.9$.
+The inner (electromagnetic or EM) calorimeter is optimized to measure the energy of electrically charged particles and photons, while the outer (hadronic) calorimeter is optimized for neutral strongly-interacting particles.
+A secondary purpose of the calorimeters is to absorb particles as they move outward from the interaction point and prevent them from passing into the next layer of \atlas.
+The EM calorimeter uses liquid argon as an active medium and relies on metal absorber plates to create particle showers from incoming particles.
+The barrel hadronic calorimeter uses steel plates as absorbers and clear plastic scintillating tiles as an active medium.
+Other sections of the hadronic calorimeter (endcap and forward) use liquid argon and various metal absorbers.
+
+\paragraph{The Electromagnetic Calorimeter}
+
+
+
+\begin{cfig}
+  \subfigure[Barrel and endcap calorimeter]{
+    \graphic{0.48}{misc/cc/atlas-calo-quarter.pdf}
+    \label{fig:atlas-calo-quarter}}
+  \subfigure[Forward calorimeter]{
+    \graphic{0.48}{misc/cc/atlas-fcal-quarter.pdf}
+    \label{fig:atlas-fcal-quarter}}
+  \caption[Atlas calorimeter quarter-view]{Schematic quarter-view of the \atlas\ calorimeters. The barrel and endcap calorimeters, shown in~\subref{fig:atlas-calo-quarter}, use liquid argon and plastic scintillating tiles, respectively. The forward calorimeter~\subref{fig:atlas-fcal-quarter} uses liquid argon exclusively.}
+  \label{fig:atlas-calos-quarter}
+\end{cfig}
+
 \begin{itemize}
 \item Maybe put \cref{sec:pheno} here?
 \item Mention how systematics work here (mention how they can be correlated between regions)
@@ -51,9 +115,9 @@ Brief summary of the trigger.
 \item Must discuss prescaling
 \end{itemize}
 \subsection{Data Acquisition and Processing}
-\begin{itemize}
-\item Concept of a run (referenced later)
-\end{itemize}
+%% \begin{itemize}
+%% %% \item Concept of a run (referenced later)
+%% \end{itemize}
 \subsection{\atlas\ Software and Simulation}
 \label{sec:software}
 \begin{itemize}
