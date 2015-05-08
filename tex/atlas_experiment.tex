@@ -83,13 +83,10 @@ The buffers store hits for approximately $3.2\,\mathrm{\mu s}$, long enough for 
 Outside the \atlas\ tracker two concentric calorimeters measure particle energy out to $|\eta| < 4.9$.
 The inner (electromagnetic or EM) calorimeter is optimized to measure the energy of electrically charged particles and photons, while the outer (hadronic) calorimeter is optimized for neutral strongly-interacting particles.
 A secondary purpose of the calorimeters is to absorb particles as they move outward from the interaction point and prevent them from passing into the next layer of \atlas.
+
 The EM calorimeter uses liquid argon as an active medium and relies on metal absorber plates to create particle showers from incoming particles.
 The barrel hadronic calorimeter uses steel plates as absorbers and clear plastic scintillating tiles as an active medium.
 Other sections of the hadronic calorimeter (endcap and forward) use liquid argon and various metal absorbers.
-
-\paragraph{The Electromagnetic Calorimeter}
-
-
 
 \begin{cfig}
   \subfigure[Barrel and endcap calorimeter]{
@@ -101,6 +98,51 @@ Other sections of the hadronic calorimeter (endcap and forward) use liquid argon
   \caption[Atlas calorimeter quarter-view]{Schematic quarter-view of the \atlas\ calorimeters. The barrel and endcap calorimeters, shown in~\subref{fig:atlas-calo-quarter}, use liquid argon and plastic scintillating tiles, respectively. The forward calorimeter~\subref{fig:atlas-fcal-quarter} uses liquid argon exclusively.}
   \label{fig:atlas-calos-quarter}
 \end{cfig}
+
+\paragraph{Electromagnetic Calorimeter}
+The \atlas\ EM calorimeter~\cite{atlas-lar,atlas-lar-performance} consists of a central barrel, a pair of endcaps, and the forward calorimeter.
+All elements are contained within cryostats to hold the argon active medium at liquid temperatures.
+Particles out to $|\eta| < 4.9$ pass through at least 20 \emph{radiation lengths} $\radlen$ within the EM calorimeter.
+One radiation length is both the length over which an electron energy decreases to $1/e$, and $7/9$ of the mean distance over which a photon splits to a pair of electrons.
+Thus nearly all electrons and photons are absorbed within the electromagnetic calorimeter.
+
+The geometry of the barrel and endcap calorimeters is similar.
+They consist of a presampler on the inner surface~\cite{atlas-em-presampler}, followed by three layers of accordion-shaped lead absorbers separated by gaps filled with liquid argon.
+For a typical gap, the drift time for ionized particles in the gaps is roughly $450\,\mathrm{ns}$, meaning that individual particle showers are resolved over many bunch crossings.
+
+Activity in each layer is read out in cells in the $\eta$--$\phi$ plane.
+The presampler is designed to estimate energy loss in the roughly $1.8$--$4.4\,\radlen$ of material between the interaction point and the EM calorimeter.
+It is segmented into cells of $0.025 \times 0.1$ in $\Delta \eta \times \Delta \phi$.
+The first full calorimeter layer is roughly $5\,\radlen$ thick and divided into cells with the same $\phi$ granularity as the presampler but eight times as many cells in $\eta$.
+Behind the first EM layer is a much thicker $\sim 16\,\radlen$ second layer, segmented in $0.025 \times 0.025$ blocks in the $\eta$--$\phi$ plane.
+This is followed by a third $\sim 2\,\radlen$ layer with half the number of cells per $\eta$ as the second layer and the same $\phi$ granularity.
+
+In the endcap and at higher values of $\eta$ in the barrel EM calorimeter some cells are combined; high $\eta$ values sweep less physical space within \atlas\ for the same $\Delta \eta$.
+In general high $\eta$ regions are less thoroughly instrumented: the presampler only extends to $|\eta| < 1.8$, and the third EM calorimeter layer only extends to $|\eta| < 2.5$, for example.
+
+\paragraph{Hadronic Calorimeter}
+Both neutral and charged hadrons will frequently punch through the electromagnetic calorimeter.
+These particles are absorbed by the hadronic calorimeter which surrounds the EM calorimeter.
+An analogous parameter to $\radlen$ for the sake of describing hadronic interactions is the \emph{nuclear interaction length} $\nuclen$.
+Particles within the calorimeter acceptance travel through roughly $10\,\nuclen$.
+
+The hadronic endcap covers the $1.5 < | \eta | < 3.2$ region, and relies on liquid argon technology similar to that in the EM calorimeter.
+In place of the lead accordion baffles used in the EM calorimeter, however, the hadronic endcap consists of flat copper plates facing normal to the beam axis.
+The calorimeter is segmented in $\Delta \eta \times \Delta \phi$ cells of $0.1 \times 0.1$ for $|\eta| < 2.5$, and $0.2 \times 0.2$ for larger values of $\eta$. Along the beam axis the plates are combined into four layers in each endcap.
+
+In the barrel region, the hadronic calorimeter uses scintillating plastic tiles with a steel absorber~\cite{atlas-tile}. Light is piped through fiber cables to instrumentation drawers and measured with photomultiplier tubes.
+Tiles are segmented in three layers. The first two layers are divided into $0.1 \times 0.1$ cells in the $\Delta \eta \times \Delta \phi$ plane, whereas the last layer uses $0.2 \times 0.1$ cells.
+
+\paragraph{Forward Calorimeter}
+\label{sec:atlas-fcal}
+The \atlas\ forward calorimeter covers the $3.1 < |\eta| < 4.9$ region, again with liquid-argon--based detectors~\cite{atlas-fcal}.
+This region is especially saturated with minimum-bias events and demands both higher density and a faster drift time than the barrel and endcap calorimeters.
+Each of the two forward calorimeters consists of three $45\,\mathrm{cm}$ copper modules with$\sim 5\,\mathrm{mm}$ diameter holes running along the beam axis.
+Rods run through the holes, and are separated by a small liquid-argon--filled gap.
+Modules closer to the interaction point require a smaller gap; in the case of the closest module the gap is $296\,\mathrm{\mu m}$ with a corresponding drift time of roughly $60\,\mathrm{ns}$.
+This inner module is designed primarily for EM radiation and uses copper rods.
+Rods in the remaining two modules are constructed from tungsten to absorb hadronic particles.
+To further reduce punch-through, a copper alloy plug is positioned behind the third forward calorimeter module.
 
 \begin{itemize}
 \item Maybe put \cref{sec:pheno} here?
@@ -125,3 +167,5 @@ Brief summary of the trigger.
 \item mention how simulation is sometimes weighted
 \item concept of a signal grid (and signal ``point'')
 \end{itemize}
+
+\subsection{Object Reconstruction}
