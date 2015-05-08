@@ -135,14 +135,48 @@ Tiles are segmented in three layers. The first two layers are divided into $0.1 
 
 \paragraph{Forward Calorimeter}
 \label{sec:atlas-fcal}
-The \atlas\ forward calorimeter covers the $3.1 < |\eta| < 4.9$ region, again with liquid-argon--based detectors~\cite{atlas-fcal}.
-This region is especially saturated with minimum-bias events and demands both higher density and a faster drift time than the barrel and endcap calorimeters.
-Each of the two forward calorimeters consists of three $45\,\mathrm{cm}$ copper modules with$\sim 5\,\mathrm{mm}$ diameter holes running along the beam axis.
+The \atlas\ forward calorimeters cover the $3.1 < |\eta| < 4.9$ regions, again with liquid-argon--based detectors~\cite{atlas-fcal}.
+This region is especially saturated with minimum-bias events and demands both higher density absorber and a faster drift time than the barrel and endcap calorimeters.
+Each of the two forward calorimeters is roughly a meter in diameter, and consists of three $45\,\mathrm{cm}$ long copper modules stacked along the beam axis, with $\sim 5\,\mathrm{mm}$ diameter holes running parallel to the beam.
 Rods run through the holes, and are separated by a small liquid-argon--filled gap.
-Modules closer to the interaction point require a smaller gap; in the case of the closest module the gap is $296\,\mathrm{\mu m}$ with a corresponding drift time of roughly $60\,\mathrm{ns}$.
-This inner module is designed primarily for EM radiation and uses copper rods.
-Rods in the remaining two modules are constructed from tungsten to absorb hadronic particles.
-To further reduce punch-through, a copper alloy plug is positioned behind the third forward calorimeter module.
+These rods serve as both electrodes and absorbers.
+
+Modules closer to the interaction point require a smaller gap. In the case of the closest module the gap is $296\,\mathrm{\mu m}$ with a corresponding drift time of roughly $60\,\mathrm{ns}$.
+The inner module is designed primarily to absorb EM radiation; the rods are constructed from copper, resulting in a radiation thickness of $28\,\radlen$ or $2.7\,\nuclen$.
+The remaining two modules use tungsten rods and focus on absorbing hadrons.
+Each is roughly $3.6\,\nuclen$ thick, leading to a total active depth of the three modules of roughly $10\,\nuclen$.
+To further reduce punch-through, a $\sim 0.5\,\mathrm{m}$ thick brass plug is positioned behind the third forward calorimeter module.
+
+\subsection{Muon Spectrometer}
+The \atlas\ muon spectrometer is constructed outside of the calorimeters.
+Of the known particles, only muons and neutrinos survive the trip through the tracker and both calorimeters.
+Of these, only muons are changed and therefore detectable with the muon spectrometer.
+
+The muon spectrometer is the single largest component in the \atlas\ detector.
+It consists of several sets of superconducting coils arranged to create a toroidal magnetic field approximately aligned with $\hat{\phi}$, along with a large array including several types of gaseous detectors.
+These detectors measure muons out to $|\eta| < 2.7$, and trigger on these particles out to $|\eta| < 2.4$.
+
+\begin{cfig}
+  \subfigure[Quarter-section of the \atlas\ muon system]{
+    \graphic{0.60}{misc/cc/atlas-muon-quarter.pdf}
+    \label{fig:atlas-muon-quarter} }
+  \subfigure[Monitored Drift Tube]{
+    \graphic{0.28}{misc/cc/atlas-mdt-crosssection.pdf}
+    \label{fig:atlas-mdt-crosssection} }
+  \caption[\atlas\ muon spectrometer]{The \atlas\ muon spectrometer.
+    A quarter-section of the spectrometer, showing coverage in $\eta$ is given in \subref{fig:atlas-muon-quarter}.
+    The crosssection of a single Monitored Drift Tube (MDT) is shown in \subref{fig:atlas-mdt-crosssection}.}
+  \label{fig:atlas-muon-spec}
+\end{cfig}
+
+The most precise of the muon detectors are the Monitored Drift Tube (MDT) chambers.
+These chambers contain three to eight layers of drift tubes similar to those in the TRT. A cross-section of a single drift-tube is shown in \cref{atlas-mdt-crosssection}.
+The tubes are pressurized to $3\,\mathrm{bar}$ with a mixture of argon (93\%) and CO$_2$ (7\%).
+Each tube provides a resolution of roughly $80\,\mathrm{\mu m}$ but the combined resolution from a muon passing through the multiple tubes in a chamber is roughly $35\,\mathrm{\mu m}$.
+These MDT chambers cover the full range of $\eta$ provided by the muon system.
+
+In the region where $|\eta| > 2.0$ higher particle flux necessitates
+
 
 \begin{itemize}
 \item Maybe put \cref{sec:pheno} here?

@@ -98,6 +98,9 @@ get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFi
 get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/HTonsetFit_detpaper_bw.pdf trt-high-threshold.pdf
 get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/ITCconcept_new.pdf atlas-calo-quarter.pdf
 get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/FCal1-FCALsetupv4.pdf atlas-fcal-quarter.pdf
+get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/Muon_rz_large_sect_6.pdf atlas-muon-quarter.pdf
+get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasTechnicalPaperListOfFigures/MDT_tube_cross_section.pdf atlas-mdt-crosssection.pdf
+
 
 # get-file https://twiki.cern.ch/twiki/pub/AtlasPublic/EventDisplayStandAlone/zpileup_20vtx_sept2011.png pileup-vertices.png
 # tagging
