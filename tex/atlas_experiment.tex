@@ -152,7 +152,7 @@ The \atlas\ muon spectrometer is constructed outside of the calorimeters.
 Of the known particles, only muons and neutrinos survive the trip through the tracker and both calorimeters.
 Of these, only muons are changed and therefore detectable with the muon spectrometer.
 
-The muon spectrometer is the single largest component in the \atlas\ detector.
+The muon spectrometer is the single largest component in the \atlas\ detector by volume.
 It consists of several sets of superconducting coils arranged to create a toroidal magnetic field approximately aligned with $\hat{\phi}$, along with a large array including several types of gaseous detectors.
 These detectors measure muons out to $|\eta| < 2.7$, and trigger on these particles out to $|\eta| < 2.4$.
 
@@ -170,24 +170,59 @@ These detectors measure muons out to $|\eta| < 2.7$, and trigger on these partic
 \end{cfig}
 
 The most precise of the muon detectors are the Monitored Drift Tube (MDT) chambers.
-These chambers contain three to eight layers of drift tubes similar to those in the TRT. A cross-section of a single drift-tube is shown in \cref{atlas-mdt-crosssection}.
+These chambers contain three to eight layers of drift tubes similar to those in the TRT.
+A cross-section of a single drift-tube is shown in \cref{fig:atlas-mdt-crosssection}.
+The maximum drift time for a particle passing though the edge of a tube is roughly $700\,\mathrm{ns}$.
 The tubes are pressurized to $3\,\mathrm{bar}$ with a mixture of argon (93\%) and CO$_2$ (7\%).
 Each tube provides a resolution of roughly $80\,\mathrm{\mu m}$ but the combined resolution from a muon passing through the multiple tubes in a chamber is roughly $35\,\mathrm{\mu m}$.
 These MDT chambers cover the full range of $\eta$ provided by the muon system.
+In the region where $|\eta| > 2.0$ higher particle flux necessitates sensors with finer granularity and faster drift times.
+These regions use Cathode Strip Chambers (essentially multiwire proportional chambers) instead.
 
-In the region where $|\eta| > 2.0$ higher particle flux necessitates
+The muon trigger system uses resistive plate chambers in the $|\eta| < 1.05$ region, and Thin Gap Chambers (TGCs) in the $1.05 < |\eta| < 2.7$ region, although TCG triggering is limited to $|\eta| < 2.4$.
+Both these technologies provide much faster readout which is usable in the level 1 trigger, and in the case of MDTs (which only constrain tracks in 1-dimension) provide an additional constraint on muon tracks.
 
-
-\begin{itemize}
-\item Maybe put \cref{sec:pheno} here?
-\item Mention how systematics work here (mention how they can be correlated between regions)
-\end{itemize}
 \subsection{Trigger}
 \label{sec:trigger}
+The \atlas\ trigger must reduce a nominal event rate of $40\,\mathrm{MHz}$ to the much lower $200\,\mathrm{Hz}$ which is written to disk.
+This reduction of roughly 5 orders of magnitude is implemented with a three-level trigger system, shown schematically in \cref{fig:trigger-block}.
+%% With a level 1 trigger, data is moved out of \atlas\ and into the neighboring USA15 cavern. With a level 2 trigger, data is sent to 
+
+\paragraph{Level 1} The level 1 trigger~\cite{atlas-lvl1} determines whether digitized information leaves the physical detector.
+By default, very little data is read out of \atlas; data regarding tracking, along with more detailed calorimetry and muon spectrometer data, is stored on pipelines in front-end boards within the various subdetectors.
+Events are read out only if requested by the level 1 trigger, which selects events based on designated feeds from the muon and calorimeter system.
+Due to limitations in the size of front-end board pipelines, the trigger decision must be extremely fast; the target trigger latency is $2.5\,\mathrm{\mu s}$, and roughly $1\,\mathrm{\mu s}$ of this is consumed by signal transmission time within the \atlas\ cavern.
+Even at level 1, this decision must also be very selective; the maximum rate at which events can be transferred is $75\,\mathrm{kHz}$.
+
+The muon triggering algorithm is based on coincident hits in neighboring sensors consistent within a ``road'' leading to the interaction point.
+Higher $\pt$ muons curve less, and thus fit in a narrower road.
+Multiple muon triggers can thus be configured with various minimum $\pt$ thresholds.
+Bandwidth restrictions in the front-end readouts mean the lower $\pt$ triggers are typically \emph{prescaled}---only a predetermined fraction of trigger requests actually fire the trigger.
+Massively parallel electronics are designed to compute the trigger decision in $2.1\,\mathrm{\mu s}$.
+
+Calorimeter triggers cover a much wider range of physical processes.
+Cells within the calorimeters are summed in $0.1 \times 0.1$ supercells in $\Delta \eta \times \Delta \phi$ space using analog electronics. These sums are transmitted via 7000 analogue links to an adjacent cavern, where the signal is digitized and compared against multiple interesting signatures.
+Example signatures include various energetic clusters of supercells (jets) isolated energetic $2 \times 2$ supercell clusters (electrons, photons and $\tau$'s), and overall energy imbalances ($\met$).
+The calorimeter trigger typically decides to accept an event within $1.5\,\mathrm{\mu s}$, allowing the signal to reach the front-end pipelines within $2.1\,\mathrm{\mu s}$.
+
+\paragraph{Level 2} A level 1 trigger decision signals for a given event to be read off the front-end boards in all of the \atlas\ subdetectors at a rate of approximately $75\,\mathrm{kHz}$.
+It also sends Regions of Interest (RoIs) to the level 2 trigger farm.
+These regions of interest form a restricted region of $\eta$--$\phi$, but can include information from all of the subdetectors at full granularity.
+The level 2 trigger can thus reject events based on tracker information, full shower shapes in the calorimeter, and the precision tracking information in the muon spectrometer.
+This step reduces the event rate from $75\,\mathrm{kHz}$ to roughly $3.5\,\mathrm{kHz}$.
+
+\paragraph{Event Filter}
+
+\begin{cfig}
+  \graphic{1.0}{misc/cc/trigger-block.pdf}
+  \caption[Flowchart of the \atlas\ trigger]{Flowchart of the \atlas\ trigger system.}
+  \label{fig:trigger-block}
+\end{cfig}
+
 Brief summary of the trigger.
 \begin{itemize}
 \item Must introduce ``offline'' and ``online'' (referenced later)
-\item Cite Will Butt~\cite{atlas-lvl1}.
+%% \item Cite Will Butt~\cite{atlas-lvl1}.
 \item Must discuss prescaling
 \end{itemize}
 \subsection{Data Acquisition and Processing}
@@ -203,3 +238,6 @@ Brief summary of the trigger.
 \end{itemize}
 
 \subsection{Object Reconstruction}
+\begin{itemize}
+\item Mention how systematics work here (mention how they can be correlated between regions)
+\end{itemize}
