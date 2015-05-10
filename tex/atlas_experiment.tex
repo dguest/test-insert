@@ -188,6 +188,12 @@ The \atlas\ trigger must reduce a nominal event rate of $40\,\mathrm{MHz}$ to th
 This reduction of roughly 5 orders of magnitude is implemented with a three-level trigger system, shown schematically in \cref{fig:trigger-block}.
 %% With a level 1 trigger, data is moved out of \atlas\ and into the neighboring USA15 cavern. With a level 2 trigger, data is sent to 
 
+\begin{cfig}
+  \graphic{1.0}{misc/cc/trigger-block.pdf}
+  \caption[Flowchart of the \atlas\ trigger]{Flowchart of the \atlas\ trigger system.}
+  \label{fig:trigger-block}
+\end{cfig}
+
 \paragraph{Level 1} The level 1 trigger~\cite{atlas-lvl1} determines whether digitized information leaves the physical detector.
 By default, very little data is read out of \atlas; data regarding tracking, along with more detailed calorimetry and muon spectrometer data, is stored on pipelines in front-end boards within the various subdetectors.
 Events are read out only if requested by the level 1 trigger, which selects events based on designated feeds from the muon and calorimeter system.
@@ -195,9 +201,9 @@ Due to limitations in the size of front-end board pipelines, the trigger decisio
 Even at level 1, this decision must also be very selective; the maximum rate at which events can be transferred is $75\,\mathrm{kHz}$.
 
 The muon triggering algorithm is based on coincident hits in neighboring sensors consistent within a ``road'' leading to the interaction point.
-Higher $\pt$ muons curve less, and thus fit in a narrower road.
-Multiple muon triggers can thus be configured with various minimum $\pt$ thresholds.
-Bandwidth restrictions in the front-end readouts mean the lower $\pt$ triggers are typically \emph{prescaled}---only a predetermined fraction of trigger requests actually fire the trigger.
+Higher $\pt$ muons, given their decreased curvature, fit in a narrower road.
+By varying this road width, multiple muon triggers can thus be configured with various minimum $\pt$ thresholds.
+Bandwidth restrictions in the level 1 trigger rate mean the lower $\pt$ triggers must be \emph{prescaled}---only a predetermined fraction of valid trigger requests actually fire the trigger.
 Massively parallel electronics are designed to compute the trigger decision in $2.1\,\mathrm{\mu s}$.
 
 Calorimeter triggers cover a much wider range of physical processes.
@@ -209,35 +215,58 @@ The calorimeter trigger typically decides to accept an event within $1.5\,\mathr
 It also sends Regions of Interest (RoIs) to the level 2 trigger farm.
 These regions of interest form a restricted region of $\eta$--$\phi$, but can include information from all of the subdetectors at full granularity.
 The level 2 trigger can thus reject events based on tracker information, full shower shapes in the calorimeter, and the precision tracking information in the muon spectrometer.
-This step reduces the event rate from $75\,\mathrm{kHz}$ to roughly $3.5\,\mathrm{kHz}$.
+
+Data is stored in a pool of readout buffers outside the detector while awaiting the level 2 decision, which significantly reduces the latency constraints; whereas level 1 trigger decisions are required in $2.5\,\mathrm{\mu s}$ a typical level 2 node processes one event every $5\,\mathrm{ms}$.
+Thanks to the parallel processing of RoIs, the level 2 trigger is nonetheless able to reduce the event rate from $75\,\mathrm{kHz}$ to roughly $3.5\,\mathrm{kHz}$.
 
 \paragraph{Event Filter}
+Events which pass the level 2 trigger are passed on to the event filter.
+The event filter is built on the same software which is later used for fully calibrated analysis, and can thus theoretically reconstruct events much more accurately and completely than the level 2 trigger.
+%% Like the level 2 trigger, the event filter is implemented as a processor farm.
+Roughly 50 dedicated nodes reconstruct events at a rate of $\sim 60\,\mathrm{Hz}$.
+The reconstructed events are passed on to approximately a thousand high level trigger nodes which each process approximately one event every second.
 
-\begin{cfig}
-  \graphic{1.0}{misc/cc/trigger-block.pdf}
-  \caption[Flowchart of the \atlas\ trigger]{Flowchart of the \atlas\ trigger system.}
-  \label{fig:trigger-block}
-\end{cfig}
+Events which pass the event filter are also sorted into data \emph{streams}.
+Some streams consist of objects of interest for particular final states, such as the \texttt{Muons}, \texttt{Egamma} (electron and photon), or \texttt{JetTauEtmiss} (various calorimeter triggers).
+Other streams correspond to useful calibration information.
+In total, events pass the event filter at a rate of $200\,\mathrm{Hz}$.
+All events which pass the event filter are eventually written to permanent storage.
 
-Brief summary of the trigger.
-\begin{itemize}
-\item Must introduce ``offline'' and ``online'' (referenced later)
-%% \item Cite Will Butt~\cite{atlas-lvl1}.
-\item Must discuss prescaling
-\end{itemize}
-\subsection{Data Acquisition and Processing}
-%% \begin{itemize}
-%% %% \item Concept of a run (referenced later)
-%% \end{itemize}
-\subsection{\atlas\ Software and Simulation}
-\label{sec:software}
+\section{\atlas\ Computing Infrastructure}
+Data analysis in atlas \atlas\ involves many more computers than those present at CERN.
+The \atlas\ computing grid involves three \emph{tiers} of computing centers, not including tier 0, which is located at point 1 near the detector.
+Data moves down the tier structure through a series of derivations, which become progressively smaller and specific to an individual physics analysis.
+
+Raw data which passes the event filter is stored at tier 0 and duplicated at roughly 10 tier 1 facilities located throughout the world.
+These facilities are primarily reserved for data storage and reprocessing.
+Derivations from this primary data are stored at roughly 100 tier 2 sites.
+Tier 2 sites serve two primary purposes.
+First, they produce simulated data, as discussed more in \cref{sec:simulation}.
+Second, any \atlas\ user has access to the derived data and computing resources housed there.
+Since the data stored on tier 2 sites generally contains far more information than necessary for an individual analysis, ``user'' jobs are typically run to create analysis-specific data sets.
+Tier 3 sites are typically smaller clusters used for institution-level analysis~\cite{atlas-computing-tdr}.
+
+\subsection{Calibration Loop}
+In the $\sim 36\,\mathrm{hours}$ immediately following a run, a number of calibrations run on a special ``express'' stream.
+These include alignment in the muon spectrometer, determination of the beam position, and calorimeter calibrations, and are run both at CERN and at tier 2 installations.
+Bulk processing of the remaining streams begins after these calibrations are complete.
+The resulting data contains a number of derived \emph{objects}; electron, photon, muon, $\tau$, and jet candidates (among other variables) are explicitly defined.
+Such objects are said to be reconstructed \emph{offline}, as opposed to objects reconstructed \emph{online} by the triggers.
+
+The resulting data is theoretically ready for use in searches and measurements after this step, but in practice a considerable amount of additional calibration and processing is still required.
+As of 2012, no universal object definitions existed within \atlas, thus a discussion of the specific object definitions is deferred until \cref{sec:scharm}.
+
+\subsection{\atlas\ Simulation}
+\label{sec:simulation}
+Nearly every physical measurement at \atlas\ is heavily dependent on simulation.
+
 \begin{itemize}
 \item \atlas\ geometry model
 \item mention how simulation is sometimes weighted
 \item concept of a signal grid (and signal ``point'')
 \end{itemize}
 
-\subsection{Object Reconstruction}
-\begin{itemize}
-\item Mention how systematics work here (mention how they can be correlated between regions)
-\end{itemize}
+%% \subsection{Object Reconstruction}
+%% \begin{itemize}
+%% \item Mention how systematics work here (mention how they can be correlated between regions)
+%% \end{itemize}
