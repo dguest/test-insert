@@ -120,6 +120,10 @@ get-file https://atlas.web.cern.ch/Atlas/GROUPS/DATAPREPARATION/InteractionsperC
 get-file http://apod.nasa.gov/apod/image/0608/bulletcluster_comp_f2048.jpg
 get-file http://sci.esa.int/science-e-media/img/61/Planck_CMB_Mollweide_wallpaper.jpg
 
+# other searches
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2013-21/fig_02a.pdf sttoc-anti-b.pdf
+get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2013-21/fig_02b.pdf sttoc-anti-light.pdf
+
 # ugly graphs
 get-file http://www.nobelprize.org/nobel_prizes/physics/laureates/2004/phypub4highen.jpg unification-ugly.jpg
 get-file http://ufldl.stanford.edu/wiki/images/0/0e/Stacked_SparseAE_Features1.png autoencoder-layer.png
