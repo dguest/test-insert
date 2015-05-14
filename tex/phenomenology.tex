@@ -32,14 +32,18 @@ The total rate is thus give by
 \end{equation}
 where $N$ is the number of collisions and $\sigma$ is the cross-section.
 The basic properties of $\mathcal{L}$ follow from simple dimensional analysis.
-Imagining pairs of homogeneous \emph{bunches}\footnote{Obviously a real particle beam isn't composed of particle bunches with homogeneous density. While a more precise treatment is technically possible, in practice luminosity is measured \emph{from} the collision rate; there's no need to compute the precise geometry of the collision.} of particles crossing through each other at regular time intervals, the number of collisions should be proportional to several quantities:
+%% Imagining pairs of homogeneous \emph{bunches}\footnote{Obviously a real particle beam isn't composed of particle bunches with homogeneous density. While a more precise treatment is technically possible, in practice luminosity is measured \emph{from} the collision rate; there's no need to compute the precise geometry of the collision.} of particles crossing through each other at regular time intervals,
+The number of collisions should be proportional to several quantities:
 \begin{itemize}
 \item The number particles in one bunch per unit area, when projected onto a plane perpendicular to the beam axis. As a number per unit area, this quantity has dimensions of $\mathrm{L}^{-2}$.
 \item The same quantity in the opposing bunch. Again this quantity has dimensions of $\mathrm{L}^{-2}$.
 \item The total area of the beam profile (projected perpendicular to the beam access). This is has dimensions of $\mathrm{L}^2$.
 \end{itemize}
 Multiplying by $\mathrm{T}^{-1}$ (because crossings happen at regular intervals), the overall units for luminosity must be $\mathrm{L}^{-2} \times \mathrm{T}^{-1}$.
-The rate of particle interactions should have units of $\mathrm{T}^{-1}$. By dimensional analysis $\sigma$ must have units of area.
+The rate of particle interactions should have units of $\mathrm{T}^{-1}$.
+By dimensional analysis $\sigma$ must have units of area.\footnote{While the language of cross-sections lends itself to an intuitive picture of particles with some spacial extent, it's important to note that the connection is completely accidental---fundamental particles have no spacial extent.
+To make matters worse, the language is potentially misleading.
+The cross-section is a function of energy, and a property of the interaction not the particles---there is no ``cross section of an electron'' without first specifying what particle the electron is interacting with and the energy scale of the interaction.}
 
 Several cross-sections for processes involving proton collisions are shown on the right side of \cref{fig:parton-lumi}.
 The total proton-proton cross-section is many orders of magnitude larger than those for $W$ and $Z$ production, which, in turn, are many orders of magnitude larger than those for Higgs production.
@@ -48,7 +52,7 @@ Given that cross-section is directly related to production rate, it's no surpris
 %% Cross-sections, which have units of area, mesh well with classical intuition. In particles with some physical extent, the ``larger'' particles are clearly more likely to collide than the smaller ones.
 %% Unfortunately this intuitive picture breaks down almost immediately; 
 
-This progression of discovery was enabled in part by more energetic accelerators, since cross-sections generally increase with energy. Increases in luminosity play an equally important part, however. To quantify the total number of collisions, particle physicists typically integrate luminosity over time, and quote \emph{integrated luminosity} in units of inverse \emph{barns} (b), where $1\,\mathrm{b} = 10^{-28}\,\mathrm{m}^2$, or more frequently \emph{femtobarns} ($1\,\mathrm{fb} = 10^{-43}\,\mathrm{m}^2$).
+This progression of discovery was enabled in part by more energetic accelerators, since cross-sections generally increase with energy. Increases in luminosity play an equally important part however. To quantify the total number of collisions particle physicists typically integrate luminosity over time and quote \emph{integrated luminosity} in units of inverse \emph{barns} (b), where $1\,\mathrm{b} = 10^{-28}\,\mathrm{m}^2$, or more frequently \emph{femtobarns} ($1\,\mathrm{fb} = 10^{-43}\,\mathrm{m}^2$).
 Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\invfb$ in its two detectors~\cite{tevatron}. In 2012 alone, both ATLAS and CMS accumulated an integrated luminosity of roughly $20\,\invfb$.
 
 %% \begin{figure}
@@ -65,7 +69,7 @@ Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\inv
 %% \end{figure}
 
 \subsection{Detector Coordinates}
-The ATLAS detector is discussed in much more detail in \cref{sec:atlas}, but the discussion in the following sections requires a brief introduction to the standard coordinate system.
+%% The ATLAS detector is discussed in much more detail in \cref{sec:atlas}, but the discussion in the following sections requires a brief introduction to the standard coordinate system.
 ATLAS uses a right-handed cylindrical coordinate system centered at the nominal collision point, with $\hat{z}$ pointing down the beam axis. Vectors with $\phi = 0$ point toward the center of the LHC ring, and $\hat{\phi}$ points upward when $\phi = 0$.
 Typically $R$ refers to the radius.
 %% Owing to rough invariance to $\phi$ transformations and rough reflection symmetry about $z = 0$
@@ -82,21 +86,31 @@ Particles with high $|\eta|$ are refereed to as ``forward'', in contrast to ``ce
 Despite the contrived name and the odd definition, $\eta$ is useful because differences in particle $\eta$ are invariant to boosts along the beam axis.
 
 The third standard coordinate, $\phi$, is identical to the spacial $\phi$ coordinate.
-Given the (approximate) axial symmetry of ATLAS about the beam axis, this coordinate is relatively uninteresting on its own.
-The lack of physical implications and its periodic nature have left this coordinate without slang terms for ``bigger'' and ``smaller''.
+Given the (approximate) axial symmetry of ATLAS about the beam axis and $\phi$'s periodic nature, this coordinate is relatively uninteresting on its own.
+%% This  periodic nature have left this coordinate without slang terms for ``bigger'' and ``smaller''.
 Nonetheless, the relative differences in $\phi$ between particles can be an important parameter.
 Separation between particles is generally quantified as the quadrature sum of $\phi$ and $\eta$ separation: $\Delta R \equiv (\Delta \phi^2 + \Delta \eta^2)^{1/2}$.
 We rely on context to distinguish this variable from the radial distance $R$.
 
-\subsection{Hard Scattering}
+\subsection{Event Rates}
 As shown in \cref{fig:parton-lumi}, parton-parton collisions are most commonly lower-energy \emph{soft} interactions.
 Higher-energy \emph{hard} interactions produce rarer particles which are of much greater interest to the LHC physics program.
-The designs of ATLAS and CMS epitomize the bias toward hard interactions; as discussed more in \cref{sec:trigger}, the ATLAS data acquisition system is designed to record only the 0.001\% of collisions, and chooses these by requiring decay products over specified energy thresholds.
+Both ATLAS and CMS were designed with a bias toward hard interactions; as discussed more in \cref{sec:trigger}, the ATLAS data acquisition system records only 0.001\% of collisions, and chooses these by requiring decay products over specified energy thresholds.
+This simplifies searches considerably; given to the extremely low probability of keeping a single event, the probability of multiple interesting interactions in a single event is generally negligible.
 
-Given to the extremely low probability of keeping a single event, the probability of multiple interesting interactions in a single event is obviously quite low as well.
-In Run 1 data analysis, this allows for a rather simple heuristic to filter unwanted background behavior; a single \emph{primary vertex} is assigned to each event, defined as the vertex with the highest sum of associated track $\pt$.
-In this scheme, tracks associated to other vertices are generally ignored.
-MOVE THIS SOMEWHERE ELSE.
+%% In Run 1 data analysis, this allows for a rather simple heuristic to filter unwanted background behavior; a single \emph{primary vertex} is assigned to each event, defined as the vertex with the highest sum of associated track $\pt$.
+%% In this scheme, tracks associated to other vertices are generally ignored.
+%% MOVE THIS SOMEWHERE ELSE.
+
+\subsection{The Physics Reach of LHC Experiments}
+Both \atlas\ and CMS are designed as ``general purpose'' detectors.
+Thus while the detectors differ (sometimes significantly) in many technical respects, the underlying design and the set of detectable particles is quite similar.
+In both cases, the detector is composed of several subdetectors, each of which provides complementary information for particle identification.
+A diagram of the standard model, with particles grouped according to means of detection, is given in \cref{fig:sm-detectable}.
+
+%% \begin{cfig}
+%%   \graphic{}
+%% \end{cfig}
 
 \begin{itemize}
 \item (maybe) explain why we only care about one primary vertex

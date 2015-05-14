@@ -258,13 +258,41 @@ As of 2012, no universal object definitions existed within \atlas, thus a discus
 
 \subsection{\atlas\ Simulation}
 \label{sec:simulation}
-Nearly every physical measurement at \atlas\ is heavily dependent on simulation.
+Nearly every physics result published by \atlas\ is heavily dependent on simulation to model both backgrounds and hypothetical signals.
+For the sake of simulation, standard model and beyond standard model interactions are divided according to process (e.g. $\ttbar$, $\wjets$, SUSY signals, etc).
+%% Interactions which produce $\ttbar$, for example, are generated separately from $\wjets$, which is generated separately from hypothetical SUSY processes.
+Each process is simulated in some number of \emph{samples}, which correspond to a collection of events.
 
-\begin{itemize}
-\item \atlas\ geometry model
-\item mention how simulation is sometimes weighted
-\item concept of a signal grid (and signal ``point'')
-\end{itemize}
+The first stage of simulation is event generation, which accounts for all physics within the microscopic region surrounding the proton--proton collision.
+Event generation is itself divided into multiple steps.
+Hard scattering refers to the parton--parton interaction at energies where QCD is perturbative.
+Higher-order corrections are often added in the form of event-wise weights, which can be any real number (including negative numbers).
+These interactions are simulated with with one of roughly a dozen packages.
+
+As the decay products from the hard scatter separate strong interactions become more important.
+Events are passed to routines which model the showers of colored particles as they coalesce into hadrons.
+For each event, the final product from event generators is a list of color-neutral particles and their four-momenta.
+On this level, particles are known as \emph{truth} particles; parameters
+which describe them can only be reconstructed in the limit of a perfect detector.
+Since the later phases of simulation can be computationally expensive,
+samples are often subjected to a ``truth filter'' at this stage.
+If, for example, a particular search focuses on events with large $\met$, events with significantly smaller $\met$ may be removed\footnote{Truth filters much be chosen conservatively, since detector related uncertainties can smear reconstructed quantities around a sharp truth cutoff. In practice truth thresholds are generally chosen to be well below actual thresholds applied to data and (fully reconstructed) simulation.}.
+
+The event generator's outputs are passed to detector simulation and digitization.
+Within \atlas, \textsc{geant4}~\cite{geant} simulates particle propagation through the detector and the analog readout on sensors.
+Digitization follows simulation, and models detector electrons as they convert analog signals to digital data.
+These steps require a precise underlying detector geometry model and an accurate conditions database listing dead readout channels and noise levels.
+Both the detector geometry and the conditions database are constantly in flux; to account for changes to both, simulated samples are occasionally reprocessed in bulk \emph{campaigns} with the latest geometry and conditions.
+
+In the case of searches for new physics, all simulation is drawn from the same campaign, i.e. simulation and digitization is identical across all samples, generally reflecting the most recent experiment-wide recommendation.
+The choice generators is more nuanced; a baseline generator is chosen for each process, but various generators are compared to estimate systematic uncertainty (discussed more in \cref{sec:sys-theory}).
+Hypothetical signals with a number of free parameters are simulated in a \emph{signal grid} of regularly spaced \emph{signal points} in the parameter space.
+
+%% \begin{itemize}
+%% \item \atlas\ geometry model
+%% \item mention how simulation is sometimes weighted
+%% \item concept of a signal grid (and signal ``point'')
+%% \end{itemize}
 
 %% \subsection{Object Reconstruction}
 %% \begin{itemize}
