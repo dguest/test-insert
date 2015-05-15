@@ -80,6 +80,7 @@ The buffers store hits for approximately $3.2\,\mathrm{\mu s}$, long enough for 
 %% The vast majority of the machine was designed to fit in the tunnel bored for the Large Electron-Positron collider in the 1980s.
 
 \subsection{Calorimeters}
+\label{sec:atlas-calo}
 Outside the \atlas\ tracker two concentric calorimeters measure particle energy out to $|\eta| < 4.9$.
 The inner (electromagnetic or EM) calorimeter is optimized to measure the energy of electrically charged particles and photons, while the outer (hadronic) calorimeter is optimized for neutral strongly-interacting particles.
 A secondary purpose of the calorimeters is to absorb particles as they move outward from the interaction point and prevent them from passing into the next layer of \atlas.
@@ -148,6 +149,7 @@ Each is roughly $3.6\,\nuclen$ thick, leading to a total active depth of the thr
 To further reduce punch-through, a $\sim 0.5\,\mathrm{m}$ thick brass plug is positioned behind the third forward calorimeter module.
 
 \subsection{Muon Spectrometer}
+\label{sec:atlas-muon}
 The \atlas\ muon spectrometer is constructed outside of the calorimeters.
 Of the known particles, only muons and neutrinos survive the trip through the tracker and both calorimeters.
 Of these, only muons are changed and therefore detectable with the muon spectrometer.
@@ -202,7 +204,7 @@ Even at level 1, this decision must also be very selective; the maximum rate at 
 
 The muon triggering algorithm is based on coincident hits in neighboring sensors consistent within a ``road'' leading to the interaction point.
 Higher $\pt$ muons, given their decreased curvature, fit in a narrower road.
-By varying this road width, multiple muon triggers can thus be configured with various minimum $\pt$ thresholds.
+By varying this road width, multiple muon triggers can be configured with various minimum $\pt$ thresholds.
 Bandwidth restrictions in the level 1 trigger rate mean the lower $\pt$ triggers must be \emph{prescaled}---only a predetermined fraction of valid trigger requests actually fire the trigger.
 Massively parallel electronics are designed to compute the trigger decision in $2.1\,\mathrm{\mu s}$.
 
@@ -269,8 +271,8 @@ Hard scattering refers to the parton--parton interaction at energies where QCD i
 Higher-order corrections are often added in the form of event-wise weights, which can be any real number (including negative numbers).
 These interactions are simulated with with one of roughly a dozen packages.
 
-As the decay products from the hard scatter separate strong interactions become more important.
-Events are passed to routines which model the showers of colored particles as they coalesce into hadrons.
+As the decay products from the hard scatter separate, strong interactions become dominant.
+To model these interactions, the products of the hard scatter are passed to one of several routines designed to model the evolution of colored particles as they coalesce into hadrons.
 For each event, the final product from event generators is a list of color-neutral particles and their four-momenta.
 On this level, particles are known as \emph{truth} particles; parameters
 which describe them can only be reconstructed in the limit of a perfect detector.
