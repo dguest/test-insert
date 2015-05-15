@@ -267,23 +267,26 @@ Each process is simulated in some number of \emph{samples}, which correspond to 
 
 The first stage of simulation is event generation, which accounts for all physics within the microscopic region surrounding the proton--proton collision.
 Event generation is itself divided into multiple steps.
-Hard scattering refers to the parton--parton interaction at energies where QCD is perturbative.
-Higher-order corrections are often added in the form of event-wise weights, which can be any real number (including negative numbers).
+The first of these, hard scattering, refers to the parton--parton interaction at energies where QCD is perturbative.
 These interactions are simulated with with one of roughly a dozen packages.
+Some generators add corrections in the form of event-wise weights.
+%% Event weights needn't be positive; some higher-order simulation includes events with negative weights.
 
-As the decay products from the hard scatter separate, strong interactions become dominant.
+As the decay products from the hard scatter separate, QCD becomes dominant.
 To model these interactions, the products of the hard scatter are passed to one of several routines designed to model the evolution of colored particles as they coalesce into hadrons.
-For each event, the final product from event generators is a list of color-neutral particles and their four-momenta.
-On this level, particles are known as \emph{truth} particles; parameters
+For each event, the final product from event generators is a list of color-neutral particles and their associated four-momenta.
+At this stage particles are known as \emph{truth} particles; parameters
 which describe them can only be reconstructed in the limit of a perfect detector.
 Since the later phases of simulation can be computationally expensive,
-samples are often subjected to a ``truth filter'' at this stage.
+samples are often subjected to a ``truth filter''.
 If, for example, a particular search focuses on events with large $\met$, events with significantly smaller $\met$ may be removed\footnote{Truth filters much be chosen conservatively, since detector related uncertainties can smear reconstructed quantities around a sharp truth cutoff. In practice truth thresholds are generally chosen to be well below actual thresholds applied to data and (fully reconstructed) simulation.}.
 
 The event generator's outputs are passed to detector simulation and digitization.
 Within \atlas, \textsc{geant4}~\cite{geant} simulates particle propagation through the detector and the analog readout on sensors.
-Digitization follows simulation, and models detector electrons as they convert analog signals to digital data.
-These steps require a precise underlying detector geometry model and an accurate conditions database listing dead readout channels and noise levels.
+Digitization follows simulation, and models detector electronics as they convert analog signals to digital data.
+After digitization simulated samples and data share a common format, such that simulation and data can be analyzed with (nearly) identical software.
+
+Simulation and digitization require a precise underlying detector geometry model and an accurate conditions database listing dead readout channels and noise levels.
 Both the detector geometry and the conditions database are constantly in flux; to account for changes to both, simulated samples are occasionally reprocessed in bulk \emph{campaigns} with the latest geometry and conditions.
 
 In the case of searches for new physics, all simulation is drawn from the same campaign, i.e. simulation and digitization is identical across all samples, generally reflecting the most recent experiment-wide recommendation.
