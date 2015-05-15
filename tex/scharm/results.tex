@@ -1,22 +1,45 @@
 \newcommand{\limitbandexplanation}{Observed limits are given by the solid red line. The dotted red lines indicate the maximum range of the observed exclusion when the signal cross section is varied by $\pm 1 \sigma$. Expected limits are given by the dotted blue line. The yellow band surrounding this line indicates the $1 \sigma$ confidence interval when including all sources of uncertainty listed in \cref{sec:systematics} \emph{except} the signal cross section uncertainty.}
 
+
+Following the validation checks described in \cref{sec:validation}, the signal regions were unblinded.
+No excess over standard model expectations was observed; on the contrary the data show deficit of roughly $1.5\sigma$.
+Overlays of data and expected standard model backgrounds are given in \cref{fig:unblinded-kinematics}.
+
+\begin{cfig}
+  \graphic[0.49]{int/figures/stackplots/dans/signal_mct150/mass_cc.pdf}
+  \graphic[0.49]{int/figures/stackplots/dans/signal_mct150/mass_ct.pdf}
+  \caption[Unblinded $\mcc$ and $\mct$]{Unblinded distributions in $\mcc$ (left) and $\mct$ (right), with data and expected standard model backgrounds overlaid.
+    Events in the $\mcc$ distribution are subjected to all cuts in the $\mctgt{150}$ region.
+  }
+  \label{fig:unblinded-kinematics}
+\end{cfig}
+
+%% \section{Fit Results}
+
 %% The fit is implemented by a collection of stacked software packages,
 %% standard to the ATLAS SUSY group.
 %% At the top level HistFitter~\cite{histfitter} is used.
 %% This tool wrap the HistFactory~\cite{histfactory} package, which creates RooFit ``workspaces''.
 %% These workspaces are fit, and $\cls$ is extracted, with HistFitter functions (which in turn call RooFit / RooStats).
-Systematic variations are categorized as ``experimental'' and ``theoretical''.
-The experimental systematics considered are described in \cref{sec:sys_experimental}.
+
+%% Systematic variations are categorized as ``experimental'' and ``theoretical''.
+%% The experimental systematics considered are described in \cref{sec:sys_experimental}.
+
+
+\section{Limit Setting}
+
+Lacking any data excess in the signal regions, we instead set 95\% $\cls$ exclusion limits in the scharm--neutralino mass plane, as shown in \cref{fig:plane_pretty_regions}. Upper limits for cross sections in the $\scharm$--$\neut$ plane are given in \cref{fig:exclusion_plane_ul}.
 
 \subsection{Theory Systematic Combination}
 
-Theoretical systematics for the backgrounds are derived as described in \cref{sec:sys_theorybkg}. When running the fit, theory systematics are not directly applied as yield variations in each region. Instead, the systematics are used to derive ``transfer factors'' from the region that best constrains each background to the other regions used in the fit, and the uncertainty for each region is calculated {relative to the constraining region} using these transfer factors. Uncertainties calculated in this way are tabulated in \cref{tab:ttbar_theory_syst,tab:Wjets_theory_syst,tab:Zjets_theory_syst}. These uncertainties are further combined into overall theory systematics (those of the form ``overall down stat'' and ``overall up stat''). There are two important notes about the above procedure:
+Theoretical systematics for the backgrounds are derived as described in \cref{sec:sys_theorybkg}. When running the fit, theory systematics are not directly applied as yield variations in each region. Instead, the systematics are used to derive transfer factors from the region that best constrains each background to the other regions used in the fit, and the uncertainty for each region is calculated relative to the constraining region using these transfer factors. Uncertainties calculated in this way are discussed in \cref{sec:sys-theory}.
+These uncertainties are further combined into overall theory systematics (those of the form ``overall down stat'' and ``overall up stat''). There are two important notes about the above procedure:
 \begin{enumerate}
 \item The theory systematics are calculated relative to the constraining region, meaning that the systematic variation {\em in} the constraining region is, by definition, zero.
 \item Hypothetically, any region could be chosen as the constraining region for any background (e.g. we could quote uncertainties in every background relative to \crw). We choose to constrain the top backgrounds ($t + t \bar{t}$) using \crt, \wjets\ using \crw, and \zjets\ using \crz.
 \end{enumerate}
 
-Signal ISR and FSR uncertainties are described in \cref{sec:signal-isr-fsr}, and are added to the signal yields in all fits.
+Signal ISR and FSR uncertainties are described in \cref{sec:sys-theory}, and are added to the signal yields in all fits.
 In accordance with SUSY group recommendations\footnote{See \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/SUSYLimitPlotting}},
 signal cross-section uncertainties are shown only in the ``observed''
 limits. An uncertainty band on the observed limits is calculated by
@@ -24,9 +47,7 @@ running three separate fits for each signal point: a nominal fit with
 no cross section systematics applied, and a fit with ``up'' and ``down''
 variations added to the expected signal yield.
 
-\section{Exclusions in the $\scharm$--$\neut$ Plane}
-
-Lacking any data excess in the signal regions, we instead set 95\% $\cls$ exclusion limits in the scharm--neutralino mass plane, as shown in \cref{fig:plane_pretty_regions}. Upper limits for cross sections in the $\scharm$--$\neut$ plane are given in \cref{fig:exclusion_plane_ul}.
+\subsection{Exclusion Planes}
 
 \begin{figure}
 \begin{center}
@@ -57,22 +78,22 @@ Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane, using the three $\scharm$ fit
 \end{figure}
 
 The expected exclusion (based on the fit setup described in
-appendix~\ref{app:fitResults}) is shown in
-figure~\ref{fig:plane_best_regions}. The three ``$\tilde{c}$'' fit
+\cref{sec:regions-and-fitting}) is shown in
+\cref{fig:plane_best_regions}. The three $\mct$ fit
 configurations---those described in this thesis---are considered, each
 consisting of the three control regions and one of the three signal
 regions defined by the $\mct$ requirement, for a total of four regions
 per fit.
 In all cases the uncertainties described in \cref{sec:systematics} are accounted for with additional fit parameters.
-In addition, we considered two ``$\tilde{t}$'' signal regions (C1 and C2) from the $\tilde{t} \to c\neut$~\cite{stopCharmATLAS} analysis.
-While the $\tilde{c}$ signal regions were optimized for high $\Delta m \equiv m_{\scharm} - m_{\neut}$ signal points with two resolvable $c$-jets, these regions loose sensitivity for low $\Delta m$ values, as shown in
+In addition, we considered two \emph{boosted} signal regions (C1 and C2) from the $\tilde{t} \to c\neut$~\cite{stopCharmATLAS} analysis.
+While the $\mct$ signal regions were optimized for high $\Delta m \equiv m_{\scharm} - m_{\neut}$ signal points with two resolvable $c$-jets, these regions loose sensitivity for low $\Delta m$ values, as shown in
 \cref{fig:plane_regions_expected}.
-The $\tilde{t}$ regions, by contrast, were optimized for ISR boosted $c$-jets, and are sensitive to signal points with low $\Delta m$.
+The boosted regions, by contrast, were optimized for ISR boosted $c$-jets, and are sensitive to signal points with low $\Delta m$.
 
 The five fit configurations are merged by taking the ``best'' configuration---that which is expected to exclude the signal with the highest confidence---for each signal point. Contours for the expected and observed exclusion are drawn by interpolating between signal points. Simple linear interpolation of $\cls$, however,  is known to introduce a bias because $\cls$ is relatively non-linear as a function of both $\scharm$ and $\neut$ mass. Following the precedent from previous SUSY searches~\cite{susy-limit-setting}, the $\cls$ values at each signal point are transformed to Gaussian significance $Z$ using the Gaussian inverse cumulative distribution function. Linear interpolation is then used to define $Z(m_{\scharm}, m_{\neut})$ for all points in the plane and draw contours where $Z(m_{\scharm}, m_{\neut}) = Z_{95 \% \text{ CL}} \approx 1.645$.
 
 Exclusions from individual fit configurations are given in \cref{fig:exclusion_plane_ul}, along with 95\% $\cls$ $\scharm$ cross-section upper limits. %% The interpolation in the \scharm--\neut plane is discussed further in \cref{sec:cls-interpolation}, while
-Cross-checks of indivial signal points are discussed in \cref{sec:fit-signal-points}.
+%% Cross-checks of indivial signal points are discussed in \cref{sec:fit-signal-points}.
 
 \newcommand{\planeulcaption}[1]{
 \caption[Cross section upper limits in the $m_{\scharm}$--$m_{\neut}$ plane using the $\mct > #1\,\gev$ signal region]{
@@ -103,7 +124,7 @@ Gray numbers indicate the cross-section upper-limit for each signal point.
 \label{fig:exclusion_scharm_combined}
 \caption[Cross section upper limits in the $m_{\scharm}$--$m_{\neut}$ combined plane]{
 Cross section upper limits (in fb) in the $m_{\scharm}$--$m_{\neut}$ plane, taking the most sensitive region for each point.
-Gray numbers indicate the upper limit for each signal point. Note that \cref{fig:plane_pretty_regions} differs from this figure because the former also includes the C1 and C2 regions from the $\sttoc$ search; at the time of writing cross-section upper-limits weren't available for the $\sttoc$ regions. }
+Gray numbers indicate the upper limit for each signal point. Note that \cref{fig:plane_pretty_regions} differs from this figure because the former also includes the C1 and C2 boosted regions; at the time of writing cross-section upper-limits weren't available for these regions. }
 \label{fig:exclusion_plane_ul}
 \end{figure}
 
@@ -122,7 +143,7 @@ fits the control and signal regions simultaneously, each discovery fit
 considers a single signal region with a single combined background
 estimate. Expected standard model background yields, observed yields,
 and a single overall background uncertainty are taken directly from
-\cref{tab:SRyields}. Fit results are converted to upper limits by
+\cref{tab:sr-yields}. Fit results are converted to upper limits by
 solving for $\cls(\mu) = 0.05$, where $\mu$ is the signal
 strength. The $\cls(\mu)$ values themselves are calculated with both
 asymptotic formulae~\cite{asymptotics} and by running with 3000
