@@ -1,9 +1,10 @@
-\newcommand{\limitbandexplanation}{Observed limits are given by the solid red line. The dotted red lines indicate the maximum range of the observed exclusion when the signal cross section is varied by $\pm 1 \sigma$. Expected limits are given by the dotted blue line. The yellow band surrounding this line indicates the $1 \sigma$ confidence interval when including all sources of uncertainty listed in \cref{sec:systematics} \emph{except} the signal cross section uncertainty.}
+\newcommand{\limitbandexplanation}{Observed limits are given by the solid red line. The dotted red lines indicate the maximum range of the observed exclusion when the signal cross section is varied by $\pm 1 \sigma$. Expected limits are given by the dotted blue line. The yellow band surrounding this line indicates the $1 \sigma$ confidence interval when including all sources of uncertainty listed in \cref{sec:systematics} except the signal cross section uncertainty.}
 
 
 Following the validation checks described in \cref{sec:validation}, the signal regions were unblinded.
-No excess over standard model expectations was observed; on the contrary the data show deficit of roughly $1.5\sigma$.
+No excess over standard model expectations was observed. On the contrary, the the data show a deficit of roughly $1.5\sigma$ when both the background uncertainty and the statistical uncertainty in data are accounted for.
 Overlays of data and expected standard model backgrounds are given in \cref{fig:unblinded-kinematics}.
+The expected and observed counts in the three signal regions, when backgrounds are constrained only by control region data, are listed in \cref{tab:sr-yields}.
 
 \begin{cfig}
   \graphic[0.49]{int/figures/stackplots/dans/signal_mct150/mass_cc.pdf}
@@ -13,6 +14,16 @@ Overlays of data and expected standard model backgrounds are given in \cref{fig:
   }
   \label{fig:unblinded-kinematics}
 \end{cfig}
+
+\begin{table}
+  \begin{center}
+    \input{int/tables/generated/vrsr/vrcrsr/sr_fit/yieldtable}
+    \caption[Background only fit extrapolated to signal region yields]{Results of the background-only fit for the signal regions. The uncertainty shown post-fit includes all systematic uncertainties listed in \cref{sec:systematics}.}
+ %% {\bf The post-fit values will be updated upon unblinding to reflect the latest settings in the fit setup. Currently, the post-fit values shown are from an out-of-date setup.
+    \label{tab:sr-yields}
+  \end{center}
+\end{table}
+
 
 %% \section{Fit Results}
 
@@ -28,7 +39,7 @@ Overlays of data and expected standard model backgrounds are given in \cref{fig:
 
 \section{Limit Setting}
 
-Lacking any data excess in the signal regions, we instead set 95\% $\cls$ exclusion limits in the scharm--neutralino mass plane, as shown in \cref{fig:plane_pretty_regions}. Upper limits for cross sections in the $\scharm$--$\neut$ plane are given in \cref{fig:exclusion_plane_ul}.
+Lacking any excess in data over standard model backgrounds in the signal regions, we instead set 95\% $\cls$ exclusion limits in the scharm--neutralino mass plane, as shown in \cref{fig:plane_pretty_regions}. Upper limits for cross sections in the $\scharm$--$\neut$ plane are given in \cref{fig:exclusion_plane_ul}.
 
 \subsection{Theory Systematic Combination}
 
@@ -50,33 +61,21 @@ variations added to the expected signal yield.
 \subsection{Exclusion Planes}
 \label{sec:exclusions}
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/exclusion_best.pdf}
+\begin{cfig}
+  \graphic[0.8]{int/figures/limit_tree/full_exclusion/exclusion_pretty.pdf}
+\caption[Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane]{
+Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane, using the three $\mct$ fit configurations and the boosted C1 and C2 configurations. The monojet exclusion is shown for comparison. \limitbandexplanation}
+\label{fig:plane_pretty_regions}
+\end{cfig}
+
+\begin{cfig}
+\graphic[0.8]{int/figures/limit_tree/full_exclusion/exclusion_best.pdf}
 \caption[Best signal regions in the $m_{\scharm}$--$m_{\neut}$ plane]{%
 Expected and observed exclusion in the $m_{\scharm}$--$m_{\neut}$ plane.
 Points with $\cls < 0.05$ are considered excluded.
 The three signal regions, with $\mct = \{150, 200, 250\}\text{ GeV}$ are combined with the two $\tilde{t} \to c \neut$ regions (C1 and C2), by taking the region which produces the minimum $\cls$ for each point.}
 \label{fig:plane_best_regions}
-\end{center}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/exclusion_overlay.pdf}
-\caption[Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane by signal region]{%
-Overlay of the expected exclusion limits in the $m_{\scharm}$--$m_{\neut}$ plane, using the individual regions.
-}
-\label{fig:plane_regions_expected}
-\end{center}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=\textwidth]{int/figures/limit_tree/full_exclusion/exclusion_pretty.pdf}
-\caption[Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane]{
-Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane, using the three $\scharm$ fit configurations and the $\tilde{t} \to c \neut$ C1 and C2 configurations. The monojet exclusion is shown for comparison. \limitbandexplanation}
-\label{fig:plane_pretty_regions}
-\end{figure}
+\end{cfig}
 
 The expected exclusion (based on the fit setup described in
 \cref{sec:regions-and-fitting}) is shown in
@@ -90,44 +89,13 @@ In addition, we consider two \emph{boosted} signal regions (C1 and C2) from the 
 While the $\mct$ signal regions are optimized for high $\Delta m \equiv m_{\scharm} - m_{\neut}$ signal points with two resolvable $c$-jets, these regions loose sensitivity for low $\Delta m$ values, as shown in
 \cref{fig:plane_regions_expected}.
 The boosted regions, by contrast, are optimized for ISR boosted $c$-jets, and are sensitive to signal points with low $\Delta m$.
+Exclusions from individual fit configurations are given in \cref{fig:exclusion_plane_ul}, along with 95\% $\cls$ $\scharm$ cross-section upper limits.
 
 The five fit configurations are merged by taking the ``best'' configuration---that which is expected to exclude the signal with the highest confidence---for each signal point. Contours for the expected and observed exclusion are drawn by interpolating between signal points. Simple linear interpolation of $\cls$, however,  is known to introduce a bias because $\cls$ is relatively non-linear as a function of both $\scharm$ and $\neut$ mass. Following the precedent from previous SUSY searches~\cite{susy-limit-setting}, the $\cls$ values at each signal point are transformed to Gaussian significance $Z$ using the Gaussian inverse cumulative distribution function. Linear interpolation is then used to define $Z(m_{\scharm}, m_{\neut})$ for all points in the plane and draw contours where $Z(m_{\scharm}, m_{\neut}) = Z_{95 \% \text{ CL}} \approx 1.645$.
 
-Exclusions from individual fit configurations are given in \cref{fig:exclusion_plane_ul}, along with 95\% $\cls$ $\scharm$ cross-section upper limits. %% The interpolation in the \scharm--\neut plane is discussed further in \cref{sec:cls-interpolation}, while
+ %% The interpolation in the \scharm--\neut plane is discussed further in \cref{sec:cls-interpolation}, while
 %% Cross-checks of indivial signal points are discussed in \cref{sec:fit-signal-points}.
 
-\newcommand{\planeulcaption}[1]{
-\caption[Cross section upper limits in the $m_{\scharm}$--$m_{\neut}$ plane using the $\mct > #1\,\gev$ signal region]{
-Cross section upper limits (in fb) in the $m_{\scharm}$--$m_{\neut}$ plane using the $\mct > #1\,\gev$ signal region.
-Gray numbers indicate the cross-section upper-limit for each signal point.
-}}
-
-\begin{figure}
-\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct150.pdf}
-\planeulcaption{150}
-\label{fig:exclusion_mct150}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct200.pdf}
-\planeulcaption{200}
-\label{fig:exclusion_mct200}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct250.pdf}
-\planeulcaption{250}
-\label{fig:exclusion_mct250}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/scharm_combined.pdf}
-\label{fig:exclusion_scharm_combined}
-\caption[Cross section upper limits in the $m_{\scharm}$--$m_{\neut}$ combined plane]{
-Cross section upper limits (in fb) in the $m_{\scharm}$--$m_{\neut}$ plane, taking the most sensitive region for each point.
-Gray numbers indicate the upper limit for each signal point. Note that \cref{fig:plane_pretty_regions} differs from this figure because the former also includes the C1 and C2 boosted regions; at the time of writing cross-section upper-limits weren't available for these regions. }
-\label{fig:exclusion_plane_ul}
-\end{figure}
 
 \clearpage
 
