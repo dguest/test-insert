@@ -31,15 +31,22 @@ The total rate is thus give by
   \label{eq:lumi-cross-section}
 \end{equation}
 where $N$ is the number of collisions and $\sigma$ is the cross-section.
-The basic properties of $\mathcal{L}$ follow from simple dimensional analysis.
-Imagining pairs of homogeneous \emph{bunches}\footnote{Obviously a real particle beam isn't composed of particle bunches with homogeneous density. While a more precise treatment is technically possible, in practice luminosity is measured \emph{from} the collision rate; there's no need to compute the precise geometry of the collision.} of particles crossing through each other at regular time intervals, the number of collisions should be proportional to several quantities:
+The basic properties of $\mathcal{L}$ follow from dimensional analysis.
+%% Imagining pairs of homogeneous \emph{bunches}\footnote{Obviously a real particle beam isn't composed of particle bunches with homogeneous density. While a more precise treatment is technically possible, in practice luminosity is measured \emph{from} the collision rate; there's no need to compute the precise geometry of the collision.} of particles crossing through each other at regular time intervals,
+The number of collisions per unit time should be proportional to several quantities:
 \begin{itemize}
-\item The number particles in one bunch per unit area, when projected onto a plane perpendicular to the beam axis. As a number per unit area, this quantity has dimensions of $\mathrm{L}^{-2}$.
-\item The same quantity in the opposing bunch. Again this quantity has dimensions of $\mathrm{L}^{-2}$.
-\item The total area of the beam profile (projected perpendicular to the beam access). This is has dimensions of $\mathrm{L}^2$.
+\item The number particles in one bunch per unit area, when projected onto a plane perpendicular to the beam axis. This quantity has dimension $\mathrm{L}^{-2}$.
+\item The same quantity in the opposing bunch: dimension $\mathrm{L}^{-2}$.
+\item The total area of the beam profile: dimension $\mathrm{L}^2$.
+\item The bunch spacing, dimension $\mathrm{T}^{-1}$.
 \end{itemize}
-Multiplying by $\mathrm{T}^{-1}$ (because crossings happen at regular intervals), the overall units for luminosity must be $\mathrm{L}^{-2} \times \mathrm{T}^{-1}$.
-The rate of particle interactions should have units of $\mathrm{T}^{-1}$. By dimensional analysis $\sigma$ must have units of area.
+Thus the dimension of luminosity must be $\mathrm{L}^{-2} \times \mathrm{T}^{-1}$.
+Since the rate of particle interactions should have dimension $\mathrm{T}^{-1}$, $\sigma$ must have units of area.\footnote{%
+%% While the language of cross-sections lends itself to an intuitive picture of particles with some spacial extent,
+It's worth emphasizing that
+ %% note that the connection is accidental and potentially misleading.
+%% To make matters worse, the language is potentially misleading.
+the cross-section is a property of the interaction not the individual particles involved---there is no ``cross section of an electron'' without first specifying what particle the electron is interacting with and the energy scale of the interaction.}
 
 Several cross-sections for processes involving proton collisions are shown on the right side of \cref{fig:parton-lumi}.
 The total proton-proton cross-section is many orders of magnitude larger than those for $W$ and $Z$ production, which, in turn, are many orders of magnitude larger than those for Higgs production.
@@ -48,8 +55,8 @@ Given that cross-section is directly related to production rate, it's no surpris
 %% Cross-sections, which have units of area, mesh well with classical intuition. In particles with some physical extent, the ``larger'' particles are clearly more likely to collide than the smaller ones.
 %% Unfortunately this intuitive picture breaks down almost immediately; 
 
-This progression of discovery was enabled in part by more energetic accelerators, since cross-sections generally increase with energy. Increases in luminosity play an equally important part, however. To quantify the total number of collisions, particle physicists typically integrate luminosity over time, and quote \emph{integrated luminosity} in units of inverse \emph{barns} (b), where $1\,\mathrm{b} = 10^{-28}\,\mathrm{m}^2$, or more frequently \emph{femtobarns} ($1\,\mathrm{fb} = 10^{-43}\,\mathrm{m}^2$).
-Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\invfb$ in its two detectors~\cite{tevatron}. In 2012 alone, both ATLAS and CMS accumulated an integrated luminosity of roughly $20\,\invfb$.
+This progression of discovery was enabled in part by more energetic accelerators, since cross-sections generally increase with energy. Increases in luminosity play an equally important part however. To quantify the total number of collisions particle physicists typically integrate luminosity over time and quote \emph{integrated luminosity} in units of inverse \emph{barns} (b), where $1\,\mathrm{b} = 10^{-28}\,\mathrm{m}^2$, or more frequently \emph{femtobarns} ($1\,\mathrm{fb} = 10^{-43}\,\mathrm{m}^2$).
+Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\invfb$ in its two detectors~\cite{tevatron}. In 2012 alone, both \atlas\ and CMS accumulated an integrated luminosity of roughly $20\,\invfb$.
 
 %% \begin{figure}
 %%   \includegraphics[height=0.7\textheight]{misc/cc/crosssections2012HE_v4.pdf}
@@ -65,76 +72,154 @@ Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\inv
 %% \end{figure}
 
 \subsection{Detector Coordinates}
-The ATLAS detector is discussed in much more detail in \cref{sec:atlas}, but the discussion in the following sections requires a brief introduction to the standard coordinate system.
-ATLAS uses a right-handed cylindrical coordinate system with $\hat{z}$ pointing down the beam axis. Vectors with $\phi = 0$ point toward the center of the LHC ring, and $\hat{\phi}$ points upward when $\phi = 0$.
+%% The ATLAS detector is discussed in much more detail in \cref{sec:atlas}, but the discussion in the following sections requires a brief introduction to the standard coordinate system.
+ATLAS uses a right-handed cylindrical coordinate system centered at the nominal collision point, with $\hat{z}$ pointing down the beam axis. Vectors with $\phi = 0$ point toward the center of the LHC ring, and $\hat{\phi}$ points upward when $\phi = 0$.
+Typically $R$ refers to the radius.
 %% Owing to rough invariance to $\phi$ transformations and rough reflection symmetry about $z = 0$
 Given that most particles are created within a tiny volume in the center of the detector and move quickly outward,
 physicists are generally more interested in the momentum of particles than the absolute position.
-The chosen momentum coordinates will seem contrived to the uninitiated, but are standard between collider experiments.
+%% The chosen momentum coordinates will seem contrived to the uninitiated, but are standard between collider experiments.
 
 The momenta of colliding protons at the LHC are anti-parallel; any post-collision momentum transverse to the beam access is the result of a momentum transfer within the collision.
 Since the momentum transfer is more intimately tied to the underlying physics, the transverse momentum (abbreviated as $\pt$) is generally used in lieu of absolute momentum.
-High $\pt$ particles are often described as ``hard'' (presumably because high momentum transfer indicates a hard collision) in contrast to ``soft'' low $\pt$ particles.
+High $\pt$ particles are often described as \emph{hard} (presumably because high momentum transfer indicates a hard collision) in contrast to \emph{soft} low $\pt$ particles.
 
 Complementing $\pt$, which describes the outward momentum of particles, the component of momentum along the beam axis is described by pseudorapidity $\eta$, defined as $\eta \equiv - \ln [ \tan(\theta / 2) ]$, where $\theta$ is the angle relative to the beam axis.
 Particles with high $|\eta|$ are refereed to as ``forward'', in contrast to ``central'' particles with low $|\eta|$.
 Despite the contrived name and the odd definition, $\eta$ is useful because differences in particle $\eta$ are invariant to boosts along the beam axis.
 
 The third standard coordinate, $\phi$, is identical to the spacial $\phi$ coordinate.
-Given the (approximate) axial symmetry of ATLAS about the beam axis, this coordinate is relatively uninteresting on its own.
-The lack of physical implications and its periodic nature have left this coordinate without slang terms for ``bigger'' and ``smaller''.
+Given the (approximate) axial symmetry of ATLAS about the beam axis and $\phi$'s periodic nature, this coordinate is relatively uninteresting on its own.
+%% This  periodic nature have left this coordinate without slang terms for ``bigger'' and ``smaller''.
 Nonetheless, the relative differences in $\phi$ between particles can be an important parameter.
+Separation between particles is generally quantified as the quadrature sum of $\phi$ and $\eta$ separation: $\Delta R \equiv (\Delta \phi^2 + \Delta \eta^2)^{1/2}$.
+We rely on context to distinguish this variable from the radial distance $R$.
+
+\subsection{Hard Scattering Event Rates}
+As shown in \cref{fig:parton-lumi}, parton-parton collisions are most commonly soft interactions.
+Harder interactions produce rarer particles which are more interesting to the LHC physics program.
+Both ATLAS and CMS were designed with a bias toward hard interactions; as discussed more in \cref{sec:trigger}, the ATLAS data acquisition system records only 0.001\% of collisions, and chooses these by requiring decay products over specified energy thresholds.
+The rarity of hard collisions simplifies searches considerably; given to the extremely low probability of keeping a single event, the probability of multiple interesting interactions in a single event is generally negligible.
+
+%% In Run 1 data analysis, this allows for a rather simple heuristic to filter unwanted background behavior; a single \emph{primary vertex} is assigned to each event, defined as the vertex with the highest sum of associated track $\pt$.
+%% In this scheme, tracks associated to other vertices are generally ignored.
+%% MOVE THIS SOMEWHERE ELSE.
+
+\subsection{The Physics Reach of \atlas\ (and CMS)}
+Both \atlas\ and CMS are designed as ``general purpose'' detectors.
+While the detectors differ (sometimes significantly) in many technical respects, the underlying design and measurement capabilities of both detectors are similar.
+In both cases, the detector is designed to identify a wide range of \emph{prompt} particles, i.e. particles which are produced in the initial hard-scatter.
+To accomplish this each detector is composed of several subdetectors, each of which provides complementary information.
+A diagram of the standard model, with particles grouped according to means of detection, is given in \cref{fig:sm-detectable}.
+
+\begin{cfig}
+  \graphic[0.8]{misc/cc/sm-detectable.pdf}
+  \caption[Particles in the standard model grouped by detection method]{
+    Particles in the standard model, grouped by method of detection.
+    Green outlined particles are ``stable'' from the perspective of LHC experiments, while red outlined particles are stable enough to form a displaced vertex.
+    The charm quark, (orange) is generally grouped with its neighbors to the lower-left, but can be identified separately thanks to algorithms presented in this thesis.
+    Neutrinos, outlined in aqua, are only inferred by missing momentum in reconstructed events.
+    The remaining particles, in gray, are reconstructed indirectly.
+  }
+  \label{fig:sm-detectable}
+\end{cfig}
+
+\paragraph{Stable particles} Several particles produced at the LHC are stable enough to interact directly with detectors.
+Clearly photons and electrons fit into this category, but at LHC energies many short-lived but highly relativistic particles experience sufficient time dilation to escape the detector before decaying.
+Thus particles with lifetimes above roughly $10^{-10}$ seconds are also stable from the perspective of LHC experiments.
+These particles include muons and ``light'' hadrons containing up, down, and strange quarks.
+
+A prompt muon or electron appears as an isolated energetic charged particle.
+Muons are easily distinguished from electrons by their ability to punch through several meters of dense material, as discussed in \cref{sec:atlas-calo,sec:atlas-muon}.
+Prompt hadrons, as color-charged objects, form jets of non-isolated charged and neutral particles.
+These jets often contain non-isolated, non-prompt leptons, but the object is labeled a jet for the sake of LHC analysis.
+In general, distinguishing between the light hadrons is difficult since each forms a nearly identical jet.
+
+\paragraph{Metastable particles} The lifetimes of $\tau$~leptons, $B$~hadrons, and charmed hadrons are on the order of $10^{-12}$ seconds, long enough to travel several $\mathrm{mm}$, but not long enough to be directly measurable in the detector.
+When the paths of decay products are extrapolated back to the decay vertex, however, they may form a vertex inconsistent with the collision point.
+In such cases the decay products can be \emph{tagged} as a $b$, $c$, or $\tau$ jet. Tagging is discussed in much more detail in \cref{sec:tagging}.
+
+\paragraph{Invisible particles} Neutrinos are produced readily within LHC collisions, but are not measured directly by any LHC experiments.
+Instead experiments infer the existence of neutrinos in events with an overall momentum imbalance.
+Both \atlas\ and CMS are capable of measuring the momenta of all but the most forward particles.
+A nonzero sum of transverse ``energy'' (momentum) indicates \emph{missing transverse energy}, abbreviated as $\vmet$ or the corresponding scalar quantity $\met \equiv |\vmet|$.
+Many models of physics beyond the standard model---in particular those which hypothesize weekly interacting dark matter---also result in events with large $\met$.
+%% Neutrinos can be distinguished from some forms of dark matter by the presence of other particles consistent with a neutrino-producing decay; vetoing $W \to \ell \nu$ events, for example, can remove a large fraction of dark matter.
+%% Since the neutrino isn't directly detectable and all neutrinos are of roughly equal mass, the flavor of the neutrino is 
+
+\paragraph{Unstable particles}
+The remaining particles in the standard model are far too unstable to reconstruct directly.
+Lifetimes for several representative hadrons containing quarks are given in \cref{tab:decay-times}.
+The top quark lifetime is comparable to those of the $W$, $Z$, and Higgs bosons, and roughly $10^{12}$ times shorter than metastable particles.
+These unstable particles are instead reconstructed via their decay products.
+
+\begin{table}
+  \begin{center}
+  \input{tables/decay-times.tex}
+  \caption[Decay times for various quarks]{
+    Decay times for hadrons containing various quarks. The top quark decays in far less than the hadronization time, and thus has no associated hadron.}
+  \label{tab:decay-times}
+  \end{center}
+\end{table}
+
+A $Z$~boson only decays to fermion--anti-fermion pairs.
+Thus pairs of oppositely charged, same family leptons, especially those with an invariant mass near the $Z$ mass, are most likely the daughter products of a $Z$ decay.
+Similarly, $W$~bosons only decay to fermion pairs with a difference in charge equal to one fundamental unit.
+Events with large $\met$ and a single lepton are thus suggestive of a $W \to \ell \nu$ decay.
+Reconstructing the $W$ mass from these decay products is impossible given the missing longitudinal component in the neutrino momentum, but the quantity $\mt \equiv (E_{\T}^{\ell} + \met)^2 - (\vect{p}_{\T}^{\ell} + \vmet)^2$ has an end-point near the $W$ mass, and can be useful to select $W$ events.
+
+Top quark decays are categorized as either \emph{hadronic}, where the $t \to W b$ is followed by a $W$ decay to quarks, or \emph{leptonic}, where the $W$ decays to a lepton and neutrino.
+In the hadronic case the invariant mass of the $b$-jet and remaining jets from the $W$ decay should be consistent with the $m_{t}$.
+In the leptonic case several variables to similar to $\mt$ are in widespread use.
+Gluons never exist as free particles, but offshell gluon decays to $q \bar{q}$ pairs account for most heavy quark production in the LHC. Higgs decays are discussed elsewhere.
+
+%% \paragraph{Undiscovered particles}
+%% Many hypothetical particles could decay directly into or in a similar manor to standard model particles.
+%% Models which include such particles typically predict events in excess of the standard model expectation in specific event selections
+%% This thesis concerns a search for one such hypothetical particle.
+
+ %% particles the with a lifetime above roughly $10^{-10}$ seconds are stable from the perspective of LHC experiments.
 
 
-\subsection{Hard Scattering}
-As shown in \cref{fig:parton-lumi}, parton-parton collisions are most commonly lower-energy \emph{soft} interactions.
-Higher-energy \emph{hard} interactions produce rarer particles which are of much greater interest to the LHC physics program.
-The designs of ATLAS and CMS epitomize the bias toward hard interactions; as discussed more in \cref{sec:trigger}, the ATLAS data acquisition system is designed to record only the 0.001\% of collisions, and chooses these by requiring decay products over specified energy thresholds.
+%% \begin{itemize}
+%% \item explain ISR
+%% \end{itemize}
 
-Given to the extremely low probability of keeping a single event, the probability of multiple interesting interactions in a single event is obviously quite low as well.
-In Run 1 data analysis, this allows for a rather simple heuristic to filter unwanted background behavior; a single \emph{primary vertex} is assigned to each event, defined as the vertex with the highest sum of associated track $\pt$.
-In this scheme, tracks associated to other vertices are generally ignored.
-MOVE THIS SOMEWHERE ELSE.
-
-\begin{itemize}
-\item (maybe) explain why we only care about one primary vertex
-\item explain ISR
-\end{itemize}
-\subsection{Hadrons, Electrons, and Muons}
-\begin{itemize}
-\item must mention isolation (referenced later)
-\item Lifetimes and time dilation
-\item electromagnetic and strong interactions in detectors
-\item Magnitude of cross-sections: EW vs strong
-\item explain fake rates / efficiency
-\end{itemize}
-\subsection{Neutrinos (and Neutrilinos)}
-the known unknowns
-\begin{itemize}
-\item introduce $\met$, $\vmet$
-\item reference detector chapter
-\end{itemize}
-\subsection{Taus, and Heavy Quarks}
-\begin{itemize}
-\item more on lifetimes
-\item tracking
-\item vertex finding
-\end{itemize}
-\subsection{W, Z, Higgs, and Everything Else}
-\begin{itemize}
-\item $Z$ peak reconstruction
-\item $\mt$, $\mct$, etc
-\item Feynman diagrams for $\wjets$, $\zjets$, $\ttbar$
-\item Feynman diagrams for SUSY pair-produced quarks
-\end{itemize}
-\subsection{Implications for Experiments}
-\label{sec:det-design}
-\begin{itemize}
-\item define ``the hard scatter'', explain why it's appropriate to use a definite article.
-\item explain implications for triggering
-\end{itemize}
-\begin{figure}
-  \includegraphics[width=\textwidth]{misc/cc/atlas-sm.pdf}
-  \caption[Summary of measured SM cross-sections in ATLAS]{%
-    Summary of measured SM cross-sections in ATLAS. Taken from ref~\cite{atlas-sm}.}
-\end{figure}
+%% \subsection{Hadrons, Electrons, and Muons}
+%% \begin{itemize}
+%% \item must mention isolation (referenced later)
+%% \item Lifetimes and time dilation
+%% \item electromagnetic and strong interactions in detectors
+%% \item Magnitude of cross-sections: EW vs strong
+%% \item explain fake rates / efficiency
+%% \end{itemize}
+%% \subsection{Neutrinos (and Neutrilinos)}
+%% the known unknowns
+%% \begin{itemize}
+%% \item introduce $\met$, $\vmet$
+%% \item reference detector chapter
+%% \end{itemize}
+%% \subsection{Taus, and Heavy Quarks}
+%% \begin{itemize}
+%% \item more on lifetimes
+%% \item tracking
+%% \item vertex finding
+%% \end{itemize}
+%% \subsection{W, Z, Higgs, and Everything Else}
+%% \begin{itemize}
+%% \item $Z$ peak reconstruction
+%% \item $\mt$, $\mct$, etc
+%% \item Feynman diagrams for $\wjets$, $\zjets$, $\ttbar$
+%% \item Feynman diagrams for SUSY pair-produced quarks
+%% \end{itemize}
+%% \subsection{Implications for Experiments}
+%% \label{sec:det-design}
+%% \begin{itemize}
+%% \item define ``the hard scatter'', explain why it's appropriate to use a definite article.
+%% \item explain implications for triggering
+%% \end{itemize}
+%% \begin{figure}
+%%   \includegraphics[width=\textwidth]{misc/cc/atlas-sm.pdf}
+%%   \caption[Summary of measured SM cross-sections in ATLAS]{%
+%%     Summary of measured SM cross-sections in ATLAS. Taken from ref~\cite{atlas-sm}.}
+%% \end{figure}

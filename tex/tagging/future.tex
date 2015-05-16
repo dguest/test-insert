@@ -1,5 +1,5 @@
-JetFitterCharm, while effective, is plagued by several related issues.
-First, in $b$-vs-light discrimination JetFitterCharm is inferior to MV1, the baseline $b$-tagger in run 1. This discrepancy is illustrated in \cref{fig:u-rej-roc}, and is surprising given that both are neural nets with roughly the same inputs.
+JetFitterCharm is suboptimal for several reasons.
+First, in $b$-vs-light discrimination JetFitterCharm is inferior to MV1, the baseline $b$-tagger in run 1. This discrepancy is illustrated in \cref{fig:u-rej-roc} and is surprising given that both are neural nets with roughly the same inputs.
 In addition, the neural net training isn't reproducible; retraining on exactly the same dataset may produce performance that's better or worse by several percent.
 Both issues stem from the unreliable methods which are typically used to train neural nets.
 
@@ -15,7 +15,7 @@ Both issues stem from the unreliable methods which are typically used to train n
 \label{sec:trad-nn}
 Traditional signal-processing neural nets are continuous mappings of input vectors $\vect{x}$ onto output vectors $\vect{y}$, where both $\vect{x}$ and $\vect{y}$ can be of arbitrary dimension for a given neural net.
 In the case of flavor tagging, the elements of $\vect{x}$ correspond to measurable jet parameters, while the elements $\vect{y}$ correspond to jet flavor probabilities.
-An $N$ layer neural net can be represented as stack of linear transformations represented as matrices $A_{i}$ interleaved with a nonlinear activation function $f$:
+An $N$ layer neural net can be represented as stack of linear transformations (matrices $A_{i}$) interleaved with a nonlinear activation function $f$:
 \begin{equation}
   \vect{y} = \mathcal{N}(\vect{x}) = A_{N-1} f( \cdots A_{2} f(A_1 \vect{x} + \vect{b}_1) + \vect{b}_{2} \cdots ) + \vect{b}_{N-1}
   \label{eq:nn-functional}
@@ -33,9 +33,9 @@ where $\vect{y} = \vect{z}_{N}$ and $\vect{x} = \vect{z}_{1}$. The elements of e
 In some cases the activation function is omitted for the final layer, as in \cref{eq:nn-functional}
 
 Note that the dimensions of the $A_{i}$ and $\vect{b}_i$ are constrained by the dimensions of the surrounding layers; if $\vect{x}$ has $n$ elements, $A_1$ is an $m \times n$ matrix, $A_{2}$ is an $o \times m$ matrix, $A_{3}$ is $p \times o$, etc.
-Thus given some number of inputs and outputs, the neural net is still left with $N - 2$ free dimensions---one for each hidden layer.
-The dimensions of the input, output, and hidden layers specify the \emph{topology} of the neural net.
-These dimensions typically decrease through successive layers, since the neural net is designed to filter a large number of parameters into a smaller number of categories.
+Thus given some number of inputs and outputs, the neural net \emph{topology} is still left with $N - 2$ free parameters---one for each hidden layer.
+The number of input, output, and hidden layer nodes specify the full topology of the neural net.
+The number of nodes typically decreases through successive layers, since the neural net is designed to filter a large number of parameters into a smaller number of categories.
 Traditional neural nets can include several hidden layers; those with more layers are described as ``deep''.
 Theoretically a deep neural net can fit a continuous function of $\vect{x}$ to arbitrary precision given an appropriate choice of the of $A_i$ and $\vect{b}_i$.
 

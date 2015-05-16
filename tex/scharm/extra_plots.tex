@@ -18,7 +18,7 @@ int/figures/stackplots/dans/#2}}
 }
 
 \newcommand{\etmisspostfitcaption}[1]{
-\caption[#1\xspace postfit distributions for validation regions]{Post-fit distributions for \lowercase{#1}\xspace in \vrmct{} (left) and \vrmcc{} (right).}
+\caption[#1\ postfit distributions for validation regions]{Post-fit distributions for \lowercase{#1}\ in \vrmct{} (left) and \vrmcc{} (right).}
 }
 
 \newcommand{\addanylep}[1]{
@@ -37,7 +37,7 @@ int/figures/stackplots/dans/#2}}
 }
 
 \newcommand{\crvrcaption}[1]{
-\caption[#1\xspace distributions for control and validation regions]{Distributions for \lowercase{#1}\xspace in several regions. Top to bottom: $Z$, one $e$, one $\mu$, and $t$ regions. Right to left: 0, 1, and 2 $c$-tags}
+\caption[#1\ distributions for control and validation regions]{Distributions for \lowercase{#1}\ in several regions. Top to bottom: $Z$, one $e$, one $\mu$, and $t$ regions. Right to left: 0, 1, and 2 $c$-tags}
 }
 
 \newcommand{\adddilep}[1]{
@@ -50,7 +50,7 @@ int/figures/stackplots/dans/#2}}
 }
 
 \newcommand{\dilepcaption}[1]{
-\caption[#1\xspace distributions for control and validation regions]{Distributions for \lowercase{#1}\xspace in several regions. Top to bottom: $Z$, and $t$ regions. Right to left: 0, 1, and 2 $c$-tags}
+\caption[#1\ distributions for control and validation regions]{Distributions for \lowercase{#1}\ in several regions. Top to bottom: $Z$, and $t$ regions. Right to left: 0, 1, and 2 $c$-tags}
 }
 
 
@@ -64,14 +64,14 @@ int/figures/stackplots/dans/#2}}
 }
 
 \newcommand{\onelepcaption}[1]{
-\caption[#1\xspace distributions for control and validation regions]{Distributions for \lowercase{#1}\xspace in several regions. Top to bottom: one $e$ and one $\mu$ regions. Left to right: 0, 1, and 2 $c$-tags}
+\caption[#1\ distributions for control and validation regions]{Distributions for \lowercase{#1}\ in several regions. Top to bottom: one $e$ and one $\mu$ regions. Left to right: 0, 1, and 2 $c$-tags}
 }
 
 %% ________________________________________________________________________
 \subsection{Event Kinematics}
 \label{app:plots_event_kinematics}
 
-\begin{figure}
+\begin{figure}[bh!]
 \addanylep{dphi_cc.pdf}
 \crvrcaption{$\Delta \phi(j_1,j_2)$}
 \end{figure}
@@ -114,7 +114,7 @@ int/figures/stackplots/dans/#2}}
 \subsection{Jet Kinematics}
 \label{app:plots_jet_kinematics}
 
-\begin{figure}
+\begin{figure}[bh!]
 \addanylep{j0_pt.pdf}
 \crvrcaption{Jet 1 $\pt$}
 \end{figure}
@@ -151,7 +151,7 @@ int/figures/stackplots/dans/#2}}
 \subsection{Tagging}
 \label{app:plots_jet_tagging}
 
-\begin{figure}
+\begin{figure}[bh!]
 \addanylep{j0_antiu_log.pdf}
 \crvrcaption{Jet 1 $\log(c/u)$ tagging discriminant}
 \end{figure}
@@ -178,7 +178,7 @@ int/figures/stackplots/dans/#2}}
 \label{app:plots_lepton_kinematics}
 
 %% lepton plots
-\begin{figure}
+\begin{figure}[bh!]
 \addanylep{leading_lepton_pt.pdf}
 \crvrcaption{First lepton $\pt$}
 \end{figure}
@@ -223,7 +223,7 @@ int/figures/stackplots/dans/#2}}
 \subsection{Post-fit \vrmct{} and \vrmcc{} distributions}
 \label{app:plots_post_fit}
 
-\begin{figure}
+\begin{figure}[bh!]
 \addpostfitetmiss{met}
 \etmisspostfitcaption{$\met$}
 \end{figure}

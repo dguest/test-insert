@@ -1,35 +1,4 @@
 
-The Large Hadron Collider (LHC) is a 26.7 km long circular synchrotron which sits roughly 100 m below ground outside Geneva Switzerland.
-As the world's most powerful particle accelerator, it marks the epicenter of several worldwide collaborations involving thousands of physicists.
-The accelerator itself contains two proton beams, which cross at four interaction points. At these points protons collide head-on.
-The products of these collisions are measured by four experiments: ALICE is optimized for collisions between lead nuclei; LHCb is specifically designed to measure $b$-hadron decays; ATLAS and CMS are designed to detect and measure a wide range of particles in and beyond the standard model.
-%% The beams collide at four interaction points within underground detector halls.
-
-\section{CERN}
-In the years immediately following World War 2, European leaders recognized the potential benefits of a common nuclear research organization.
-Beyond the obvious need to rebuild the continent's devastated scientific infrastructure was a desire to shunt the scientific and engineering fervor of the previous decades---the fervor which had helped destroy Europe so thoroughly---into more peaceful and diplomatic pursuits.
-The first international resolution toward this goal was adopted in December 1951. Within two months 11 countries had established the Conseil Européen pour la Recherche Nucléaire (CERN). In September of 1954, not long after construction had begun in Meyrin Switzerland, CERN was officially renamed the European Organization for Nuclear Research~\cite{cern-timeline}.
-The name CERN, while only a true acronym in those first three years, remains official to this day.
-
-Over the next half-century increasingly powerful accelerators were constructed at CERN. By the early 1980's the Super Proton Synchrotron (SPS) was colliding protons with anti-protons, with a center of mass energy of $540\,\gev$, leading to the discovery of the $W$ and $Z$ bosons~\cite{ua1w,ua2w,ua1z}.
-In the late 80's a huge 27 kilometer circular tunnel was bored through the sedimentary rock beneath the Franco-Swiss countryside to house the Large Electron-Positron Collider (LEP), which remains the most powerful lepton collider of all time. In 2000, after 10 years of measuring the standard model with unprecedented (and still unsurpassed, in many cases) precision, LEP was decommissioned to make room for the LHC in the same tunnel~\cite{lep-summary}.
-\begin{cfig}
-\end{cfig}
-
-%% \begin{cfig}
-%%   \graphic{0.49}{misc/cc/cern-map.jpg}
-%%   \graphic{0.49}{misc/cc/cern-from-air.jpg}
-%%   \caption[CERN From Above]{(left) Map of CERN, the LHC, and surrounding political boundaries. Taken from Ref~\cite{cern-map}. (right) View of CERN from a northwestern vantage point. Point 1 is visible on the upper right, while point 4 is on the lower left. Taken from Ref~\cite{cern-from-air}.}
-%%   \label{fig:cern-above}
-%% \end{cfig}
-\begin{cfig}
-  \graphic{0.8}{misc/cc/cern-from-air.jpg}
-  \caption[LHC From The Air]{View of the LHC from a northwestern vantage point. Point 1 is visible on the upper right, while point 4 is on the lower left. Taken from Ref~\cite{cern-from-air}.}
-  \label{fig:cern-from-air}
-\end{cfig}
-
-Construction of the LHC continued throughout the 2000's. While the LHC was undergoing commissioning in 2008, an electrical fault caused an explosion which delayed collisions by roughly one year~\cite{lhc-incident}. Repairs were swift, however, and the first successful proton-proton collisions took place in November of 2009.
-
 %% At design energy, two counter-rotating beams of protons collide at 4 defined interaction points with a proton-proton center of mass energy of $\sqrt{s} = 14\,\text{TeV}$.
 
 \section{LHC Injection Chain}
@@ -38,7 +7,7 @@ The PSB clumps protons into the \emph{bunches} needed for coherent acceleration,
 Every 1.2 seconds, the PSB injects these bunches into the Proton Synchrotron (PS)~\cite{lhc-machine}. Following two fills from the PSB, the PS temporarily ceases to accept protons and accelerates its current fill to $25\,\gev$ before injecting them into the Super Proton Synchrotron (SPS). The entire PS cycle takes roughly 3.6 seconds~\cite{ps-thesis}.
 
 \begin{cfig}
-  \graphic{1.0}{misc/cc/accelerator-complex.jpg}
+  \graphic[1.0]{misc/cc/accelerator-complex.jpg}
   \caption[The LHC Accelerator Complex]{The Large Hadron Collider accelerator complex, including the injection chain. Taken from Ref~\cite{accelerator-complex}.}
   \label{fig:lhc-accelerator-complex}
 \end{cfig}
@@ -55,7 +24,7 @@ In the LHC, each of the 12 SPS fills passes within 5.8 to 7.9 $\mu$s, separated 
 
 
 \section{The Large Hadron Collider}
-Once filled, the LHC slowly ramps up to a maximum energy of $7\,\tev$ per beam in 20 minutes, thanks to radio frequency (RF) accelerator cavities which impart an additional $485\,\text{keV}$ on each proton per turn.
+Once filled, the LHC slowly ramps up to a maximum energy of $7\,\tev$ per beam in 20 minutes, driven by radio frequency (RF) accelerator cavities which impart an additional $485\,\text{keV}$ on each proton per turn.
 The tune of these cavities must be extremely precise to maintain phase with the proton bunches at the LHC's 35,640th harmonic. When protons are injected at $450\,\gev$, this corresponds to a frequency of $400.789\,\text{MHz}$.
 As the protons are accelerated, this frequency increases to accommodate the decrease in proton transit time.
 At the maximum design energy of $7\,\tev$ per beam, the cavity frequency must increase by $1\,\text{kHz}$, to $400.790\,\text{MHz}$~\cite{lhc-machine}.
@@ -63,9 +32,10 @@ At the maximum design energy of $7\,\tev$ per beam, the cavity frequency must in
 Collisions are the dominant cause of beam loss during normal operation; neglecting all other loss channels the beam lifetime is approximately 29 hours, although when other loss channels are accounted for this lifetime drops to roughly 15 hours~\cite{lhc-machine}.
 In theory, the LHC can therefore collide protons almost continuously with less than two \emph{runs} a day, where a run refers to a single LHC fill and the subsequent collisions.
 
-Throughout the ring of the LHC, 1,232 dipole magnets, each $16.5\,\text{m}$ long, bend the two counter-rotating proton beams into a circular path. The dipole magnets rely on the exceptionally intense magnetic fields, above $8\,\mathrm{T}$, to contain the beams.
-Generating these fields in an electromagnet requires extremely high current, which is only possible with superconducting NbTi coils.
-Since NbTi is only superconducting below $\sim 10\,\text{K}$, the entire 26.7 km of the LHC is bathed in $2\,\text{K}$ liquid helium~\cite{lhc-machine}.
+Throughout the ring of the LHC, 1,232 dipole magnets, each $16.5\,\text{m}$ long, bend the two counter-rotating proton beams into overlapping circular paths. The dipole magnets rely on the exceptionally intense magnetic fields, above $8\,\mathrm{T}$, to contain the beams.
+Generating these fields in an electromagnet requires extremely high current, which is only possible with superconducting coils.
+In the LHC, these coils are fabricated from niobium-titanium (NbTi) which is only superconducting below $\sim 10\,\text{K}$.
+To maintain superconductivity the entire $26.7\,\mathrm{km}$ of the LHC is bathed in $2\,\text{K}$ liquid helium~\cite{lhc-machine}.
 
 The total cryogenic mass of the LHC is roughly 37 metric kilotons.
 This mass is normally kept cold for months on end, but the occasional need for maintenance and the exclusive use of liquid helium as a coolant\footnote{Liquid nitrogen is avoided in the LHC tunnel for safety reasons.} necessitate the worlds most powerful helium refrigerator. At maximum capacity the LHC refrigerators can sustain a heat load of $144\,\mathrm{kW}$ at $4.5\,\mathrm{K}$~\cite{lhc-machine}.
@@ -73,7 +43,7 @@ The total input power for the LHC cryogenic system is much higher: roughly $27.5
 For comparison, the entire CERN complex consumes roughly $180\,\text{MW}$ when while the LHC is running. When accelerators are shut down in the winter months the overall CERN power consumption is comparable to the LHC cryogenics at $35\,\text{MW}$~\cite{lhc-energy}.
 
 \begin{cfig}
-  \graphic{0.8}{misc/cc/cern-map.jpg}
+  \graphic[0.8]{misc/cc/cern-map.jpg}
   \caption[CERN Map]{Map of CERN, the LHC, and surrounding political boundaries. Taken from Ref~\cite{cern-map}.}
   \label{fig:cern-map}
 \end{cfig}
@@ -87,13 +57,13 @@ Point 4 houses the RF accelerator cavities, while the beam dump sits at point 6.
 In optimal running conditions each beam contains 2,808 bunches of $1.15 \times 10^{11}$ protons each.
 This corresponds to a low current ($582\,\text{mA}$) but an impressive energy ($362\,\text{MJ}$ per beam~\cite{lhc-machine}).
 In 2012 the LHC ran at half-energy with only 1,380 bunches.
-Even so each beam carried $143\,\text{MJ}$ roughly equivalent to $34\,\text{kg}$ of TNT~\cite{lhc-run1}.
+Even so each beam carried $143\,\text{MJ}$---roughly equivalent to $34\,\text{kg}$ of TNT~\cite{lhc-run1}.
 Each beam clearly has potential to cause enormous damage.
 As a safety measure, both beams are automatically dumped if any of the LHC cryogenics, magnet, or beam monitoring subsystems give questionable readings.
-Thanks to these automated dumps runs rarely last longer than 12 hours; in 2012 the mean length of a run was just 6.1 hours.
+Due to these automated dumps runs rarely last longer than 12 hours; in 2012 the mean length of a run was just 6.1 hours.
 Of roughly 300 runs, approximately 16 continued for more than 15 hours, with one run dumping after 23 hours~\cite{lhc-run1}.
 
-In most circumstances LHC problems trigger a synchronous beam dump; extraction magnets engage while the $3 \mu\text{s}$ abort gap is aligned with the extraction system.
+In most circumstances LHC problems trigger a synchronous beam dump; extraction magnets engage while the $3\,\mathrm{\mu s}$ abort gap is aligned with the extraction system.
 The extraction system diverts both beams into a heavily shielded, water-cooled carbon cylinder, $70\,\mathrm{cm}$ in diameter and $7.7\,\text{m}$ deep.
 To prevent excessive local heating, a pair of dilution magnets sweep the beam across the carbon dump in an `e' pattern.
 Most beam-dump subsystems include multiple redundancies: of 15 kicker magnets, only 14 are required; of the two kicker power supplies, only one is required; one of the two dilution magnets can fail without damage to the carbon absorber block.
@@ -103,22 +73,22 @@ A full failure of the beam dump system is expected roughly once every $10^6$ hou
 
 \begin{figure}
   \subfigure[Total Luminosity Delivered to ATLAS]{
-    \graphic{0.5}{misc/cc/atlas-lumi.pdf} \label{fig:atlas-lumi}}
+    \graphic[0.5]{misc/cc/atlas-lumi.pdf} \label{fig:atlas-lumi}}
   \subfigure[Number of Interactions per Bunch Crossing]{
-    \graphic{0.5}{misc/cc/int-per-bx.pdf} \label{fig:int-per-bx}}
+    \graphic[0.5]{misc/cc/int-per-bx.pdf} \label{fig:int-per-bx}}
   \caption[LHC Luminosity Delivered to ATLAS]{%
     LHC luminosity delivered to ATLAS.}
 \end{figure}
 
-From a physics perspective, interesting data is recorded in the several hours between the beams reaching full energy and the beam dump.
-Over this period, stable beams are brought into contact at interaction points in the center of the major LHC experiments.
+From a physics perspective, interesting data is recorded during \emph{stable beams}---the several hours between the LHC ramp to full energy and the beam dump.
+Over this period, beams are brought into contact at interaction points in the center of the major LHC experiments.
 The luminosity delivered to ATLAS over 2011--2012, and that which was successfully recorded by the detector, is shown in \cref{fig:atlas-lumi}.
 
 During collisions the typical number of interactions per bunch crossing is significantly greater than 1. Distributions showing the average number of interactions per crossing are given in \cref{fig:int-per-bx}.
 Even with $\sim 20$ interactions per crossing, interesting physical processes remain uncommon enough that multiple interactions of interest are very rare within a given event.
 
 %% \begin{itemize}
-%%   \item In the beam dump: beam current (582 mA, p47 of~\cite{lhc-machine})
+%%   \item In the bema dump: beam current (582 mA, p47 of~\cite{lhc-machine})
 %% \end{itemize}
 
 In the long periods between LHC fills, the injection chain can be put to other uses.

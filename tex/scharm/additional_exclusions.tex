@@ -1,0 +1,55 @@
+\chapter{Fitting and Limit Setting}
+\section{Fit Systematics in Signal Regions}
+\begin{table}[h]
+  \begin{center}
+  \input{int/tables/generated/vrsr/vrcrsr/sr_fit/systable}
+  \caption[Background only fit uncertainty extrapolated to signal region yields]{Results of the background-only fit uncertainty propagated to the signal regions.}
+  \end{center}
+\end{table}
+\clearpage
+
+\section{Additional Exclusion Planes}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/exclusion_overlay.pdf}
+\caption[Exclusion in the $m_{\scharm}$--$m_{\neut}$ plane by signal region]{%
+Overlay of the expected exclusion limits in the $m_{\scharm}$--$m_{\neut}$ plane, using the individual regions.
+}
+\label{fig:plane_regions_expected}
+\end{center}
+\end{figure}
+
+\newcommand{\planeulcaption}[1]{
+\caption[Cross section upper limits in the $m_{\scharm}$--$m_{\neut}$ plane using the $\mct > #1\,\gev$ signal region]{
+Cross section upper limits (in fb) in the $m_{\scharm}$--$m_{\neut}$ plane using the $\mct > #1\,\gev$ signal region.
+Gray numbers indicate the cross-section upper-limit for each signal point.
+}}
+
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct150.pdf}
+\planeulcaption{150}
+\label{fig:exclusion_mct150}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct200.pdf}
+\planeulcaption{200}
+\label{fig:exclusion_mct200}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/mct250.pdf}
+\planeulcaption{250}
+\label{fig:exclusion_mct250}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{int/figures/limit_tree/full_exclusion/upper_limits/scharm_combined.pdf}
+\label{fig:exclusion_scharm_combined}
+\caption[Cross section upper limits in the $m_{\scharm}$--$m_{\neut}$ combined plane]{
+Cross section upper limits (in fb) in the $m_{\scharm}$--$m_{\neut}$ plane, taking the most sensitive region for each point.
+Gray numbers indicate the upper limit for each signal point. Note that \cref{fig:plane_pretty_regions} differs from this figure because the former also includes the C1 and C2 boosted regions; at the time of writing cross-section upper-limits weren't available for these regions. }
+\label{fig:exclusion_plane_ul}
+\end{figure}
+\clearpage

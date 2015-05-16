@@ -19,4 +19,4 @@ COLOR_WARNINGS := '^LaTeX Warning:|Fatal error'
 FILTER_WARN := egrep -v $(IGNORE_WARNINGS) | egrep --color $(COLOR_WARNINGS)
 %.pdf: %.tex $(TEXFILES) %.bbl
 	$(PDFTEX) $< --draftmode
-	$(PDFTEX) $< | $(FILTER_WARN)
+	$(PDFTEX) $< | $(FILTER_WARN) | cat

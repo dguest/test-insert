@@ -1,28 +1,311 @@
+\section{The \atlas\ Detector}
+\label{sec:atlas}
+
+\atlas\ is one of two ``general purpose'' detectors at the LHC focusing on proton collisions.
+The detector is composed of several nested sub-detectors which provide complementary information when reconstructing an event.
+In general, \atlas\ is approximately symmetric about the beam axis and is constructed with mirror-symmetry across the $z = 0$ plane.
+An inner-detector includes both silicon and drift-tube based trackers which measure the paths of charged particles as they move outward from the interaction point.
+Surrounding the tracker is a superconducting solenoid which creates a $2\,\text{T}$ axial magnetic field.
+By measuring the curvature of charged particles within this field, ATLAS is able to establish the particle momentum and charge.
+Outside the solenoid is the calorimeter, which measures the energy of both charged and strongly interacting neutral particles.
+%% The calorimeter is designed to measure all particles out to $|\eta| < 4.9$.
+Only two known particles normally penetrate the calorimeter: muons and neutrinos.
+Of these, muon momentum is measured by the muon spectrometer, which surrounds the calorimeter.
+Neutrinos are inferred by an overall momentum imbalance transverse to the beam axis after summing the momenta of all other particles.
+
+\subsection{Tracker}
+
+The \atlas\ tracker~\cite{atlas-id1,atlas-id2} consists of several inner pixel layers, surrounded by a silicon strip detector, surrounded by a drift-tube tracker which doubles as a transition radiation detector.
+Particles within the tracker volume are bent into helical paths by the axial magnetic field. The energy deposited by these particles as they pass through a given sensor is reconstructed as a \emph{hit}. Pattern recognition software strings hits together into helical \emph{tracks} with a well-defined $q/p$ ratio. Momentum can be extracted by assigning all particles a charge of $\pm 1$ fundamental charge unit.
+
+Like all \atlas\ subdetectors the tracker covers as much solid angle as possible surrounding the interaction point: the full range of $\phi$ and out to $|\eta| < 2.5$.
+One quadrant of the inner detector is shown in \cref{fig:atlas-id-acceptance}.
+Sensors are arranged in layers and angled to maximize coverage in $\eta$; \emph{barrel} layers at low $\eta$ are aligned with the beam axis, while \emph{wheel} layers at higher $\eta$ are constructed along planes of constant $z$ and extend radially out from the beam.
+Out to the maximum coverage in $\eta$ each particle is expected to cross at least 7 silicon sensors and 35--40 drift-tubes~\cite{DetPap,atlas-trt2}.
+Energy deposits within these layers serve both as seeds and 3-dimensional constraints for reconstructed tracks.
+
+\begin{cfig}
+  \graphic[1.0]{misc/cc/atlas-id-acceptance.pdf}
+  \caption[ATLAS inner detector geometry]{Quarter section view of the ATLAS inner detector.}
+  \label{fig:atlas-id-acceptance}
+\end{cfig}
+
+\paragraph{Front-end Readouts} Each of the three inner detector components includes a memory buffer and receives a clock signal synchronized with the LHC clock.
+Charged particles deposit energy in the sensors, which is digitized and recorded in the buffer as a hit, along with a time-stamp indicating the associated bunch crossing.
+The buffers store hits for approximately $3.2\,\mathrm{\mu s}$, long enough for the level 1 trigger decision (see \cref{sec:trigger}).
+
+\paragraph{The Pixel Detector} The \atlas\ pixel detector consists of three barrel layers and three wheels on each side of the $z = 0$ plane.
+The barrel layers are positioned 50, 89, and 123$\,\mathrm{mm}$ from the beam and extend out to $|z| < 400\,\mathrm{mm}$.
+Beyond the extent of the barrel layers, the six wheels are positioned at $|z| = 495$, $580$, and $650\,\mathrm{mm}$, and extend from $R = 89$ to $150\,\mathrm{mm}$.
+These layers are composed of a total of 1744 $19 \times 63\,\mathrm{mm}$ identical modules.
+Each module contains 46,080 active pixels, 90\% of which measure $50 \times 50\,\mathrm{\mu m}$, and the rest of which measure $50 \times 600\,\mathrm{\mu m}$.
+The modules are oriented such that the smaller pixel dimension points along $\hat{\phi}$~\cite{DetPap}.
+
+\paragraph{The Semiconductor Tracker}
+The Semiconductor Tracker (SCT) occupies the space outside the pixel detector, where charged tracks from collisions are slightly less numerous and occupancies (the fraction of events where a given element registers a hit) are lower.
+It consists of 4 barrel layers which span $299 < R < 514\,\mathrm{mm}$, $|z| < 749\,\mathrm{mm}$, and 9 wheels which range in $|z|$ over 854--2720$\,\mathrm{mm}$ and span $275 < R < 560\,\mathrm{mm}$.
+The SCT consists of 2112 barrel modules and $2 \times 1976$ modules in the two wheel sections, for a total of 4088 modules.
+Each module consists of several strip sensors with 768 active strips each.
+The width of these strips varies between modules: barrel strips are each $80\,\mathrm{\mu m}$ wide; wheel strips are trapezoidal and grow larger further from the beam line, but are roughly 57--90$\,\mathrm{\mu m}$ in width.
+Each sensor contains 768 active strips.
+Pairs of overlapping strip sensors are mounted back-to-back on modules with an angular offset of $\pm 20\,\mathrm{mrad}$ to give a stereo measurement of $z$, in the case of the barrel, or $R$ in the endcaps~\cite{DetPap}.
+
+\paragraph{The Transition Radiation Tracker}
+The Transition Radiation Tracker~\cite{atlas-trt,atlas-trt2} (TRT) is a combined drift-tube tracker and transition radiation detector.
+The basic elements of the trackers are $4\,\mathrm{mm}$ diameter polyimide (Kapton) straws, coated with aluminum to increase conductivity and reinforced with carbon fiber.
+Through the center of each straw runs a $31\,\mathrm{\mu m}$ diameter gold-plated tungsten wire.
+This wire acts as an anode and is kept grounded, while the straw cathode is held at $-1530\,\mathrm{V}$.
+The gas within the straws is constantly circulated and consists of 70\% Xenon, 27\% CO$_2$, and 3\% O$_2$, held at 5--10$\,\mathrm{mbar}$ over atmospheric pressure.
+
+Charged particles crossing the straws liberate electrons which drift toward the anode at roughly $0.05\,\mathrm{mm/ns}$, creating an avalanche of charge along the way.
+The typical gain due to the avalanche is $2.5 \times 10^4$.
+When this avalanche reaches the anode the charges are transmitted down the wires and digitized as \emph{low threshold} or \emph{high threshold} hits.
+Low threshold hits are used for tracking; the leading edge of a low threshold hit defines a \emph{drift circle}, which constrains the distance between the straw wire and track within roughly $130\,\mathrm{\mu m}$.
+
+\begin{cfig}
+  \graphic[0.6]{misc/cc/trt-high-threshold.pdf}
+  \caption[TRT high threshold probability for $e$, $\mu$, and pions]{
+    Probability of a high-threshold hit in the TRT barrel section as a function of the $\gamma$ for $e$ (open squares), $\mu$ (full triangles) and pions (open circles) in the energy range 2--350$\,\gev$, as measured in the combined test-beam.}
+  \label{fig:trt-high-threshold}
+\end{cfig}
+
+High threshold hits are associated with \emph{transition radiation}, which charged particles product in proportion to their Lorentz $\gamma$ factor.
+The gas mixture within the TRT is designed to absorb transition radiation photons, which create much larger electron cascades and result in high threshold hits.
+As shown in \cref{fig:trt-high-threshold}, these high threshold hits offer an additional discriminant between electrons and pions, since pions are much more massive and thus have a lower $\gamma$ for the same momentum.
+
+%% Hits are only read off the front-end boards only when a level 1 trigger fires.
+
+
 %% While currently the world's most powerful and expensive particle collider, the LHC was designed to use existing infrastructure where possible to mitigate costs.
 %% The vast majority of the machine was designed to fit in the tunnel bored for the Large Electron-Positron collider in the 1980s.
 
-\section{The \atlas\ Detector}
-\label{sec:atlas}
-\begin{itemize}
-\item Maybe put \cref{sec:pheno} here?
-\item Mention how systematics work here (mention how they can be correlated between regions)
-\end{itemize}
+\subsection{Calorimeters}
+\label{sec:atlas-calo}
+Outside the \atlas\ tracker two concentric calorimeters measure particle energy out to $|\eta| < 4.9$.
+The inner (electromagnetic or EM) calorimeter is optimized to measure the energy of electrically charged particles and photons, while the outer (hadronic) calorimeter is optimized for neutral strongly-interacting particles.
+A secondary purpose of the calorimeters is to absorb particles as they move outward from the interaction point and prevent them from passing into the \atlas\ muon spectrometer.
+
+The EM calorimeter uses liquid argon as an active medium and relies on metal absorber plates to create particle showers from incoming particles.
+The barrel hadronic calorimeter uses steel plates as absorbers and clear plastic scintillating tiles as an active medium.
+Other sections of the hadronic calorimeter (endcap and forward) use liquid argon and various metal absorbers.
+
+\begin{cfig}
+  \subfigure[Barrel and endcap calorimeter]{
+    \graphic[0.48]{misc/cc/atlas-calo-quarter.pdf}
+    \label{fig:atlas-calo-quarter}}
+  \subfigure[Forward calorimeter]{
+    \graphic[0.48]{misc/cc/atlas-fcal-quarter.pdf}
+    \label{fig:atlas-fcal-quarter}}
+  \caption[Atlas calorimeter quarter-view]{Schematic quarter-view of the \atlas\ calorimeters. The barrel and endcap calorimeters, shown in~\subref{fig:atlas-calo-quarter}, use liquid argon and plastic scintillating tiles, respectively. The forward calorimeter~\subref{fig:atlas-fcal-quarter} uses liquid argon exclusively.}
+  \label{fig:atlas-calos-quarter}
+\end{cfig}
+
+\paragraph{Electromagnetic Calorimeter}
+The \atlas\ EM calorimeter~\cite{atlas-lar,atlas-lar-performance} consists of a central barrel, a pair of endcaps, and the forward calorimeter.
+All elements are contained within cryostats to hold the argon active medium at liquid temperatures.
+Particles out to $|\eta| < 4.9$ pass through at least 20 \emph{radiation lengths} $\radlen$ within the EM calorimeter, where one radiation length is both the length over which an electron energy decreases to $1/e$, and $7/9$ of the mean distance over which a photon splits to a pair of electrons.
+Thus nearly all electrons and photons are absorbed within the electromagnetic calorimeter.
+
+\begin{cfig}
+  \graphic[0.8]{misc/cc/atlas-em-cal.pdf}
+  \caption[A section of the barrel EM calorimeter]{
+    A section of the barrel EM calorimeter.}
+  \label{fig:atlas-em-cal}
+\end{cfig}
+
+The barrel and endcap EM calorimeters share a similar design, sketched in \cref{fig:atlas-em-cal}.
+They consist of a presampler on the inner surface~\cite{atlas-em-presampler} followed by three layers stacked outward from the interaction point. Each layer is constructed from of accordion-shaped lead absorbers separated by gaps filled with liquid argon.
+For a typical gap the drift time for ionized particles in the gaps is roughly $450\,\mathrm{ns}$, meaning that individual particle showers are resolved over many bunch crossings.
+
+Activity in each layer is read out in cells in the $\eta$--$\phi$ plane.
+The presampler is designed to estimate energy loss in the roughly $1.8$--$4.4\,\radlen$ of material between the interaction point and the EM calorimeter.
+It is segmented into cells of $0.025 \times 0.1$ in $\Delta \eta \times \Delta \phi$.
+The first full calorimeter layer is roughly $5\,\radlen$ thick and divided into cells with the same $\phi$ granularity as the presampler but eight times as many cells in $\eta$.
+Behind the first EM layer is a much thicker $\sim 16\,\radlen$ second layer, segmented in $0.025 \times 0.025$ blocks in the $\eta$--$\phi$ plane.
+This is followed by a third $\sim 2\,\radlen$ layer with half the number of cells per $\eta$ as the second layer and the same $\phi$ granularity.
+
+In the endcap and at higher values of $\eta$ in the barrel EM calorimeter some cells are combined; high $\eta$ values sweep less physical space within \atlas\ for the same $\Delta \eta$.
+In general high $\eta$ regions are less thoroughly instrumented: the presampler only extends to $|\eta| < 1.8$, and the third EM calorimeter layer only extends to $|\eta| < 2.5$, for example.
+
+\paragraph{Hadronic Calorimeter}
+Both neutral and charged hadrons will frequently punch through the electromagnetic calorimeter.
+These particles are absorbed by the hadronic calorimeter which surrounds the EM calorimeter.
+An analogous parameter to $\radlen$ for the sake of describing hadronic interactions is the \emph{nuclear interaction length} $\nuclen$.
+Particles within the calorimeter acceptance travel through roughly $10\,\nuclen$.
+
+The hadronic endcap covers the $1.5 < | \eta | < 3.2$ region, and relies on liquid argon technology similar to that in the EM calorimeter.
+In place of the lead accordion baffles used in the EM calorimeter, however, the hadronic endcap consists of flat copper plates facing normal to the beam axis.
+The calorimeter is segmented in $\Delta \eta \times \Delta \phi$ cells of $0.1 \times 0.1$ for $|\eta| < 2.5$, and $0.2 \times 0.2$ for larger values of $\eta$. Along the beam axis the plates are combined into four layers in each endcap.
+
+In the barrel region, the hadronic calorimeter uses scintillating plastic tiles with a steel absorber~\cite{atlas-tile}. Light is piped through fiber cables to instrumentation drawers and measured with photomultiplier tubes.
+Tiles are segmented in three layers. The first two layers are divided into $0.1 \times 0.1$ cells in the $\Delta \eta \times \Delta \phi$ plane, whereas the last layer uses $0.2 \times 0.1$ cells.
+
+\paragraph{Forward Calorimeter}
+\label{sec:atlas-fcal}
+The \atlas\ forward calorimeters cover the $3.1 < |\eta| < 4.9$ regions, again with liquid-argon--based detectors~\cite{atlas-fcal}.
+This region is especially saturated with minimum-bias events and demands both higher density absorber and a faster drift time than the barrel and endcap calorimeters.
+Each of the two forward calorimeters is roughly a meter in diameter, and consists of three $45\,\mathrm{cm}$ long copper modules stacked along the beam axis, with $\sim 5\,\mathrm{mm}$ diameter holes running parallel to the beam.
+Rods run through the holes, and are separated by a small liquid-argon--filled gap.
+These rods serve as both electrodes and absorbers.
+
+Modules closer to the interaction point require a smaller gap. In the case of the closest module the gap is $296\,\mathrm{\mu m}$ with a corresponding drift time of roughly $60\,\mathrm{ns}$.
+The inner module is designed primarily to absorb EM radiation; the rods are constructed from copper, resulting in a radiation thickness of $28\,\radlen$ or $2.7\,\nuclen$.
+The remaining two modules use tungsten rods and focus on absorbing hadrons.
+Each is roughly $3.6\,\nuclen$ thick, leading to a total active depth of the three modules of roughly $10\,\nuclen$.
+To further reduce punch-through, a $\sim 0.5\,\mathrm{m}$ thick brass plug is positioned behind the third forward calorimeter module.
+
+\subsection{Muon Spectrometer}
+\label{sec:atlas-muon}
+The \atlas\ muon spectrometer is constructed outside of the calorimeters.
+Of the known particles, only muons and neutrinos survive the trip through the tracker and both calorimeters.
+Of these, only muons are changed and therefore detectable with the muon spectrometer.
+
+The muon spectrometer is the single largest component in the \atlas\ detector by volume.
+It consists of several sets of superconducting coils arranged to create a toroidal magnetic field approximately aligned with $\hat{\phi}$, along with a large array including several types of gaseous detectors.
+These detectors measure muons out to $|\eta| < 2.7$, and trigger on these particles out to $|\eta| < 2.4$.
+
+\begin{cfig}
+  \subfigure[Quarter-section of the \atlas\ muon system]{
+    \graphic[0.60]{misc/cc/atlas-muon-quarter.pdf}
+    \label{fig:atlas-muon-quarter} }
+  \subfigure[Monitored Drift Tube]{
+    \graphic[0.28]{misc/cc/atlas-mdt-crosssection.pdf}
+    \label{fig:atlas-mdt-crosssection} }
+  \caption[\atlas\ muon spectrometer]{The \atlas\ muon spectrometer.
+    A quarter-section of the spectrometer, showing coverage in $\eta$ is given in \subref{fig:atlas-muon-quarter}.
+    The crosssection of a single Monitored Drift Tube (MDT) is shown in \subref{fig:atlas-mdt-crosssection}.}
+  \label{fig:atlas-muon-spec}
+\end{cfig}
+
+The most precise of the muon detectors are the Monitored Drift Tube (MDT) chambers.
+These chambers contain three to eight layers of drift tubes similar to those in the TRT.
+A cross-section of a single drift-tube is shown in \cref{fig:atlas-mdt-crosssection}.
+The maximum drift time for a particle passing though the edge of a tube is roughly $700\,\mathrm{ns}$.
+The tubes are pressurized to $3\,\mathrm{bar}$ with a mixture of argon (93\%) and CO$_2$ (7\%).
+Each tube provides a resolution of roughly $80\,\mathrm{\mu m}$ but the combined resolution from a muon passing through the multiple tubes in a chamber is roughly $35\,\mathrm{\mu m}$.
+These MDT chambers cover the full range of $\eta$ provided by the muon system.
+In the region where $|\eta| > 2.0$ higher particle flux necessitates sensors with finer granularity and faster drift times.
+These regions use Cathode Strip Chambers (essentially multiwire proportional chambers) instead.
+
+The muon trigger system uses resistive plate chambers in the $|\eta| < 1.05$ region, and Thin Gap Chambers (TGCs) in the $1.05 < |\eta| < 2.7$ region, although TCG triggering is limited to $|\eta| < 2.4$.
+Both these technologies provide much faster readout which is usable in the level 1 trigger, and in the case of MDTs (which only constrain tracks in 1-dimension) provide an additional constraint on muon tracks.
+
 \subsection{Trigger}
 \label{sec:trigger}
-Brief summary of the trigger.
-\begin{itemize}
-\item Must introduce ``offline'' and ``online'' (referenced later)
-\item Cite Will Butt~\cite{atlas-lvl1}.
-\item Must discuss prescaling
-\end{itemize}
-\subsection{Data Acquisition and Processing}
-\begin{itemize}
-\item Concept of a run (referenced later)
-\end{itemize}
-\subsection{\atlas\ Software and Simulation}
-\label{sec:software}
-\begin{itemize}
-\item \atlas\ geometry model
-\item mention how simulation is sometimes weighted
-\item concept of a signal grid (and signal ``point'')
-\end{itemize}
+The \atlas\ trigger must reduce a nominal event rate of $40\,\mathrm{MHz}$ to the much lower $200\,\mathrm{Hz}$ which is written to disk.
+This reduction of roughly 5 orders of magnitude is implemented with a three-level trigger system, shown schematically in \cref{fig:trigger-block}.
+%% With a level 1 trigger, data is moved out of \atlas\ and into the neighboring USA15 cavern. With a level 2 trigger, data is sent to 
+
+\begin{cfig}
+  \graphic[1.0]{misc/cc/trigger-block.pdf}
+  \caption[Flowchart of the \atlas\ trigger]{Flowchart of the \atlas\ trigger system.}
+  \label{fig:trigger-block}
+\end{cfig}
+
+\paragraph{Level 1} The level 1 trigger~\cite{atlas-lvl1} determines whether digitized information leaves the physical detector.
+By default, very little data is read out of \atlas; data regarding tracking, along with more detailed calorimetry and muon spectrometer data, is stored on pipelines in front-end boards within the various subdetectors.
+Events are read out only if requested by the level 1 trigger, which selects events based on designated feeds from the muon and calorimeter system.
+Due to limitations in the size of front-end board pipelines, the trigger decision must be extremely fast; the target trigger latency is $2.5\,\mathrm{\mu s}$, and roughly $1\,\mathrm{\mu s}$ of this is consumed by signal transmission time within the \atlas\ cavern.
+Even at level 1, this decision must also be very selective; the maximum rate at which events can be transferred is $75\,\mathrm{kHz}$.
+
+The muon triggering algorithm is based on coincident hits in neighboring sensors consistent within a ``road'' leading to the interaction point.
+Higher $\pt$ muons, given their decreased curvature, fit in a narrower road.
+By varying this road width, multiple muon triggers can be configured with various minimum $\pt$ thresholds.
+Bandwidth restrictions in the level 1 trigger rate mean the lower $\pt$ triggers must be \emph{prescaled}---only a predetermined fraction of valid trigger requests actually fire the trigger.
+Massively parallel electronics are designed to compute the trigger decision in $2.1\,\mathrm{\mu s}$.
+
+Calorimeter triggers cover a much wider range of physical processes.
+Cells within the calorimeters are summed in $0.1 \times 0.1$ supercells in $\Delta \eta \times \Delta \phi$ space using analog electronics. These sums are transmitted via 7000 analogue links to an adjacent cavern, where the signal is digitized and compared against multiple interesting signatures.
+Example signatures include various energetic clusters of supercells (jets) isolated energetic $2 \times 2$ supercell clusters (electrons, photons and $\tau$'s), and overall energy imbalances ($\met$).
+The calorimeter trigger typically decides to accept an event within $1.5\,\mathrm{\mu s}$, allowing the signal to reach the front-end pipelines within $2.1\,\mathrm{\mu s}$.
+
+\paragraph{Level 2} A level 1 trigger decision signals for a given event to be read off the front-end boards in all of the \atlas\ subdetectors at a rate of approximately $75\,\mathrm{kHz}$.
+It also sends Regions of Interest (RoIs) to the level 2 trigger farm.
+These regions of interest form a restricted region of $\eta$--$\phi$, but can include information from all of the subdetectors at full granularity.
+The level 2 trigger can thus reject events based on tracker information, full shower shapes in the calorimeter, and the precision tracking information in the muon spectrometer.
+
+Data is stored in a pool of readout buffers outside the detector while awaiting the level 2 decision, which significantly reduces the latency constraints; whereas level 1 trigger decisions are required in $2.5\,\mathrm{\mu s}$ a typical level 2 node processes one event every $5\,\mathrm{ms}$.
+Thanks to the parallel processing of RoIs, the level 2 trigger is nonetheless able to reduce the event rate from $75\,\mathrm{kHz}$ to roughly $3.5\,\mathrm{kHz}$.
+
+\paragraph{Event Filter}
+Events which pass the level 2 trigger are passed on to the event filter.
+The event filter is built on the same software which is later used for fully calibrated analysis, and can thus theoretically reconstruct events much more accurately and completely than the level 2 trigger.
+%% Like the level 2 trigger, the event filter is implemented as a processor farm.
+Roughly 50 dedicated nodes reconstruct events at a rate of $\sim 60\,\mathrm{Hz}$.
+The reconstructed events are passed on to approximately a thousand high level trigger nodes which each process approximately one event every second.
+
+Events which pass the event filter are also sorted into data \emph{streams}.
+Some streams consist of objects of interest for particular final states, such as the \texttt{Muons}, \texttt{Egamma} (electron and photon), or \texttt{JetTauEtmiss} (various calorimeter triggers).
+Other streams correspond to useful calibration information.
+In total, events pass the event filter at a rate of $200\,\mathrm{Hz}$.
+All events which pass the event filter are eventually written to permanent storage.
+
+\section{\atlas\ Computing Infrastructure}
+Data analysis in atlas \atlas\ involves many more computers than those present at CERN.
+The \atlas\ computing grid involves three \emph{tiers} of computing centers, not including tier 0, which is located at point 1 near the detector.
+Data moves down the tier structure through a series of derivations, which become progressively smaller and specific to an individual physics analysis.
+
+Raw data which passes the event filter is stored at tier 0 and duplicated at roughly 10 tier 1 facilities located throughout the world.
+These facilities are primarily reserved for data storage and reprocessing.
+Derivations from this primary data are stored at roughly 100 tier 2 sites.
+Tier 2 sites serve two primary purposes.
+First, they produce simulated data, as discussed more in \cref{sec:simulation}.
+Second, any \atlas\ user has access to the derived data and computing resources housed there.
+Since the data stored on tier 2 sites generally contains far more information than necessary for an individual analysis, ``user'' jobs are typically run to create analysis-specific data sets.
+Tier 3 sites are typically smaller clusters used for institution-level analysis~\cite{atlas-computing-tdr}.
+
+\subsection{Calibration Loop}
+In the $\sim 36\,\mathrm{hours}$ immediately following a run, a number of calibrations run on a special ``express'' stream.
+These include alignment in the muon spectrometer, determination of the beam position, and calorimeter calibrations, and are run both at CERN and at tier 2 installations.
+Bulk processing of the remaining streams begins after these calibrations are complete.
+The resulting data contains a number of derived \emph{objects}; electron, photon, muon, $\tau$, and jet candidates (among other variables) are explicitly defined.
+Such objects are said to be reconstructed \emph{offline}, as opposed to objects reconstructed \emph{online} by the triggers.
+
+The resulting data is theoretically ready for use in searches and measurements after this step, but in practice a considerable amount of additional calibration and processing is still required.
+As of 2012, no universal object definitions existed within \atlas, thus a discussion of the specific object definitions is deferred until \cref{sec:scharm}.
+
+\subsection{\atlas\ Simulation}
+\label{sec:simulation}
+Nearly every physics result published by \atlas\ is heavily dependent on simulation to model both backgrounds and hypothetical signals.
+For the sake of simulation, standard model and beyond standard model interactions are divided according to process (e.g. $\ttbar$, $\wjets$, SUSY signals, etc).
+%% Interactions which produce $\ttbar$, for example, are generated separately from $\wjets$, which is generated separately from hypothetical SUSY processes.
+Each process is simulated in some number of \emph{samples}, which correspond to a collection of events.
+
+The first stage of simulation is event generation, which accounts for all physics within the microscopic region surrounding the proton--proton collision.
+Event generation is itself divided into multiple steps.
+The first of these, hard scattering, refers to the parton--parton interaction at energies where QCD is perturbative.
+These interactions are simulated with with one of roughly a dozen packages.
+Some generators add corrections in the form of event-wise weights.
+%% Event weights needn't be positive; some higher-order simulation includes events with negative weights.
+
+As the decay products from the hard scatter separate, QCD becomes dominant.
+To model these interactions, the products of the hard scatter are passed to one of several routines designed to model the evolution of colored particles as they coalesce into hadrons.
+For each event, the final product from event generators is a list of color-neutral particles and their associated four-momenta.
+At this stage particles are known as \emph{truth} particles; parameters
+which describe them can only be reconstructed in the limit of a perfect detector.
+Since the later phases of simulation can be computationally expensive,
+samples are often subjected to a ``truth filter''.
+If, for example, a particular search focuses on events with large $\met$, events with significantly smaller $\met$ may be removed\footnote{Truth filters much be chosen conservatively, since detector related uncertainties can smear reconstructed quantities around a sharp truth cutoff. In practice truth thresholds are generally chosen to be well below actual thresholds applied to data and (fully reconstructed) simulation.}.
+
+The event generator's outputs are passed to detector simulation and digitization.
+Within \atlas, \textsc{geant4}~\cite{geant} simulates particle propagation through the detector and the analog readout on sensors.
+Digitization follows simulation, and models detector electronics as they convert analog signals to digital data.
+After digitization simulated samples and data share a common format, such that simulation and data can be analyzed with (nearly) identical software.
+
+Simulation and digitization require a precise underlying detector geometry model and an accurate conditions database listing dead readout channels and noise levels.
+Both the detector geometry and the conditions database are constantly in flux; to account for changes to both, simulated samples are occasionally reprocessed in bulk \emph{campaigns} with the latest geometry and conditions.
+
+In the case of searches for new physics, all simulation is drawn from the same campaign, i.e. simulation and digitization is identical across all samples, generally reflecting the most recent experiment-wide recommendation.
+The choice generators is more nuanced; a baseline generator is chosen for each process, but various generators are compared to estimate systematic uncertainty (discussed more in \cref{sec:sys-theory}).
+Hypothetical signals with a number of free parameters are simulated in a \emph{signal grid} of regularly spaced \emph{signal points} in the parameter space.
+
+%% \begin{itemize}
+%% \item \atlas\ geometry model
+%% \item mention how simulation is sometimes weighted
+%% \item concept of a signal grid (and signal ``point'')
+%% \end{itemize}
+
+%% \subsection{Object Reconstruction}
+%% \begin{itemize}
+%% \item Mention how systematics work here (mention how they can be correlated between regions)
+%% \end{itemize}
