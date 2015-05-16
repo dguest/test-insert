@@ -33,9 +33,9 @@
 %% \usepackage{newunicodechar}
 \usepackage{CJKutf8}
 %% \newcommand{\dan}{\begin{CJK*}{UTF8}{gbsn}丹\end{CJK*}}
-\newcommand{\dan}{Dan}
+%% \newcommand{\dan}{Dan}
 %% \setCJKmainfont{SimSun}
-%% \newcommand{\dan}{丹}
+%% \newcommand{\dancn}{丹}
 
 \usepackage{setspace}
 \linespread{1}
@@ -62,12 +62,7 @@
 \renewcommand{\chapquote}[2]{}
 
 \usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{\textsc{\thesection: \leftmark{} -- \rightmark{}}}
-\rhead{\thepage}
-\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }%
-\renewcommand{\sectionmark}[1]{ \markright{#1}{} }%
+\pagestyle{plain}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -92,33 +87,94 @@
 
 %% __________________________________________________________________________
 %% set up paper
-
-\title{A Search for Scalar Charm Quarks with the \atlas\ Detector at the LHC}
-\author{\dan{} Guest}
-
-%% macros
-\input{definitions.tex}
-\input{bigmacros.tex}
-
-\begin{document}
-\newcommand{\abstracttxt}{
+\newcommand{\titletext}{A Search for Scalar Charm Quarks with the \atlas\ Detector at the LHC}
+\newcommand{\abstracttext}{
 This thesis presents the results of a search for pair-produced scalar charm quarks with the \atlas\ detector at the LHC.
 The search focuses on $20.3\,\invfb$ of data collected during the $\cmenergy$ 2012 run.
 Each charm quark decays to neutrilinos and charm quarks, resulting in a final state consisting of two charm jets and missing transverse energy.
 A novel ``charm tagging'' algorithm was developed to separate this signature from backgrounds, and is discussed in detail.
 As no evidence of physics beyond the standard model is found, the search is used to set $95\%\,\cls$ exclusions in the scalar charm vs neutrilino mass plane.
 }
-%% \begin{center}
-%% Abstract
+\newcommand{\authortext}{Daniel Hay Guest}
 
-\maketitle
+\title{\titletext}
+\author{\authortext}
+
+%% macros
+\input{definitions.tex}
+\input{bigmacros.tex}
+
+\pagenumbering{roman}
+
+\begin{document}
+
 \begin{abstract}
-\abstracttxt
+  \begin{center}
+    %% \textsc{Abstract}\\[0.5em]
+    \begin{large}
+      \titletext \\[0.5em]
+    \end{large}
+    \authortext \\[0.5em]
+    2015 \\[2em]
+    \begin{minipage}{\textwidth}
+      \doublespacing
+      \abstracttext
+    \end{minipage}
+  \end{center}
+  %% \begin{abstract}
+  %% \end{abstract}
 \end{abstract}
+
+\thispagestyle{plain}
+\null\vspace{3in}
+\noindent \copyright\ 2016 by \authortext \\
+All rights reserved.
+\clearpage
+
+\begin{titlepage}
+  \begin{center}
+    \begin{huge}
+      \titletext \\
+    \end{huge}
+    \vspace{1in}
+    A Dissertation \\
+    Presented to the Faculty of the Graduate School \\
+    of \\
+    Yale University \\
+    in Candidacy for the Degree of \\
+    Doctor of Philosophy \\
+    \vspace{1in}
+    by \\
+    \authortext \\
+    \vspace{1cm}
+    Dissertation Directors: Tobias Golling, Paul Tipton \\
+    \vspace{1cm}
+    May 2016
+  \end{center}
+\end{titlepage}
+
+\chapter*{Acknowledgments}
+\input{tex/akn_short.tex}
+%% \input{tex/akn.tex}
+\clearpage
+
+%% \maketitle
+%% \begin{abstract}
+%% \abstracttxt
+%% \end{abstract}
 
 \tableofcontents
 \listoffigures
 \listoftables
+
+\cleardoublepage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textsc{\thesection: \leftmark{} -- \rightmark{}}}
+\rhead{\thepage}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }%
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }%
 
 %% \sout{I present the results from two ATLAS searches for pair-produced
 %% supersymmetric quarks in all avalible $\cmenergy$ $pp$ collision data as
@@ -150,6 +206,7 @@ As no evidence of physics beyond the standard model is found, the search is used
 %% \include{tex/scharm/signal_region_plots}
 %% \include{tex/scharm/extra_plots}
 
+\pagestyle{plain}
 \bibliographystyle{extra/atlasBibStyleWithTitle.bst}
 \bibliography{refs/general,refs/twiki,refs/objects,refs/theory,refs/detector,refs/searches,refs/simulation,refs/upgrade}
 
