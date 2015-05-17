@@ -5,10 +5,11 @@ An additional $\sim 4.7\,\invfb$ of $\sqrt{s} = 7\,\tev$, taken in 2011, was not
 As discussed in \cref{sec:trigger}, only a very small fraction of collisions in ATLAS are ever recorded, so in addition to being measurable at the LHC, signatures must match events which fire a trigger.
 
 \subsection{$\met$ Trigger}
+\label{sec:met-trigger}
 The signature of a $\sctoc$ decay is several $c$-jets plus $\met$.
 Charm-tagging isn't currently implemented at trigger-level given the short timescales involved and the complexity of $c$-tagging.
 This leaves generic jets and $\met$ as trigger options.
-Of these, jet triggers are set with very high thresholds because jets are so common in hadron collisions; most of the jets $\sctoc$ would be below these thresholds.
+Jet triggers are unusable because the $\pt$ thresholds are above those required to trigger on $c$~jets from $\sctoc$.
 This leaves only $\met$ triggers as a viable option. \Cref{fig:etmiss-triggers} shows the efficiency of the $\met$ trigger used in this analysis (\verb|EF_xe80_tclcw_tight|). While the trigger threshold is roughly $80 \,\gev$ by design, it only becomes $\gtrsim 99\%$ efficient at approximately $150\,\gev$ due to the limited resolution of online $\met$ reconstruction.
 Typically data and simulation disagree somewhat in trigger efficiency; to mitigate any systematic uncertainty arising form this disagreement, events must satisfy an offline $\met > 150\,\gev$ requirement.
 
@@ -48,8 +49,9 @@ int/figures/trigger/EF_xe80_tclcw_tight_efficiency_addLep_WmunuMC_leg.pdf}
 \subsection{Lepton Triggers}
 Background estimation is discussed in more detail in \cref{sec:backgrounds}, but to control for the larger backgrounds, we also require data with 1 or 2 leptons.
 The dominating background processes produce leptons through electroweak interactions, and thus give rise to roughly equal numbers of all three lepton generations.
-Of the three generations, $\tau$-leptons are exceptionally difficult to reconstruct and carry relatively large systematic uncertainties.
-Thus $\tau$-leptons are ignored in control regions which constrain the dominant backgrounds; events within control regions are selected by muon and electron triggers.
+Only electron and muon triggers are actually used in control regions, since $\tau$-leptons are exceptionally difficult to reconstruct and carry relatively large systematic uncertainties.
+%% Of the three generations, $\tau$-leptons are exceptionally difficult to reconstruct and carry relatively large systematic uncertainties.
+%% Thus $\tau$-leptons are ignored in control regions which constrain the dominant backgrounds; events within control regions are selected by muon and electron triggers.
 
 \begin{table}
 \begin{center}
@@ -81,5 +83,5 @@ The third column indicates the offline $\pt$ requirements.
 In general, the lowest non-prescaled trigger which is available for the entire 2012 data set is used.
 As with the $\met$ trigger, an offline threshold is required to ensure that the trigger is nearly $100\,\%$ efficient.
 In control regions which require two leptons, dilepton triggers were considered since they allow lower offline $\pt$ thresholds (20 as opposed to 25 $\gev$).
-As discussed further in \cref{sec:dilepton-triggers}, these were rejected because the final control region definitions included a leading lepton requirement $\pt > 70\,\gev$; lowering the $\pt$ threshold on the leading lepton added very few events, and a $\pt > 20\,\gev$ requirement on the second lepton removed many more.
+These were rejected (see \cref{sec:dilepton-triggers}) because the final control region definitions included a leading lepton requirement $\pt > 70\,\gev$; lowering the $\pt$ threshold on the leading lepton added very few events, and a $\pt > 20\,\gev$ requirement on the second lepton removed many more.
 All leptonic control regions thus used the single-lepton triggers listed in \cref{tab:lepton-triggers}. Each flavor combines two triggers: a low-$\pt$ trigger with lepton isolation requirements and a higher-$\pt$ trigger with no isolation requirements.

@@ -1,10 +1,10 @@
 As a 0-lepton search in a hadron collider, the $\sttoc$ search is forced to contend with a large multijet QCD background.
 This background can be suppressed with an absolute $\met$ threshold, since most transverse momentum from QCD events should be captured by the ATLAS calorimeter and very little real $\met$ should exist.
-To this end the search uses a $\met$ trigger in addition to an offline threshold of $\met > 150\,\gev$.
+To this end the search uses a $\met$ trigger as discussed in \cref{sec:met-trigger}.
 After this requirement a small fraction of the original QCD events still remain; if a single energetic jet is badly mismeasured, the overall $\met$ can be pushed above threshold.
 
 Fortunately this mismeasurement is statistically unlikely to effect more than a single jet in the event, and as a result the event $\vmet$ aligns with the jet momentum.
-Distributions of $\metdphi{j}$ and $\met$ after the $\met$ trigger, are given in \cref{fig:jm-dphi}.
+Distributions of $\metdphi{j}$ and $\met$ after the $\met$ trigger are given in \cref{fig:jm-dphi}.
 The expected standard model backgrounds are also overlaid. Clearly the vast majority of events are accounted for with $\wjets$, $\zjets$, and $\ttbar$ after the $\met > 150\,\gev$ and $\metdphi{j} > 0.4$ requirements.
 As shown in \cref{fig:meteff}, a very small excess of QCD events is still visible at low values of $\meteffshort \equiv \meteff$. In the signal region these events are removed with a $\meteffshort > 0.25$ requirement.
 
@@ -42,7 +42,7 @@ The $\ttbar$ background can be further reduced thanks to several variables.
 Among the most important is $\mct$, which was introduced in \cref{eq:mctdef}.
 The desirable properties of $\mct$ only hold when the two leading particles are identical and decay semi-invisibly.
 In the case of $\ttbar$, this means the two leading jets must contain $t \to b \nu$ decays.
-Unfortunately this assumption doesn't always hold, and there are two distinct populations of $\ttbar$: $b$-lead $\ttbar$, where the leading two jets are $b$-jets, and non-$b$-lead where one of these jets is a $c$-jet.
+In some cases a non-$b$~jet has higher $\pt$ than one of the $b$~jets, which gives rise to two populations of $\ttbar$: $b$-lead $\ttbar$, where the leading two jets are $b$-jets, and non-$b$-lead where one of these jets is a $c$-jet.
 
 \begin{cfig}
   \graphic[0.48]{%
@@ -70,11 +70,11 @@ these regions correspond to $\mct < 150$, $200$, and $250\,\gev$.
 
 \newcommand{\srplot}[1]{int/figures/stackplots/dans/signal_mct150/#1}
 \begin{cfig}
-  \subfigure[$\mcc$]{\graphic[0.49]{\srplot{mass_cc_blinded.pdf}}}
-  \subfigure[$\mct$]{\graphic[0.49]{\srplot{mass_ct_blinded.pdf}}
+  \subfigure[$\mcc$]{\graphic[0.48]{\srplot{mass_cc_blinded.pdf}}}
+  \subfigure[$\mct$]{\graphic[0.48]{\srplot{mass_ct_blinded.pdf}}
     \label{fig:massctblind}} \\
-  \subfigure[Leading jet $\pt$]{\graphic[0.49]{\srplot{j0_pt_blinded.pdf}}}
-  \subfigure[Subleading jet $\pt$]{\graphic[0.49]{\srplot{j1_pt_blinded.pdf}}}
+  \subfigure[Leading jet $\pt$]{\graphic[0.48]{\srplot{j0_pt_blinded.pdf}}}
+  \subfigure[Subleading jet $\pt$]{\graphic[0.48]{\srplot{j1_pt_blinded.pdf}}}
   \caption[Discriminants in the signal region]{Discriminants used in the signal region.}
   \label{fig:discrim-sr}
 \end{cfig}
