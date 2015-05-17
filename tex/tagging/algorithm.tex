@@ -8,21 +8,17 @@ Within the ATLAS flavor-tagging framework algorithms are grouped into two classe
 \newcommand{\jfsignote}{The total significance of JetFitter vertices is computed as $S_{d}^{\rm JF} = (\sum_i L_{i} / \sigma^2_i )\big/(\sum_i 1 / \sigma^2_i)^{1/2}$,
 where $i$ indexes the tracks, $L$ is the vertex displacement, and $\sigma$ is the vertex displacement uncertainty.}
 
-\begin{figure}
-  \begin{center}
+\begin{cfig}
   \includegraphics[width=0.7\textwidth]{figures/external/b-jet-ip.pdf}
   \caption[Impact parameter based flavor-tagging]{Schematic of an impact parameter (IP) based flavor tagger. Tracks are extrapolated back to perigee, and the impact parameters are combined to produce a tagging discriminant.}
   \label{fig:b-jet-ip}
-  \end{center}
-\end{figure}
+\end{cfig}
 
-\begin{figure}
-  \begin{center}
+\begin{cfig}
   \includegraphics[width=0.7\textwidth]{figures/external/b-jet-sv.pdf}
   \caption[Secondary vertex based flavor-tagging]{Schematic of a secondary vertex (SV) based flavor tagger. A single vertex is fit to the tracks in the jet, after which parameters are extracted from the vertex.}
   \label{fig:b-jet-sv}
-  \end{center}
-\end{figure}
+\end{cfig}
 
 Tracks are selected within a
 $\Delta R$ cone surrounding the jet center in the calorimeter, which varies as a function of the transverse momentum of the jet~\cite{AdvancedTaggers}.
@@ -46,13 +42,11 @@ These algorithms are summarized briefly below, while a more detailed description
 This flight line is then iteratively updated while `single-track vertices' are fit by constraining tracks to intersect the flight line within the uncertainty of their trajectories. JetFitter then merges clusters of single-track vertices, while further updating the flight line, to form a well-defined decay chain consisting of multi-track and single-track vertices. Many properties of the decay chain are useful as jet-flavor discriminants. These properties (listed in Table~\ref{tab:parameters}) offer complementary information with respect to SV1.
 \end{description}
 
-\begin{figure}
-  \begin{center}
+\begin{cfig}
   \includegraphics[width=0.7\textwidth]{figures/external/b-jet-jf.pdf}
   \caption[JetFitter flavor tagging]{Schematic of the JetFitter flavor tagger. A flight line is fit to all tracks in the jet, and vertices are formed where tracks cross the flight line.}
   \label{fig:b-jet-jf}
-  \end{center}
-\end{figure}
+\end{cfig}
 
 The JetFitter algorithm relies on a number of tuned parameters which specify which tracks are considered and how vertices are formed. To resolve more secondary vertices in $c$-jets, JetFitterCharm uses a retuned variant of this algorithm in which the track selection is loosened, tracks are less likely to be assigned to the primary vertex, and single track vertices are more likely to be formed near the primary vertex. In addition several variables are added to the JetFitter outputs: transverse displacement of the secondary and tertiary vertices ($L^1_{xy}$ and $L^2_{xy}$), and the track rapidity along the jet axis, $\varphi_{\text{trk}} \equiv \tan^{-1} \mathbf{p_{\text{trk}}} \cdot \mathbf{\hat{p}_{\text{jet}}} / E_{\text{trk}}$.
 
@@ -108,19 +102,16 @@ The JetFitter algorithm relies on a number of tuned parameters which specify whi
 Variables summarized in Table~\ref{tab:parameters} are passed into a neural
 network (as shown in \cref{fig:jfc-arch}) which calculates the posterior probability that a jet is $b$, $c$, or light flavored. These probabilities are referred to as $P_b$, $P_c$, and $P_{\rm light}$ respectively. The neural network itself consists of 4 layers: one input layer with 19 input nodes, two hidden layers with 20 and 10 nodes respectively, and three output nodes.
 
-\begin{figure}
-  \begin{center}
+\begin{cfig}
     \includegraphics[width=0.5\textwidth]{figures/jfc/dot/simple-arch.pdf}
     \caption[JetFitterCharm information flow]{Information flow through the JetFitterCharm flavor tagger. Jet parameters are created by three upstream algorithms and combined in a single neural net. This neural net outputs three probabilities, $P_{b}$, $P_{c}$, and $P_{u}$ ($P_{\rm light}$), corresponding to the $b$-jet, $c$-jet, and light-jet discriminants.}
     \label{fig:jfc-arch}
-  \end{center}
-\end{figure}
+\end{cfig}
 
 The network was trained on $b$-, $c$- and light-jets drawn from simulated $t \bar{t}$. Training begins by initializing the synapse weights and node activation thresholds with random values. The classification error $E \equiv \sum_{f} (T_{f} - P_{f})^2$, where $f \in \{b,c,\mathrm{light}\}$ and $T_{f}$ are target posteriors, is then minimized with the backpropagation algorithm as implemented in the JETNET~\cite{Peterson:1993nk} package. Target posteriors are assigned according to the labeling scheme described in section~\ref{tag:sec:data-and-simulation}: the target value $T_{f}$ is defined to be 1 if $f$ matches the jet flavor label and zero otherwise. As a precaution against training the neural network with a kinematic flavor bias, the training sample is reweighed in two-dimensional categories of $\pt^{\rm cat}$ and $\eta^{\rm cat}$, such that the relative  fractions of $b$, $c$ and light jets are constant in all categories. In this training scheme, the target posteriors sum to 1 in each jet by definition, whereas the $P_{f}$ values would sum to one only in the limit of perfect training, and in reality show a deviation from one at the percent level.
 
 %GP I would not add this part, with a comparison of the information flow of the other taggers
-\begin{figure}
- \begin{center}
+\begin{cfig}
    \includegraphics[width=0.6\textwidth]{jfc/figures/dot/tagging-arch.pdf}\\
    \includegraphics[width=0.6\textwidth]{jfc/figures/dot/tagging-leg.pdf}
  \caption[flavor tagging architecture]{The ATLAS flavor tagging
@@ -128,8 +119,7 @@ The network was trained on $b$-, $c$- and light-jets drawn from simulated $t \ba
    looser vertexing cuts in JetFitter, and adds the SV1 secondary-vertex finder outputs as inputs
    to the neural network.}
  \label{fig:tagging-arch}
- \end{center}
-\end{figure}
+\end{cfig}
 
 The similarity between JetFitterCharm and the standard ATLAS flavor-tagging tools is illustrated in figure~\ref{fig:tagging-arch}. Both JetFitterCharm and MV1 require the IP3D posteriors as inputs, and both use outputs from SV1 and some variant of JetFitter.  MV1 does not take JetFitter and SV1 outputs directly: instead it relies on posteriors from a lookup table (in the case of SV1) or from a neural net (in the case of JetFitter). JetFitterCharm, by contrast, uses the SV1 and JetFitter outputs directly.
 

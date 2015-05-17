@@ -11,12 +11,12 @@ Outside the solenoid is the calorimeter, which measures the energy of both charg
 %% The calorimeter is designed to measure all particles out to $|\eta| < 4.9$.
 Only two known particles normally penetrate the calorimeter: muons and neutrinos.
 Of these, muon momentum is measured by the muon spectrometer, which surrounds the calorimeter.
-Neutrinos are inferred by an overall momentum imbalance transverse to the beam axis after summing the momenta of all other particles.
+%% Neutrinos are inferred by an overall momentum imbalance transverse to the beam axis after summing the momenta of all other particles.
 
 \subsection{Tracker}
 
 The \atlas\ tracker~\cite{atlas-id1,atlas-id2} consists of several inner pixel layers, surrounded by a silicon strip detector, surrounded by a drift-tube tracker which doubles as a transition radiation detector.
-Particles within the tracker volume are bent into helical paths by the axial magnetic field. The energy deposited by these particles as they pass through a given sensor is reconstructed as a \emph{hit}. Pattern recognition software strings hits together into helical \emph{tracks} with a well-defined $q/p$ ratio. Momentum can be extracted by assigning all particles a charge of $\pm 1$ fundamental charge unit.
+Particles within the tracker volume are bent into helical paths by the axial magnetic field. The energy deposited by these particles as they pass through a given sensor is reconstructed as a \emph{hit}. Pattern recognition software strings hits together into helical \emph{tracks} with a well-defined $q/p$ ratio. %% Momentum can be extracted by assigning all particles a charge of $\pm 1$ fundamental charge unit.
 
 Like all \atlas\ subdetectors the tracker covers as much solid angle as possible surrounding the interaction point: the full range of $\phi$ and out to $|\eta| < 2.5$.
 One quadrant of the inner detector is shown in \cref{fig:atlas-id-acceptance}.
@@ -71,7 +71,7 @@ Low threshold hits are used for tracking; the leading edge of a low threshold hi
 
 High threshold hits are associated with \emph{transition radiation}, which charged particles product in proportion to their Lorentz $\gamma$ factor.
 The gas mixture within the TRT is designed to absorb transition radiation photons, which create much larger electron cascades and result in high threshold hits.
-As shown in \cref{fig:trt-high-threshold}, these high threshold hits offer an additional discriminant between electrons and pions, since pions are much more massive and thus have a lower $\gamma$ for the same momentum.
+These high threshold hits offer an additional discriminant for electron identification; pions are much more massive than electrons and thus have a lower $\gamma$ at the same momentum. A turn on curve for transition radiation as a function of $\gamma$ is shown in \cref{fig:trt-high-threshold}.
 
 %% Hits are only read off the front-end boards only when a level 1 trigger fires.
 
@@ -138,7 +138,7 @@ In place of the lead accordion baffles used in the EM calorimeter, however, the 
 The calorimeter is segmented in $\Delta \eta \times \Delta \phi$ cells of $0.1 \times 0.1$ for $|\eta| < 2.5$, and $0.2 \times 0.2$ for larger values of $\eta$. Along the beam axis the plates are combined into four layers in each endcap.
 
 In the barrel region, the hadronic calorimeter uses scintillating plastic tiles with a steel absorber~\cite{atlas-tile}. Light is piped through fiber cables to instrumentation drawers and measured with photomultiplier tubes.
-Tiles are segmented in three layers. The first two layers are divided into $0.1 \times 0.1$ cells in the $\Delta \eta \times \Delta \phi$ plane, whereas the last layer uses $0.2 \times 0.1$ cells.
+Tiles readouts are grouped into in three layers, stacked along $\hat{\eta}$. The first two layers are divided into $0.1 \times 0.1$ cells in the $\Delta \eta \times \Delta \phi$ plane, whereas the last layer uses $0.2 \times 0.1$ cells.
 
 \paragraph{Forward Calorimeter}
 \label{sec:atlas-fcal}
@@ -161,7 +161,7 @@ Of the known particles, only muons and neutrinos survive the trip through the tr
 Of these, only muons are changed and therefore detectable with the muon spectrometer.
 
 The muon spectrometer is the single largest component in the \atlas\ detector by volume.
-It consists of several sets of superconducting coils arranged to create a toroidal magnetic field approximately aligned with $\hat{\phi}$, along with a large array including several types of gaseous detectors.
+It consists of several sets of superconducting coils arranged to create a toroidal magnetic field approximately aligned with $\hat{\phi}$, along with a large sensor array including several types of gaseous detectors.
 These detectors measure muons out to $|\eta| < 2.7$, and trigger on these particles out to $|\eta| < 2.4$.
 
 \begin{cfig}
@@ -221,18 +221,18 @@ The calorimeter trigger typically decides to accept an event within $1.5\,\mathr
 
 \paragraph{Level 2} A level 1 trigger decision signals for a given event to be read off the front-end boards in all of the \atlas\ subdetectors at a rate of approximately $75\,\mathrm{kHz}$.
 It also sends Regions of Interest (RoIs) to the level 2 trigger farm.
-These regions of interest form a restricted region of $\eta$--$\phi$, but can include information from all of the subdetectors at full granularity.
+Each region of interest covers a subset of $\eta$--$\phi$ space, but can include information from all of the subdetectors at full granularity.
 The level 2 trigger can thus reject events based on tracker information, full shower shapes in the calorimeter, and the precision tracking information in the muon spectrometer.
 
-Data is stored in a pool of readout buffers outside the detector while awaiting the level 2 decision, which significantly reduces the latency constraints; whereas level 1 trigger decisions are required in $2.5\,\mathrm{\mu s}$ a typical level 2 node processes one event every $5\,\mathrm{ms}$.
+The latency constraints for a level 2 trigger are significantly looser than those at level 1. Data is stored in a pool of readout buffers outside the detector while awaiting the level 2 decision. Whereas level 1 trigger decisions are required in $2.5\,\mathrm{\mu s}$ a typical level 2 node processes one event every $5\,\mathrm{ms}$.
 Thanks to the parallel processing of RoIs, the level 2 trigger is nonetheless able to reduce the event rate from $75\,\mathrm{kHz}$ to roughly $3.5\,\mathrm{kHz}$.
 
 \paragraph{Event Filter}
 Events which pass the level 2 trigger are passed on to the event filter.
 The event filter is built on the same software which is later used for fully calibrated analysis, and can thus theoretically reconstruct events much more accurately and completely than the level 2 trigger.
 %% Like the level 2 trigger, the event filter is implemented as a processor farm.
-Roughly 50 dedicated nodes reconstruct events at a rate of $\sim 60\,\mathrm{Hz}$.
-The reconstructed events are passed on to approximately a thousand high level trigger nodes which each process approximately one event every second.
+Roughly 50 dedicated nodes reconstruct events at a rate of $\sim 60\,\mathrm{Hz}$ each.
+The reconstructed events are passed on to approximately a thousand high level trigger nodes, each of which processes approximately one event every second.
 
 Events which pass the event filter are also sorted into data \emph{streams}.
 Some streams consist of objects of interest for particular final states, such as the \texttt{Muons}, \texttt{Egamma} (electron and photon), or \texttt{JetTauEtmiss} (various calorimeter triggers).
@@ -261,8 +261,8 @@ Bulk processing of the remaining streams begins after these calibrations are com
 The resulting data contains a number of derived \emph{objects}; electron, photon, muon, $\tau$, and jet candidates (among other variables) are explicitly defined.
 Such objects are said to be reconstructed \emph{offline}, as opposed to objects reconstructed \emph{online} by the triggers.
 
-The resulting data is theoretically ready for use in searches and measurements after this step, but in practice a considerable amount of additional calibration and processing is still required.
-As of 2012, no universal object definitions existed within \atlas, thus a discussion of the specific object definitions is deferred until \cref{sec:scharm}.
+The resulting data is theoretically ready for use in searches and measurements after this step, but in practice a considerable amount of additional calibration and object redefinition is still required.
+While an ongoing effort to unify objects exists within \atlas, no universal object definitions existed within \atlas\ as of 2012. A discussion of the object definitions used by the search presented in this thesis is given in \cref{sec:objects}.
 
 \subsection{\atlas\ Simulation}
 \label{sec:simulation}
@@ -279,7 +279,7 @@ Some generators add corrections in the form of event-wise weights.
 %% Event weights needn't be positive; some higher-order simulation includes events with negative weights.
 
 As the decay products from the hard scatter separate, QCD becomes dominant.
-To model these interactions, the products of the hard scatter are passed to one of several routines designed to model the evolution of colored particles as they coalesce into hadrons.
+The products of the hard scatter are passed to one of several routines which model colored particles as they evolve into hadrons.
 For each event, the final product from event generators is a list of color-neutral particles and their associated four-momenta.
 At this stage particles are known as \emph{truth} particles; parameters
 which describe them can only be reconstructed in the limit of a perfect detector.
@@ -288,16 +288,16 @@ samples are often subjected to a ``truth filter''.
 If, for example, a particular search focuses on events with large $\met$, events with significantly smaller $\met$ may be removed\footnote{Truth filters much be chosen conservatively, since detector related uncertainties can smear reconstructed quantities around a sharp truth cutoff. In practice truth thresholds are generally chosen to be well below actual thresholds applied to data and (fully reconstructed) simulation.}.
 
 The event generator's outputs are passed to detector simulation and digitization.
-Within \atlas, \textsc{geant4}~\cite{geant} simulates particle propagation through the detector and the analog readout on sensors.
+Within \atlas, \textsc{geant4}~\cite{geant} simulates particle propagation through the detector and the analog readout on sensors, although in some cases this is passed off to optimized fast simulation packages~\cite{atlfast}.
 Digitization follows simulation, and models detector electronics as they convert analog signals to digital data.
-After digitization simulated samples and data share a common format, such that simulation and data can be analyzed with (nearly) identical software.
+After digitization simulated samples and data share a common format, such that simulation and data can be analyzed with minimal modification to analysis software.
 
 Simulation and digitization require a precise underlying detector geometry model and an accurate conditions database listing dead readout channels and noise levels.
 Both the detector geometry and the conditions database are constantly in flux; to account for changes to both, simulated samples are occasionally reprocessed in bulk \emph{campaigns} with the latest geometry and conditions.
 
 In the case of searches for new physics, all simulation is drawn from the same campaign, i.e. simulation and digitization is identical across all samples, generally reflecting the most recent experiment-wide recommendation.
 The choice generators is more nuanced; a baseline generator is chosen for each process, but various generators are compared to estimate systematic uncertainty (discussed more in \cref{sec:sys-theory}).
-Hypothetical signals with a number of free parameters are simulated in a \emph{signal grid} of regularly spaced \emph{signal points} in the parameter space.
+Hypothetical signals with a number of free parameters are simulated in a \emph{signal grid} of consisting of regularly spaced points in the parameter space.
 
 %% \begin{itemize}
 %% \item \atlas\ geometry model

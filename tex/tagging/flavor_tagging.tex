@@ -86,31 +86,25 @@ In the case of simulated jets, a flavor label is assigned by matching jets to ge
 \label{tag:sec:op}
 While the neural network produces three posterior probabilities, these sum to approximately 1 and thus contain one redundant degree of freedom. The three outputs are therefore projected into a 2-dimensional `anti-$b$' vs `anti-light' discriminant plane as shown in Fig.~\ref{tag:fig:2dcut}, where the anti-$b$ axis is defined as $\log (P_{c} / P_{b})$ and the anti-light axis as $\log (P_{c} / P_{\rm light})$; the variables are shown in \cref{fig:1dvars1,fig:1dvars2}. Operating points are defined by a pair of minimum thresholds; any jet in which both the anti-light and anti-$b$ discriminants exceed the thresholds is said to be `tagged'.
 
-\begin{figure}
-  \begin{center}
-  \includegraphics[width=0.9\textwidth]{2d-cut.pdf}
+\begin{cfig}
+  \graphic[0.8]{2d-cut.pdf}
   \caption[JetFitterCharm 2-dimensional cut plane]{
 Two-dimensional distribution of the JetFitterCharm anti-$b$ ($\log(P_c/P_b)$) and anti-light ($\log(P_c/P_{\rm light})$) discriminants. The density of red, green, and blue reflect the density of $b$, $c$, and light jets, white areas are a mix of all three flavors, whereas black areas lack any jets. The `medium' calibrated operating point selects jets above a certain threshold in both anti-$b$ and anti-light discriminants.
 Ridge structures arise from two features of the algorithm which concentrate values in the input space. The first feature is the use of discrete kinematic bin inputs, $\eta^{\rm cat}$ and $\pt^{\rm cat}$. The second is the substitution of default values when the ordinary input values would not be physically meaningful, for example when no secondary vertex is found. The resulting high density structures can be seen in the lower-center and upper-left region of the plot.}
   \label{tag:fig:2dcut}
-  \end{center}
-\end{figure}
+\end{cfig}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.6\textwidth]{anti-bottom-discriminant.pdf}
-    \caption[JetFitterCharm anti-bottom discriminant]{Distributions of the JetFitterCharm anti-bottom discriminant. The total numbers of jets of each flavor has been normalized to 1. Minimum thresholds for tagged jets are indicated by orange vertical lines. A loose or medium tag requires an anti-bottom discriminant above the threshold.}
+\begin{cfig}
+  \includegraphics[width=0.6\textwidth]{anti-bottom-discriminant.pdf}
+  \caption[JetFitterCharm anti-bottom discriminant]{Distributions of the JetFitterCharm anti-bottom discriminant. The total numbers of jets of each flavor has been normalized to 1. Minimum thresholds for tagged jets are indicated by orange vertical lines. A loose or medium tag requires an anti-bottom discriminant above the threshold.}
   \label{fig:1dvars1}
-  \end{center}
-\end{figure}
+\end{cfig}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.6\textwidth]{anti-light-discriminant.pdf}
-    \caption[JetFitterCharm anti-light discriminant]{Distributions of the JetFitterCharm anti-light discriminant. The total numbers of jets of each flavor has been normalized to 1. Minimum thresholds for tagged jets are indicated by orange vertical lines. A medium tag requires an anti-light discriminant above the threshold.}
+\begin{cfig}
+  \includegraphics[width=0.6\textwidth]{anti-light-discriminant.pdf}
+  \caption[JetFitterCharm anti-light discriminant]{Distributions of the JetFitterCharm anti-light discriminant. The total numbers of jets of each flavor has been normalized to 1. Minimum thresholds for tagged jets are indicated by orange vertical lines. A medium tag requires an anti-light discriminant above the threshold.}
   \label{fig:1dvars2}
-  \end{center}
-\end{figure}
+\end{cfig}
 
 Charm tagging, being relatively new to the LHC, is unable to draw on extensive past experience in physics analyses to define ideal operating points. The operating points were therefore defined with a SUSY $\tilde{t}$ pair production search~\cite{stoptocharm} as a prototype. In this particular model, the $\tilde{t}$ quarks decay via $\tilde{t} \to c \tilde{\chi}_1^0$, leading to a two-$c$-jet final state. Before applying $c$-tagging, expected signal events contribute to the signal region at the percent level, while top backgrounds contribute roughly 10\% and the remaining events are split evenly between $W$ and $Z$ production in association with jets. The anti-$b$ and anti-light tagging thresholds were allowed to vary independently for each of the leading four jets while maximizing the expected signal significance. %% $Z$, where \[Z  \equiv \frac{s}{ \sqrt{s + b + (\Delta b)^2}},\] and $s$ and $b$ are respectively the number of signal and background events passing the tagging requirements. The parameter $\Delta b$ accounts for systematic errors in the background, and is fixed at 0.3.
 
@@ -137,34 +131,28 @@ medium & $> -0.9$ & $> 0.95$ & 0.20 & 8.0 & 200 \\
 
 The $c$-tagging efficiencies as a function of $\pt$ and $|\eta|$ for the medium and loose operating points are shown in \cref{fig:merged-eff}. Beyond the two currently calibrated operating points, many more combinations of anti-$b$ and anti-light thresholds could be useful, depending on a number of analysis-dependent factors such as the number of tags applied and the flavor composition of the dominant backgrounds.
 
-\begin{figure}
-  \begin{center}
+\begin{cfig}
 \includegraphics[width=0.49\textwidth]{ttbar_mc_efficiency_JetFitterCharm20_pt.pdf}
 \includegraphics[width=0.49\textwidth]{ttbar_mc_efficiency_JetFitterCharm20_etaAbs.pdf}\\
 \includegraphics[width=0.49\textwidth]{ttbar_mc_efficiency_JetFitterCharm90_pt.pdf}
 \includegraphics[width=0.49\textwidth]{ttbar_mc_efficiency_JetFitterCharm90_etaAbs.pdf}
 \caption[JetFitterCharm efficiency vs $\pt$]{Dependence of the tagging efficiencies on the jet transverse momentum (left) or pseudorapidity (right) for $b$-, $c$-, and light-flavor jets for the JetFitterCharm medium (top) and loose (bottom) operating points. The medium and loose operating points were chosen to give an average $c$-tagging efficiency of $\approx 20\%$ and $\approx 95\%$. \wherefrom}
   \label{fig:merged-eff}
-  \end{center}
-\end{figure}
+\end{cfig}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.7\textwidth]{jfc-ctag-roc.pdf}
+\begin{cfig}
+  \includegraphics[width=0.7\textwidth]{jfc-ctag-roc.pdf}
   \caption[Several ROC curves for various $b$-jet rejections]{
     (top) JetFitterCharm light-jet rejection vs $c$-tagging efficiency, where the $b$-rejection ($1/\epsilon_b$) is held fixed. JetFitterCharm operating points select jets above a pair of thresholds in a 2-dimensional discriminant plane, thus for any $c$-tagging efficiency a range of $b$ and light rejections are possible.}
   \label{fig:perf-roc}
-  \end{center}
-\end{figure}
+\end{cfig}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=0.7\textwidth]{rejrej-simple.pdf}
+\begin{cfig}
+  \includegraphics[width=0.7\textwidth]{rejrej-simple.pdf}
   \caption[Light and $b$ rejection for various $c$-tagging efficiencies]{
     Bottom rejection vs. light rejection for constant charm-tagging efficiency. JetFitterCharm operating points select jets above a pair of thresholds in a 2-dimensional discriminant plane, thus for any $c$-tagging efficiency a range of $b$ and light rejections are possible.}
   \label{fig:perf-iso}
-  \end{center}
-\end{figure}
+\end{cfig}
 
 The range of possible operating points is illustrated in two ways. The first, shown in \cref{fig:perf-roc}, gives the light-jet rejection as a function of $c$-jet efficiency for all possible values of the anti-light threshold ($x$-axis in \cref{tag:fig:2dcut}). In this case, the anti-$b$ threshold is adjusted to maintain a constant $b$-jet rejection. Similar information is given in \cref{fig:perf-iso} in the form of $c$-jet constant efficiency contours in the light- vs $b$-jet rejection plane. Both figures demonstrate the trade off between $b$-jet and light-jet rejection: e.g. for constant 30\% $c$-tagging efficiency an operating point can double its $b$-jet rejection at the expense of cutting the light-jet rejection by a factor of 10.
 
@@ -187,40 +175,35 @@ Figures~\ref{JFC_SF_B} and~\ref{JFC_SF_L1} give scale factors for all jets at th
 \newcommand{\bSF}{as described in~\cite{Giacinto}. The scale factors are measured relative to $t \bar{t}$ \textsc{powheg + pythia6}} %\ref{clSF}
 \newcommand{\bcSF}{The derivation of the $b$-tagging ($c$-tagging) scale factors, shown here relative to $t \bar{t}$ \textsc{powheg + pythia6} (dijet \textsc{pythia8}), is described in~\cite{Giacinto} (\hspace{1sp}\cite{bc2014})}
 
-\begin{figure}
-  \centering
-    \includegraphics[width=0.49\textwidth]{%
+\begin{cfig}
+  \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_medium_C_default_SF_oldcalib_000_250.pdf}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_medium_B_default_SF_000_250.pdf}
   \caption[JetFitterCharm medium $b$ and $c$ scale factors]{Dependence of the $c$-jet (left) and $b$-jet (right) efficiency scale factors on the jet $\pt$ for the JetFitterCharm medium operating point. \bcSF.}
   \label{JFC_SF_B}
-\end{figure}
+\end{cfig}
 
-\begin{figure}
-  \centering
-    \includegraphics[width=0.49\textwidth]{%
+\begin{cfig}
+  \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_medium_Light_default_SF_000_120.pdf}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_medium_Light_default_SF_120_250.pdf}
   \caption[JetFitterCharm light scale factors]{Dependence of the light-jet efficiency scale factor on the jet $\pt$, for $0.0 < | \eta | < 1.2$ (left) or
     $1.2 < | \eta | < 2.5$ (right), for the JetFitterCharm medium operating point, \lSF.}
   \label{JFC_SF_L1}
-\end{figure}
+\end{cfig}
 
-
-\begin{figure}
-  \centering
+\begin{cfig}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_loose_C_default_SF_oldcalib_000_250.pdf}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_loose_B_default_SF_000_250.pdf}
   \caption[JetFitterCharm loose $b$ and $c$ scale factors]{Dependence of the $c$-jet (left) and $b$-jet (right) efficiency scale factors on the jet $\pt$ for the JetFitterCharm loose operating point. \bcSF.}
   \label{JFC_SF_B_loose}
-\end{figure}
+\end{cfig}
 
-\begin{figure}
-  \centering
+\begin{cfig}
   \includegraphics[width=0.49\textwidth]{%
 SFs_internal_nomistag/JetFitterCharm_loose_Light_default_SF_000_120.pdf}
   \includegraphics[width=0.49\textwidth]{%
@@ -228,7 +211,7 @@ SFs_internal_nomistag/JetFitterCharm_loose_Light_default_SF_120_250.pdf}
   \caption[JetFitterCharm loose light scale factors]{Dependence of the light-jet efficiency scale factor on the jet $\pt$, for $0.0 < | \eta | < 1.2$ (left) or 
     $1.2 < | \eta | < 2.5$ (right), for the JetFitterCharm loose operating point, \lSF. The total uncertainty is constrained to give a maximum corrected efficiency of 1.}
   \label{JFC_SF_L1_loose}
-\end{figure}
+\end{cfig}
 
 \clearpage
 

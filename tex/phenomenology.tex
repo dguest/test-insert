@@ -1,11 +1,15 @@
 \section{Collider Physics}
 \label{sec:pheno}
+
+This section gives a brief introduction to several important concepts which will be referenced in \cref{sec:lhc,sec:atlas}.
+It can safely be skipped by anyone with a background in LHC or Tevatron physics.
+
 %% \begin{itemize}
 %% \item maybe say something about how SUSY feynman diagrams work.
 %% \end{itemize}
 \subsection{Proton Collisions}
 The LHC (discussed in more detail in \cref{sec:lhc}) accelerates beams of protons and collides them in the center of the LHC's four main detectors.
-Of the many parameters that describe colliders, two of the most important are center-of-mass energy ($\sqrt{s}$) and instantaneous luminosity ($\lumi$). These are measures of how ``hard'' protons are colliding and how frequently collisions occur, respectively.
+Of the many parameters that describe colliders, two of the most important are center-of-mass energy ($\sqrt{s}$) and instantaneous luminosity ($\lumi$). These are measures of how hard protons are colliding and how frequently collisions occur, respectively.
 
 Within a proton collider, $\sqrt{s}$ is only indirectly related to the energy of fundamental interactions.
 This is because a proton is composed of many strongly-bound partons---interactions between protons are in fact collisions between the constituent particles.
@@ -25,12 +29,12 @@ Higher proton-proton center-of-mass energy scales up the overall energy of parto
 
 Luminosity in a collider is one of two quantities which is defined to be directly proportional to the collision rate.
 While luminosity is primarily a property of the accelerator, the \emph{cross-section} absorbs the properties of the particles and the specific interactions.
-The total rate is thus give by
+The total rate for some process is defined as
 \begin{equation}
   \frac{d N}{d t} = \sigma \mathcal{L}
   \label{eq:lumi-cross-section}
 \end{equation}
-where $N$ is the number of collisions and $\sigma$ is the cross-section.
+where $N$ is the number of collisions and $\sigma$ is the cross-section for the process.
 The basic properties of $\mathcal{L}$ follow from dimensional analysis.
 %% Imagining pairs of homogeneous \emph{bunches}\footnote{Obviously a real particle beam isn't composed of particle bunches with homogeneous density. While a more precise treatment is technically possible, in practice luminosity is measured \emph{from} the collision rate; there's no need to compute the precise geometry of the collision.} of particles crossing through each other at regular time intervals,
 The number of collisions per unit time should be proportional to several quantities:
@@ -74,7 +78,7 @@ Over more than 20 years of operation, the Tevatron accumulated roughly $10\,\inv
 \subsection{Detector Coordinates}
 %% The ATLAS detector is discussed in much more detail in \cref{sec:atlas}, but the discussion in the following sections requires a brief introduction to the standard coordinate system.
 ATLAS uses a right-handed cylindrical coordinate system centered at the nominal collision point, with $\hat{z}$ pointing down the beam axis. Vectors with $\phi = 0$ point toward the center of the LHC ring, and $\hat{\phi}$ points upward when $\phi = 0$.
-Typically $R$ refers to the radius.
+Typically $R$ refers to the radial coordinate ($\rho$ in ISO coordinates).
 %% Owing to rough invariance to $\phi$ transformations and rough reflection symmetry about $z = 0$
 Given that most particles are created within a tiny volume in the center of the detector and move quickly outward,
 physicists are generally more interested in the momentum of particles than the absolute position.
@@ -88,7 +92,7 @@ Complementing $\pt$, which describes the outward momentum of particles, the comp
 Particles with high $|\eta|$ are refereed to as ``forward'', in contrast to ``central'' particles with low $|\eta|$.
 Despite the contrived name and the odd definition, $\eta$ is useful because differences in particle $\eta$ are invariant to boosts along the beam axis.
 
-The third standard coordinate, $\phi$, is identical to the spacial $\phi$ coordinate.
+The third coordinate, $\phi$, is identical to the standard $\phi$ in cylindrical coordinates.
 Given the (approximate) axial symmetry of ATLAS about the beam axis and $\phi$'s periodic nature, this coordinate is relatively uninteresting on its own.
 %% This  periodic nature have left this coordinate without slang terms for ``bigger'' and ``smaller''.
 Nonetheless, the relative differences in $\phi$ between particles can be an important parameter.
@@ -98,7 +102,7 @@ We rely on context to distinguish this variable from the radial distance $R$.
 \subsection{Hard Scattering Event Rates}
 As shown in \cref{fig:parton-lumi}, parton-parton collisions are most commonly soft interactions.
 Harder interactions produce rarer particles which are more interesting to the LHC physics program.
-Both ATLAS and CMS were designed with a bias toward hard interactions; as discussed more in \cref{sec:trigger}, the ATLAS data acquisition system records only 0.001\% of collisions, and chooses these by requiring decay products over specified energy thresholds.
+Both ATLAS and CMS were designed primarily to measure hard interactions; as discussed more in \cref{sec:trigger}, the ATLAS data acquisition system records only 0.001\% of collisions, and chooses these by requiring decay products over specified energy thresholds.
 The rarity of hard collisions simplifies searches considerably; given to the extremely low probability of keeping a single event, the probability of multiple interesting interactions in a single event is generally negligible.
 
 %% In Run 1 data analysis, this allows for a rather simple heuristic to filter unwanted background behavior; a single \emph{primary vertex} is assigned to each event, defined as the vertex with the highest sum of associated track $\pt$.
@@ -124,7 +128,7 @@ A diagram of the standard model, with particles grouped according to means of de
   \label{fig:sm-detectable}
 \end{cfig}
 
-\paragraph{Stable particles} Several particles produced at the LHC are stable enough to interact directly with detectors.
+\paragraph{Stable particles} Only a few particles in the standard model are stable enough to interact directly with detectors.
 Clearly photons and electrons fit into this category, but at LHC energies many short-lived but highly relativistic particles experience sufficient time dilation to escape the detector before decaying.
 Thus particles with lifetimes above roughly $10^{-10}$ seconds are also stable from the perspective of LHC experiments.
 These particles include muons and ``light'' hadrons containing up, down, and strange quarks.
@@ -132,7 +136,7 @@ These particles include muons and ``light'' hadrons containing up, down, and str
 A prompt muon or electron appears as an isolated energetic charged particle.
 Muons are easily distinguished from electrons by their ability to punch through several meters of dense material, as discussed in \cref{sec:atlas-calo,sec:atlas-muon}.
 Prompt hadrons, as color-charged objects, form jets of non-isolated charged and neutral particles.
-These jets often contain non-isolated, non-prompt leptons, but the object is labeled a jet for the sake of LHC analysis.
+%% These jets often produce leptons, but the object is labeled a jet for the sake of physics analysis.
 In general, distinguishing between the light hadrons is difficult since each forms a nearly identical jet.
 
 \paragraph{Metastable particles} The lifetimes of $\tau$~leptons, $B$~hadrons, and charmed hadrons are on the order of $10^{-12}$ seconds, long enough to travel several $\mathrm{mm}$, but not long enough to be directly measurable in the detector.
@@ -142,7 +146,8 @@ In such cases the decay products can be \emph{tagged} as a $b$, $c$, or $\tau$ j
 \paragraph{Invisible particles} Neutrinos are produced readily within LHC collisions, but are not measured directly by any LHC experiments.
 Instead experiments infer the existence of neutrinos in events with an overall momentum imbalance.
 Both \atlas\ and CMS are capable of measuring the momenta of all but the most forward particles.
-A nonzero sum of transverse ``energy'' (momentum) indicates \emph{missing transverse energy}, abbreviated as $\vmet$ or the corresponding scalar quantity $\met \equiv |\vmet|$.
+Summing over these momenta, any imbalance transverse to the beam axis\footnote{A momentum imbalance along the beam axis can be caused particles too far forward to be measured.} is suggestive of invisible particles.
+The negative sum of this transverse ``energy'' (momentum) is referred to as \emph{missing transverse energy}, abbreviated as $\vmet$ or the corresponding scalar quantity $\met \equiv |\vmet|$.
 Many models of physics beyond the standard model---in particular those which hypothesize weekly interacting dark matter---also result in events with large $\met$.
 %% Neutrinos can be distinguished from some forms of dark matter by the presence of other particles consistent with a neutrino-producing decay; vetoing $W \to \ell \nu$ events, for example, can remove a large fraction of dark matter.
 %% Since the neutrino isn't directly detectable and all neutrinos are of roughly equal mass, the flavor of the neutrino is 

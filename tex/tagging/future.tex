@@ -3,13 +3,11 @@ First, in $b$-vs-light discrimination JetFitterCharm is inferior to MV1, the bas
 In addition, the neural net training isn't reproducible; retraining on exactly the same dataset may produce performance that's better or worse by several percent.
 Both issues stem from the unreliable methods which are typically used to train neural nets.
 
-\begin{figure}
-  \begin{center}
+\begin{cfig}
     \includegraphics[width=0.7\textwidth]{figures/external/uRejRoc.pdf}
     \caption[Light jet rejection as a function of $b$-tagging efficiency]{Light jet rejection vs $b$-tagging efficiency for several taggers. The MV1 tagger (labeled \plt{mv1}) was the baseline $b$-tagger for Run 1. Both \plt{gaiaAntiU} and \plt{jfcAntiU} (from  GAIA and JetFitterCharm respectively) rely on neural nets with multiple outputs and use the $\log (P_{b} / P_{\text{light}})$ ratio as a discriminant. A final tagger \plt{gaiaGr1}, is tuned to reject both $c$ and light jets, and discriminates with $\log [P_{b}^2 / (P_{c} P_{\text{light}})]$.  The bottom panel shows relative efficiency vs the \plt{gaiaGr1} baseline.}
     \label{fig:u-rej-roc}
-  \end{center}
-\end{figure}
+\end{cfig}
 
 \subsection{Traditional Neural Networks}
 \label{sec:trad-nn}
@@ -141,13 +139,11 @@ In the $b$-tagging case, performance is generally quantified with a Receiver Ope
 A comparison on ROC curves for various taggers is given in \cref{fig:u-rej-roc}.
 Clearly the GAIA's deep architecture outperforms MV1 when configured as an anti-light tagger using the $\log(P_{b}/P_{\text{light}})$ discriminant.
 
-\begin{figure}
-  \begin{center}
+\begin{cfig}
     \includegraphics[width=0.7\textwidth]{figures/external/cRejRoc.pdf}
     \caption[Charm jet rejection as a function of $b$-tagging efficiency]{Charm jet rejection vs $b$-tagging efficiency for several taggers. The MV1 tagger (labeled \plt{mv1}) was the baseline $b$-tagger for Run 1. Both \plt{gaiaAntiU} and \plt{jfcAntiU} (from  GAIA and JetFitterCharm respectively) rely on neural nets with multiple outputs and use the $\log (P_{b} / P_{\text{light}})$ ratio as a discriminant. A final tagger \plt{gaiaGr1}, is tuned to reject both $c$ and light jets, and discriminates with $\log [P_{b}^2 / (P_{c} P_{\text{light}})]$.  The bottom panel shows relative efficiency vs the \plt{gaiaGr1} baseline.}
     \label{fig:c-rej-roc}
-  \end{center}
-\end{figure}
+\end{cfig}
 
 Charm jets can also become a major background in a number of searches.
 \Cref{fig:c-rej-roc} gives ROC curves for $c$-jet rejection.
@@ -161,12 +157,12 @@ Poor performance at low $\pt$ is expected, since less boosted objects will decay
 The loss in performance at higher pt, by contrast, is more difficult to explain---while tracks are more colinear (and thus less able to form a well-defined vertex) they should also travel further before decaying (and thus have a more apparent displaced vertex).
 The loss of high-$\pt$ performance may simply be an artifact of training on $t\bar{t}$ samples: the vast majority of jets in these samples have $\pt < 200\,\gev$.
 
-\begin{figure}
+\begin{cfig}
   \includegraphics[width=0.5\textwidth]{figures/external/uRej70_ptbins.pdf}
   \includegraphics[width=0.5\textwidth]{figures/external/cRej70_ptbins.pdf}
   \caption[Rejection vs $\pt$ for $b$-taggers]{Rejection vs $\pt$ for $b$-taggers. Tagging thresholds are adjusted individually for jets in each $\pt$ bin, such that 70\% of jets are tagged in each bin. The MV1 tagger (labeled \plt{mv1}) was the baseline $b$-tagger for Run 1. Both \plt{gaiaAntiU} and \plt{jfcAntiU} (from  GAIA and JetFitterCharm respectively) rely on neural nets with multiple outputs and use the $\log (P_{b} / P_{\text{light}})$ ratio as a discriminant. A final tagger \plt{gaiaGr1}, is tuned to reject both $c$ and light jets, and discriminates with $\log [P_{b}^2 / (P_{c} P_{\text{light}})]$. }
   \label{fig:rej70-ptbins}
-\end{figure}
+\end{cfig}
 
 \subsubsection{$c$ tagging}
 
@@ -174,13 +170,10 @@ As discussed in \cref{sec:ctag-perf}, $c$-tagging performance metrics are inhere
 To compare the $c$-tagging performance across multiple taggers we calculate the relative $c$-tagging efficiency at any given $b$ and light rejection, as shown in \cref{fig:ctag-gaia-vs-jfc}.
 At any chosen point, GAIA outperforms JetFitterCharm.
 
-\begin{figure}
-  \begin{center}
+\begin{cfig}
   \includegraphics[width=0.8\textwidth]{%
     figures/external/ctag-2d-gaia-vs-jfc.pdf}
   \caption[Charm jet efficiency comparison in duel-rejection plane]{%
     Relative efficiency of GAIA / JetFitterCharm in the light-vs-$b$ rejection plane. Black thick black contours indicate constant efficiency for GAIA.}
   \label{fig:ctag-gaia-vs-jfc}
-  \end{center}
-\end{figure}
-
+\end{cfig}
