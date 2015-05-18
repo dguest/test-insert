@@ -140,9 +140,9 @@ A comparison on ROC curves for various taggers is given in \cref{fig:u-rej-roc}.
 Clearly the GAIA's deep architecture outperforms MV1 when configured as an anti-light tagger using the $\log(P_{b}/P_{\text{light}})$ discriminant.
 
 \begin{cfig}
-    \includegraphics[width=0.7\textwidth]{figures/external/cRejRoc.pdf}
-    \caption[Charm jet rejection as a function of $b$-tagging efficiency]{Charm jet rejection vs $b$-tagging efficiency for several taggers. The MV1 tagger (labeled \plt{mv1}) was the baseline $b$-tagger for Run 1. Both \plt{gaiaAntiU} and \plt{jfcAntiU} (from  GAIA and JetFitterCharm respectively) rely on neural nets with multiple outputs and use the $\log (P_{b} / P_{\text{light}})$ ratio as a discriminant. A final tagger \plt{gaiaGr1}, is tuned to reject both $c$ and light jets, and discriminates with $\log [P_{b}^2 / (P_{c} P_{\text{light}})]$.  The bottom panel shows relative efficiency vs the \plt{gaiaGr1} baseline.}
-    \label{fig:c-rej-roc}
+  \includegraphics[width=0.7\textwidth]{figures/external/cRejRoc.pdf}
+  \caption[Charm jet rejection as a function of $b$-tagging efficiency]{Charm jet rejection vs $b$-tagging efficiency for several taggers. The MV1 tagger (labeled \plt{mv1}) was the baseline $b$-tagger for Run 1. Both \plt{gaiaAntiU} and \plt{jfcAntiU} (from  GAIA and JetFitterCharm respectively) rely on neural nets with multiple outputs and use the $\log (P_{b} / P_{\text{light}})$ ratio as a discriminant. A final tagger \plt{gaiaGr1}, is tuned to reject both $c$ and light jets, and discriminates with $\log [P_{b}^2 / (P_{c} P_{\text{light}})]$.  The bottom panel shows relative efficiency vs the \plt{gaiaGr1} baseline.}
+  \label{fig:c-rej-roc}
 \end{cfig}
 
 Charm jets can also become a major background in a number of searches.
@@ -158,8 +158,8 @@ The loss in performance at higher pt, by contrast, is more difficult to explain-
 The loss of high-$\pt$ performance may simply be an artifact of training on $t\bar{t}$ samples: the vast majority of jets in these samples have $\pt < 200\,\gev$.
 
 \begin{cfig}
-  \includegraphics[width=0.5\textwidth]{figures/external/uRej70_ptbins.pdf}
-  \includegraphics[width=0.5\textwidth]{figures/external/cRej70_ptbins.pdf}
+  \graphic[0.48]{figures/external/uRej70_ptbins.pdf}
+  \graphic[0.48]{figures/external/cRej70_ptbins.pdf}
   \caption[Rejection vs $\pt$ for $b$-taggers]{Rejection vs $\pt$ for $b$-taggers. Tagging thresholds are adjusted individually for jets in each $\pt$ bin, such that 70\% of jets are tagged in each bin. The MV1 tagger (labeled \plt{mv1}) was the baseline $b$-tagger for Run 1. Both \plt{gaiaAntiU} and \plt{jfcAntiU} (from  GAIA and JetFitterCharm respectively) rely on neural nets with multiple outputs and use the $\log (P_{b} / P_{\text{light}})$ ratio as a discriminant. A final tagger \plt{gaiaGr1}, is tuned to reject both $c$ and light jets, and discriminates with $\log [P_{b}^2 / (P_{c} P_{\text{light}})]$. }
   \label{fig:rej70-ptbins}
 \end{cfig}
