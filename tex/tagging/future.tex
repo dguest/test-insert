@@ -49,7 +49,7 @@ Traditionally, training progresses in several steps using a technique known as e
 A particularly simple cost function is $E(\vect{y},\vect{t}) = \sum_{i} (y_i - t_i)^2 / 2$, but other cost functions can be optimal in some situations.
 In the case of classification, it's often convenient to use \emph{cross-entropy}:
 \begin{equation}
-  E(\vect{y}, \vect{t}) = - \frac{1}{n} \sum_{i=1}^n [ t_i \log_2 y_i + (1 - t_i ) \log_2 (1 - y_i) ]
+  E(\vect{y}, \vect{t}) = - \sum_{i=1}^n t_i \log_2 y_i
 \end{equation}
 where $n$ is the dimension of the output space.
  %The error $\vect{e}$ on $\vect{y}$ is defined as
