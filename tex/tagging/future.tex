@@ -46,7 +46,11 @@ Traditionally, training progresses in several steps using a technique known as e
 \item The neural net is initialized with random synapse weights and activation thresholds.
 \item A pattern is selected from a \emph{training sample} which includes the input values $\vect{x}$ and the \emph{target} values $\vect{t}$. The value of $\vect{y}$ is computed using the current $A_i$ and $\vect{b}$ parameters. \label{item:nn-pattern-select}
 \item An \emph{cost function} $E(\vect{y},\vect{t})$ quantifies the amount by which the pattern is misclassified.
-A particularly simple cost function is $E(\vect{y},\vect{t}) = \sum_{i} (y_i - t_i)^2 / 2$, but other cost functions can be optimal in some situations.
+A particularly simple cost function, useful in regression, is
+\begin{equation}
+E(\vect{y},\vect{t}) = \sum_{i} \frac{(y_i - t_i)^2}{2},
+\end{equation}
+but other cost functions can be optimal in other situations.
 In the case of classification, it's often convenient to use \emph{cross-entropy}:
 \begin{equation}
   E(\vect{y}, \vect{t}) = - \sum_{i=1}^n t_i \log_2 y_i
@@ -70,7 +74,7 @@ By recursively applying backpropagation to each successive layer an error can be
   \begin{align*}
     A_i &\to A_i - \gamma \vect{\xi}_{(i+1)}g(\vect{z}_i)^{\intercal} & \vect{b}_i &\to \vect{b}_i - \gamma \vect{\xi}_{(i+1)}
   \end{align*}
-  where $\gamma$ is the \emph{learning rate}. The function $g$ is given by\footnote{Note that \cref{eq:output-error,eq:general-activation-function} assume that the final activation function is set to $\mathbb{1}$. In many cases the neural output is subjected to a final non-linear transformation, and both equations must be modified accordingly.}
+  where $\gamma$ is the \emph{learning rate}. The function $g$ is given by\footnote{Note that \cref{eq:output-error,eq:general-activation-function} assume that the final activation function is set to $\mathbb{1}$. In some cases the neural output is subjected to a final non-linear transformation $h$ (e.g. a softmax transform). In this case $E(\vect{y},\vect{t})$ should be replaced with $E(h(\vect{y}), \vect{t})$ in \cref{eq:output-error}, and $\mathbb{1}$ should be repalced with $h$ in \cref{eq:general-activation-function}.}
 \begin{equation}
   g = \begin{dcases*}
     f & if $i \neq N - 1$ \\
