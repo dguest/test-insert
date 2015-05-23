@@ -57,7 +57,7 @@ Through the center of each straw runs a $31\,\mathrm{\mu m}$ diameter gold-plate
 This wire acts as an anode and is kept grounded, while the straw cathode is held at $-1530\,\mathrm{V}$.
 The gas within the straws is constantly circulated and consists of 70\% Xenon, 27\% CO$_2$, and 3\% O$_2$, held at 5--10$\,\mathrm{mbar}$ over atmospheric pressure.
 
-Charged particles crossing the straws liberate electrons which drift toward the anode at roughly $0.05\,\mathrm{mm/ns}$, creating an avalanche of charge along the way.
+Charged particles crossing the straws liberate electrons which drift toward the anode at roughly $0.05\,\mathrm{mm/ns}$. Closer to the anode, where the electric field strength increases, electrons accelerate enough between interactions to create a charge avalanche.
 The typical gain due to the avalanche is $2.5 \times 10^4$.
 When this avalanche reaches the anode the charges are transmitted down the wires and digitized as \emph{low threshold} or \emph{high threshold} hits.
 Low threshold hits are used for tracking; the leading edge of a low threshold hit defines a \emph{drift circle}, which constrains the distance between the straw wire and track within roughly $130\,\mathrm{\mu m}$.
@@ -82,10 +82,17 @@ These high threshold hits offer an additional discriminant for electron identifi
 \subsection{Calorimeters}
 \label{sec:atlas-calo}
 Outside the \atlas\ tracker two concentric calorimeters measure particle energy out to $|\eta| < 4.9$.
-The inner (electromagnetic or EM) calorimeter is optimized to measure the energy of electrically charged particles and photons, while the outer (hadronic) calorimeter is optimized for neutral strongly-interacting particles.
+The inner (electromagnetic or EM) calorimeter is optimized to measure the energy of electrons and photons, while the outer (hadronic) calorimeter is designed to measure the energy of the remaining hadronic particles.
 A secondary purpose of the calorimeters is to absorb particles as they move outward from the interaction point and prevent them from passing into the \atlas\ muon spectrometer.
 
-The EM calorimeter uses liquid argon as an active medium and relies on metal absorber plates to create particle showers from incoming particles.
+Both calorimeters are \emph{sampling}---they consist of layers of dense \emph{absorber} materials to interfere with high energy particles and create showers, and an \emph{active medium} which responds to the particle showers in some measurable way.
+%% High absorber density is required from both calorimeters to fully contain particle showers in the limited available space.
+Being designed for different roles, the two calorimeters rely on different absorber properties.
+In the EM case, the interaction is dependent on the magnitude of electric fields within atoms.
+As a result a high atomic number $Z$ is as important as a high density.
+The EM calorimeter uses liquid argon as an active medium and relies on lead or tungsten to create particle showers from incoming particles.
+In the hadronic calorimeter, strong interactions are far more important.
+Since strong interactions depend more on nucleon (and thus mass) density, the overall integrated mass of material along a particle trajectory is more important than the absorber $Z$.
 The barrel hadronic calorimeter uses steel plates as absorbers and clear plastic scintillating tiles as an active medium.
 Other sections of the hadronic calorimeter (endcap and forward) use liquid argon and various metal absorbers.
 
@@ -99,6 +106,7 @@ Other sections of the hadronic calorimeter (endcap and forward) use liquid argon
   \caption[Atlas calorimeter quarter-view]{Schematic quarter-view of the \atlas\ calorimeters. The barrel and endcap calorimeters, shown in~\subref{fig:atlas-calo-quarter}, use liquid argon and plastic scintillating tiles, respectively. The forward calorimeter~\subref{fig:atlas-fcal-quarter} uses liquid argon exclusively.}
   \label{fig:atlas-calos-quarter}
 \end{cfig}
+
 
 \paragraph{Electromagnetic Calorimeter}
 The \atlas\ EM calorimeter~\cite{atlas-lar,atlas-lar-performance} consists of a central barrel, a pair of endcaps, and the forward calorimeter.
@@ -229,7 +237,7 @@ Thanks to the parallel processing of RoIs, the level 2 trigger is nonetheless ab
 
 \paragraph{Event Filter}
 Events which pass the level 2 trigger are passed on to the event filter.
-The event filter is built on the same software which is later used for fully calibrated analysis, and can thus theoretically reconstruct events much more accurately and completely than the level 2 trigger.
+The event filter is built on the same software which is later used for fully calibrated data analysis, and can thus theoretically reconstruct events much more accurately and completely than the level 2 trigger.
 %% Like the level 2 trigger, the event filter is implemented as a processor farm.
 Roughly 50 dedicated nodes reconstruct events at a rate of $\sim 60\,\mathrm{Hz}$ each.
 The reconstructed events are passed on to approximately a thousand high level trigger nodes, each of which processes approximately one event every second.
@@ -241,7 +249,7 @@ In total, events pass the event filter at a rate of $200\,\mathrm{Hz}$.
 All events which pass the event filter are eventually written to permanent storage.
 
 \section{\atlas\ Computing Infrastructure}
-Data analysis in atlas \atlas\ involves many more computers than those present at CERN.
+Data analysis in \atlas\ involves many more computers than those present at CERN.
 The \atlas\ computing grid involves three \emph{tiers} of computing centers, not including tier 0, which is located at point 1 near the detector.
 Data moves down the tier structure through a series of derivations, which become progressively smaller and specific to an individual physics analysis.
 
@@ -255,13 +263,13 @@ Since the data stored on tier 2 sites generally contains far more information th
 Tier 3 sites are typically smaller clusters used for institution-level analysis~\cite{atlas-computing-tdr}.
 
 \subsection{Calibration Loop}
-In the $\sim 36\,\mathrm{hours}$ immediately following a run, a number of calibrations run on a special ``express'' stream.
+In the $\sim 36\,\mathrm{hours}$ immediately following a run, a number of calibration constants are calculated with data from a special ``express'' stream.
 These include alignment in the muon spectrometer, determination of the beam position, and calorimeter calibrations, and are run both at CERN and at tier 2 installations.
 Bulk processing of the remaining streams begins after these calibrations are complete.
 The resulting data contains a number of derived \emph{objects}; electron, photon, muon, $\tau$, and jet candidates (among other variables) are explicitly defined.
 Such objects are said to be reconstructed \emph{offline}, as opposed to objects reconstructed \emph{online} by the triggers.
 
-The resulting data is theoretically ready for use in searches and measurements after this step, but in practice a considerable amount of additional calibration and object redefinition is still required.
+The resulting data are theoretically ready for use in searches and measurements after this step, but in practice a considerable amount of additional calibration and object redefinition is still required.
 While an ongoing effort to unify objects exists within \atlas, no universal object definitions existed within \atlas\ as of 2012. A discussion of the object definitions used by the search presented in this thesis is given in \cref{sec:objects}.
 
 \subsection{\atlas\ Simulation}
@@ -274,7 +282,7 @@ Each process is simulated in some number of \emph{samples}, which correspond to 
 The first stage of simulation is event generation, which accounts for all physics within the microscopic region surrounding the proton--proton collision.
 Event generation is itself divided into multiple steps.
 The first of these, hard scattering, refers to the parton--parton interaction at energies where QCD is perturbative.
-These interactions are simulated with with one of roughly a dozen packages.
+These interactions are simulated with one of roughly a dozen packages.
 Some generators add corrections in the form of event-wise weights.
 %% Event weights needn't be positive; some higher-order simulation includes events with negative weights.
 
@@ -295,8 +303,8 @@ After digitization, simulated samples and data share a common format, such that 
 Simulation and digitization require a precise underlying detector geometry model and an accurate conditions database listing dead readout channels and noise levels.
 Both the detector geometry and the conditions database are constantly subjected to updates; to account for changes to both, simulated samples are occasionally reprocessed in bulk \emph{campaigns} with the latest geometry and conditions.
 
-In the case of searches for new physics, all simulation is drawn from the same campaign, i.e. simulation and digitization is identical across all samples, generally reflecting the most recent experiment-wide recommendation.
-The choice generators is more nuanced; a baseline generator is chosen for each process, but various generators are compared to estimate systematic uncertainty (discussed more in \cref{sec:sys-theory}).
+In the case of searches for new physics, all simulation is drawn from the same campaign, i.e.\ simulation and digitization constants and software are identical across all samples, generally reflecting the most recent experiment-wide recommendation.
+The choice of generators is more nuanced; a baseline generator is chosen for each process, but various generators are compared to estimate systematic uncertainty (discussed more in \cref{sec:sys-theory}).
 Hypothetical signals with a number of free parameters are simulated in a \emph{signal grid} of consisting of regularly spaced points in the parameter space.
 
 %% \begin{itemize}
