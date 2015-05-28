@@ -36,6 +36,7 @@
 
 \input{../definitions.tex}
 \input{../colors.tex}
+\input{../bigmacros.tex}
 
 \newcommand{\backupbegin}{
    \newcounter{framenumberappendix}
@@ -67,15 +68,23 @@
 
 \section{Motivation}
 
+\begin{frame}
+  \frametitle{The Standard Model}
+  \begin{center}
+    \graphic[0.8]{figures/external/standard-model.pdf}
+  \end{center}
+\end{frame}
+
 \subsection{SUSY}
 \begin{frame}
   \frametitle{Why SUSY?}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{enumerate}
-      \item Standard model has problems
+      \item Higgs mass problems
         \begin{itemize}
-        \item $m_h$ loop corrections
+        \item Fine to first order, but\ldots
+        \item loop corrections are big
         \item Fine tuning required
         \end{itemize}
       \item Add ``superpartners''
@@ -86,9 +95,12 @@
       %% \item (more than) double the particles!
       \item Problem solved\ldots almost\ldots
       \end{enumerate}
+      %% \begin{center}
+      %% \end{center}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \widegraphic{figures/external/standard-model.pdf}
+      \widegraphic{misc/cc/higgs-loops.pdf}
+      %% \widegraphic{figures/external/standard-model.pdf}
     \end{column}
   \end{columns}
   \begin{itemize}
@@ -225,13 +237,13 @@
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
+      \item Fill time $\sim 2\,\mathrm{h} / \mathrm{day}$
       \item bunch crossing: 20--40 MHz
       \item collisions / crossing (ATLAS):
         \begin{description}[Run 2:]
         \item[Run 1:] 20
         \item[Run 2:] $\sim 100$
         \end{description}
-      \item Fills take 2 hours, last 1 day
       \item $\sim 1000$ bunches / fill
       \end{itemize}
     \end{column}
@@ -1055,7 +1067,7 @@ figures/external/uRejRoc.pdf}
     \end{itemize}
   \item Still no SUSY, but new ways to look in run 2
     \begin{itemize}
-    \item $\tilde{t}$--$\tilde{c}$ mixing $\to t \tilde{c} (\tilde{t} c) + \met$ (\link{arXiv 1302.7232}{http://arxiv.org/abs/1302.7232})
+    \item $\tilde{t}$--$\tilde{c}$ mixing $\to t \bar{c} (\bar{t} c) + \met$ (\link{arXiv 1302.7232}{http://arxiv.org/abs/1302.7232})
     \item $H^{+} \to cX$
     \end{itemize}
   \item Starting to see interest in $c$-tagging outside SUSY group

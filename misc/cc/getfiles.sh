@@ -83,6 +83,7 @@ function get-file() {
 
 # graphs and schematics
 get-file http://upload.wikimedia.org/wikipedia/commons/4/4b/Standard_Model_of_Elementary_Particles_modified_version.svg standard-model.svg
+get-file http://upload.wikimedia.org/wikipedia/commons/6/68/Hqmc-vector.svg higgs-loops.svg
 get-file http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2013-041/fig_06.pdf alpha-strong.pdf
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CombinedSummaryPlots/SM/ATLAS_b_SMSummary_FiducialXsect/ATLAS_b_SMSummary_FiducialXsect.pdf atlas-sm.pdf
 get-file https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2013-21/fig_09b.pdf c1c2-exclusion.pdf
