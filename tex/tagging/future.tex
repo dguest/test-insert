@@ -92,9 +92,11 @@ Backpropagation is a useful heuristic, but doesn't guarantee rapid convergence, 
 As a result training can be prohibitively slow on deeper networks.
 Furthermore, once the cost function is minimized there's no guarantee that the neural net has found the global minimum.
 Autoencoders solve these problems, as discussed in the next section.
+A more comprehensive review of autoencoders can be found elsewhere~\cite{luke-thesis}.
 
 \subsection{Autoencoders}
 
+%% Autoencoders, and their use in ATLAS, are discussed in more detail elsewhere~\cite{luke-thesis}.
 The conceptual key to autoencoders is recognition that hidden layers are more than placeholders in a numeric filtering sequence.
 Instead, the hidden layers are cast as \emph{feature spaces} which describe the characteristics of input patterns in terms of a reduced set of parameters.
 In this view, each layer of a neural net is a compression; it reduces the dimension of the input space while preserving the important information.
