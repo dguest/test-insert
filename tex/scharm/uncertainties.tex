@@ -5,7 +5,7 @@ As a convention, systematic uncertainties are applied to simulation and not to d
 
 These are roughly divided into \emph{experimental} (associated with the detector response) and \emph{theoretical} (associated with parameters of event generation and hadronization).
 It's important to note that this division is only approximate.
-For example, the flavor-tagging systematics are are entered as a set of several experimental uncertainties, but represent a reduced set of uncertainties corresponding to several analyses, each of which inherits uncertainty from limited statistics, uncertain detector response, and inexact modeling.
+For example, the flavor-tagging systematics are entered as a set of several experimental uncertainties, but represent a reduced set of uncertainties corresponding to several analyses, each of which inherits uncertainty from limited statistics, uncertain detector response, and inexact modeling.
 The same is true of other systematic uncertainties.
 
 \subsection{Experimental}
@@ -35,7 +35,7 @@ The systematic variations listed below are calculated from measurements of $Z \t
 \end{itemize}
 
 \subsubsection{Other Eventwise Uncertainties}
-\paragraph{$\mathbb{\met}$ Resolution} Since $\met$ is computed partially using calibrated jets, leptons, and photons, the majority of $\met$ uncertainty is accounted for through the object uncertainties listed above.
+\paragraph{$\bm{\met}$ Resolution} Since $\met$ is computed partially using calibrated jets, leptons, and photons, the majority of $\met$ uncertainty is accounted for through the object uncertainties listed above.
 As discussed in \cref{sec:met}, the final component of $\met$ is the $\subvmet{CellOut}$ term associated to the remaining calorimeter clusters.
 This component is smeared to produce a corresponding event yield variation~\cite{met-tool}.
 The up and down yield variations are defined to be $n_{\text{nom}} \pm (n_{\text{nom}} - n_{\text{smear}})/2$ where $n_{\text{nom}}$ and $n_{\text{smear}}$ are the nominal yield and the yield with $\met$ smearing, respectively.
@@ -87,7 +87,7 @@ With transfer factors, the number of predicted events in the signal region is gi
   \label{eq:transfer-factor}
 \end{equation}
 Here $\effsig$ and $\effctl$ are the efficiencies for the process in the signal and control region selection, respectively.
-The number of control region events is expressed explicitly in terms of the number of data events $\ndata$ and the number of events in other simulated processes $\nother$.
+The number of control region events is calculated from the number of data events $\ndata$ and the number of events in other simulated processes $\nother$.
 Within \cref{eq:transfer-factor}, the transfer factor is $\effsig / \effctl$.
 
 Theoretical uncertainties are propagated by assuming they apply independently for each sample, and thus that only $\effsig$ and $\effctl$ are affected by the uncertainty.
@@ -97,7 +97,7 @@ Upper and lower bounds on $\nsig$ are thus calculated by
 \end{equation}
 The various uncertainties are combined for each process into an overall top, $\wjets$, and $\zjets$ uncertainty.
 
-\paragraph{Top} Both $\ttbar$ and single top $Wt$-channel samples are generated independently with \textsc{powheg} and \textsc{mc@nlo}, then passed to \textsc{herwig} for parton showering and hadronization, since \textsc{mc@nlo} can't interface to \textsc{pythia}.
+\paragraph{Top} Both $\ttbar$ and single top $Wt$-channel samples are generated independently with \textsc{powheg} and \textsc{mc@nlo}, then passed to \textsc{herwig} for parton showering and hadronization, since the \textsc{mc@nlo} and \textsc{pythia} versions used are incompatible.
 The difference in yields between the two samples is taken as a systematic uncertainty.
 To account for differences in parton showering between generators, a sample generated with \textsc{powheg} is showered with both \textsc{pythia} and \textsc{herwig}. The difference forms another uncertainty.
 
@@ -122,7 +122,7 @@ A systematic to quantify this limitation is again derived from the yield differe
 \newcommand{\xmstw}{X_{\textsc{mstw}}}
 \paragraph{PDF Uncertainties} Electroweak samples use the \textsc{ct10} PDF sets. For these samples an intra-PDF uncertainty is computed according to
 \begin{equation}
-  \Delta \xct = \frac{1}{2} \sqrt{\sum_i (X^{+}_{i} - X^{-}_{i})^2 } / 1.64
+  \Delta \xct = \frac{1}{1.64} \times \frac{1}{2} \sqrt{\sum_i (X^{+}_{i} - X^{-}_{i})^2 }
   \label{eq:intra-pdf}
 \end{equation}
 where $X_i^{+}$ and $X_i^{-}$ are yields from the $i$th variation in the \textsc{ct10} PDF set. The factor of 1.64 is needed because these variations correspond to a 95\% confidence limit, whereas the desired variation is $1\sigma$.
