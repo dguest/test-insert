@@ -34,6 +34,7 @@ function convert-svg-to-pdf() {
     fi
     # hack for osx: need to prefix PWD
     local IN=${PWD}/$1
+    OUT=${PWD}/$OUT
     inkscape --without-gui --export-pdf=$OUT $IN
 }
 
