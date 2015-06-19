@@ -32,7 +32,9 @@ function convert-svg-to-pdf() {
 	echo "can't convert $1 to pdf with inkscape" 2>&1
 	return 1
     fi
-    inkscape --without-gui --export-pdf=$OUT $1
+    # hack for osx: need to prefix PWD
+    local IN=${PWD}/$1
+    inkscape --without-gui --export-pdf=$OUT $IN
 }
 
 function convert-eps-to-pdf() {
@@ -64,7 +66,10 @@ function get-file() {
 	echo "already have $OUT"
     else
 	echo -n "getting $OUT..."
-	if ! curl-checked $1 $OUT ; then
+	if ! hash wget &> /dev/null; then
+	    echo "wget not found, quitting!" 2>&1
+	    return 1
+	elif ! wget -q $1 -O $OUT ; then
 	    echo "failed!" 2>&1
 	    return 1
 	fi
