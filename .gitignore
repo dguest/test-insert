@@ -16,3 +16,4 @@
 *.lof
 *.lot
 /jfc
+.DS_Store
