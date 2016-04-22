@@ -126,18 +126,46 @@
 > changed to say "from a light quark"
 
 * You need references for the various electron and muon finding algorithms.
+> added
+
 * 4.6.  figure figure 4.6
+> fixed
+
 * 4.6 t->bnu??
+> meant t->bW, good catch
+
 * non-b-lead where one of these jets is a c-jet.  Couldn’t it be a light quark jet?
+> yes, changed it to ''a c-tagged jet''
+
 * Fig 4.5 left does not look like it is after the delta phi cut.  Also, why do you call it ptmiss in the caption and etmiss in the figure?
+> the cut on the plotted variable is removed, I've added more explanation.
+
 * You refer to figure 4.8 before 4.7 (and 4.9 before either)
+> reordered
+
 * Grammar  “A leading jet is required pT > 130 GeV,” s
+> changed
+
 * 4.7 Compared to the past,  “which are still relatively unknown at LHC energy scales” is not true.  It is amazingly well constrained, but still not perfect
-* section 4.7.1.  how many events are in each of these control regions?  
+> changed to "which are still not perfectly constrained"
+
+* section 4.7.1.  how many events are in each of these control regions?
+> added a background summary table
+
 * 4.7.3.  the W and the Z should be correlated, no?  does putting that constraint in help?
+> Yes, they should be, but when flavor tagging is applied these processes become sensitive to the flavor of the proton PDF, so the correlation is complicated. This would be a strange thing to do in hindsight for a blinded analysis, but it would be a good idea for run 2. Unfortunately the ATLAS SUSY group (which I no longer contribute to) tends to be rather formulaic with their approach to fitting, so I don't expect any creative (in a good way) fitting from them in the near future.
+
 * 4.9.  you really worried about 2 1.3 sigma discrepencies?
+> no, that's why we unblinded!
+
 * Figure 4.10 should show the 1.3 sigma discrpency?    In these plots, the integral of the data is 1.3 sigma lower than the postfit (on the right)?
-* Fig 4.10.  
+> yes, they do, they are roughly 1.3 sigma lower.
+
 * Table 4.9.  are these uncertainties pre or post fit?
+> they are a fit to the control regions only. I added a comment to this effect to the caption (sorry for the confusing ATLAS SUSY jargon).
+
 * From appendix C, it does look like there is some mismodeling in the MC, no. es[pecially for the Ws and Zs?  Why not comment on this in the body of the thesis?  (are these plots pre or post fit?)
+> these plots are pre-fit, so the mismodeling may be an artifact of that. I've added some more explanation to that effect.
+
 * It would be nice to have plots in the appendix for the control regions as well?  Appendix C is the validation regions, right?
+> Actually the plots on the right (with two c-tags) are the control region plots. I've added a bit more explanation to the beginning of Appendix C.
