@@ -22,7 +22,7 @@ where the $\vect{b}_i$ are \emph{bias} vectors and $f$ operates on each element 
 A typical activation function is the sigmoid $f(x_j) = (1 + e^{-x_j})^{-1}$.
 In \cref{eq:nn-functional}, $\vect{x}$ and $\vect{y}$ are referred to as the input and output layers, respectively.
 For historical reasons, the elements of $A_i$ are also known as synapse weights, while the elements of $\vect{b}_i$ are known as activation thresholds.
-The inputs to each $A_i$ (other than $A_1$) are referred to as \emph{hidden} layers $\vect{z_i}$. To make the hidden layers more explicet \cref{eq:nn-functional} can also be written recursively:
+The inputs to each $A_i$ (other than $A_1$) are referred to as \emph{hidden} layers $\vect{z_i}$. To make the hidden layers more explicit \cref{eq:nn-functional} can also be written recursively:
 \begin{equation}
   \vect{z}_{i+1} = f(A_{i} \vect{z}_{i} + \vect{b}_{i}),
   \label{eq:recursive-nn}
@@ -137,7 +137,7 @@ It is therefore able to construct more complicated neural nets which squeeze muc
 
 Explicit proof are few and far between in machine learning---what counts as ``proof'' is generally empirical.
 In the case of flavor-tagging, the improvement due to autoencoders is demonstrated in simulated data, with various metrics depending on the tagged flavor.
-In the performance comparisons that follow, we compare several taggers which havne't been introduced: MV1 was the baseline $b$-tagging tool for Run 1 analyses; GAIA is a new autoencoder-based neural network trained with a cross-entropy cost function.
+In the performance comparisons that follow, we compare several taggers which haven't been introduced: MV1 was the baseline $b$-tagging tool for Run 1 analyses; GAIA is a new autoencoder-based neural network trained with a cross-entropy cost function.
 Like JetFitterCharm, GAIA includes three outputs, and discriminates signal from background by selecting jets above a $\log(P_{\text{signal}} / P_{\text{background}})$ threshold.
 
 \subsubsection{$b$ tagging}

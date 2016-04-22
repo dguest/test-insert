@@ -1,5 +1,5 @@
 
-The search presented in this thesis is a `cut-and-count' analysis; events in the 2012 dataset, which meet certain quality requirements (cuts) and are likely to arise from the $\sctoc$ process, are counted. Any excess in data events over the standard model expectation is counted as evidence for a new physical process. While simple in principle, even a cut-and-count analysis becomes much more complicated in when a full suite of experimental and theoretical uncertainties are considered. While the standard model is well-tested, $\cmenergy$ $pp$ collisions are still non-trivial to predict. Extracting a probabilistic interpenetration from the event counts also adds another challenge. \Cref{sec:regions-and-fitting} gives an overview of the techniques used to overcome these challenges, while \cref{sec:sctoc-overview} explains the features unique to the $\sctoc$ analysis. The remaining sections in this chapter elaborate on the $\sctoc$ search.
+The search presented in this thesis is a `cut-and-count' analysis; events in the 2012 dataset, which meet certain quality requirements (cuts) and are likely to arise from the $\sctoc$ process, are counted. Any excess in data events over the standard model expectation is counted as evidence for a new physical process. While simple in principle, even a cut-and-count analysis becomes much more complicated when a full suite of experimental and theoretical uncertainties are considered. While the standard model is well-tested, $\cmenergy$ $pp$ collisions are still non-trivial to predict. Extracting a probabilistic interpenetration from the event counts also adds another challenge. \Cref{sec:regions-and-fitting} gives an overview of the techniques used to overcome these challenges, while \cref{sec:sctoc-overview} explains the features unique to the $\sctoc$ analysis. The remaining sections in this chapter elaborate on the $\sctoc$ search.
 
 \subsection{Regions and Fitting}
 \label{sec:regions-and-fitting}
@@ -24,6 +24,7 @@ Several types of fit parameters exist:
 \item[Signal normalization] is for most purposes an ordinary normalization parameter, but is treated differently when testing the signal hypothesis. Whereas ordinary background normalization parameters are always allowed to float freely, the signal normalization is constrained to 1 when testing the signal hypothesis.
 \item[Systematic effects] are modeled with constrained fit parameters. The constraints themselves are Gaussian. Note that the \emph{coupling} of a systematic to a given physical process is dependent on both the process and the region: for a search with $N$ regions, a systematic which affects to $M$ processes within each region will have $N \times M$ couplings.
 \item[Luminosity] falls somewhere between a systematic effect and a normalization parameter. Every simulated process is multiplied by the luminosity, which is constrained to $\lumiunct$.
+  %% Since the major backgrounds are constrained by free normalization parameters, the luminosity constraint
 \end{description}
 The exact details of the fitting software and and likelihood function are explained in detail elsewhere~\cite{histfitter}, but a brief review is given here as well.
 %% \footnote{The more complicated version of \cref{eq:n-predicted} differs by including a more general expression in place of the $a_{s} k_{spr}$ term, which is asymmetric about $\alpha_{s} = 0$.}
@@ -58,9 +59,9 @@ This flexibility coupling the $\alpha$'s to various regions and processes---with
 
 The final figure of merit for any given SUSY model is the so-called ``$\cls$''~\cite{cls} value which is measured from the fit.
 %% Very roughly, $\cls$ corresponds to $P(\text{data}| s + b) / P(\text{data}| b)$, where $s$ is the signal model and $b$ is the background model.
-Roughly speaking, $\cls$ indicates whether the signal model, when added to the standard model background, is a less likely fit to data than the standard model alone: in the situation where $\cls < 0.05$ signals are generally considered to be excluded. The ATLAS SUSY group quotes $\cls$ values due to an ingrained perception that they possess useful properties:
+Roughly speaking, $\cls$ indicates whether the signal model, when added to the standard model background, is a less likely fit to data than the standard model alone: in the situation where $\cls < 0.05$ signals are generally considered to be excluded. The ATLAS SUSY group quotes $\cls$ values because:
 \begin{itemize}
-\item Being a frequentest method, $\cls$ disallows the inclusion of priors, which can prevent debates regarding the appropriate choice of prior.
+\item Being a frequentest method, $\cls$ disallows the inclusion of priors, which can prevent ambiguity regarding the choice of prior.
 \item In the high-statistics limit, $\cls$ resembles a Bayesian likelihood ratio between signal + backgrounds and background only hypothesis.
 %% \item Software packages which compute $\cls$ are widely standardized in ATLAS, which allows physicists to compute $\cls$ without an above-average understanding of statistics.
 \end{itemize}
@@ -120,7 +121,7 @@ The signal regions include several additional cuts to purify the signal and remo
   \label{eq:mctdef}
 \end{align}
 where $j_1$ and $j_2$ are the highest and second-highest energy jets, respectively.
-Since this quantity isn't invariant to boosts perpendicular to the beam line, a boost-corrected version~\cite{mctboost} is used instead.
+Since this quantity isn't invariant to boosts perpendicular to the beam line, a boost-corrected version~\cite{mctboost} is used instead (see~\cref{sec:mct-boost}).
 When pair-produced  $\scharm$ decay to $\neut + c$, the boost-corrected $\mct$ has an upper bound:
 \begin{align}
   \mct < \frac{m^2_{\scharm} - m^2_{\neut}}{m_{\scharm}}.

@@ -21,7 +21,7 @@ To address these problems, a dedicated algorithm to identify $c$-jets ($c$-taggi
   \end{center}
 \end{figure}
 
-For the sake of charm-tagging, a $c$-quark decay is best explained as a component of a $b$-quark decay.
+A major challenge in $c$-tagging is differentiating prompt $c$-quark decays from $b$-quark decays.
 The sequence of a typical $b$-quark decay is shown in \cref{fig:sm-b-decay}.
 Once created, a $b$-quark is only kinematically allowed to decay through less massive particles, and overwhelmingly does so through $c$-quarks.
 Because this first decay is CKM suppressed, the $b$-hadron travels a substantial distance before decaying, as shown in \cref{fig:b-jet}.
@@ -41,9 +41,11 @@ In this sense, every $b$-jet in the LHC also contains a $c$-jet; the jet energy 
 
 Flavor-tagging algorithms within ATLAS fall into two categories; those which identify $b$- and $c$-hadrons by their soft lepton decay products, and `lifetime-based' methods which rely on the displacement of the $b$- and $c$-hadron decay products with respect to the primary vertex.
 The branching ratio of $c$-hadrons to leptons places an upper limit on the efficiency of soft-lepton based $c$-jet tagging algorithms, which restricts their usefulness for many analyses and as such has not been pursued further at this point.
-Lifetime-based methods are generally much more efficient and are well established in $b$-jet identification ($b$-tagging), but so far the extension of these methods to $c$-tagging is less developed.
+Lifetime-based methods are generally much more efficient and are well established in $b$-jet identification ($b$-tagging), but until this thesis extension of these methods to $c$-tagging is less developed.
 
-Lifetime-based tagging can be further divided into two general approaches. The first approach is based on the `impact parameter' (IP) of tracks formed by charged particles in the inner tracking detector with respect to the primary vertex. Impact parameter based tagging algorithms exploit the small IP generally associated to tracks within light-flavored ($u$,$d$,$s$,gluon) jets (light-jets). Tracks from heavy hadron decays, by contrast, generally have a larger IP resulting from the displacement of the decay vertex. The second lifetime-based approach involves explicitly reconstructing at least one `secondary vertex' (SV) from tracks within the jet and categorizing the jet based on the SV properties.
+Lifetime-based tagging can be further divided into two general approaches. The first approach is based on the \emph{impact parameter} (IP) of tracks.
+The impact parameter is defined as minimum distance between the track and the primary vertex in the $xy$-plane.
+Impact parameter based tagging algorithms exploit the small IP generally associated to tracks within light-flavored ($u$,$d$,$s$,gluon) jets (light-jets). Tracks from heavy hadron decays, by contrast, generally have a larger IP resulting from the displacement of the decay vertex. The second lifetime-based approach involves explicitly reconstructing at least one `secondary vertex' (SV) from tracks within the jet and categorizing the jet based on the SV properties.
 
 A lifetime-based $c$-tagging algorithm must discriminate against two major backgrounds, $b$- and light-jets, and for most characteristics $c$-jets lie between these two extremes, making isolating
 them particularly challenging.
@@ -54,7 +56,7 @@ On the other hand, it can be difficult to distinguish $c$-hadron candidates from
 and $b$-hadrons overwhelmingly decay via $c$-hadrons~\cite{pdg2014}. Faced with these complications, the best discriminating variables between $b$- and $c$-jets are the secondary vertex properties, in particular the invariant mass of the charged particles forming the secondary vertex.
 
 Despite the limitations, lifetime-based tagging algorithms are within the capabilities of the detector and require only minor additions to the existing $b$-tagging tools. This chapter describes the design of
-one such tagging algorithm, JetFitterCharm~\cite{jfc}, and presents the expected performance and calibration on 2012 data.
+one such tagging algorithm, JetFitterCharm~\cite{jfc}, and presents the expected and measured performance on 2012 data.
 For Run 2 the additional new innermost pixel layer inserted into the ATLAS detector during 2014, denoted the Insertable B-Layer~\cite{IBLTDR}, is likely to increase $c$-tagging performance by significantly improving the impact parameter resolution for low momentum tracks.
 
 %------------------- end intro ----------------
@@ -64,8 +66,10 @@ For Run 2 the additional new innermost pixel layer inserted into the ATLAS detec
 \section{Data and Simulation Samples}
 \label{tag:sec:data-and-simulation}
 
-Plots in this chapter are produced with $\ttbar$ events corresponding to 8 TeV proton-proton collisions simulated with \textsc{powheg+pythia6}~\cite{powheg,pythia2} and \textsc{ct10}~\cite{CT10} parton distribution functions. Only $t\bar{t}$ decays with at least one downstream lepton are included. To simulate pileup, minimum bias interactions consistent with 2012 run conditions are generated with \textsc{pythia8}~\cite{Pythia8} and overlaid on the $\ttbar$ events.
-The propagation of particles through the detector and the detector response are modeled using \textsc{geant4}~\cite{geant}. The primary vertex is defined as the vertex with the largest sum of squared transverse momenta of the associated tracks.
+Plots in this chapter are produced with $\ttbar$ events corresponding to 8 TeV proton-proton collisions simulated with \textsc{powheg+pythia6}~\cite{powheg,pythia2} and \textsc{ct10}~\cite{CT10} parton distribution functions. Only $t\bar{t}$ decays with at least one lepton in the decay products.
+The $\ttbar$ sample dominantly decays through $t \to W b$, which provides $c$-jets through $W \to c q$ decays.
+To simulate pileup, minimum bias interactions consistent with 2012 run conditions are generated with \textsc{pythia8}~\cite{Pythia8} and overlaid on the $\ttbar$ events.
+The primary vertex is defined as the vertex with the largest sum of squared transverse momenta of the associated tracks.
 
 Jets are reconstructed by clustering energy deposits in the calorimeter with the anti-$k_t$ algorithm~\cite{antikt} and a radius parameter of 0.4, where clusters are calibrated with local cluster weighting~\cite{LCJets}. Jet energy scale calibration and criteria to reject low quality jets are standard across most analyses of 2012 data, and are described in detail elsewhere~\cite{JES}. In this chapter, only jets with transverse momentum, $\pt$, above 20 GeV and $|\eta| < 2.5$ are considered.
 To mitigate effects from pileup, jets with $\pt < 50\,\gev$ and $|\eta| < 2.4$ are rejected if less than half of the sum of track $\pt$ is associated with tracks matched to the primary vertex~\cite{2013JVF}. The same selection cuts are also applied for the data based calibrations presented in the second part of this document.
@@ -106,7 +110,8 @@ Ridge structures arise from two features of the algorithm which concentrate valu
   \label{fig:1dvars2}
 \end{cfig}
 
-Charm tagging, being relatively new to the LHC, is unable to draw on extensive past experience in physics analyses to define ideal operating points. The operating points were therefore defined with a SUSY $\tilde{t}$ pair production search~\cite{stoptocharm} as a prototype. In this particular model, the $\tilde{t}$ quarks decay via $\tilde{t} \to c \tilde{\chi}_1^0$, leading to a two-$c$-jet final state. Before applying $c$-tagging, expected signal events contribute to the signal region at the percent level, while top backgrounds contribute roughly 10\% and the remaining events are split evenly between $W$ and $Z$ production in association with jets. The anti-$b$ and anti-light tagging thresholds were allowed to vary independently for each of the leading four jets while maximizing the expected signal significance. %% $Z$, where \[Z  \equiv \frac{s}{ \sqrt{s + b + (\Delta b)^2}},\] and $s$ and $b$ are respectively the number of signal and background events passing the tagging requirements. The parameter $\Delta b$ accounts for systematic errors in the background, and is fixed at 0.3.
+Charm tagging, being relatively new to the LHC, is unable to draw on extensive past experience in physics analyses to define ideal operating points. The operating points were therefore defined with a SUSY $\tilde{t}$ pair production search~\cite{stoptocharm} as a prototype. In this particular model, the $\tilde{t}$ quarks decay via $\tilde{t} \to c \tilde{\chi}_1^0$, leading to a two-$c$-jet final state. Before applying $c$-tagging to this analysis, the expected signal was overwhelmed by 100 times more background.  Of these background events, top contributed roughly 10\% and the remaining events were split evenly between $W$ and $Z$ production in association with jets.
+The anti-$b$ and anti-light tagging thresholds were allowed to vary independently for each of the leading four jets while maximizing the expected signal significance. %% $Z$, where \[Z  \equiv \frac{s}{ \sqrt{s + b + (\Delta b)^2}},\] and $s$ and $b$ are respectively the number of signal and background events passing the tagging requirements. The parameter $\Delta b$ accounts for systematic errors in the background, and is fixed at 0.3.
 
 These studies demonstrated the need for two very different operating points. Anticipating cases where a light jet background dominates, a `medium' tag is defined to reject both light- and $b$-flavored jets. In other selections light jets are a smaller background and $\ttbar$ becomes dominant, so a second `loose' tag is defined which rejects over half of $b$ jets while accepting a larger fraction of $c$-jets. These operating points are summarized in Table~\ref{tab:ops}.
 
@@ -229,7 +234,7 @@ SFs_internal_nomistag/JetFitterCharm_loose_Light_default_SF_120_250.pdf}
 
 As discussed above, $b$-tagging discriminants are typically 1-dimensional, whereas $c$-tagging discriminants are 2-dimensional.
 A 2-dimensional $b$-tagging discriminant obviously has advantages; as shown in \cref{fig:u-rej-roc,fig:c-rej-roc,fig:rej70-ptbins} various combinations of the GAIA output probabilities can trade light for $c$ rejection, similar to the $b$-vs-$c$ rejection trade-offs within $c$-tagging.
-On the other hand, the potential range of trad-offs is much smaller than that which is available to a $c$ tagger.
+On the other hand, the potential range of trade-offs is much smaller than that which is available to a $c$ tagger.
 This is illustrated in \cref{fig:btag-vs-ctag-rejrej}, where $b$ tagger clearly has a much narrower range of useful rejections available for a given $c$-tagging efficiency.
 
 \begin{figure}

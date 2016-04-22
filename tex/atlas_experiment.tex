@@ -16,7 +16,7 @@ Of these, muon momentum is measured by the muon spectrometer, which surrounds th
 \subsection{Tracker}
 
 The \atlas\ tracker~\cite{atlas-id1,atlas-id2} consists of several inner pixel layers, surrounded by a silicon strip detector, surrounded by a drift-tube tracker which doubles as a transition radiation detector.
-Particles within the tracker volume are bent into helical paths by the axial magnetic field. The energy deposited by these particles as they pass through a given sensor is reconstructed as a \emph{hit}. Pattern recognition software strings hits together into helical \emph{tracks} with a well-defined $q/p$ ratio. %% Momentum can be extracted by assigning all particles a charge of $\pm 1$ fundamental charge unit.
+Particles within the tracker volume are bent into helical paths by the axial magnetic field. The energy deposited by these particles as they pass through a given sensor is reconstructed as a \emph{hit}. Pattern recognition software match neighboring tracks into seeds, which are extended by a Kalman fitter and then refit into helical \emph{tracks} with a well-defined $q/p$ ratio~\cite{atlas-id-dense}. %% Momentum can be extracted by assigning all particles a charge of $\pm 1$ fundamental charge unit.
 
 Like all \atlas\ subdetectors the tracker covers as much solid angle as possible surrounding the interaction point: the full range of $\phi$ and out to $|\eta| < 2.5$.
 One quadrant of the inner detector is shown in \cref{fig:atlas-id-acceptance}.
@@ -136,22 +136,22 @@ In the endcap and at higher values of $\eta$ in the barrel EM calorimeter some c
 In general high $\eta$ regions are less thoroughly instrumented: the presampler only extends to $|\eta| < 1.8$, and the third EM calorimeter layer only extends to $|\eta| < 2.5$, for example.
 
 \paragraph{Hadronic Calorimeter}
-Both neutral and charged hadrons will frequently punch through the electromagnetic calorimeter.
+Both neutral and charged hadrons will occasionally punch through the electromagnetic calorimeter.
 These particles are absorbed by the hadronic calorimeter which surrounds the EM calorimeter.
 An analogous parameter to $\radlen$ for the sake of describing hadronic interactions is the \emph{nuclear interaction length} $\nuclen$.
-Particles within the calorimeter acceptance travel through roughly $10\,\nuclen$.
+Particles within the calorimeter acceptance travel through roughly $2\,\nuclen$ in the electromagnetic calorimeter, and $10\,\nuclen$ in the hadronic calorimeter.
 
 The hadronic endcap covers the $1.5 < | \eta | < 3.2$ region, and relies on liquid argon technology similar to that in the EM calorimeter.
 In place of the lead accordion baffles used in the EM calorimeter, however, the hadronic endcap consists of flat copper plates facing normal to the beam axis.
 The calorimeter is segmented in $\Delta \eta \times \Delta \phi$ cells of $0.1 \times 0.1$ for $|\eta| < 2.5$, and $0.2 \times 0.2$ for larger values of $\eta$. Along the beam axis the plates are combined into four layers in each endcap.
 
 In the barrel region, the hadronic calorimeter uses scintillating plastic tiles with a steel absorber~\cite{atlas-tile}. Light is piped through fiber cables to instrumentation drawers and measured with photomultiplier tubes.
-Tiles readouts are grouped into in three layers, stacked along $\hat{\eta}$. The first two layers are divided into $0.1 \times 0.1$ cells in the $\Delta \eta \times \Delta \phi$ plane, whereas the last layer uses $0.2 \times 0.1$ cells.
+Tiles readouts are grouped into three layers, stacked along $\hat{\eta}$. The first two layers are divided into $0.1 \times 0.1$ cells in the $\Delta \eta \times \Delta \phi$ plane, whereas the last layer uses $0.2 \times 0.1$ cells.
 
 \paragraph{Forward Calorimeter}
 \label{sec:atlas-fcal}
 The \atlas\ forward calorimeters cover the $3.1 < |\eta| < 4.9$ regions, again with liquid-argon--based detectors~\cite{atlas-fcal}.
-This region is especially saturated with minimum-bias events and demands both higher density absorber and a faster drift time than the barrel and endcap calorimeters.
+This region is especially saturated with particles from minimum-bias events and demands both higher density absorber and a faster drift time than the barrel and endcap calorimeters.
 Each of the two forward calorimeters is roughly a meter in diameter, and consists of three $45\,\mathrm{cm}$ long copper modules stacked along the beam axis, with $\sim 5\,\mathrm{mm}$ diameter holes running parallel to the beam.
 Rods run through the holes, and are separated by a small liquid-argon--filled gap.
 These rods serve as both electrodes and absorbers.
@@ -200,7 +200,7 @@ Both these technologies provide much faster readout which is usable in the level
 
 \subsection{Trigger}
 \label{sec:trigger}
-The \atlas\ trigger must reduce a nominal event rate of $40\,\mathrm{MHz}$ to the much lower $200\,\mathrm{Hz}$ which is written to disk.
+The \atlas\ trigger must reduce a nominal event rate of $40\,\mathrm{MHz}$ to the much lower $200\,\mathrm{Hz}$ which is written to disk. Each event event is roughly 1.6~MB~\cite{event-size-bullshit}.
 This reduction of roughly 5 orders of magnitude is implemented with a three-level trigger system, shown schematically in \cref{fig:trigger-block}.
 %% With a level 1 trigger, data is moved out of \atlas\ and into the neighboring USA15 cavern. With a level 2 trigger, data is sent to 
 
@@ -251,7 +251,7 @@ All events which pass the event filter are eventually written to permanent stora
 \section{\atlas\ Computing Infrastructure}
 Data analysis in \atlas\ involves many more computers than those present at CERN.
 The \atlas\ computing grid involves three \emph{tiers} of computing centers, not including tier 0, which is located at point 1 near the detector.
-Data moves down the tier structure through a series of derivations, which become progressively smaller and specific to an individual physics analysis.
+Data moves down the tier structure through a series of reductions or \emph{derivations}, which become progressively smaller and specific to an individual physics analysis.
 
 Raw data which passes the event filter is stored at tier 0 and duplicated at roughly 10 tier 1 facilities located throughout the world.
 These facilities are primarily reserved for data storage and reprocessing.
@@ -283,10 +283,10 @@ The first stage of simulation is event generation, which accounts for all physic
 Event generation is itself divided into multiple steps.
 The first of these, hard scattering, refers to the parton--parton interaction at energies where QCD is perturbative.
 These interactions are simulated with one of roughly a dozen packages.
-Some generators add corrections in the form of event-wise weights.
+Some generators also add event-wise weights.
 %% Event weights needn't be positive; some higher-order simulation includes events with negative weights.
 
-As the decay products from the hard scatter separate, QCD becomes dominant.
+As the decay products from the hard scatter separate, QCD becomes strong.
 The products of the hard scatter are passed to one of several routines which model colored particles as they evolve into hadrons.
 For each event, the final product from event generators is a list of color-neutral particles and their associated four-momenta.
 At this stage particles are known as \emph{truth} particles; parameters
@@ -296,7 +296,7 @@ samples are often subjected to a ``truth filter''.
 If, for example, a particular search focuses on events with large $\met$, events with significantly smaller $\met$ may be removed\footnote{Truth filters much be chosen conservatively, since detector related uncertainties can smear reconstructed quantities around a sharp truth cutoff. In practice truth thresholds are generally chosen to be well below actual thresholds applied to data and (fully reconstructed) simulation.}.
 
 The event generator's outputs are passed to detector simulation and digitization.
-Within \atlas, \textsc{geant4}~\cite{geant} simulates particle propagation through the detector and the analog readout on sensors, although in some cases this is passed off to optimized fast simulation packages~\cite{atlfast}.
+Within \atlas, \textsc{geant4}~\cite{geant} simulates particle propagation through the detector, although in some cases this is passed off to optimized fast simulation packages~\cite{atlfast}.
 Digitization follows simulation and models detector electronics as they convert analog signals to digital data.
 After digitization, simulated samples and data share a common format, such that simulation and data can be analyzed with minimal modification to analysis software.
 
@@ -305,7 +305,7 @@ Both the detector geometry and the conditions database are constantly subjected 
 
 In the case of searches for new physics, all simulation is drawn from the same campaign, i.e.\ simulation and digitization constants and software are identical across all samples, generally reflecting the most recent experiment-wide recommendation.
 The choice of generators is more nuanced; a baseline generator is chosen for each process, but various generators are compared to estimate systematic uncertainty (discussed more in \cref{sec:sys-theory}).
-Hypothetical signals with a number of free parameters are simulated in a \emph{signal grid} of consisting of regularly spaced points in the parameter space.
+Hypothetical signals with a number of free parameters are simulated in a \emph{signal grid} of consisting of strategically spaced points in the parameter space.
 
 %% \begin{itemize}
 %% \item \atlas\ geometry model

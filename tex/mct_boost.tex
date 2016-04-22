@@ -1,0 +1,29 @@
+\chapter{$\mct$ Boost Correction}
+\label{sec:mct-boost}
+
+
+The $\mct$ boost correction is as follows:
+\begin{itemize}
+\item An \emph{upstream} momentum $\vect{u}$ is defined:
+  \[ \vect{u} = - (\vect{v}_1 + \vect{v}_2 + \vmet + \vect{d}) \]
+  where $\vect{v}_1$ and $\vect{v}_2$ are the two leading jet momenta, and $\vect{d}$ is the sum momentum of any leptons in the event.
+\item $\mct'$ and $\mct''$ is recalculated in two frames, boosted by
+  \begin{align*}
+    \beta' =& \frac{\vect{u}}{E_{\mathrm{CM}}} \\
+    \beta'' =& \frac{\vect{u}}{\hat{E}}
+  \end{align*}
+  where $E_{\mathrm{CM}}$ is the collider center-of-mass energy, and $\hat{E} \equiv \met + E_1 + E_2 + E_d$.
+\item The components $\parallel$ ($\bot$) are defined as those in the plane parallel (perpendicular) to $\vect{u}$ and in the plane perpendicular to the beam axis.
+\item A third $m^2_{\mathrm{C}\bot}$ is defined as
+  \[ m^2_{\mathrm{C}\bot} = ( E_{\bot}(v_1) + E_{\bot} (v_2))^2 - (p_\bot(v_1) - p_\bot( v_2))^2 \]
+\item The parameter $A$ is defined as
+  \[ A = p_{\parallel}(v_1) E_\bot (v_2) + p_{\parallel}(v_2) E_\bot (v_1) \]
+\item finally, $\mct$ is defined as
+  \begin{equation*}
+  \mct = \begin{cases}
+    \mct' & \text{ if } A \ge 0 \text{ or } A' \ge 0 \\
+    \mct'' & \text{ if } A < 0 \text{ and } A' < 0 \text{ and } A'' < 0 \\
+    m^2_{\mathrm{C}\bot} & \text{ otherwise}
+  \end{cases}
+  \end{equation*}
+\end{itemize}

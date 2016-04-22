@@ -1,0 +1,137 @@
+﻿Quite well written!  Some comments below
+
+* 1.1.1, last sentence.  “considerable” maybe exaggerates the uncertainty.  Fragmentation is rarely the dominant uncertainty these days .
+> good point, we actually have these scale factors within ATLAS, and they aren't that big. Change to "Analyses which depend heavily on jets (one of which is the subject of this thesis) must account for this uncertainty."
+
+* 1.1.2., second paragraph.  ‘arise” is the wrong verb.  “is described by” would be more accurate.
+> changed
+
+* 1.1.2, just before the reference to equation 1.4, you have the word “equation” twice.
+> removed
+
+* Section 2.2.1, second to last paragraph.  Discoveries at hadron colliders.  The discoveries at e+e- colliders obey simpler rules ☺.  The b quark was discovered at an e+e- collider.
+> really? I found this: http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.39.252 which says the b was a fixed target experiment at fermilab. But it's true that the W and Z were discovered at an e+e- accelerator, I added a footnote.
+
+* 2.2.2, second paragraph.  An unusual (not in a good sense) reasoning for why pT, instead of p
+> I'm curious about what the usual reasoning is (fun activity: ask people why we use it, you'll get a lot of interesting answers). But I added a bit more explanation.
+
+* 2.2.2, 3rd paragraph.  Pseudorapidity is an angle, not the z component of momenta.  You know this.  Your writing is just getting a bit too fancy ☺
+> replaced with "angle with respect to the beam axis"
+
+* (read up to 1.1.4)
+
+* 2.2.4, “stable particles” hadrons don’t form jets.  Jets consist mainly of hadrons.  Quarks and gluons form jets.  (I’m sure you know this, but the wording is odd.  Are you maybe misusing hadron as quark?  Hadrons are baryons and mesons)
+> changed to say quarks
+
+* section 2.5.1.  I think the people who write tracking software would cringe at your poetic description “strings” for what their algorithms do.  It is a pretty verb, but not correct.
+> I added a bit more discussion.
+
+* Section 2.5.2 “Hadronic Calorimeter”.  I doubt it is “frequently”.  Occasinoally is, I guess, more correct.  Maybe give lambda for the EM calorimeter.
+> changed
+
+* Section 2.5.2, “Hadroncic Calorimeter”.  Grouped into in three
+> fixed
+
+* Section 2.5.2, “forward calorimeter”.  It is not saturated with minimum bias events, it is saturated with particles from minimum bias events
+> changed
+* Section 2.5.2, trigger: maybe a mention of the event size would be appropriate?
+> added
+
+* Section 2.6.  derivations?  Really?
+> that's what we call them in ATLAS, but I changed it to "reductions"
+
+* section 2.6.2.  The event weights are not corrections.  They are a method of doing the calculation.
+> removed correction
+
+* Section 2.6.2 “QCD becomes dominant”.  You mean strong?  It always dominates in dijet production.
+> changed
+
+* Section 2.6.2 Which describe them can
+> fixed
+
+* Section 2.6.2.  GEANT4 does not simulate the analog readout of the sensors.  That code was (and has to be) written by ATLAS members.
+> fixed
+
+* Section 2.6.2.  the spacing of the grid points does not need to be regular.  Sometimes they are denser near where you expect a limit.  Sometimes they are in bins of equal cross section.
+> changed to "strategically placed points"
+
+* 3.1.  I have to admit that I find explaining a c quark as the downstream end of a b quark decay a bit odd.  Surely in this thesis you are not just looking for charm from b decays?  If so, why explain it this way?
+> reworded slightly
+
+* 3.1 “so far the extension of these methods”   don’t you mean “until this thesis, the extension of these methods”?
+> good point, changed
+
+* 3.1.  I don’t think you have given the geometrical definition of impact parameter yet
+> good point, added a sentence explaining what the impact parameter is
+
+* 3.1, last paragraph.  “expected” performance?  Surely measured performance?
+> lots of the plots are based only on simulation, but the calibration is the measurement. Changed to say "expected and measured".
+
+* 3.2.  downstream?
+> changed to "in the decay products"
+
+* 3.2.  Why mention GEANT again?
+> removed
+
+* Section 3.2.  You don’t have a chapter on particle reconstruction.  For this thesis, given the detail you gave on the detector and accelerator, you should atleast describe what an anti-kt jet is.
+> TODO: add this
+
+* Section 3.3.  I guess the charm jets in the ttbar sample are from W decay?
+> yes, added more explanation
+
+* Section 3.4.  I have no idea what “Before applying c-tagging, expected signal events contribute to the signal region at the percent level, while top backgrounds contribute roughly 10% and the remaining events are split evenly between W and Z production in association with jets” means
+> broke this sentence up to make it more clear. ''It now reads Before applying $c$-tagging to this analysis, the expected signal was overwhelmed by 100 times more background.  Of these background events, top contributed roughly 10\% and the remaining events were split evenly between $W$ and $Z$ production in association with jets.''
+
+* Fig 3.14, left.  Awfully big scale factor at low pT
+* 3.15.  awfully big scale factors.  Any idea why the mc is doing so badly?
+> They are bigger than we'd like. The discriminants use machine learning and are optimized on simulation, their performance is almost always worse in data than in simulation. We're currently working to streamline the ATLAS flavor-tagging calibration process do more data comparisons with the inputs to the discriminants.
+
+* Just before equation 3.2, misspelling of explicit
+> fixed
+
+* First paragraph of 3.7.3.  misspelling of haven’t
+> fixed
+
+* You write jetfittercharm, right?  Did you write GAIA?
+> The training was done by an undergraduate under my supervision, using data that I provided. So like many things in ATLAS, the only good answer is that I contributed.
+
+* First paragraph 3.8.  misspelt trade off
+> must have written this part with my spell checker turned off...
+
+* Seems you could have done more to investigate the drop off in efficiency at high pT (fig 3.21)
+> 3.21 isn't binned in pt... you mean 3.20? In any case, I agree that it would be interesting to look at high-pt (for both c and b tagging) more carefully. One limitation is that the algorithms are currently optimized on ttbar, which has limited statistics (especially for c-jets) at high pt. There are currently a few efforts within ATLAS to improve the high-pt flavor tagging.
+
+* Sction 4.1.  “in when”
+> fixed
+
+* 4.1.1.  not really a good description of the role luminosity plans
+> It's explained in equation 4.1 too, and discussed in more detail after that.
+
+* 4.1.1 this is a very odd sentence “The ATLAS SUSY group quotes CLs values due to an ingrained perception that they possess useful properties:”
+> changed to ``The ATLAS SUSY group quotes $\cls$ values because:''
+
+* the explicit formula for the boost correction would have been nice.
+> 
+
+* Do you do charm tagging in the borrowed boosted analysis?  Or do you just use its results as is…
+> it's also a charm-tagged analysis, using the same operating points
+
+* 4.2.1.  for the madgraph samples, did you just run the LO?  Or did you do ccbar+1jet, ccbar+2jets, etc?  If so, how many extra jets were simulated?
+* Fig. 4.2 is not really thesis quality
+* Section 4.4. “can easily resemble a jet from QCD interactions in the underlying event”  do you really want that last phrase?  It is not really correct.
+* You need references for the various electron and muon finding algorithms.
+* 4.6.  figure figure 4.6
+* 4.6 t->bnu??
+* non-b-lead where one of these jets is a c-jet.  Couldn’t it be a light quark jet?
+* Fig 4.5 left does not look like it is after the delta phi cut.  Also, why do you call it ptmiss in the caption and etmiss in the figure?
+* You refer to figure 4.8 before 4.7 (and 4.9 before either)
+* Grammar  “A leading jet is required pT > 130 GeV,” s
+* 4.7 Compared to the past,  “which are still relatively unknown at LHC energy scales” is not true.  It is amazingly well constrained, but still not perfect
+* section 4.7.1.  how many events are in each of these control regions?  
+* 4.7.3.  the W and the Z should be correlated, no?  does putting that constraint in help?
+* 4.9.  you really worried about 2 1.3 sigma discrepencies?
+* Figure 4.10 should show the 1.3 sigma discrpency?    In these plots, the integral of the data is 1.3 sigma lower than the postfit (on the right)?
+* Fig 4.10.  
+* Table 4.9.  are these uncertainties pre or post fit?
+* From appendix C, it does look like there is some mismodeling in the MC, no. es[pecially for the Ws and Zs?  Why not comment on this in the body of the thesis?  (are these plots pre or post fit?)
+* It would be nice to have plots in the appendix for the control regions as well?  Appendix C is the validation regions, right?
