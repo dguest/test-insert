@@ -111,14 +111,20 @@
 > changed to ``The ATLAS SUSY group quotes $\cls$ values because:''
 
 * the explicit formula for the boost correction would have been nice.
-> 
+> added in the appendix
 
 * Do you do charm tagging in the borrowed boosted analysis?  Or do you just use its results as is…
 > it's also a charm-tagged analysis, using the same operating points
 
 * 4.2.1.  for the madgraph samples, did you just run the LO?  Or did you do ccbar+1jet, ccbar+2jets, etc?  If so, how many extra jets were simulated?
+> ccbar+1jet, at NLO
+
 * Fig. 4.2 is not really thesis quality
+> While I agree that ROOT plots are ugly, I feel that the ugliness of the plot is offset by the information it conveys.
+
 * Section 4.4. “can easily resemble a jet from QCD interactions in the underlying event”  do you really want that last phrase?  It is not really correct.
+> changed to say "from a light quark"
+
 * You need references for the various electron and muon finding algorithms.
 * 4.6.  figure figure 4.6
 * 4.6 t->bnu??
