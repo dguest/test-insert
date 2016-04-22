@@ -17,3 +17,6 @@
 *.lot
 /jfc
 .DS_Store
+
+# we can unignore some things that are stored in lfs
+!/misc/cc/*

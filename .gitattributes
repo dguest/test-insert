@@ -1,2 +1,7 @@
 *.tgz filter=lfs diff=lfs merge=lfs -crlf
 *.pdf filter=lfs diff=lfs merge=lfs -crlf
+*.jpg filter=lfs diff=lfs merge=lfs -crlf
+*.svg filter=lfs diff=lfs merge=lfs -crlf
+*.png filter=lfs diff=lfs merge=lfs -crlf
+*.eps filter=lfs diff=lfs merge=lfs -crlf
+*.jpeg filter=lfs diff=lfs merge=lfs -crlf
